@@ -1,210 +1,276 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
+    "header": {
+      "type": "neeli-header",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
+        "padding_top": 0,
         "padding_bottom": 0
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "main": {
+      "type": "neeli-home-hero",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
         "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
+        "badge": "Minimizes hair fall",
+        "title": "Neelibhringadi Keram",
+        "subtitle": "One oil for complete hair recovery",
+        "body": "Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.",
+        "cta_title": "Reorder now",
+        "cta_meta": "Last ordered 28 Mar",
+        "cta_old_price": "₹350",
+        "cta_price": "₹315",
+        "button_link": "/products/neelibhringadi-keram",
+        "hero_alt": "Neelibhringadi Keram product gallery",
+        "show_section_label": "",
+        "padding_top": 0,
+        "padding_bottom": 16
       }
     },
-    "collage": {
-      "type": "collage",
+    "timeline": {
+      "type": "neeli-what-to-expect",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
+        "stage_1": {
+          "type": "stage",
           "settings": {
-            "collection": ""
+            "phase": "FIRST TIME",
+            "mobile_phase": "First Time",
+            "label": "FIRST APPLICATION",
+            "title": "Scalp cools immediately",
+            "body": "The Neeli acts immediately. Oil absorbs without heaviness."
           }
         },
-        "product": {
-          "type": "product",
+        "stage_2": {
+          "type": "stage",
           "settings": {
-            "product": "",
-            "second_image": false
+            "phase": "WEEK 2-3",
+            "mobile_phase": "Week 2-3",
+            "label": "~ 8 USES",
+            "title": "Less in the shower",
+            "body": "Fall reduction is the first signal. The follicle is strengthening."
           }
         },
-        "collection-1": {
-          "type": "collection",
+        "stage_3": {
+          "type": "stage",
           "settings": {
-            "collection": ""
+            "phase": "MONTH 3+",
+            "mobile_phase": "Month 3+",
+            "label": "~ 36 USES",
+            "title": "Continued improvement - visible change",
+            "body": "Three months completes a cycle. Visible density increase at the crown."
           }
         }
       },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
+      "block_order": ["stage_1", "stage_2", "stage_3"],
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
         "color_scheme": "scheme-1",
+        "kicker": "What to expect",
+        "heading": "The honest sequence.",
+        "text": "<p>Root strength comes before visible density.</p>",
+        "footnote": "Based on consistent use as directed. Individual results may vary.",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 28
       }
     },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
+    "story": {
+      "type": "neeli-ingredient-story",
       "blocks": {
-        "column1": {
-          "type": "column",
+        "inclusion_1": {
+          "type": "inclusion",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "title": "100% NATURAL INGREDIENTS",
+            "text": "No mineral oil, parabens, or synthetic fragrance. Pure botanical extraction."
           }
         },
-        "column2": {
-          "type": "column",
+        "inclusion_2": {
+          "type": "inclusion",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "title": "TRIPLE-MILK AND SESAME OIL BASE",
+            "text": "Traditional carrier that mimics scalp lipids. Deeply penetrative."
           }
         },
-        "column3": {
-          "type": "column",
+        "exclusion_1": {
+          "type": "exclusion",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "title": "NO PARABENS",
+            "text": "Natural antioxidants help preserve the formula."
+          }
+        },
+        "exclusion_2": {
+          "type": "exclusion",
+          "settings": {
+            "title": "NO ARTIFICIAL FRAGRANCE",
+            "text": "The scent comes from herbs and carrier oils."
+          }
+        },
+        "difference_1": {
+          "type": "difference",
+          "settings": {
+            "icon": "leather",
+            "title": "INGREDIENTS",
+            "text": "Neeli, Bhringaraj, Amla, traditional carrier oils, and a triple-milk base selected to cool, fortify, and support regrowth."
+          }
+        },
+        "difference_2": {
+          "type": "difference",
+          "settings": {
+            "icon": "truck",
+            "title": "PROCESSING",
+            "text": "Each batch is prepared over several days so the herbal essence fully binds to the oil instead of sitting on the surface."
+          }
+        },
+        "difference_3": {
+          "type": "difference",
+          "settings": {
+            "icon": "ruler",
+            "title": "RESULT TIMELINE",
+            "text": "The first win is usually less fall. Visible density comes later with consistent use and a complete growth cycle."
+          }
+        },
+        "difference_4": {
+          "type": "difference",
+          "settings": {
+            "icon": "heart",
+            "title": "SIDE EFFECTS",
+            "text": "This is a botanical product, but patch testing first is still the safest place to start for sensitive scalps."
+          }
+        },
+        "review_1": {
+          "type": "story_review",
+          "settings": {
+            "name": "Priya M.",
+            "meta": "Bengaluru - 6 weeks",
+            "badge": "Less fall - week 3",
+            "quote": "Less hair in the shower drain by week three. That was the first sign it was working. The routine is simple enough to actually stick with."
+          }
+        },
+        "review_2": {
+          "type": "story_review",
+          "settings": {
+            "name": "Arjun V.",
+            "meta": "Kochi - 3 months",
+            "badge": "Density improved",
+            "quote": "New growth visible at the temples after three months. Consistent use was the key. It's a recovery system, not a quick fix."
           }
         }
       },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+      "block_order": ["inclusion_1", "inclusion_2", "exclusion_1", "exclusion_2", "difference_1", "difference_2", "difference_3", "difference_4", "review_1", "review_2"],
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
         "color_scheme": "scheme-1",
-        "columns_mobile": "1",
+        "soft_background": true,
+        "kicker": "What's in it. What is not.",
+        "heading": "The formula, simplified.",
+        "text": "<p>Two clear columns make the formula easier to scan and trust.</p>",
+        "accordion_kicker": "Kerala Ayurveda Difference",
+        "accordion_heading": "Why the process matters",
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "ingredients": {
+      "type": "neeli-key-ingredients",
+      "blocks": {
+        "ingredient_1": { "type": "ingredient", "settings": { "title": "Bringaraj", "text": "Supports hair growth. Activates follicles and increases scalp circulation." } },
+        "ingredient_2": { "type": "ingredient", "settings": { "title": "Amla", "text": "Minimizes hair fall. Strengthens the hair shaft with natural Vitamin C." } },
+        "ingredient_3": { "type": "ingredient", "settings": { "title": "Neeli", "text": "Cools and recovers. Reduces scalp inflammation and promotes regrowth." } },
+        "ingredient_4": { "type": "ingredient", "settings": { "title": "Coconut oil", "text": "Deep nourishment. Traditional carrier that mimics natural scalp lipids." } },
+        "milk_1": { "type": "milk", "settings": { "title": "Coconut milk", "text": "Nourishes and moisturizes the scalp." } },
+        "milk_2": { "type": "milk", "settings": { "title": "Goat milk", "text": "Addresses dandruff and improves hair texture." } },
+        "milk_3": { "type": "milk", "settings": { "title": "Cow milk", "text": "Supports hair fall control and growth." } },
+        "step_1": { "type": "step", "settings": { "number": "1", "title": "WARM", "text": "Warm oil penetrates - cold oil sits on the surface." } },
+        "step_2": { "type": "step", "settings": { "number": "2", "title": "APPLY", "text": "Apply adequate amount gently onto the scalp and hair" } },
+        "step_3": { "type": "step", "settings": { "number": "3", "title": "MASSAGE", "text": "Circular motion, 5 minutes. Fingertips, not nails." } }
+      },
+      "block_order": ["ingredient_1", "ingredient_2", "ingredient_3", "ingredient_4", "milk_1", "milk_2", "milk_3", "step_1", "step_2", "step_3"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "soft_background": true,
+        "kicker": "Key Ingredients",
+        "heading": "The botanicals that do the work.",
+        "text": "<p>Four ingredients to explain the core formula.</p>",
+        "milk_kicker": "The secret base",
+        "milk_heading": "Three milks. One complete formula.",
+        "milk_text": "<p>Three nourishing milks work together for a healthier scalp and stronger hair.</p>",
+        "steps_kicker": "Your easy massage ritual",
+        "steps_heading": "Warm. Apply. Massage.",
+        "steps_text": "<p>Use the oil two to three times a week with a consistent routine.</p>",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "information": {
+      "type": "neeli-information",
+      "blocks": {
+        "info_1": { "type": "info", "settings": { "icon": "none", "title": "Full ingredient list", "text": "Neeli, Bringaraj, Amla, sesame oil, coconut milk, goat milk, cow milk, and traditionally processed Ayurvedic botanicals." } },
+        "info_2": { "type": "info", "settings": { "icon": "truck", "title": "Preparation - 7 days", "text": "The formulation is processed patiently so the actives infuse into the oil instead of separating into layers." } },
+        "info_3": { "type": "info", "settings": { "icon": "heart", "title": "Safety & interactions", "text": "Patch test first. Stop use if irritation occurs, and consult your doctor if you are pregnant or managing a scalp condition." } },
+        "info_4": { "type": "info", "settings": { "icon": "ruler", "title": "Frequently asked", "text": "Use two to three times a week, massage gently, and give the routine enough time to move from reduced fall into visible density." } },
+        "faq_1": { "type": "faq", "settings": { "question": "When will I see results?", "answer": "Reduced hair fall is typically noticed within 2 to 3 weeks." } },
+        "faq_2": { "type": "faq", "settings": { "question": "Does it help with greying?", "answer": "Neeli and Bhringaraja are traditionally used to support natural hair colour." } },
+        "faq_3": { "type": "faq", "settings": { "question": "Can I use it on coloured hair?", "answer": "Yes. The formula is gentle, but extended use may slightly darken hair over time." } },
+        "faq_4": { "type": "faq", "settings": { "question": "Is it safe during pregnancy?", "answer": "As with any new topical regimen during pregnancy or nursing, consult your doctor first." } }
+      },
+      "block_order": ["info_1", "info_2", "info_3", "info_4", "faq_1", "faq_2", "faq_3", "faq_4"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "soft_background": true,
+        "kicker": "Information",
+        "heading": "Go deeper.",
+        "text": "<p>Clear answers for the most common questions.</p>",
+        "info_kicker": "Full ingredient list",
+        "info_heading": "What is inside",
+        "faq_kicker": "Frequently asked",
+        "faq_heading": "Questions we hear often",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "brand_trust": {
+      "type": "neeli-brand-trust",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "kicker": "Full spectrum",
+        "heading": "Classical and proprietary Ayurvedic products.",
+        "text": "<p>Therapies, academies, and R&D sit alongside the product line.</p>",
+        "patents_kicker": "Internationally recognized",
+        "patents_heading": "Patented formulations",
+        "patents_text": "<p>Kerala Ayurveda has carried forward classical wisdom for modern wellness rituals.</p>",
+        "us_title": "US patent",
+        "us_text": "<p>Protected formulation details and process knowledge.</p>",
+        "japan_title": "Japan patent",
+        "japan_text": "<p>Recognition of the proprietary process and method.</p>",
+        "mark_kicker": "Rooted in authenticity",
+        "mark_heading": "Authentic Ayurveda.",
+        "mark_text": "<p>Bring the same trust cues from the Neeli landing page into Shopify.</p>",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "reviews": {
+      "type": "neeli-customer-reviews",
+      "blocks": {
+        "review_1": { "type": "review", "settings": { "name": "ANJALI K.", "meta": "Verified purchase", "badge": "Postpartum hair fall", "body": "Within a month the amount of hair on my brush was noticeably less." } },
+        "review_2": { "type": "review", "settings": { "name": "ROHAN S.", "meta": "Verified purchase", "badge": "Early greying", "body": "The texture has improved and the earthy smell has grown on me. No heaviness." } }
+      },
+      "block_order": ["review_1", "review_2"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "soft_background": false,
+        "kicker": "Feedback",
+        "heading": "Customer Reviews",
+        "text": "<p>Real customer language, carried into the Shopify theme.</p>",
+        "button_label": "Read all 86 reviews",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "footer": {
+      "type": "neeli-footer",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     }
   },
-  "order": [
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
-  ]
+  "order": ["header", "main", "timeline", "story", "ingredients", "information", "brand_trust", "reviews", "footer"]
 }
