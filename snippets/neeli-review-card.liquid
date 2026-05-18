@@ -1,0 +1,33 @@
+{%- liquid
+  assign name = name | default: ''
+  assign meta = meta | default: ''
+  assign badge = badge | default: ''
+  assign quote = quote | default: ''
+  assign stars = stars | default: 5
+-%}
+
+<article class="neeli-review-card">
+  <div class="neeli-review-card__top">
+    <div>
+      {%- if name != blank -%}
+        <div class="neeli-review-card__name">{{ name }}</div>
+      {%- endif -%}
+      {%- if meta != blank -%}
+        <div class="neeli-review-card__meta">{{ meta }}</div>
+      {%- endif -%}
+    </div>
+  <div class="neeli-review-card__stars" aria-label="{{ stars }} out of 5 stars">
+      {%- for i in (1..stars) -%}
+        <span aria-hidden="true">&#9733;</span>
+      {%- endfor -%}
+  </div>
+  </div>
+
+  {%- if badge != blank -%}
+    <div class="neeli-review-card__badge">{{ badge }}</div>
+  {%- endif -%}
+
+  {%- if quote != blank -%}
+    <p class="neeli-review-card__quote">{{ quote }}</p>
+  {%- endif -%}
+</article>

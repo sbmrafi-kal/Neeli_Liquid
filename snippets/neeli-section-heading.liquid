@@ -1,0 +1,20 @@
+{%- liquid
+  assign kicker = kicker | default: ''
+  assign title = title | default: ''
+  assign text = text | default: ''
+  assign align = align | default: 'left'
+  assign inverse = inverse | default: false
+  assign heading_tag = heading_tag | default: 'h2'
+-%}
+
+<div class="neeli-section-heading neeli-section-heading--{{ align }}{% if inverse %} neeli-section-heading--inverse{% endif %}">
+  {%- if kicker != blank -%}
+    <p class="neeli-section-heading__kicker">{{ kicker }}</p>
+  {%- endif -%}
+  {%- if title != blank -%}
+    <{{ heading_tag }} class="neeli-section-heading__title">{{ title }}</{{ heading_tag }}>
+  {%- endif -%}
+  {%- if text != blank -%}
+    <div class="neeli-section-heading__text rte">{{ text }}</div>
+  {%- endif -%}
+</div>

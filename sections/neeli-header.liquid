@@ -1,0 +1,92 @@
+{{ 'section-neeli-product-page.css' | asset_url | stylesheet_tag }}
+
+<header class="neeli-site-header" role="banner">
+  <div class="neeli-site-header__bar">
+    <div class="neeli-site-header__inner">
+      <div class="neeli-site-header__left">
+        <button class="neeli-site-header__icon-button neeli-site-header__icon-button--menu" type="button" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <nav class="neeli-site-header__nav" aria-label="Primary">
+          <a class="neeli-site-header__nav-link" href="#">Shop All</a>
+          <a class="neeli-site-header__nav-link" href="#">Hair Care</a>
+          <a class="neeli-site-header__nav-link" href="#">Skin Care</a>
+          <a class="neeli-site-header__nav-link" href="#">Wellness</a>
+        </nav>
+      </div>
+
+      <a class="neeli-site-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+        {{ 'logo-kerala.png' | asset_url | image_tag: class: 'neeli-site-header__brand-image', alt: shop.name, loading: 'eager' }}
+      </a>
+
+      <div class="neeli-site-header__actions">
+        <button class="neeli-site-header__icon-button" type="button" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 12.2a4.2 4.2 0 1 0-4.2-4.2A4.2 4.2 0 0 0 12 12.2Z" stroke="currentColor" stroke-width="1.7" />
+            <path d="M5 20c1.6-3 4-4.5 7-4.5S17.4 17 19 20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <button class="neeli-site-header__icon-button" type="button" aria-label="Cart">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3.5 5h2l1.4 9.2c.1.8.8 1.3 1.6 1.3h8.2c.7 0 1.3-.5 1.5-1.2L20 8.3H7.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM17 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor" stroke="none" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="neeli-site-header__subnav">
+    <div class="neeli-site-header__subnav-inner">
+      <div class="neeli-site-header__breadcrumb">
+        Home <span class="neeli-site-header__breadcrumb-separator">›</span>
+        <span class="neeli-site-header__breadcrumb-current">Neelibhringadi Keram</span>
+      </div>
+
+      <label class="neeli-site-header__search">
+        <svg class="neeli-site-header__search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.7" />
+          <path d="M16.2 16.2 20 20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+        </svg>
+        <input class="neeli-site-header__search-input" type="text" aria-label="Search" />
+      </label>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Neeli header",
+  "tag": "section",
+  "class": "section neeli-header",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 0,
+      "step": 1,
+      "default": 0,
+      "label": "Top padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 0,
+      "step": 1,
+      "default": 0,
+      "label": "Bottom padding"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Neeli header"
+    }
+  ]
+}
+{% endschema %}

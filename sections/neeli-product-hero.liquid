@@ -1,0 +1,724 @@
+{{ 'section-neeli-product-page.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+
+{%- unless product.has_only_default_variant -%}
+  {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+  {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
+  {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
+{%- endunless -%}
+
+{%- if product.quantity_price_breaks_configured? -%}
+  {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="NeeliProduct-{{ section.id }}"
+  class="neeli-product-page neeli-reveal section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  data-section="{{ section.id }}"
+  data-product-id="{{ product.id }}"
+>
+  <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {%- if product.quantity_price_breaks_configured? -%}
+    <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+  {%- if request.design_mode -%}
+    <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+  <script src="{{ 'neeli-product-page.js' | asset_url }}" defer="defer"></script>
+
+  {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
+  {%- if first_3d_model -%}
+    {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
+    <link
+      id="ModelViewerStyle"
+      rel="stylesheet"
+      href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
+      media="print"
+      onload="this.media='all'"
+    >
+    <link
+      id="ModelViewerOverride"
+      rel="stylesheet"
+      href="{{ 'component-model-viewer-ui.css' | asset_url }}"
+      media="print"
+      onload="this.media='all'"
+    >
+  {%- endif -%}
+
+  {% assign product_form_id = 'product-form-' | append: section.id %}
+  {% assign hero_images = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' %}
+  {% assign hero_thumbs = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' %}
+
+  <div class="neeli-product-page__wrap">
+    <div class="neeli-product-page__hero">
+      <div class="neeli-product-page__hero-media grid__item">
+        <div class="neeli-hero-carousel" data-neeli-carousel data-neeli-autoplay="true" data-neeli-interval="4800">
+          <div class="neeli-hero-carousel__stage">
+            {%- for image in hero_images -%}
+              <figure class="neeli-hero-carousel__slide{% if forloop.first %} is-active{% endif %}" data-neeli-carousel-slide>
+                {%- if forloop.first -%}
+                  {%- assign hero_loading = 'eager' -%}
+                {%- else -%}
+                  {%- assign hero_loading = 'lazy' -%}
+                {%- endif -%}
+                {{ image | asset_url | image_tag: class: 'neeli-hero-carousel__image image-zoom', loading: hero_loading, alt: product.title, widths: '600, 900, 1200, 1600' }}
+              </figure>
+            {%- endfor -%}
+
+            <button class="neeli-hero-carousel__control neeli-hero-carousel__control--prev" type="button" aria-label="Previous image" data-neeli-carousel-prev>
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </button>
+            <button class="neeli-hero-carousel__control neeli-hero-carousel__control--next" type="button" aria-label="Next image" data-neeli-carousel-next>
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </button>
+          </div>
+
+          <div class="neeli-hero-carousel__thumbs" role="tablist" aria-label="Product gallery thumbnails">
+            {%- for image in hero_thumbs -%}
+              <button
+                class="neeli-hero-carousel__thumb{% if forloop.first %} is-active{% endif %}"
+                type="button"
+                aria-label="Show image {{ forloop.index }}"
+                data-neeli-carousel-thumb="{{ forloop.index0 }}"
+              >
+                {{ image | asset_url | image_tag: class: 'neeli-hero-carousel__thumb-image', loading: 'lazy', alt: '', widths: '120, 160, 200' }}
+              </button>
+            {%- endfor -%}
+          </div>
+
+          <div class="neeli-hero-carousel__stats">
+            <div class="neeli-hero-carousel__stat">
+              <div class="neeli-hero-carousel__stat-value">4.64★</div>
+              <div class="neeli-hero-carousel__stat-label">Ratings</div>
+            </div>
+            <div class="neeli-hero-carousel__stat">
+              <div class="neeli-hero-carousel__stat-value">312</div>
+              <div class="neeli-hero-carousel__stat-label">Reviews</div>
+            </div>
+            <div class="neeli-hero-carousel__stat">
+              <div class="neeli-hero-carousel__stat-value">30</div>
+              <div class="neeli-hero-carousel__stat-label">Uses</div>
+            </div>
+            <div class="neeli-hero-carousel__stat">
+              <div class="neeli-hero-carousel__stat-value">300+</div>
+              <div class="neeli-hero-carousel__stat-label">Happy Customers</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="neeli-hero-below neeli-hero-below--desktop">
+          {{ 'Below_the_product.png' | asset_url | image_tag: class: 'neeli-hero-below__image', alt: '', loading: 'lazy' }}
+        </div>
+      </div>
+
+      <div
+        id="ProductInfo-{{ section.id }}"
+        class="neeli-product-page__hero-info grid__item product__info-wrapper{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+      >
+        <div class="neeli-product-page__hero-header">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'text' -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="neeli-product-page__badge-row" {{ block.shopify_attributes }}>
+                    <span class="neeli-product-page__badge">{{ block.settings.text }}</span>
+                  </div>
+                {%- endif -%}
+              {%- when 'title' -%}
+                <div class="product__title" {{ block.shopify_attributes }}>
+                  <h1 class="neeli-product-page__title">{{ product.title | escape }}</h1>
+                </div>
+              {%- when 'caption' -%}
+                {%- if block.settings.text != blank -%}
+                  <p
+                    class="neeli-product-page__subtitle{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ block.settings.text }}
+                  </p>
+                {%- endif -%}
+              {%- when 'price' -%}
+                <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                  {%- render 'price',
+                    product: product,
+                    use_variant: true,
+                    show_badges: true,
+                    price_class: 'price--large'
+                  -%}
+                </div>
+                {%- if product.quantity_price_breaks_configured? -%}
+                  <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
+                    <span>{{ 'products.product.volume_pricing.note' | t }}</span>
+                  </div>
+                {%- endif -%}
+                {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
+                  <div class="product__tax caption rte">
+                    {%- if cart.duties_included and cart.taxes_included -%}
+                      {{ 'products.product.duties_and_taxes_included' | t }}
+                    {%- elsif cart.taxes_included -%}
+                      {{ 'products.product.taxes_included' | t }}
+                    {%- elsif cart.duties_included -%}
+                      {{ 'products.product.duties_included' | t }}
+                    {%- endif -%}
+                    {%- if shop.shipping_policy.body != blank -%}
+                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              {%- when 'variant_picker' -%}
+                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+              {%- when 'quantity_selector' -%}
+                {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
+                <div
+                  class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+                  {{ block.shopify_attributes }}
+                >
+                  <span class="visually-hidden" id="quantity-label-{{ section.id }}">
+                    {%- if cart_qty > 0 -%}
+                      {{- 'products.product.quantity.in_cart_aria_label' | t: quantity: cart_qty -}}
+                    {%- else -%}
+                      {{- 'products.product.quantity.label' | t -}}
+                    {%- endif -%}
+                  </span>
+                  <label
+                    class="quantity__label form__label"
+                    for="Quantity-{{ section.id }}"
+                    aria-labelledby="quantity-label-{{ section.id }}"
+                  >
+                    <span aria-hidden="true">{{ 'products.product.quantity.label' | t }}</span>
+                    <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}" aria-hidden="true">
+                      {%- render 'loading-spinner' -%}
+                      <span>
+                        (
+                        {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
+                        )
+                      </span>
+                    </span>
+                  </label>
+                  <div class="price-per-item__container">
+                    <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
+                      <button class="quantity__button" name="minus" type="button">
+                        <span class="visually-hidden">
+                          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                        </span>
+                        <span class="svg-wrapper">{{ 'icon-minus.svg' | inline_asset_content }}</span>
+                      </button>
+                      <input
+                        class="quantity__input"
+                        type="number"
+                        name="quantity"
+                        id="Quantity-{{ section.id }}"
+                        data-cart-quantity="{{ cart_qty }}"
+                        data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                        min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                        {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                          data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                          max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                        {% endif %}
+                        step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                        value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                        form="{{ product_form_id }}"
+                      >
+                      <button class="quantity__button" name="plus" type="button">
+                        <span class="visually-hidden">
+                          {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                        </span>
+                        <span class="svg-wrapper">{{ 'icon-plus.svg' | inline_asset_content }}</span>
+                      </button>
+                    </quantity-input>
+                  </div>
+                </div>
+              {%- when 'buy_buttons' -%}
+                {%- render 'buy-buttons',
+                  block: block,
+                  product: product,
+                  product_form_id: product_form_id,
+                  section_id: section.id,
+                  show_pickup_availability: true
+                -%}
+              {%- when 'description' -%}
+                {%- if product.description != blank -%}
+                  <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                    {{ product.description }}
+                  </div>
+                {%- endif -%}
+              {%- when 'share' -%}
+                {% liquid
+                  assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
+                  render 'share-button', block: block, share_link: share_url
+                %}
+              {%- when 'custom_liquid' -%}
+                <div {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if section.blocks.size > 0 -%}
+          <div class="neeli-product-page__form-card">
+            <div class="neeli-product-page__stats">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'hero_stat' -%}
+                  <div class="neeli-product-page__stat" {{ block.shopify_attributes }}>
+                    <div class="neeli-product-page__stat-value">{{ block.settings.value }}</div>
+                    <div class="neeli-product-page__stat-label">{{ block.settings.label }}</div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+
+            <div class="neeli-product-page__feature-row" style="margin-top: 1rem;">
+              {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                  {%- when 'hero_feature' -%}
+                    <div class="neeli-product-page__feature" {{ block.shopify_attributes }}>
+                      <div class="neeli-product-page__feature-title">{{ block.settings.title }}</div>
+                      <p class="neeli-product-page__feature-text">{{ block.settings.text }}</p>
+                    </div>
+                  {%- when 'hero_quote' -%}
+                    <blockquote class="neeli-product-page__feature" {{ block.shopify_attributes }}>
+                      <p class="neeli-product-page__quote">{{ block.settings.quote }}</p>
+                      <p class="neeli-product-page__quote-meta">{{ block.settings.author }}</p>
+                    </blockquote>
+                  {%- when 'hero_upsell' -%}
+                    <div class="neeli-product-page__feature" {{ block.shopify_attributes }}>
+                      <div class="neeli-product-page__feature-title">{{ block.settings.title }}</div>
+                      <p class="neeli-product-page__feature-text">{{ block.settings.text }}</p>
+                      {%- if block.settings.button_label != blank -%}
+                        {%- if block.settings.button_link != blank -%}
+                          <a class="button button--secondary" href="{{ block.settings.button_link }}">
+                            {{ block.settings.button_label }}
+                          </a>
+                        {%- else -%}
+                          <span class="button button--secondary" role="presentation">
+                            {{ block.settings.button_label }}
+                          </span>
+                        {%- endif -%}
+                      {%- endif -%}
+                    </div>
+                {%- endcase -%}
+              {%- endfor -%}
+            </div>
+
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'hero_note' and block.settings.text != blank -%}
+                <p class="neeli-product-page__body" style="margin-top: 1rem;" {{ block.shopify_attributes }}>
+                  {{ block.settings.text }}
+                </p>
+              {%- endif -%}
+            {%- endfor -%}
+
+            <div class="neeli-stamp-card motion-panel" style="margin-top: 1rem;">
+              <div class="neeli-stamp-card__top">
+                {%- assign stamp_images = 'stamp_01.png|stamp_02.png|stamp_03.png|stamp_04.png|stamp_05.png' | split: '|' -%}
+                {%- for stamp in stamp_images -%}
+                  <div class="neeli-stamp-card__stamp">
+                    {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
+                    {{ stamp | asset_url | image_tag: class: 'neeli-stamp-card__stamp-image', loading: 'lazy', alt: stamp_alt }}
+                  </div>
+                {%- endfor -%}
+              </div>
+              <div class="neeli-stamp-card__stats">
+                <div class="neeli-stamp-card__stat">
+                  <div class="neeli-stamp-card__stat-value">1945</div>
+                  <div class="neeli-stamp-card__stat-label">Established</div>
+                </div>
+                <div class="neeli-stamp-card__stat">
+                  <div class="neeli-stamp-card__stat-value">350+</div>
+                  <div class="neeli-stamp-card__stat-label">Products</div>
+                </div>
+                <div class="neeli-stamp-card__stat">
+                  <div class="neeli-stamp-card__stat-value">Clinics &amp; Academy</div>
+                  <div class="neeli-stamp-card__stat-label">Expert led</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="neeli-reorder-card cta-sheen motion-panel" style="margin-top: 1rem;">
+              <button class="neeli-reorder-card__button" type="button">
+                <div class="neeli-reorder-card__main">
+                  <svg class="neeli-reorder-card__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M8 3v4m8-4v4M4.5 10h15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                    <path d="M6 6h12a1 1 0 0 1 1 1v10a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                  </svg>
+                  <div>
+                    <div class="neeli-reorder-card__title">Reorder now</div>
+                    <div class="neeli-reorder-card__meta">Last ordered 28 Mar</div>
+                  </div>
+                </div>
+                <div class="neeli-reorder-card__price">
+                  <span class="neeli-reorder-card__price-old">₹350</span>
+                  <span class="neeli-reorder-card__price-new">₹315</span>
+                </div>
+              </button>
+            </div>
+
+            <div class="neeli-delivery-row">
+              <div class="neeli-delivery-row__item">
+                <svg class="neeli-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3 7h11v10H3z" stroke="currentColor" stroke-width="1.7" />
+                  <path d="M14 10h3l2 2v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="7" cy="18" r="1.4" fill="currentColor" />
+                  <circle cx="17" cy="18" r="1.4" fill="currentColor" />
+                </svg>
+                <span>2-4 day delivery</span>
+              </div>
+              <div class="neeli-delivery-row__item">
+                <svg class="neeli-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="1.7" />
+                  <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                </svg>
+                <span>COD available</span>
+              </div>
+              <div class="neeli-delivery-row__item">
+                <svg class="neeli-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 8h12l-1 11H7L6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                  <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                </svg>
+                <span>7-day returns</span>
+              </div>
+            </div>
+
+            {%- assign support_blocks = section.blocks | where: 'type', 'hero_support' -%}
+            {%- if support_blocks.size > 0 -%}
+              <div class="neeli-product-page__feature-row" style="margin-top: 1rem;">
+                {%- for block in support_blocks -%}
+                  <div class="neeli-product-page__feature" {{ block.shopify_attributes }}>
+                    <div class="neeli-product-page__feature-title">{{ block.settings.title }}</div>
+                    <p class="neeli-product-page__feature-text">{{ block.settings.text }}</p>
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if product.media.size > 0 -%}
+      <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if first_3d_model -%}
+      <script type="application/json" id="ProductJSON-{{ product.id }}">
+        {{ product.media | where: 'media_type', 'model' | json }}
+      </script>
+      <script src="{{ 'product-model.js' | asset_url }}" defer></script>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Neeli product hero",
+  "tag": "section",
+  "class": "section neeli-product-hero",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_info",
+      "default": true,
+      "label": "Sticky product info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "media_size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "large",
+      "label": "Media size"
+    },
+    {
+      "type": "checkbox",
+      "id": "constrain_to_viewport",
+      "default": true,
+      "label": "Constrain to viewport"
+    },
+    {
+      "type": "select",
+      "id": "media_fit",
+      "options": [
+        { "value": "contain", "label": "Contain" },
+        { "value": "cover", "label": "Cover" }
+      ],
+      "default": "contain",
+      "label": "Media fit"
+    },
+    {
+      "type": "select",
+      "id": "gallery_layout",
+      "options": [
+        { "value": "stacked", "label": "Stacked" },
+        { "value": "columns", "label": "Columns" },
+        { "value": "thumbnail", "label": "Thumbnail" },
+        { "value": "thumbnail_slider", "label": "Thumbnail slider" }
+      ],
+      "default": "stacked",
+      "label": "Gallery layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_thumbnails",
+      "options": [
+        { "value": "columns", "label": "Columns" },
+        { "value": "show", "label": "Show" },
+        { "value": "hide", "label": "Hide" }
+      ],
+      "default": "hide",
+      "label": "Mobile thumbnails"
+    },
+    {
+      "type": "select",
+      "id": "media_position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left",
+      "label": "Media position"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_variants",
+      "default": false,
+      "label": "Hide variant media"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "default": false,
+      "label": "Enable video looping"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 36,
+      "label": "Top padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 16,
+      "label": "Bottom padding"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Hero badge",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "Minimizes hair fall",
+          "label": "Badge text"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1
+    },
+    {
+      "type": "caption",
+      "name": "Subtitle",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "One oil for complete hair recovery",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            { "value": "body", "label": "Body" },
+            { "value": "subtitle", "label": "Subtitle" },
+            { "value": "uppercase", "label": "Uppercase" }
+          ],
+          "default": "body",
+          "label": "Style"
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "limit": 1
+    },
+    {
+      "type": "variant_picker",
+      "name": "Variant picker",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            { "value": "dropdown", "label": "Dropdown" },
+            { "value": "button", "label": "Buttons" }
+          ],
+          "default": "button",
+          "label": "Picker type"
+        },
+        {
+          "id": "swatch_shape",
+          "label": "Swatch shape",
+          "type": "select",
+          "options": [
+            { "value": "circle", "label": "Circle" },
+            { "value": "square", "label": "Square" },
+            { "value": "none", "label": "None" }
+          ],
+          "default": "circle"
+        }
+      ]
+    },
+    {
+      "type": "quantity_selector",
+      "name": "Quantity selector",
+      "limit": 1
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Buy buttons",
+      "limit": 1,
+      "settings": [
+        { "type": "checkbox", "id": "show_dynamic_checkout", "default": true, "label": "Show dynamic checkout" },
+        { "type": "checkbox", "id": "show_gift_card_recipient", "default": true, "label": "Show gift card recipient" }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1
+    },
+    {
+      "type": "share",
+      "name": "Share",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "share_label", "default": "Share", "label": "Label" }
+      ]
+    },
+    {
+      "type": "custom_liquid",
+      "name": "Custom liquid",
+      "settings": [
+        { "type": "liquid", "id": "custom_liquid", "label": "Liquid" }
+      ]
+    },
+    {
+      "type": "hero_stat",
+      "name": "Hero stat",
+      "settings": [
+        { "type": "text", "id": "value", "default": "4.64★", "label": "Value" },
+        { "type": "text", "id": "label", "default": "Ratings", "label": "Label" }
+      ]
+    },
+    {
+      "type": "hero_feature",
+      "name": "Hero feature",
+      "settings": [
+        { "type": "text", "id": "title", "default": "Made by BAMS doctors", "label": "Title" },
+        { "type": "inline_richtext", "id": "text", "default": "GMP & ISO certified, FDA compliant and AYUSH licensed.", "label": "Text" }
+      ]
+    },
+    {
+      "type": "hero_quote",
+      "name": "Hero quote",
+      "settings": [
+        { "type": "inline_richtext", "id": "quote", "default": "\"Hair fall reduced noticeably, and I can already see tiny baby hairs coming\"", "label": "Quote" },
+        { "type": "text", "id": "author", "default": "- ANU R., CHENNAI", "label": "Author" }
+      ]
+    },
+    {
+      "type": "hero_support",
+      "name": "Hero support",
+      "settings": [
+        { "type": "text", "id": "title", "default": "Add internal support", "label": "Title" },
+        { "type": "inline_richtext", "id": "text", "default": "Bringarajasava - fermented herbal brew for hair growth from within.", "label": "Text" }
+      ]
+    },
+    {
+      "type": "hero_upsell",
+      "name": "Hero upsell",
+      "settings": [
+        { "type": "text", "id": "title", "default": "Add internal support", "label": "Title" },
+        { "type": "inline_richtext", "id": "text", "default": "Bringarajasava - fermented herbal brew for hair growth from within.", "label": "Text" },
+        { "type": "text", "id": "button_label", "default": "+ Rs 225", "label": "Button label" },
+        { "type": "url", "id": "button_link", "label": "Button link" }
+      ]
+    },
+    {
+      "type": "hero_note",
+      "name": "Hero note",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within.",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Neeli product hero",
+      "blocks": [
+        { "type": "text" },
+        { "type": "title" },
+        { "type": "caption" },
+        { "type": "hero_stat" },
+        { "type": "hero_stat" },
+        { "type": "hero_stat" },
+        { "type": "hero_stat" },
+        { "type": "hero_feature" },
+        { "type": "hero_feature" },
+        { "type": "hero_quote" },
+        { "type": "hero_note" },
+        { "type": "hero_upsell" }
+      ]
+    }
+  ]
+}
+{% endschema %}

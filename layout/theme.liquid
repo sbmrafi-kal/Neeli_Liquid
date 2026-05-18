@@ -53,6 +53,26 @@
       {{ body_font_italic | font_face: font_display: 'swap' }}
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
+      @font-face {
+        font-family: "Avenir";
+        src: url("{{ 'Avenir.ttc' | asset_url }}") format("truetype-collection");
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Amstir";
+        src: url("{{ 'Amstir-Regular.otf' | asset_url }}") format("opentype");
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      :root {
+        --font-body-family: "Avenir", {{ settings.type_body_font.fallback_families }};
+        --font-heading-family: "Amstir", "Avenir", {{ settings.type_header_font.fallback_families }};
+      }
 
       {% assign scheme_classes = '' %}
       {% for scheme in settings.color_schemes -%}
@@ -308,13 +328,17 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
-    {% sections 'header-group' %}
+    {%- unless request.page_type == 'product' -%}
+      {% sections 'header-group' %}
+    {%- endunless -%}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
-    {% sections 'footer-group' %}
+    {%- unless request.page_type == 'product' -%}
+      {% sections 'footer-group' %}
+    {%- endunless -%}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
