@@ -725,7 +725,9 @@
       <script src="{{ 'product-model.js' | asset_url }}" defer></script>
     {%- endif -%}
 
-    {%- comment -%} Removed unused `seo_media` assignment (unused variable) -%}
+    {%- comment -%}
+      Removed unused `seo_media` assignment (unused variable)
+    {%- endcomment -%}
 
     <script type="application/ld+json">
       {{ product | structured_data }}
