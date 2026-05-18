@@ -58,31 +58,33 @@
       </div>
     </div>
 
-    <div class="neeli-panel" style="margin-top: 1rem; padding: 1.1rem 1.2rem;">
+    <div class="neeli-difference-heading">
       {% render 'neeli-section-heading',
-        kicker: section.settings.accordion_kicker,
-        title: section.settings.accordion_heading,
-        align: 'left',
-        heading_tag: 'h3'
+        title: section.settings.accordion_kicker,
+        align: 'center',
+        heading_tag: 'h2'
       %}
+    </div>
+
+    <div class="neeli-difference-panel motion-panel">
       <div class="neeli-accordion">
-        {%- assign difference_open = true -%}
         {%- for block in section.blocks -%}
           {%- if block.type == 'difference' -%}
             {% render 'neeli-accordion-item',
               item_id: 'Difference-' | append: block.id,
               title: block.settings.title,
               content: block.settings.text,
-              icon: block.settings.icon,
-              open: difference_open
+              icon: block.settings.icon
             %}
-            {%- assign difference_open = false -%}
           {%- endif -%}
         {%- endfor -%}
       </div>
     </div>
+  </div>
 
-    <div class="neeli-review-grid" style="margin-top: 1rem;">
+  <div class="neeli-story-review-band">
+    <div class="neeli-product-page__wrap">
+      <div class="neeli-review-grid neeli-review-grid--story">
       {%- for block in section.blocks -%}
         {%- if block.type == 'story_review' -%}
           {% render 'neeli-review-card',
@@ -93,6 +95,7 @@
           %}
         {%- endif -%}
       {%- endfor -%}
+      </div>
     </div>
   </div>
 </section>

@@ -24,6 +24,11 @@
       heading_tag: 'h2'
     %}
 
+    <div class="neeli-reviews-rating" aria-label="4.64 out of 5 stars">
+      <div class="neeli-reviews-rating__stars" aria-hidden="true">★★★★☆</div>
+      <div class="neeli-reviews-rating__score">4.64 / 5.0</div>
+    </div>
+
     <div class="neeli-review-grid">
       {%- for block in section.blocks -%}
         {%- if block.type == 'review' -%}
@@ -40,11 +45,11 @@
     {%- if section.settings.button_label != blank -%}
       <div style="margin-top: 1.5rem; display: flex; justify-content: center;">
         {%- if section.settings.button_link != blank -%}
-          <a class="button button--secondary" href="{{ section.settings.button_link }}">
+          <a class="neeli-review-button premium-button" href="{{ section.settings.button_link }}">
             {{ section.settings.button_label }}
           </a>
         {%- else -%}
-          <span class="button button--secondary" role="presentation">{{ section.settings.button_label }}</span>
+          <span class="neeli-review-button premium-button" role="presentation">{{ section.settings.button_label }}</span>
         {%- endif -%}
       </div>
     {%- endif -%}

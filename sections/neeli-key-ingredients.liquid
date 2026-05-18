@@ -43,7 +43,7 @@
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 1200 | image_tag: class: 'neeli-ingredient__media', loading: 'lazy', alt: block.settings.title }}
               {%- else -%}
-                <img src="{{ default_image | asset_url }}" class="neeli-ingredient__media" loading="lazy" alt="{{ block.settings.title | escape }}">
+                <img src="{{ default_image | asset_url }}" class="neeli-ingredient__media" loading="lazy" width="670" height="302" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
               <div class="neeli-ingredient__body">
                 <h3 class="neeli-ingredient__title">{{ block.settings.title }}</h3>
@@ -54,7 +54,7 @@
         {%- endfor -%}
     </div>
 
-    <div style="margin-top: 2rem;">
+    <div class="neeli-milk-section">
       {% render 'neeli-section-heading',
         kicker: section.settings.milk_kicker,
         title: section.settings.milk_heading,
@@ -80,7 +80,7 @@
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 1000 | image_tag: class: 'neeli-milk__media', loading: 'lazy', alt: block.settings.title }}
               {%- else -%}
-                <img src="{{ default_milk_image | asset_url }}" class="neeli-milk__media" loading="lazy" alt="{{ block.settings.title | escape }}">
+                <img src="{{ default_milk_image | asset_url }}" class="neeli-milk__media" loading="lazy" width="800" height="920" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
               <div class="neeli-milk__body">
                 <h3 class="neeli-milk__title">{{ block.settings.title }}</h3>
@@ -90,9 +90,14 @@
           {%- endif -%}
         {%- endfor -%}
       </div>
+
+      <div class="neeli-patch-test">
+        <span class="neeli-patch-test__icon" aria-hidden="true">!</span>
+        <span>Always patch test first</span>
+      </div>
     </div>
 
-    <div style="margin-top: 2rem;">
+    <div class="neeli-steps-section">
       {% render 'neeli-section-heading',
         kicker: section.settings.steps_kicker,
         title: section.settings.steps_heading,
@@ -102,7 +107,7 @@
       %}
 
       <div class="neeli-step-hero">
-        <img src="{{ 'massage-ritual.png' | asset_url }}" class="float-soft image-zoom" loading="lazy" alt="{{ section.settings.steps_heading | escape }}">
+        <img src="{{ 'massage-ritual.png' | asset_url }}" class="float-soft image-zoom" loading="lazy" width="1206" height="678" alt="{{ section.settings.steps_heading | escape }}">
       </div>
 
       <div class="neeli-step-grid">

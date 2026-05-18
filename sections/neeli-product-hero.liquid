@@ -1,20 +1,4 @@
 {{ 'section-neeli-product-page.css' | asset_url | stylesheet_tag }}
-{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'component-rating.css' | asset_url | stylesheet_tag }}
-{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
-
-{%- unless product.has_only_default_variant -%}
-  {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
-  {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
-  {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
-{%- endunless -%}
-
-{%- if product.quantity_price_breaks_configured? -%}
-  {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
-{%- endif -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -36,43 +20,14 @@
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
 >
-  <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-  {%- if product.quantity_price_breaks_configured? -%}
-    <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
-  {%- endif -%}
-  {%- if request.design_mode -%}
-    <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
-  {%- endif -%}
   <script src="{{ 'neeli-product-page.js' | asset_url }}" defer="defer"></script>
 
-  {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
-  {%- if first_3d_model -%}
-    {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
-    <link
-      id="ModelViewerStyle"
-      rel="stylesheet"
-      href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
-      media="print"
-      onload="this.media='all'"
-    >
-    <link
-      id="ModelViewerOverride"
-      rel="stylesheet"
-      href="{{ 'component-model-viewer-ui.css' | asset_url }}"
-      media="print"
-      onload="this.media='all'"
-    >
-  {%- endif -%}
-
-  {% assign product_form_id = 'product-form-' | append: section.id %}
   {% assign hero_images = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' %}
   {% assign hero_thumbs = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' %}
 
   <div class="neeli-product-page__wrap">
     <div class="neeli-product-page__hero">
-      <div class="neeli-product-page__hero-media grid__item">
+      <div class="neeli-product-page__hero-media">
         <div class="neeli-hero-carousel" data-neeli-carousel data-neeli-autoplay="true" data-neeli-interval="4800">
           <div class="neeli-hero-carousel__stage">
             {%- for image in hero_images -%}
@@ -82,7 +37,7 @@
                 {%- else -%}
                   {%- assign hero_loading = 'lazy' -%}
                 {%- endif -%}
-                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__image image-zoom" loading="{{ hero_loading }}" alt="{{ product.title | escape }}">
+                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product.title | escape }}">
               </figure>
             {%- endfor -%}
 
@@ -102,7 +57,7 @@
                 aria-label="Show image {{ forloop.index }}"
                 data-neeli-carousel-thumb="{{ forloop.index0 }}"
               >
-                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__thumb-image" loading="lazy" alt="">
+                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__thumb-image" loading="lazy" width="750" height="1000" alt="">
               </button>
             {%- endfor -%}
           </div>
@@ -128,13 +83,13 @@
         </div>
 
         <div class="neeli-hero-below neeli-hero-below--desktop">
-          <img src="{{ 'Below_the_product.png' | asset_url }}" class="neeli-hero-below__image" loading="lazy" alt="">
+          <img src="{{ 'Below_the_product.png' | asset_url }}" class="neeli-hero-below__image" loading="lazy" width="2000" height="2000" alt="">
         </div>
       </div>
 
       <div
         id="ProductInfo-{{ section.id }}"
-        class="neeli-product-page__hero-info grid__item product__info-wrapper{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+        class="neeli-product-page__hero-info"
       >
         <div class="neeli-product-page__hero-header">
           {%- for block in section.blocks -%}
@@ -146,7 +101,7 @@
                   </div>
                 {%- endif -%}
               {%- when 'title' -%}
-                <div class="product__title" {{ block.shopify_attributes }}>
+                <div class="neeli-product-page__title-wrap" {{ block.shopify_attributes }}>
                   <h1 class="neeli-product-page__title">{{ product.title | escape }}</h1>
                 </div>
               {%- when 'caption' -%}
@@ -158,175 +113,33 @@
                     {{ block.settings.text }}
                   </p>
                 {%- endif -%}
-              {%- when 'price' -%}
-                <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                  {%- render 'price',
-                    product: product,
-                    use_variant: true,
-                    show_badges: true,
-                    price_class: 'price--large'
-                  -%}
-                </div>
-                {%- if product.quantity_price_breaks_configured? -%}
-                  <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
-                    <span>{{ 'products.product.volume_pricing.note' | t }}</span>
-                  </div>
-                {%- endif -%}
-                {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
-                  <div class="product__tax caption rte">
-                    {%- if cart.duties_included and cart.taxes_included -%}
-                      {{ 'products.product.duties_and_taxes_included' | t }}
-                    {%- elsif cart.taxes_included -%}
-                      {{ 'products.product.taxes_included' | t }}
-                    {%- elsif cart.duties_included -%}
-                      {{ 'products.product.duties_included' | t }}
-                    {%- endif -%}
-                    {%- if shop.shipping_policy.body != blank -%}
-                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                    {%- endif -%}
-                  </div>
-                {%- endif -%}
-              {%- when 'variant_picker' -%}
-                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-              {%- when 'quantity_selector' -%}
-                {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
-                <div
-                  class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
-                  {{ block.shopify_attributes }}
-                >
-                  <span class="visually-hidden" id="quantity-label-{{ section.id }}">
-                    {%- if cart_qty > 0 -%}
-                      {{- 'products.product.quantity.in_cart_aria_label' | t: quantity: cart_qty -}}
-                    {%- else -%}
-                      {{- 'products.product.quantity.label' | t -}}
-                    {%- endif -%}
-                  </span>
-                  <label
-                    class="quantity__label form__label"
-                    for="Quantity-{{ section.id }}"
-                    aria-labelledby="quantity-label-{{ section.id }}"
-                  >
-                    <span aria-hidden="true">{{ 'products.product.quantity.label' | t }}</span>
-                    <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}" aria-hidden="true">
-                      {%- render 'loading-spinner' -%}
-                      <span>
-                        (
-                        {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
-                        )
-                      </span>
-                    </span>
-                  </label>
-                  <div class="price-per-item__container">
-                    <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
-                      <button class="quantity__button" name="minus" type="button">
-                        <span class="visually-hidden">
-                          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
-                        </span>
-                        <span class="svg-wrapper">{{ 'icon-minus.svg' | inline_asset_content }}</span>
-                      </button>
-                      <input
-                        class="quantity__input"
-                        type="number"
-                        name="quantity"
-                        id="Quantity-{{ section.id }}"
-                        data-cart-quantity="{{ cart_qty }}"
-                        data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                        min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                        {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
-                          data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                          max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                        {% endif %}
-                        step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                        value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                        form="{{ product_form_id }}"
-                      >
-                      <button class="quantity__button" name="plus" type="button">
-                        <span class="visually-hidden">
-                          {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
-                        </span>
-                        <span class="svg-wrapper">{{ 'icon-plus.svg' | inline_asset_content }}</span>
-                      </button>
-                    </quantity-input>
-                  </div>
-                </div>
-              {%- when 'buy_buttons' -%}
-                {%- render 'buy-buttons',
-                  block: block,
-                  product: product,
-                  product_form_id: product_form_id,
-                  section_id: section.id,
-                  show_pickup_availability: true
-                -%}
-              {%- when 'description' -%}
-                {%- if product.description != blank -%}
-                  <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                    {{ product.description }}
-                  </div>
-                {%- endif -%}
-              {%- when 'share' -%}
-                {% liquid
-                  assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
-                  render 'share-button', block: block, share_link: share_url
-                %}
               {%- when 'custom_liquid' -%}
                 <div {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
             {%- endcase -%}
           {%- endfor -%}
         </div>
 
-        {%- if section.blocks.size > 0 -%}
-          <div class="neeli-product-page__form-card">
-            <div class="neeli-product-page__stats">
-              {%- for block in section.blocks -%}
-                {%- if block.type == 'hero_stat' -%}
-                  <div class="neeli-product-page__stat" {{ block.shopify_attributes }}>
-                    <div class="neeli-product-page__stat-value">{{ block.settings.value }}</div>
-                    <div class="neeli-product-page__stat-label">{{ block.settings.label }}</div>
-                  </div>
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
+        <div class="neeli-product-page__form-card">
+          <p class="neeli-product-page__body neeli-product-page__intro">
+            Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
+          </p>
 
-            <div class="neeli-product-page__feature-row" style="margin-top: 1rem;">
-              {%- for block in section.blocks -%}
-                {%- case block.type -%}
-                  {%- when 'hero_feature' -%}
-                    <div class="neeli-product-page__feature" {{ block.shopify_attributes }}>
-                      <div class="neeli-product-page__feature-title">{{ block.settings.title }}</div>
-                      <p class="neeli-product-page__feature-text">{{ block.settings.text }}</p>
-                    </div>
-                  {%- when 'hero_quote' -%}
-                    <blockquote class="neeli-product-page__feature" {{ block.shopify_attributes }}>
-                      <p class="neeli-product-page__quote">{{ block.settings.quote }}</p>
-                      <p class="neeli-product-page__quote-meta">{{ block.settings.author }}</p>
-                    </blockquote>
-                  {%- when 'hero_upsell' -%}
-                    <div class="neeli-product-page__feature" {{ block.shopify_attributes }}>
-                      <div class="neeli-product-page__feature-title">{{ block.settings.title }}</div>
-                      <p class="neeli-product-page__feature-text">{{ block.settings.text }}</p>
-                      {%- if block.settings.button_label != blank -%}
-                        {%- if block.settings.button_link != blank -%}
-                          <a class="button button--secondary" href="{{ block.settings.button_link }}">
-                            {{ block.settings.button_label }}
-                          </a>
-                        {%- else -%}
-                          <span class="button button--secondary" role="presentation">
-                            {{ block.settings.button_label }}
-                          </span>
-                        {%- endif -%}
-                      {%- endif -%}
-                    </div>
-                {%- endcase -%}
-              {%- endfor -%}
-            </div>
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'hero_quote' -%}
+              <blockquote class="neeli-product-page__quote-wrap" {{ block.shopify_attributes }}>
+                <p class="neeli-product-page__quote">{{ block.settings.quote }}</p>
+                <p class="neeli-product-page__quote-meta">{{ block.settings.author }}</p>
+              </blockquote>
+            {%- endif -%}
+          {%- endfor -%}
 
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'hero_note' and block.settings.text != blank -%}
-                <p class="neeli-product-page__body" style="margin-top: 1rem;" {{ block.shopify_attributes }}>
-                  {{ block.settings.text }}
-                </p>
-              {%- endif -%}
-            {%- endfor -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'hero_feature' and block.settings.text != blank -%}
+              <p class="neeli-product-page__body neeli-product-page__cert-note" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </p>
+            {%- endif -%}
+          {%- endfor -%}
 
             <div class="neeli-stamp-card motion-panel" style="margin-top: 1rem;">
               <div class="neeli-stamp-card__top">
@@ -334,7 +147,7 @@
               {%- for stamp in stamp_images -%}
                 <div class="neeli-stamp-card__stamp">
                   {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
-                  <img src="{{ stamp | asset_url }}" class="neeli-stamp-card__stamp-image" loading="lazy" alt="{{ stamp_alt | escape }}">
+                  <img src="{{ stamp | asset_url }}" class="neeli-stamp-card__stamp-image" loading="lazy" width="1920" height="1080" alt="{{ stamp_alt | escape }}">
                 </div>
               {%- endfor -%}
               </div>
@@ -353,6 +166,14 @@
                 </div>
               </div>
             </div>
+
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'hero_note' and block.settings.text != blank -%}
+                <p class="neeli-product-page__body neeli-product-page__hero-note" {{ block.shopify_attributes }}>
+                  {{ block.settings.text }}
+                </p>
+              {%- endif -%}
+            {%- endfor -%}
 
             <div class="neeli-reorder-card cta-sheen motion-panel" style="margin-top: 1rem;">
               <button class="neeli-reorder-card__button" type="button">
@@ -399,33 +220,31 @@
               </div>
             </div>
 
-            {%- assign support_blocks = section.blocks | where: 'type', 'hero_support' -%}
-            {%- if support_blocks.size > 0 -%}
-              <div class="neeli-product-page__feature-row" style="margin-top: 1rem;">
-                {%- for block in support_blocks -%}
-                  <div class="neeli-product-page__feature" {{ block.shopify_attributes }}>
-                    <div class="neeli-product-page__feature-title">{{ block.settings.title }}</div>
-                    <p class="neeli-product-page__feature-text">{{ block.settings.text }}</p>
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'hero_upsell' -%}
+                <div class="neeli-upsell-card hover-rise" {{ block.shopify_attributes }}>
+                  <img src="{{ 'upsell.png' | asset_url }}" class="neeli-upsell-card__image" loading="lazy" width="1000" height="1000" alt="{{ block.settings.title | escape }}">
+                  <div class="neeli-upsell-card__copy">
+                    <div class="neeli-upsell-card__title">{{ block.settings.title }}</div>
+                    <p class="neeli-upsell-card__text">{{ block.settings.text }}</p>
                   </div>
-                {%- endfor -%}
-              </div>
-            {%- endif -%}
+                  {%- if block.settings.button_label != blank -%}
+                    {%- if block.settings.button_link != blank -%}
+                      <a class="neeli-upsell-card__button premium-button" href="{{ block.settings.button_link }}">
+                        {{ block.settings.button_label }}
+                      </a>
+                    {%- else -%}
+                      <span class="neeli-upsell-card__button premium-button" role="presentation">
+                        {{ block.settings.button_label }}
+                      </span>
+                    {%- endif -%}
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
           </div>
-        {%- endif -%}
       </div>
     </div>
-
-    {%- if product.media.size > 0 -%}
-      <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
-      <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
-
-    {%- if first_3d_model -%}
-      <script type="application/json" id="ProductJSON-{{ product.id }}">
-        {{ product.media | where: 'media_type', 'model' | json }}
-      </script>
-      <script src="{{ 'product-model.js' | asset_url }}" defer></script>
-    {%- endif -%}
   </div>
 </section>
 

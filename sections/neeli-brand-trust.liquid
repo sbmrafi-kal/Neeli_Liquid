@@ -16,38 +16,38 @@
 
 <section class="neeli-product-page__section neeli-product-page__section--forest neeli-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   <div class="neeli-product-page__wrap">
-    <div class="neeli-trust-grid">
-      <div class="neeli-trust-card">
-        <img src="{{ 'Flower.png' | asset_url }}" class="image-zoom subtle-zoom" loading="lazy" alt="{{ section.settings.heading | escape }}">
-        <p class="neeli-section-heading__kicker" style="color: rgba(247,243,233,0.7);">{{ section.settings.kicker }}</p>
-        <h2 class="neeli-trust-card__title">{{ section.settings.heading }}</h2>
-        <div class="neeli-trust-card__text rte">{{ section.settings.text }}</div>
+    <div class="neeli-trust-band">
+      <div class="neeli-trust-band__image-wrap">
+        <img src="{{ 'Flower.png' | asset_url }}" class="neeli-trust-band__image image-zoom" loading="lazy" width="1024" height="1024" alt="{{ section.settings.heading | escape }}">
       </div>
 
-      <div class="neeli-trust-card">
-        <p class="neeli-section-heading__kicker" style="color: rgba(247,243,233,0.7);">{{ section.settings.patents_kicker }}</p>
-        <h2 class="neeli-trust-card__title">{{ section.settings.patents_heading }}</h2>
-        <div class="neeli-trust-card__text rte">{{ section.settings.patents_text }}</div>
+      <div class="neeli-trust-band__content">
+        <h2 class="neeli-trust-band__title">Full Spectrum</h2>
+        <div class="neeli-trust-band__text rte">{{ section.settings.text }}</div>
 
-        <div class="neeli-trust-cards" style="margin-top: 1rem;">
-          <div class="neeli-trust-card neeli-trust-card--outlined">
-            <img src="{{ 'US_Flag.png' | asset_url }}" class="neeli-hero-carousel__thumb-image" loading="lazy" alt="{{ section.settings.us_title | escape }}">
-            <h3 class="neeli-trust-card__title">{{ section.settings.us_title }}</h3>
-            <div class="neeli-trust-card__text rte">{{ section.settings.us_text }}</div>
+        <div class="neeli-trust-band__divider"></div>
+
+        <h2 class="neeli-trust-band__title">Patented Formulations</h2>
+        <div class="neeli-trust-band__text rte">{{ section.settings.patents_text }}</div>
+
+        <div class="neeli-trust-band__patents">
+          <div class="neeli-trust-band__patent-card motion-panel">
+            <img src="{{ 'US_Flag.png' | asset_url }}" class="neeli-trust-band__flag" loading="lazy" width="1432" height="954" alt="{{ section.settings.us_title | escape }}">
+            <div class="neeli-trust-band__patent-title">{{ section.settings.us_title }}</div>
           </div>
-          <div class="neeli-trust-card neeli-trust-card--outlined">
-            <img src="{{ 'Japan_Flag.png' | asset_url }}" class="neeli-hero-carousel__thumb-image" loading="lazy" alt="{{ section.settings.japan_title | escape }}">
-            <h3 class="neeli-trust-card__title">{{ section.settings.japan_title }}</h3>
-            <div class="neeli-trust-card__text rte">{{ section.settings.japan_text }}</div>
+          <div class="neeli-trust-band__patent-card motion-panel">
+            <img src="{{ 'Japan_Flag.png' | asset_url }}" class="neeli-trust-band__flag" loading="lazy" width="1270" height="844" alt="{{ section.settings.japan_title | escape }}">
+            <div class="neeli-trust-band__patent-title">{{ section.settings.japan_title }}</div>
           </div>
         </div>
       </div>
 
-      <div class="neeli-trust-card">
-        <p class="neeli-section-heading__kicker" style="color: rgba(247,243,233,0.7);">{{ section.settings.mark_kicker }}</p>
-        <h2 class="neeli-trust-card__title">{{ section.settings.mark_heading }}</h2>
-        <img src="{{ 'ka-mark.png' | asset_url }}" class="image-zoom subtle-zoom" loading="lazy" alt="{{ section.settings.mark_heading | escape }}">
-        <div class="neeli-trust-card__text rte">{{ section.settings.mark_text }}</div>
+      <div class="neeli-trust-band__mark">
+        <img src="{{ 'ka-mark.png' | asset_url }}" class="neeli-trust-band__mark-image" loading="lazy" width="238" height="328" alt="{{ section.settings.mark_heading | escape }}">
+        <div class="neeli-trust-band__mark-text">
+          <span>Rooted in</span>
+          <span>Authentic Ayurveda.</span>
+        </div>
       </div>
     </div>
   </div>

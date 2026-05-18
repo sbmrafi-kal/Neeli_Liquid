@@ -27,7 +27,7 @@
 
   <div class="neeli-product-page__wrap">
     <div class="neeli-product-page__hero">
-      <div class="neeli-product-page__hero-media grid__item">
+      <div class="neeli-product-page__hero-media">
         <div class="neeli-hero-carousel" data-neeli-carousel data-neeli-autoplay="true" data-neeli-interval="4800">
           <div class="neeli-hero-carousel__stage">
             {%- for image in hero_images -%}
@@ -37,7 +37,7 @@
                 {%- else -%}
                   {%- assign hero_loading = 'lazy' -%}
                 {%- endif -%}
-                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__image image-zoom" loading="{{ hero_loading }}" alt="{{ section.settings.hero_alt | escape }}">
+                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ section.settings.hero_alt | escape }}">
               </figure>
             {%- endfor -%}
 
@@ -57,7 +57,7 @@
                 aria-label="Show image {{ forloop.index }}"
                 data-neeli-carousel-thumb="{{ forloop.index0 }}"
               >
-                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__thumb-image" loading="lazy" alt="">
+                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__thumb-image" loading="lazy" width="750" height="1000" alt="">
               </button>
             {%- endfor -%}
           </div>
@@ -83,11 +83,11 @@
         </div>
 
         <div class="neeli-hero-below neeli-hero-below--desktop">
-          <img src="{{ 'Below_the_product.png' | asset_url }}" class="neeli-hero-below__image" loading="lazy" alt="">
+          <img src="{{ 'Below_the_product.png' | asset_url }}" class="neeli-hero-below__image" loading="lazy" width="2000" height="2000" alt="">
         </div>
       </div>
 
-      <div class="neeli-product-page__hero-info grid__item">
+      <div class="neeli-product-page__hero-info">
         <div class="neeli-product-page__hero-header">
           <div class="neeli-product-page__badge-row">
             <span class="neeli-product-page__badge">{{ section.settings.badge }}</span>
@@ -150,7 +150,7 @@
               {%- for stamp in homepage_stamps -%}
                 <div class="neeli-stamp-card__stamp">
                   {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
-                  <img src="{{ stamp | asset_url }}" class="neeli-stamp-card__stamp-image" loading="lazy" alt="{{ stamp_alt | escape }}">
+                  <img src="{{ stamp | asset_url }}" class="neeli-stamp-card__stamp-image" loading="lazy" width="1920" height="1080" alt="{{ stamp_alt | escape }}">
                 </div>
               {%- endfor -%}
             </div>

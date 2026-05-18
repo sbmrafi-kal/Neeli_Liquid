@@ -15,16 +15,35 @@
 {%- endstyle -%}
 
 <section class="neeli-product-page__section neeli-timeline neeli-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
-  <div class="neeli-product-page__wrap">
+  <div class="neeli-ritual-guide">
+    <div class="neeli-ritual-guide__inner">
+      <div class="neeli-ritual-guide__card motion-panel">
+        <div class="neeli-ritual-guide__content">
+          <svg class="neeli-ritual-guide__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8" />
+            <path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <div>
+            <div class="neeli-ritual-guide__title">The Ritual Guide</div>
+            <p class="neeli-ritual-guide__text">Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="neeli-timeline__heading-band">
     {% render 'neeli-section-heading',
       kicker: section.settings.kicker,
       title: section.settings.heading,
       text: section.settings.text,
       align: 'center',
-      inverse: section.settings.inverse_text,
+      inverse: true,
       heading_tag: 'h2'
     %}
+  </div>
 
+  <div class="neeli-product-page__wrap">
     <div class="neeli-timeline__grid">
       {%- assign stage_index = 0 -%}
       {%- for block in section.blocks -%}
@@ -40,15 +59,15 @@
           {%- endcase -%}
           <article class="neeli-timeline__item" {{ block.shopify_attributes }}>
             <div class="neeli-timeline__media">
+              <div class="neeli-timeline__phase neeli-timeline__phase--media">{{ block.settings.phase }}</div>
               {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 900 | image_tag: class: 'global-media-settings', loading: 'lazy', alt: block.settings.title }}
+                {{ block.settings.image | image_url: width: 900 | image_tag: class: 'neeli-timeline__image', loading: 'lazy', alt: block.settings.title }}
               {%- else -%}
-                <img src="{{ default_stage_image | asset_url }}" class="global-media-settings" loading="lazy" alt="{{ block.settings.title | escape }}">
+                <img src="{{ default_stage_image | asset_url }}" class="neeli-timeline__image" loading="lazy" width="650" height="208" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
               <div class="neeli-timeline__caption">{{ block.settings.mobile_phase }}</div>
             </div>
             <div class="neeli-timeline__content">
-              <div class="neeli-timeline__phase">{{ block.settings.phase }}</div>
               <div class="neeli-timeline__label">{{ block.settings.label }}</div>
               <h3 class="neeli-timeline__title">{{ block.settings.title }}</h3>
               <p class="neeli-timeline__text">{{ block.settings.body }}</p>
