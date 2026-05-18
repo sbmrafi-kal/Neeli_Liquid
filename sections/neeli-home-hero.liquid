@@ -37,7 +37,7 @@
                 {%- else -%}
                   {%- assign hero_loading = 'lazy' -%}
                 {%- endif -%}
-                {{ image | asset_url | image_tag: class: 'neeli-hero-carousel__image image-zoom', loading: hero_loading, alt: section.settings.hero_alt, widths: '600, 900, 1200, 1600' }}
+                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__image image-zoom" loading="{{ hero_loading }}" alt="{{ section.settings.hero_alt | escape }}">
               </figure>
             {%- endfor -%}
 
@@ -57,7 +57,7 @@
                 aria-label="Show image {{ forloop.index }}"
                 data-neeli-carousel-thumb="{{ forloop.index0 }}"
               >
-                {{ image | asset_url | image_tag: class: 'neeli-hero-carousel__thumb-image', loading: 'lazy', alt: '', widths: '120, 160, 200' }}
+                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__thumb-image" loading="lazy" alt="">
               </button>
             {%- endfor -%}
           </div>
@@ -83,7 +83,7 @@
         </div>
 
         <div class="neeli-hero-below neeli-hero-below--desktop">
-          {{ 'Below_the_product.png' | asset_url | image_tag: class: 'neeli-hero-below__image', alt: '', loading: 'lazy' }}
+          <img src="{{ 'Below_the_product.png' | asset_url }}" class="neeli-hero-below__image" loading="lazy" alt="">
         </div>
       </div>
 
@@ -150,7 +150,7 @@
               {%- for stamp in homepage_stamps -%}
                 <div class="neeli-stamp-card__stamp">
                   {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
-                  {{ stamp | asset_url | image_tag: class: 'neeli-stamp-card__stamp-image', loading: 'lazy', alt: stamp_alt }}
+                  <img src="{{ stamp | asset_url }}" class="neeli-stamp-card__stamp-image" loading="lazy" alt="{{ stamp_alt | escape }}">
                 </div>
               {%- endfor -%}
             </div>

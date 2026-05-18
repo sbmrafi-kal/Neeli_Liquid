@@ -43,7 +43,7 @@
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 900 | image_tag: class: 'global-media-settings', loading: 'lazy', alt: block.settings.title }}
               {%- else -%}
-                {{ default_stage_image | asset_url | image_tag: class: 'global-media-settings', loading: 'lazy', alt: block.settings.title }}
+                <img src="{{ default_stage_image | asset_url }}" class="global-media-settings" loading="lazy" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
               <div class="neeli-timeline__caption">{{ block.settings.mobile_phase }}</div>
             </div>

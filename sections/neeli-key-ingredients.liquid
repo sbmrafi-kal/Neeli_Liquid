@@ -43,7 +43,7 @@
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 1200 | image_tag: class: 'neeli-ingredient__media', loading: 'lazy', alt: block.settings.title }}
               {%- else -%}
-                {{ default_image | asset_url | image_tag: class: 'neeli-ingredient__media', loading: 'lazy', alt: block.settings.title }}
+                <img src="{{ default_image | asset_url }}" class="neeli-ingredient__media" loading="lazy" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
               <div class="neeli-ingredient__body">
                 <h3 class="neeli-ingredient__title">{{ block.settings.title }}</h3>
@@ -80,7 +80,7 @@
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 1000 | image_tag: class: 'neeli-milk__media', loading: 'lazy', alt: block.settings.title }}
               {%- else -%}
-                {{ default_milk_image | asset_url | image_tag: class: 'neeli-milk__media', loading: 'lazy', alt: block.settings.title }}
+                <img src="{{ default_milk_image | asset_url }}" class="neeli-milk__media" loading="lazy" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
               <div class="neeli-milk__body">
                 <h3 class="neeli-milk__title">{{ block.settings.title }}</h3>
@@ -102,7 +102,7 @@
       %}
 
       <div class="neeli-step-hero">
-        {{ 'massage-ritual.png' | asset_url | image_tag: class: 'float-soft image-zoom', loading: 'lazy', alt: section.settings.steps_heading }}
+        <img src="{{ 'massage-ritual.png' | asset_url }}" class="float-soft image-zoom" loading="lazy" alt="{{ section.settings.steps_heading | escape }}">
       </div>
 
       <div class="neeli-step-grid">

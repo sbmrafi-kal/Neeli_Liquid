@@ -82,7 +82,7 @@
                 {%- else -%}
                   {%- assign hero_loading = 'lazy' -%}
                 {%- endif -%}
-                {{ image | asset_url | image_tag: class: 'neeli-hero-carousel__image image-zoom', loading: hero_loading, alt: product.title, widths: '600, 900, 1200, 1600' }}
+                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__image image-zoom" loading="{{ hero_loading }}" alt="{{ product.title | escape }}">
               </figure>
             {%- endfor -%}
 
@@ -102,7 +102,7 @@
                 aria-label="Show image {{ forloop.index }}"
                 data-neeli-carousel-thumb="{{ forloop.index0 }}"
               >
-                {{ image | asset_url | image_tag: class: 'neeli-hero-carousel__thumb-image', loading: 'lazy', alt: '', widths: '120, 160, 200' }}
+                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__thumb-image" loading="lazy" alt="">
               </button>
             {%- endfor -%}
           </div>
@@ -128,7 +128,7 @@
         </div>
 
         <div class="neeli-hero-below neeli-hero-below--desktop">
-          {{ 'Below_the_product.png' | asset_url | image_tag: class: 'neeli-hero-below__image', alt: '', loading: 'lazy' }}
+          <img src="{{ 'Below_the_product.png' | asset_url }}" class="neeli-hero-below__image" loading="lazy" alt="">
         </div>
       </div>
 
@@ -331,12 +331,12 @@
             <div class="neeli-stamp-card motion-panel" style="margin-top: 1rem;">
               <div class="neeli-stamp-card__top">
                 {%- assign stamp_images = 'stamp_01.png|stamp_02.png|stamp_03.png|stamp_04.png|stamp_05.png' | split: '|' -%}
-                {%- for stamp in stamp_images -%}
-                  <div class="neeli-stamp-card__stamp">
-                    {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
-                    {{ stamp | asset_url | image_tag: class: 'neeli-stamp-card__stamp-image', loading: 'lazy', alt: stamp_alt }}
-                  </div>
-                {%- endfor -%}
+              {%- for stamp in stamp_images -%}
+                <div class="neeli-stamp-card__stamp">
+                  {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
+                  <img src="{{ stamp | asset_url }}" class="neeli-stamp-card__stamp-image" loading="lazy" alt="{{ stamp_alt | escape }}">
+                </div>
+              {%- endfor -%}
               </div>
               <div class="neeli-stamp-card__stats">
                 <div class="neeli-stamp-card__stat">

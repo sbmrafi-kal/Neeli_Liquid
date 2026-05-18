@@ -19,7 +19,7 @@
       </div>
 
       <a class="neeli-site-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
-        {{ 'logo-kerala.png' | asset_url | image_tag: class: 'neeli-site-header__brand-image', alt: shop.name, loading: 'eager' }}
+        <img src="{{ 'logo-kerala.png' | asset_url }}" class="neeli-site-header__brand-image" alt="{{ shop.name | escape }}" loading="eager">
       </a>
 
       <div class="neeli-site-header__actions">
