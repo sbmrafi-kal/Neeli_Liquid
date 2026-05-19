@@ -2175,13 +2175,29 @@
   font-size: clamp(2.25rem, 3vw, 2.625rem);
 }
 
+.neeli-info-panels {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
 .neeli-info-panel {
-  max-width: 1180px;
-  margin: 2rem auto 0;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem 0.75rem;
   border: 0;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 8px 28px rgba(17, 48, 39, 0.05);
+}
+
+.neeli-info-panel .neeli-section-heading {
+  margin-bottom: 1rem;
+}
+
+.neeli-info-panel .neeli-section-heading__kicker {
+  color: rgba(141, 106, 33, 0.78);
+}
+
+.neeli-info-panel .neeli-section-heading__title {
+  font-size: clamp(1.8rem, 2.8vw, 2.25rem);
 }
 
 .neeli-info-panel .neeli-accordion {
@@ -2240,6 +2256,16 @@
   text-align: center;
 }
 
+.neeli-trust-band__eyebrow {
+  margin: 0 0 0.5rem;
+  color: rgba(247, 243, 233, 0.62);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
 .neeli-trust-band__title {
   margin: 0;
   color: var(--neeli-cream);
@@ -2276,7 +2302,7 @@
   min-width: 138px;
   flex-direction: column;
   align-items: center;
-  padding: 0.9rem 1rem;
+  padding: 0.9rem 1rem 1rem;
   border: 1px solid #6f8e43;
   border-radius: 10px;
 }
@@ -2295,31 +2321,47 @@
   text-transform: uppercase;
 }
 
-.neeli-trust-band__mark {
-  display: grid;
-  grid-template-columns: 1fr 94px;
-  border-top: 1px solid #fff;
+.neeli-trust-band__patent-text {
+  margin-top: 0.35rem;
+  color: rgba(247, 243, 233, 0.78);
+  font-size: 0.75rem;
+  line-height: 1.35;
   text-align: center;
 }
 
+.neeli-trust-band__mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #fff;
+  text-align: center;
+  gap: 0.85rem;
+  padding: 1.5rem 1rem;
+}
+
 .neeli-trust-band__mark-image {
-  align-self: center;
-  justify-self: center;
   width: auto;
   height: 120px;
   object-fit: contain;
 }
 
+.neeli-trust-band__eyebrow--mark {
+  margin-top: -0.15rem;
+}
+
+.neeli-trust-band__mark-heading {
+  margin: 0;
+  color: var(--neeli-cream);
+  font-family: var(--neeli-heading-font);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
 .neeli-trust-band__mark-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-left: 1px solid #fff;
-  padding: 1rem 0.5rem;
   color: rgba(247, 243, 233, 0.88);
   font-size: 0.875rem;
   line-height: 1.45;
-  writing-mode: vertical-rl;
 }
 
 .neeli-customer-reviews {
@@ -2555,6 +2597,11 @@
     padding: 0.5rem 1.25rem;
   }
 
+  .neeli-info-panels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
   .neeli-trust-band {
     grid-template-columns: 1.08fr 1.48fr 0.48fr;
   }
@@ -2600,11 +2647,11 @@
     font-size: 1rem;
   }
 
+  .neeli-trust-band__patent-text {
+    font-size: 0.8125rem;
+  }
+
   .neeli-trust-band__mark {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     border-top: 0;
     border-left: 1px solid #fff;
     padding: 2.5rem 1.5rem;
@@ -2614,14 +2661,14 @@
     height: 110px;
   }
 
+  .neeli-trust-band__mark-heading {
+    font-size: 1.375rem;
+  }
+
   .neeli-trust-band__mark-text {
-    display: block;
-    margin-top: 1.25rem;
-    border-left: 0;
-    padding: 0;
+    margin-top: 0.35rem;
     font-size: 0.9375rem;
     line-height: 1.55;
-    writing-mode: horizontal-tb;
   }
 
   .neeli-reviews-rating {

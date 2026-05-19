@@ -22,31 +22,42 @@
       </div>
 
       <div class="neeli-trust-band__content">
-        <h2 class="neeli-trust-band__title">Full Spectrum</h2>
+        {%- if section.settings.kicker != blank -%}
+          <p class="neeli-trust-band__eyebrow">{{ section.settings.kicker }}</p>
+        {%- endif -%}
+        <h2 class="neeli-trust-band__title">{{ section.settings.heading }}</h2>
         <div class="neeli-trust-band__text rte">{{ section.settings.text }}</div>
 
         <div class="neeli-trust-band__divider"></div>
 
-        <h2 class="neeli-trust-band__title">Patented Formulations</h2>
+        {%- if section.settings.patents_kicker != blank -%}
+          <p class="neeli-trust-band__eyebrow">{{ section.settings.patents_kicker }}</p>
+        {%- endif -%}
+        <h2 class="neeli-trust-band__title neeli-trust-band__title--secondary">{{ section.settings.patents_heading }}</h2>
         <div class="neeli-trust-band__text rte">{{ section.settings.patents_text }}</div>
 
         <div class="neeli-trust-band__patents">
           <div class="neeli-trust-band__patent-card motion-panel">
             <img src="{{ 'US_Flag.png' | asset_url }}" class="neeli-trust-band__flag" loading="lazy" width="1432" height="954" alt="{{ section.settings.us_title | escape }}">
             <div class="neeli-trust-band__patent-title">{{ section.settings.us_title }}</div>
+            <div class="neeli-trust-band__patent-text rte">{{ section.settings.us_text }}</div>
           </div>
           <div class="neeli-trust-band__patent-card motion-panel">
             <img src="{{ 'Japan_Flag.png' | asset_url }}" class="neeli-trust-band__flag" loading="lazy" width="1270" height="844" alt="{{ section.settings.japan_title | escape }}">
             <div class="neeli-trust-band__patent-title">{{ section.settings.japan_title }}</div>
+            <div class="neeli-trust-band__patent-text rte">{{ section.settings.japan_text }}</div>
           </div>
         </div>
       </div>
 
       <div class="neeli-trust-band__mark">
         <img src="{{ 'ka-mark.png' | asset_url }}" class="neeli-trust-band__mark-image" loading="lazy" width="238" height="328" alt="{{ section.settings.mark_heading | escape }}">
-        <div class="neeli-trust-band__mark-text">
-          <span>Rooted in</span>
-          <span>Authentic Ayurveda.</span>
+        {%- if section.settings.mark_kicker != blank -%}
+          <p class="neeli-trust-band__eyebrow neeli-trust-band__eyebrow--mark">{{ section.settings.mark_kicker }}</p>
+        {%- endif -%}
+        <h2 class="neeli-trust-band__mark-heading">{{ section.settings.mark_heading }}</h2>
+        <div class="neeli-trust-band__mark-text rte">
+          {{ section.settings.mark_text }}
         </div>
       </div>
     </div>
