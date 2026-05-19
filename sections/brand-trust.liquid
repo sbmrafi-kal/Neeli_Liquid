@@ -51,14 +51,16 @@
       </div>
 
       <div class="theme-trust-band__mark">
+        {%- if section.settings.mark_kicker != blank -%}
+          <p class="theme-trust-band__eyebrow theme-trust-band__eyebrow--mark">{{ section.settings.mark_kicker }}</p>
+        {%- endif -%}
         <div class="theme-trust-band__mark-logo-wrap">
           <img src="{{ 'ka-mark.png' | asset_url }}" class="theme-trust-band__mark-image" loading="lazy" width="238" height="328" alt="{{ section.settings.mark_heading | escape }}">
         </div>
-        <div class="theme-trust-band__mark-text-wrap">
-          <p class="theme-trust-band__mark-vertical-text">
-            Rooted in<br>Authentic Ayurveda.
-          </p>
-        </div>
+        {%- if section.settings.mark_heading != blank -%}
+          <h3 class="theme-trust-band__mark-heading">{{ section.settings.mark_heading }}</h3>
+        {%- endif -%}
+        <div class="theme-trust-band__mark-text rte">{{ section.settings.mark_text }}</div>
       </div>
     </div>
   </div>
