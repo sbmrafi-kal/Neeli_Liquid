@@ -675,24 +675,9 @@
   color: rgba(247, 243, 233, 0.72);
 }
 
-.neeli-hero-below {
-  display: flex;
-  justify-content: center;
-}
-
+.neeli-hero-below,
 .neeli-hero-below--desktop {
-  display: none;
-}
-
-@media screen and (min-width: 990px) {
-  .neeli-hero-below--desktop {
-    display: flex;
-  }
-}
-
-.neeli-hero-below__image {
-  width: min(100%, 21rem);
-  opacity: 0.14;
+  display: none !important;
 }
 
 .neeli-stamp-card {
@@ -1794,7 +1779,7 @@
 .neeli-timeline__heading-band {
   background: var(--neeli-forest);
   color: var(--neeli-cream);
-  padding: 1.5rem 1.5rem 1.75rem;
+  padding: 1.35rem 1.5rem 1.6rem;
   text-align: center;
 }
 
@@ -1808,25 +1793,25 @@
 
 .neeli-timeline__heading-band .neeli-section-heading__title {
   margin-top: 0.5rem;
-  font-size: 2.375rem;
+  font-size: 2.2rem;
   line-height: 1;
 }
 
 .neeli-timeline__heading-band .neeli-section-heading__text {
   margin-top: 0.55rem;
   color: rgba(247, 243, 233, 0.78);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.35;
 }
 
 .neeli-timeline > .neeli-product-page__wrap {
-  padding-top: 1.25rem;
+  padding-top: 1rem;
 }
 
 .neeli-timeline__image {
   display: block;
   width: 100%;
-  height: 92px;
+  height: 86px;
   border: 1px solid #e9b443;
   border-radius: 14px;
   object-fit: cover;
@@ -1845,7 +1830,7 @@
 }
 
 .neeli-timeline__text {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   line-height: 1.4;
 }
 
@@ -1856,8 +1841,8 @@
 
 .neeli-dual-panel {
   max-width: 1080px;
-  margin: 2rem auto 0;
-  gap: 1.5rem;
+  margin: 1.5rem auto 0;
+  gap: 1.25rem;
 }
 
 .neeli-dual-panel .neeli-panel {
@@ -1894,8 +1879,8 @@
 }
 
 .neeli-difference-heading {
-  margin-top: 2.5rem;
-  padding-top: 2.5rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
   background: #fff;
   box-shadow: 0 0 0 100vmax #fff;
   clip-path: inset(0 -100vmax);
@@ -1957,8 +1942,8 @@
 }
 
 .neeli-story-review-band {
-  margin-top: 2.5rem;
-  padding: 2.5rem 0;
+  margin-top: 2rem;
+  padding: 2rem 0;
   background: var(--neeli-forest);
   color: var(--neeli-cream);
 }
@@ -2005,12 +1990,12 @@
 }
 
 .neeli-ingredient-grid {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .neeli-milk-section {
-  margin-top: 2.5rem;
-  padding: 2.5rem 0 2.5rem;
+  margin-top: 2rem;
+  padding: 2rem 0 2.25rem;
   background: #fff;
   box-shadow: 0 0 0 100vmax #fff;
   clip-path: inset(0 -100vmax);
@@ -2018,7 +2003,7 @@
 
 .neeli-steps-section {
   margin-top: 0;
-  padding-top: 0.25rem;
+  padding-top: 0;
 }
 
 .neeli-ingredient {
@@ -2178,7 +2163,7 @@
 .neeli-info-panels {
   display: grid;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .neeli-info-panel {
@@ -2409,8 +2394,8 @@
 }
 
 .neeli-customer-reviews .neeli-review-grid {
-  margin-top: 2.5rem;
-  gap: 3rem;
+  margin-top: 2rem;
+  gap: 2.5rem;
 }
 
 .neeli-customer-reviews .neeli-review-card {
@@ -2484,8 +2469,8 @@
 
 @media screen and (min-width: 990px) {
   .neeli-product-page__hero {
-    grid-template-columns: minmax(0, 0.68fr) minmax(0, 1fr);
-    gap: 1rem;
+    grid-template-columns: minmax(0, 0.66fr) minmax(0, 1fr);
+    gap: 1.25rem;
   }
 
   .neeli-product-page__badge {
@@ -2497,16 +2482,16 @@
   }
 
   .neeli-timeline__heading-band {
-    padding-top: 1.75rem;
-    padding-bottom: 1.75rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .neeli-timeline__heading-band .neeli-section-heading__title {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
   }
 
   .neeli-timeline__heading-band .neeli-section-heading__text {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
   .neeli-timeline__grid {
@@ -2548,7 +2533,7 @@
   }
 
   .neeli-timeline__image {
-    height: 94px;
+    height: 90px;
     border-radius: 18px;
   }
 
@@ -2558,7 +2543,7 @@
   }
 
   .neeli-timeline__title {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
   }
 
   .neeli-dual-panel {
@@ -2612,7 +2597,7 @@
   }
 
   .neeli-trust-band__content {
-    padding: 2rem 2.25rem;
+    padding: 1.85rem 2rem;
     border-right: 1px solid rgba(255, 255, 255, 0.18);
     border-left: 1px solid rgba(255, 255, 255, 0.18);
     text-align: left;
@@ -2636,7 +2621,7 @@
   .neeli-trust-band__patent-card {
     min-width: 160px;
     border-radius: 12px;
-    padding: 0.875rem 1.5rem;
+    padding: 0.8rem 1.35rem;
   }
 
   .neeli-trust-band__flag {
