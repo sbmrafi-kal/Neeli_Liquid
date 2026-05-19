@@ -111,8 +111,8 @@
         "heading": "The honest sequence.",
         "text": "<p>Root strength comes before visible density.</p>",
         "footnote": "Based on consistent use as directed. Individual results may vary.",
-        "padding_top": 36,
-        "padding_bottom": 28
+        "padding_top": 80,
+        "padding_bottom": 60
       }
     },
     "story": {
@@ -217,8 +217,8 @@
         "text": "",
         "accordion_kicker": "Kerala Ayurveda Difference",
         "accordion_heading": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "ingredients": {
@@ -322,8 +322,8 @@
         "steps_kicker": "Your easy massage ritual",
         "steps_heading": "Warm. Apply. Massage.",
         "steps_text": "<p>Use the oil two to three times a week with a consistent routine.</p>",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "information": {
@@ -410,8 +410,8 @@
         "info_heading": "What is inside",
         "faq_kicker": "Frequently asked",
         "faq_heading": "Questions we hear often",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "brand_trust": {
@@ -431,8 +431,8 @@
         "mark_kicker": "Rooted in authenticity",
         "mark_heading": "Rooted in Authentic Ayurveda.",
         "mark_text": "<p>Bring the same trust cues from the Neeli landing page into Shopify.</p>",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "reviews": {
@@ -465,16 +465,16 @@
         "heading": "Customer Reviews",
         "text": "<p>Real customer language, carried into the Shopify theme.</p>",
         "button_label": "Read all 86 reviews",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "footer": {
       "type": "footer",
       "settings": {
         "color_scheme": "scheme-1",
-        "padding_top": 40,
-        "padding_bottom": 40
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },

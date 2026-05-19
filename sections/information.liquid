@@ -24,50 +24,27 @@
       heading_tag: 'h2'
     %}
 
-    <div class="theme-info-panels">
-      <div class="theme-info-panel theme-panel">
-        {% render 'section-heading',
-          kicker: section.settings.info_kicker,
-          title: section.settings.info_heading,
-          align: 'left',
-          heading_tag: 'h3'
-        %}
-
-        <div class="theme-accordion">
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'info' -%}
-              {% render 'accordion-item',
-                item_id: 'Info-' | append: block.id,
-                title: block.settings.title,
-                content: block.settings.text,
-                icon: block.settings.icon,
-                open: forloop.first
-              %}
-            {%- endif -%}
-          {%- endfor -%}
-        </div>
-      </div>
-
-      <div class="theme-info-panel theme-panel">
-        {% render 'section-heading',
-          kicker: section.settings.faq_kicker,
-          title: section.settings.faq_heading,
-          align: 'left',
-          heading_tag: 'h3'
-        %}
-
-        <div class="theme-accordion">
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'faq' -%}
-              {% render 'accordion-item',
-                item_id: 'Faq-' | append: block.id,
-                title: block.settings.question,
-                content: block.settings.answer,
-                icon: 'none'
-              %}
-            {%- endif -%}
-          {%- endfor -%}
-        </div>
+    <div class="theme-accordion-container" style="max-width: 860px; margin: 3.5rem auto 0; display: grid; gap: 1rem;">
+      <div class="theme-accordion">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'info' -%}
+            {% render 'accordion-item',
+              item_id: 'Info-' | append: block.id,
+              title: block.settings.title,
+              content: block.settings.text,
+              icon: block.settings.icon,
+              open: false
+            %}
+          {%- elsif block.type == 'faq' -%}
+            {% render 'accordion-item',
+              item_id: 'Faq-' | append: block.id,
+              title: block.settings.question,
+              content: block.settings.answer,
+              icon: 'none',
+              open: false
+            %}
+          {%- endif -%}
+        {%- endfor -%}
       </div>
     </div>
   </div>
