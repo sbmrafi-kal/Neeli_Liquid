@@ -24,8 +24,8 @@
     }
 
     function start() {
-      if (timer || root.dataset.neeliAutoplay !== 'true') return;
-      const interval = Number(root.dataset.neeliInterval || 4800);
+      if (timer || root.dataset.themeAutoplay !== 'true') return;
+      const interval = Number(root.dataset.themeInterval || 4800);
       timer = window.setInterval(() => setActive(current + 1), interval);
     }
 
