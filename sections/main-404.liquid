@@ -1,23 +1,19 @@
-<style type="text/css">
-  .template-404 .title + * {
-    margin-top: 1rem;
-  }
-
-  @media screen and (min-width: 750px) {
-    .template-404 .title + * {
-      margin-top: 2rem;
-    }
-  }
-</style>
-
-<div class="template-404 page-width page-margin center">
-  <p>
-    {{ 'templates.404.subtext' | t }}
+<div class="neeli-container neeli-container--narrow neeli-page-spacing text-center">
+  <p class="neeli-section-heading__kicker" style="color: #8f4f36; font-size: 0.875rem; letter-spacing: 0.12em; text-transform: uppercase;">404 Error</p>
+  <h1 class="neeli-page-title" style="font-family: var(--font-heading-family); font-size: 3rem; color: var(--neeli-forest); margin-top: 1rem; line-height: 1;">Page Not Found</h1>
+  <p class="neeli-page-subtitle" style="font-size: 1.125rem; color: rgba(23, 55, 45, 0.72); max-width: 480px; margin: 1.5rem auto 2.5rem;">
+    The page you are looking for does not exist or has been moved to a new address. Let's get you back to complete hair recovery.
   </p>
-  <h1 class="title">
-    {{ 'templates.404.title' | t }}
-  </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
-    {{ 'general.continue_shopping' | t }}
+  <a href="{{ routes.all_products_collection_url }}" class="neeli-review-button" style="display: inline-flex; text-decoration: none;">
+    Shop All Products
   </a>
 </div>
+
+{% schema %}
+{
+  "name": "404 Content",
+  "tag": "section",
+  "class": "section",
+  "settings": []
+}
+{% endschema %}

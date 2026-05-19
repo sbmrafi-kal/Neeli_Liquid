@@ -1,208 +1,103 @@
-{{ 'customer.css' | asset_url | stylesheet_tag }}
-
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
-{%- if section.settings.enable_shop_login_button == false -%}
-  {%- assign hide_shop_login_button = true -%}
-{%- endif -%}
-
-<div class="customer login section-{{ section.id }}-padding">
-  <h1 id="recover" tabindex="-1">
-    {{ 'customer.recover_password.title' | t }}
-  </h1>
-  <div>
-    <p>
-      {{ 'customer.recover_password.subtext' | t }}
-    </p>
+<div class="neeli-container neeli-page-spacing" style="max-width: 440px; margin: 0 auto;">
+  <div id="recover" style="display: none;">
+    <h2 style="font-family: var(--font-heading-family); font-size: 2.25rem; color: var(--neeli-forest); text-align: center; margin-bottom: 1rem; font-weight: 400;">Reset your password</h2>
+    <p style="font-size: 0.9375rem; color: rgba(23, 55, 45, 0.72); text-align: center; margin-bottom: 2rem;">We will send you an email to reset your password.</p>
 
     {%- form 'recover_customer_password' -%}
-      {% assign recover_success = form.posted_successfully? %}
-      <div class="field">
-        <input
-          type="email"
-          value=""
-          name="email"
-          id="RecoverEmail"
-          autocorrect="off"
-          autocapitalize="off"
-          autocomplete="email"
-          {% if form.errors %}
-            aria-invalid="true"
-            aria-describedby="RecoverEmail-email-error"
-            autofocus
-          {% endif %}
-          placeholder="{{ 'customer.login_page.email' | t }}"
-        >
-        <label for="RecoverEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
-      </div>
-      {%- if form.errors -%}
-        <small id="RecoverEmail-email-error" class="form__message">
-          <span class="svg-wrapper">
-            {{- 'icon-error.svg' | inline_asset_content -}}
-          </span>
-          {{ form.errors.messages.form }}
-        </small>
+      {%- if form.posted_successfully? -%}
+        <div style="background: #ecf8ee; border: 1px solid #38a55b; color: #1d201d; border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1.5rem; font-size: 0.875rem;">
+          We've sent you an email with a link to update your password.
+        </div>
       {%- endif -%}
 
-      <button>
-        {{ 'customer.login_page.submit' | t }}
+      <div style="margin-bottom: 1.5rem;">
+        <label for="RecoverEmail" style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: rgba(23, 55, 45, 0.62); margin-bottom: 0.5rem; letter-spacing: 0.05em;">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="RecoverEmail"
+          placeholder="Email"
+          style="width: 100%; border: 1px solid rgba(23, 55, 45, 0.2); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.9375rem; outline: none; background: #fff;"
+          required
+        >
+      </div>
+
+      <button type="submit" class="neeli-review-button" style="display: inline-flex; width: 100%; justify-content: center; background: #8f4f36; border-color: #8f4f36; color: #fff; cursor: pointer; padding: 0.875rem 1.5rem;">
+        Submit
       </button>
 
-      <a href="#login">
-        {{ 'customer.login_page.cancel' | t }}
+      <a href="#login" onclick="toggleRecover(false); return false;" style="display: block; text-align: center; margin-top: 1.25rem; font-size: 0.9375rem; color: rgba(23, 55, 45, 0.72); text-decoration: underline;">
+        Cancel
       </a>
     {%- endform -%}
   </div>
 
-  <h1 id="login" tabindex="-1">
-    {{ 'customer.login_page.title' | t }}
-  </h1>
-  <div>
-    {%- if recover_success == true -%}
-      <h3 class="form__message" tabindex="-1" autofocus>
-        <span class="svg-wrapper">
-          {{- 'icon-success.svg' | inline_asset_content -}}
-        </span>
-        {{ 'customer.recover_password.success' | t }}
-      </h3>
-    {%- endif -%}
-    {%- form 'customer_login', novalidate: 'novalidate' -%}
+  <div id="login">
+    <h2 style="font-family: var(--font-heading-family); font-size: 2.5rem; color: var(--neeli-forest); text-align: center; margin-bottom: 2rem; font-weight: 400;">Login</h2>
+
+    {%- form 'customer_login' -%}
       {%- if form.errors -%}
-        <h2 class="form__message" tabindex="-1" autofocus>
-          <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
-          <span class="svg-wrapper">
-            {{- 'icon-error.svg' | inline_asset_content -}}
-          </span>
-          {{ 'templates.contact.form.error_heading' | t }}
-        </h2>
-        {{ form.errors | default_errors }}
+        <div style="background: #fdf3f2; border: 1px solid #f44336; color: #1d201d; border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1.5rem; font-size: 0.875rem;">
+          {{ form.errors | default_errors }}
+        </div>
       {%- endif -%}
 
-      {%- if shop.features.login_with_shop_classic_customer_accounts? -%}
-        <section name="sign-in-with-shop-provider">
-          {{ shop | login_button: hide_button: hide_shop_login_button }}
-
-          {%- unless hide_shop_login_button -%}
-            <p>
-              {{ 'customer.login_page.alternate_provider_separator' | t }}
-            </p>
-          {%- endunless -%}
-        </section>
-      {%- endif -%}
-
-      <div class="field">
+      <div style="margin-bottom: 1.25rem;">
+        <label for="CustomerEmail" style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: rgba(23, 55, 45, 0.62); margin-bottom: 0.5rem; letter-spacing: 0.05em;">Email</label>
         <input
           type="email"
           name="customer[email]"
           id="CustomerEmail"
-          autocomplete="email"
-          autocorrect="off"
-          autocapitalize="off"
-          {% if form.errors contains 'form' %}
-            aria-invalid="true"
-          {% endif %}
-          placeholder="{{ 'customer.login_page.email' | t }}"
+          placeholder="Email"
+          style="width: 100%; border: 1px solid rgba(23, 55, 45, 0.2); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.9375rem; outline: none; background: #fff;"
+          required
         >
-        <label for="CustomerEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
       </div>
 
       {%- if form.password_needed -%}
-        <div class="field">
+        <div style="margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <label for="CustomerPassword" style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: rgba(23, 55, 45, 0.62); letter-spacing: 0.05em;">Password</label>
+            <a href="#recover" onclick="toggleRecover(true); return false;" style="font-size: 0.8125rem; color: rgba(23, 55, 45, 0.62); text-decoration: underline;">Forgot your password?</a>
+          </div>
           <input
             type="password"
-            value=""
             name="customer[password]"
             id="CustomerPassword"
-            autocomplete="current-password"
-            {% if form.errors contains 'form' %}
-              aria-invalid="true"
-            {% endif %}
-            placeholder="{{ 'customer.login_page.password' | t }}"
+            placeholder="Password"
+            style="width: 100%; border: 1px solid rgba(23, 55, 45, 0.2); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.9375rem; outline: none; background: #fff;"
+            required
           >
-          <label for="CustomerPassword">
-            {{ 'customer.login_page.password' | t }}
-          </label>
         </div>
-
-        <a href="#recover">
-          {{ 'customer.login_page.forgot_password' | t }}
-        </a>
       {%- endif -%}
 
-      <button>
-        {{ 'customer.login_page.sign_in' | t }}
+      <button type="submit" class="neeli-review-button" style="display: inline-flex; width: 100%; justify-content: center; background: #8f4f36; border-color: #8f4f36; color: #fff; cursor: pointer; padding: 1rem 2rem;">
+        Sign In
       </button>
 
-      <a href="{{ routes.account_register_url }}">
-        {{ 'customer.login_page.create_account' | t }}
-      </a>
+      <div style="text-align: center; margin-top: 2rem; font-size: 0.9375rem; color: rgba(23, 55, 45, 0.72);">
+        New customer? <a href="{{ routes.account_register_url }}" style="color: var(--neeli-forest); font-weight: 600; text-decoration: underline;">Create account</a>
+      </div>
     {%- endform -%}
   </div>
-
-  {%- if shop.checkout.guest_login -%}
-    <div>
-      <hr>
-      <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
-
-      {%- form 'guest_login' -%}
-        <button>
-          {{ 'customer.login_page.guest_continue' | t }}
-        </button>
-      {%- endform -%}
-    </div>
-  {%- endif -%}
 </div>
+
+<script>
+  function toggleRecover(show) {
+    document.getElementById('recover').style.display = show ? 'block' : 'none';
+    document.getElementById('login').style.display = show ? 'none' : 'block';
+  }
+  
+  if (window.location.hash === '#recover') {
+    toggleRecover(true);
+  }
+</script>
 
 {% schema %}
 {
-  "name": "t:sections.main-login.name",
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "enable_shop_login_button",
-      "label": "t:sections.main-login.shop_login_button.enable",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    }
-  ]
+  "name": "Login Page",
+  "tag": "section",
+  "class": "section",
+  "settings": []
 }
 {% endschema %}

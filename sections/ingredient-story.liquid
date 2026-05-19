@@ -1,0 +1,184 @@
+{{ 'section-neeli-product-page.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="neeli-product-page__section neeli-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}neeli-product-page__section--soft{% endif %}">
+  <div class="neeli-product-page__wrap">
+    <div class="neeli-section-heading neeli-section-heading--center">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="neeli-section-heading__title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="neeli-dual-panel">
+      <div class="neeli-panel neeli-panel--soft">
+        <div class="neeli-list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'inclusion' -%}
+              <div class="neeli-list__item" {{ block.shopify_attributes }}>
+                <div class="neeli-list__marker neeli-list__marker--ok">+</div>
+                <div>
+                  <h3 class="neeli-list__title">{{ block.settings.title }}</h3>
+                  <p class="neeli-list__text">{{ block.settings.text }}</p>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="neeli-panel neeli-panel--dark">
+        <div class="neeli-list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'exclusion' -%}
+              <div class="neeli-list__item" {{ block.shopify_attributes }}>
+                <div class="neeli-list__marker neeli-list__marker--no">-</div>
+                <div>
+                  <h3 class="neeli-list__title" style="color: #fff;">{{ block.settings.title }}</h3>
+                  <p class="neeli-list__text" style="color: rgba(255,255,255,0.84);">{{ block.settings.text }}</p>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+
+    <div class="neeli-difference-heading">
+      {% render 'section-heading',
+        title: section.settings.accordion_kicker,
+        align: 'center',
+        heading_tag: 'h2'
+      %}
+    </div>
+
+    <div class="neeli-difference-panel motion-panel">
+      <div class="neeli-accordion">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'difference' -%}
+            {% render 'accordion-item',
+              item_id: 'Difference-' | append: block.id,
+              title: block.settings.title,
+              content: block.settings.text,
+              icon: block.settings.icon
+            %}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="neeli-story-review-band">
+    <div class="neeli-product-page__wrap">
+      <div class="neeli-review-grid neeli-review-grid--story">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'story_review' -%}
+          {% render 'review-card',
+            name: block.settings.name,
+            meta: block.settings.meta,
+            badge: block.settings.badge,
+            quote: block.settings.quote
+          %}
+        {%- endif -%}
+      {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ingredient story",
+  "tag": "section",
+  "class": "section neeli-ingredient-story",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "soft_background", "label": "Soft background", "default": true },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "What's in it. What is not." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The formula, simplified." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Two clear columns make the formula easier to scan and trust.</p>" },
+    { "type": "text", "id": "accordion_kicker", "label": "Accordion kicker", "default": "Kerala Ayurveda Difference" },
+    { "type": "text", "id": "accordion_heading", "label": "Accordion heading", "default": "Why the process matters" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Top padding" },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Bottom padding" }
+  ],
+  "blocks": [
+    {
+      "type": "inclusion",
+      "name": "Inclusion",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "100% NATURAL INGREDIENTS" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "No mineral oil, parabens, or synthetic fragrance. Pure botanical extraction." }
+      ]
+    },
+    {
+      "type": "exclusion",
+      "name": "Exclusion",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "NO PARABENS" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "We use natural antioxidants to preserve the formula." }
+      ]
+    },
+    {
+      "type": "difference",
+      "name": "Difference",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "none",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "leather", "label": "Leather" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "ruler", "label": "Ruler" },
+            { "value": "heart", "label": "Heart" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "INGREDIENTS" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Neeli, Bhringaraj, Amla and a triple-milk base selected to cool, fortify, and support regrowth." }
+      ]
+    },
+    {
+      "type": "story_review",
+      "name": "Story review",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Priya M." },
+        { "type": "text", "id": "meta", "label": "Meta", "default": "Bengaluru - 6 weeks" },
+        { "type": "text", "id": "badge", "label": "Badge", "default": "Less fall - week 3" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Less hair in the shower drain by week three. That was the first sign it was working." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ingredient story",
+      "blocks": [
+        { "type": "inclusion" },
+        { "type": "inclusion" },
+        { "type": "exclusion" },
+        { "type": "exclusion" },
+        { "type": "difference" },
+        { "type": "difference" },
+        { "type": "difference" },
+        { "type": "difference" },
+        { "type": "story_review" },
+        { "type": "story_review" }
+      ]
+    }
+  ]
+}
+{% endschema %}

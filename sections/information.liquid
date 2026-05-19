@@ -1,0 +1,141 @@
+{{ 'section-neeli-product-page.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="neeli-product-page__section neeli-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}neeli-product-page__section--soft{% endif %}">
+  <div class="neeli-product-page__wrap">
+    {% render 'section-heading',
+      kicker: section.settings.kicker,
+      title: section.settings.heading,
+      text: section.settings.text,
+      align: 'center',
+      heading_tag: 'h2'
+    %}
+
+    <div class="neeli-info-panels">
+      <div class="neeli-info-panel neeli-panel">
+        {% render 'section-heading',
+          kicker: section.settings.info_kicker,
+          title: section.settings.info_heading,
+          align: 'left',
+          heading_tag: 'h3'
+        %}
+
+        <div class="neeli-accordion">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'info' -%}
+              {% render 'accordion-item',
+                item_id: 'Info-' | append: block.id,
+                title: block.settings.title,
+                content: block.settings.text,
+                icon: block.settings.icon,
+                open: forloop.first
+              %}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="neeli-info-panel neeli-panel">
+        {% render 'section-heading',
+          kicker: section.settings.faq_kicker,
+          title: section.settings.faq_heading,
+          align: 'left',
+          heading_tag: 'h3'
+        %}
+
+        <div class="neeli-accordion">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'faq' -%}
+              {% render 'accordion-item',
+                item_id: 'Faq-' | append: block.id,
+                title: block.settings.question,
+                content: block.settings.answer,
+                icon: 'none'
+              %}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "information",
+  "tag": "section",
+  "class": "section neeli-information",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "soft_background", "label": "Soft background", "default": true },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Information" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Go deeper." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Clear answers for the most common questions.</p>" },
+    { "type": "text", "id": "info_kicker", "label": "Info kicker", "default": "Full ingredient list" },
+    { "type": "text", "id": "info_heading", "label": "Info heading", "default": "What is inside" },
+    { "type": "text", "id": "faq_kicker", "label": "FAQ kicker", "default": "Frequently asked" },
+    { "type": "text", "id": "faq_heading", "label": "FAQ heading", "default": "Questions we hear often" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Top padding" },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Bottom padding" }
+  ],
+  "blocks": [
+    {
+      "type": "info",
+      "name": "Info item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "none",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "leather", "label": "Leather" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "ruler", "label": "Ruler" },
+            { "value": "heart", "label": "Heart" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Full ingredient list" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Neeli, Bhringaraj, Amla, sesame oil and traditional botanicals." }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "When will I see results?" },
+        { "type": "textarea", "id": "answer", "label": "Answer", "default": "Reduced hair fall is typically noticed within 2 to 3 weeks." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "information",
+      "blocks": [
+        { "type": "info" },
+        { "type": "info" },
+        { "type": "info" },
+        { "type": "info" },
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" }
+      ]
+    }
+  ]
+}
+{% endschema %}

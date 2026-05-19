@@ -1,14 +1,14 @@
 {
   "sections": {
     "header": {
-      "type": "neeli-header",
+      "type": "header",
       "settings": {
         "padding_top": 0,
         "padding_bottom": 0
       }
     },
     "main": {
-      "type": "neeli-product-hero",
+      "type": "product-hero",
       "blocks": {
         "badge": {
           "type": "text",
@@ -71,7 +71,7 @@
       }
     },
     "timeline": {
-      "type": "neeli-what-to-expect",
+      "type": "what-to-expect",
       "blocks": {
         "stage_1": {
           "type": "stage",
@@ -116,7 +116,7 @@
       }
     },
     "story": {
-      "type": "neeli-ingredient-story",
+      "type": "ingredient-story",
       "blocks": {
         "inclusion_1": {
           "type": "inclusion",
@@ -222,7 +222,7 @@
       }
     },
     "ingredients": {
-      "type": "neeli-key-ingredients",
+      "type": "key-ingredients",
       "blocks": {
         "ingredient_1": {
           "type": "ingredient",
@@ -327,7 +327,7 @@
       }
     },
     "information": {
-      "type": "neeli-information",
+      "type": "information",
       "blocks": {
         "info_1": {
           "type": "info",
@@ -415,7 +415,7 @@
       }
     },
     "brand_trust": {
-      "type": "neeli-brand-trust",
+      "type": "brand-trust",
       "settings": {
         "color_scheme": "scheme-3",
         "kicker": "Full spectrum",
@@ -436,7 +436,7 @@
       }
     },
     "reviews": {
-      "type": "neeli-customer-reviews",
+      "type": "customer-reviews",
       "blocks": {
         "review_1": {
           "type": "review",
@@ -470,7 +470,7 @@
       }
     },
     "footer": {
-      "type": "neeli-footer",
+      "type": "footer",
       "settings": {
         "color_scheme": "scheme-1",
         "padding_top": 40,

@@ -1,183 +1,71 @@
-{{ 'customer.css' | asset_url | stylesheet_tag }}
-
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
-<div class="customer account section-{{ section.id }}-padding">
-  <div>
-    <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
-    <a href="{{ routes.account_logout_url }}">
-      <span class="svg-wrapper">
-        {{- 'icon-account.svg' | inline_asset_content -}}
-      </span>
-      {{ 'customer.log_out' | t }}
-    </a>
-  </div>
-
-  <div>
+<div class="neeli-container neeli-page-spacing">
+  <header style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(23, 55, 45, 0.08); padding-bottom: 1.5rem; margin-bottom: 3rem;">
     <div>
-      <h2>{{ 'customer.orders.title' | t }}</h2>
+      <h1 style="font-family: var(--font-heading-family); font-size: 2.75rem; color: var(--neeli-forest); margin: 0; font-weight: 400;">Your Account</h1>
+      <p style="font-size: 0.9375rem; color: rgba(23, 55, 45, 0.72); margin: 0.5rem 0 0;">Welcome back, {{ customer.first_name }}</p>
+    </div>
+    <a href="{{ routes.account_logout_url }}" style="color: rgba(23, 55, 45, 0.62); text-decoration: underline; font-size: 0.9375rem;">Log Out</a>
+  </header>
 
-      {% paginate customer.orders by 20 %}
+  <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; @media screen and (min-width: 990px) { grid-template-columns: 2.5fr 1fr; }">
+    <div>
+      <h2 style="font-family: var(--font-heading-family); font-size: 1.75rem; color: var(--neeli-forest); margin-top: 0; margin-bottom: 1.5rem; font-weight: 400;">Order History</h2>
+
+      {%- paginate customer.orders by 20 -%}
         {%- if customer.orders.size > 0 -%}
-          <table role="table" class="order-history">
-            <caption class="visually-hidden">
-              {{ 'customer.orders.title' | t }}
-            </caption>
-            <thead role="rowgroup">
-              <tr role="row">
-                <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
-                <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
-                <th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
-                <th id="ColumnFulfillment" scope="col" role="columnheader">
-                  {{ 'customer.orders.fulfillment_status' | t }}
-                </th>
-                <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
-              </tr>
-            </thead>
-            <tbody role="rowgroup">
-              {%- for order in customer.orders -%}
-                <tr role="row">
-                  <td
-                    id="RowOrder"
-                    role="cell"
-                    headers="ColumnOrder"
-                    data-label="{{ 'customer.orders.order_number' | t }}"
-                  >
-                    <a
-                      href="{{ order.customer_url }}"
-                      aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}"
-                    >
-                      {{ order.name }}
-                    </a>
-                  </td>
-                  <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
-                    {{ order.created_at | time_tag: format: 'date' }}
-                  </td>
-                  <td
-                    headers="RowOrder ColumnPayment"
-                    role="cell"
-                    data-label="{{ 'customer.orders.payment_status' | t }}"
-                  >
-                    {{ order.financial_status_label }}
-                  </td>
-                  <td
-                    headers="RowOrder ColumnFulfillment"
-                    role="cell"
-                    data-label="{{ 'customer.orders.fulfillment_status' | t }}"
-                  >
+          <div style="display: grid; gap: 1rem;">
+            {%- for order in customer.orders -%}
+              <div style="background: #fff; border: 1px solid rgba(23, 55, 45, 0.08); border-radius: 12px; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <h3 style="font-size: 1rem; font-weight: 600; margin: 0; color: var(--neeli-forest);">
+                    <a href="{{ order.customer_url }}" style="color: inherit; text-decoration: underline;">Order {{ order.name }}</a>
+                  </h3>
+                  <p style="font-size: 0.8125rem; color: rgba(23, 55, 45, 0.54); margin: 0.25rem 0 0;">Placed on {{ order.created_at | time_tag: format: 'date' }}</p>
+                  <span style="display: inline-block; font-size: 0.75rem; text-transform: uppercase; font-weight: 600; padding: 0.25rem 0.625rem; border-radius: 4px; margin-top: 0.75rem; {% if order.fulfillment_status_label == 'Fulfilled' %}background: #ecf8ee; color: #38a55b;{% else %}background: #fdf6e2; color: #f2a11b;{% endif %}">
                     {{ order.fulfillment_status_label }}
-                  </td>
-                  <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
-                    {{ order.total_net_amount | money_with_currency }}
-                  </td>
-                </tr>
-              {%- endfor -%}
-            </tbody>
-          </table>
-        {%- else -%}
-          <p>{{ 'customer.orders.none' | t }}</p>
-        {%- endif -%}
-
-        {%- if paginate.pages > 1 -%}
-          {%- if paginate.parts.size > 0 -%}
-            <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
-              <ul role="list">
-                {%- if paginate.previous -%}
-                  <li>
-                    <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
-                      <span class="svg-wrapper">
-                        {{- 'icon-caret.svg' | inline_asset_content -}}
-                      </span>
-                    </a>
-                  </li>
-                {%- endif -%}
-
-                {%- for part in paginate.parts -%}
-                  <li>
-                    {%- if part.is_link -%}
-                      <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
-                        {{- part.title -}}
-                      </a>
-                    {%- else -%}
-                      {%- if part.title == paginate.current_page -%}
-                        <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
-                          {{- part.title -}}
-                        </span>
-                      {%- else -%}
-                        <span>{{ part.title }}</span>
-                      {%- endif -%}
-                    {%- endif -%}
-                  </li>
-                {%- endfor -%}
-
-                {%- if paginate.next -%}
-                  <li>
-                    <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}">
-                      <span class="svg-wrapper">
-                        {{- 'icon-caret.svg' | inline_asset_content -}}
-                      </span>
-                    </a>
-                  </li>
-                {%- endif -%}
-              </ul>
-            </nav>
+                  </span>
+                </div>
+                <div style="text-align: right;">
+                  <span style="font-weight: 600; color: var(--neeli-forest); display: block;">{{ order.total_net_amount | money }}</span>
+                  <span style="font-size: 0.8125rem; color: rgba(23, 55, 45, 0.62);">{{ order.item_count }} item(s)</span>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+          {%- if paginate.pages > 1 -%}
+            <div style="margin-top: 2rem; text-align: center;">
+              {{ paginate | default_pagination }}
+            </div>
           {%- endif -%}
+        {%- else -%}
+          <p style="color: rgba(23, 55, 45, 0.62); font-size: 1rem;">You haven't placed any orders yet.</p>
         {%- endif -%}
-      {% endpaginate %}
+      {%- endpaginate -%}
     </div>
 
     <div>
-      <h2>{{ 'customer.account.details' | t }}</h2>
-
-      {{ customer.default_address | format_address }}
-
-      <a href="{{ routes.account_addresses_url }}">
-        {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
-      </a>
+      <h2 style="font-family: var(--font-heading-family); font-size: 1.75rem; color: var(--neeli-forest); margin-top: 0; margin-bottom: 1.5rem; font-weight: 400;">Primary Address</h2>
+      <div style="background: #fcfaf4; border: 1px solid rgba(23, 55, 45, 0.1); border-radius: 12px; padding: 1.5rem; line-height: 1.5; font-size: 0.9375rem; color: rgba(23, 55, 45, 0.88);">
+        {%- if customer.default_address -%}
+          {{ customer.default_address | format_address }}
+        {%- else -%}
+          <p style="margin: 0; color: rgba(23, 55, 45, 0.62);">No addresses saved.</p>
+        {%- endif -%}
+        <div style="margin-top: 1.5rem;">
+          <a href="{{ routes.addresses_url }}" class="neeli-review-button" style="display: inline-flex; width: 100%; justify-content: center; padding: 0.75rem 1.25rem; font-size: 0.875rem; text-decoration: none;">
+            Manage Addresses
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 {% schema %}
 {
-  "name": "t:sections.main-account.name",
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    }
-  ]
+  "name": "Account Page",
+  "tag": "section",
+  "class": "section",
+  "settings": []
 }
 {% endschema %}
