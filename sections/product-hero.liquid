@@ -227,21 +227,21 @@
           </script>
 
           {%- assign quote_block = section.blocks | where: "type", "hero_quote" | first -%}
-          <div class="hover-rise mt-5 rounded-r-xl border-l-[4px] border-[#f3b324] bg-[#f8f1df] px-4 py-3 sm:px-5" style="margin-bottom: 1.5rem;">
-            <p class="text-[13px] leading-[1.35] text-[#17372d]/78 sm:text-[14px]">
+          <div class="theme-product-page__quote-wrap motion-panel">
+            <div class="theme-product-page__quote">
               {%- if quote_block -%}
                 {{ quote_block.settings.quote }}
               {%- else -%}
                 "Hair fall reduced noticeably, and I can already see tiny baby hairs coming"
               {%- endif -%}
-            </p>
-            <p class="mt-1 text-[12px] font-medium uppercase tracking-[0.08em] text-[#17372d]/58 sm:text-[13px]">
+            </div>
+            <div class="theme-product-page__quote-meta">
               {%- if quote_block -%}
                 {{ quote_block.settings.author }}
               {%- else -%}
                 - ANU R., CHENNAI
               {%- endif -%}
-            </p>
+            </div>
           </div>
 
           {%- assign feature_block = section.blocks | where: "type", "hero_feature" | first -%}
@@ -279,13 +279,8 @@
             </div>
           </div>
 
-          {%- assign note_block = section.blocks | where: "type", "hero_note" | first -%}
-          <p class="theme-product-page__body theme-product-page__hero-note" style="margin-bottom: 1.5rem;">
-            {%- if note_block -%}
-              {{ note_block.settings.text }}
-            {%- else -%}
-              Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within.
-            {%- endif -%}
+          <p class="theme-product-page__description-block">
+            Real scalp repair + strengthening for weaker follicles. Neelibhringadi Keram is a traditional Ayurvedic recipe trusted for generations to prevent premature greying, arrest hair fall, and support natural root reactivation.
           </p>
 
           <div class="theme-reorder-card cta-sheen motion-panel" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
@@ -331,7 +326,7 @@
                 <path d="M6 8h12l-1 11H7L6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
                 <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
               </svg>
-              <span>7-day returns</span>
+              <span>Safe returns</span>
             </div>
           </div>
 
@@ -471,7 +466,7 @@
             <path d="M6 8h12l-1 11H7L6 8Z" stroke-linejoin="round" />
             <path d="M9 8a3 3 0 0 1 6 0" stroke-linecap="round" />
           </svg>
-          <span>Easy returns</span>
+          <span>Safe returns</span>
         </div>
       </div>
 
@@ -541,11 +536,9 @@
         </div>
       </div>
 
-      {%- if note_block -%}
-        <p class="mt-4 text-[14px] leading-[1.44] text-[#17372d]/72" style="margin-bottom: 2rem;">
-          {{ note_block.settings.text }}
-        </p>
-      {%- endif -%}
+      <p class="theme-product-page__description-block">
+        Real scalp repair + strengthening for weaker follicles. Neelibhringadi Keram is a traditional Ayurvedic recipe trusted for generations to prevent premature greying, arrest hair fall, and support natural root reactivation.
+      </p>
     </div>
   </div>
 </section>

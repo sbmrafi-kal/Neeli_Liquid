@@ -525,7 +525,9 @@
   display: block;
   width: 100%;
   height: 440px;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 24px;
+  background: var(--theme-white);
   object-position: center;
 }
 
@@ -729,7 +731,7 @@
 .theme-stamp-card__top {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.35rem;
+  gap: 22px;
 }
 
 .theme-stamp-card__stamp {
@@ -739,8 +741,8 @@
 }
 
 .theme-stamp-card__stamp-image {
-  width: 76px;
-  height: 76px;
+  width: 84px;
+  height: 84px;
   max-width: none;
   object-fit: contain;
   opacity: 0.95;
@@ -794,9 +796,9 @@
   margin: 0;
   font-family: "Cormorant Garamond", serif;
   font-size: 32px;
-  line-height: 1.05;
+  line-height: 0.95;
   font-weight: 400;
-  letter-spacing: -0.8px;
+  letter-spacing: -1px;
   color: #284735;
 }
 
@@ -808,26 +810,26 @@
 
 @media screen and (min-width: 990px) {
   .theme-product-page__title {
-    font-size: 56px;
+    font-size: 58px;
   }
 }
 
 .theme-product-page__subtitle {
   margin: 0;
-  color: rgba(23, 55, 45, 0.82);
-  font-size: 0.9375rem;
-  line-height: 1;
+  color: #7a746d;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 @media screen and (min-width: 640px) {
   .theme-product-page__subtitle {
-    font-size: 1rem;
+    font-size: 18px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .theme-product-page__subtitle {
-    font-size: 1.1875rem;
+    font-size: 18px;
   }
 }
 
@@ -835,6 +837,15 @@
   color: var(--theme-forest-soft);
   line-height: 1.55;
   font-size: 0.875rem;
+}
+
+.theme-product-page__description-block {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #6a655f;
+  max-width: 92%;
+  margin-top: 18px;
+  margin-bottom: 1.5rem;
 }
 
 @media screen and (min-width: 640px) {
@@ -864,12 +875,12 @@
 }
 
 .theme-reorder-card {
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   background: #8f4f33;
   color: #fff;
   border: 1px solid rgba(143, 79, 51, 0.3);
-  height: 66px;
+  height: 68px;
 }
 
 .theme-reorder-card__button {
@@ -963,6 +974,30 @@
     gap: 0.5rem;
     padding: 0.625rem 0.75rem;
     font-size: 0.8125rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .theme-delivery-row {
+    display: flex;
+    gap: 28px;
+    background: transparent;
+    padding-top: 18px;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  .theme-delivery-row__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    font-size: 13px;
+    color: #7b746c;
+  }
+  
+  .theme-delivery-row__item:hover {
+    background: transparent;
   }
 }
 
@@ -1938,13 +1973,13 @@
 .theme-dual-panel .theme-panel {
   background: #ffffff;
   border: 1px solid rgba(23, 55, 45, 0.05);
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 36px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-  min-height: 240px;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .theme-dual-panel .theme-panel--dark {
@@ -2039,7 +2074,7 @@
 .theme-difference-panel .theme-accordion__summary {
   display: flex;
   align-items: center;
-  height: 76px;
+  height: 82px;
   padding: 0 28px;
   cursor: pointer;
 }
@@ -2047,7 +2082,7 @@
 .theme-difference-panel .theme-accordion__title {
   color: #fff;
   font-family: var(--theme-body-font);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   letter-spacing: 0.02em;
 }
@@ -2772,11 +2807,14 @@
   }
 
   .theme-timeline__heading-band .theme-section-heading__title {
-    font-size: 2.75rem;
+    font-size: 52px;
+    line-height: 1.1;
+    color: white;
   }
 
   .theme-timeline__heading-band .theme-section-heading__text {
-    font-size: 1rem;
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
   }
 
   .theme-timeline__grid {
@@ -2788,13 +2826,13 @@
 
   .theme-timeline__item {
     width: 320px;
-    min-height: 280px;
+    min-height: 320px;
     display: flex;
     flex-direction: column;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-    padding: 24px;
+    padding: 28px;
     border: 1px solid rgba(23, 55, 45, 0.05);
     text-align: left;
   }
@@ -2842,13 +2880,18 @@
   }
 
   .theme-timeline__title {
-    font-size: 20px;
+    font-size: 34px;
     margin-top: 4px;
-    line-height: 1.25;
+    line-height: 1.2;
     margin-bottom: 8px;
     color: var(--theme-forest);
     font-family: var(--font-heading-family);
     font-weight: 400;
+  }
+
+  .theme-timeline__text {
+    font-size: 15px;
+    line-height: 1.7;
   }
 
 
