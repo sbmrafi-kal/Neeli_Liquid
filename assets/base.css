@@ -141,6 +141,13 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 }
 
+.theme-product-page__wrap {
+  max-width: 1460px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 .isolate {
   position: relative;
   z-index: 0;

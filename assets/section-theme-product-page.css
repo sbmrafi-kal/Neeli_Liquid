@@ -188,9 +188,9 @@
 }
 
 .theme-product-page__wrap {
-  max-width: 1180px;
+  max-width: 1460px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 24px;
 }
 
 .theme-site-header {
@@ -214,7 +214,7 @@
   justify-content: space-between;
   margin: 0 auto;
   padding: 0 1.25rem;
-  max-width: 1392px;
+  max-width: 1460px;
 }
 
 @media screen and (min-width: 750px) {
@@ -425,7 +425,7 @@
 
 @media screen and (min-width: 750px) {
   .theme-product-page__wrap {
-    padding: 0 32px;
+    padding: 0 24px;
   }
 }
 
@@ -437,8 +437,8 @@
 
 @media screen and (min-width: 990px) {
   .theme-product-page__hero {
-    grid-template-columns: 46% 54%;
-    gap: 52px;
+    grid-template-columns: 48% 52%;
+    gap: 48px;
   }
 }
 
@@ -458,7 +458,7 @@
 
 .theme-product-page__hero-media {
   padding: 0;
-  max-width: 500px;
+  max-width: none;
   width: 100%;
 }
 
@@ -524,22 +524,22 @@
 .theme-hero-carousel__image {
   display: block;
   width: 100%;
-  height: 440px;
+  height: 520px;
   object-fit: contain;
-  padding: 24px;
+  padding: 20px;
   background: var(--theme-white);
   object-position: center;
 }
 
 @media screen and (min-width: 1100px) {
   .theme-hero-carousel__image {
-    height: 520px;
+    height: 620px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .theme-hero-carousel__image {
-    height: 620px;
+    height: 700px;
   }
 }
 
@@ -1142,10 +1142,18 @@
 .theme-section-heading__title {
   margin: 0;
   font-family: var(--font-heading-family);
-  font-size: 44px;
-  line-height: 1.2;
+  font-size: 42px;
+  line-height: 1.18;
   font-weight: 400;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.45px;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-section-heading__title {
+    font-size: 48px;
+    line-height: 1.16;
+    letter-spacing: -0.55px;
+  }
 }
 
 .theme-section-heading__text {
@@ -1588,8 +1596,8 @@
 
 @media screen and (min-width: 990px) {
   .theme-footer-grid {
-    grid-template-columns: 1.3fr 1fr 1fr 1fr;
-    gap: 72px;
+    grid-template-columns: 1.08fr 1fr 1fr 1fr;
+    gap: 56px;
     align-items: start;
   }
 }
@@ -1647,8 +1655,8 @@
   display: grid;
   gap: 0.52rem;
   color: rgba(23, 55, 45, 0.84);
-  line-height: 2;
-  font-size: 15px;
+  line-height: 1.9;
+  font-size: 16px;
 }
 
 .theme-footer-social {
@@ -1701,7 +1709,7 @@
   border-top: 1px solid rgba(23, 55, 45, 0.12);
   text-align: center;
   font-family: var(--font-heading-family);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1.45;
   color: rgba(23, 55, 45, 0.92);
 }
@@ -1756,7 +1764,7 @@
 
 .theme-product-page__intro {
   margin: 1rem 0 0;
-  max-width: 780px;
+  max-width: 860px;
   font-size: 0.9375rem;
   line-height: 1.44;
 }
@@ -1768,7 +1776,7 @@
 .theme-product-page__cert-note,
 .theme-product-page__hero-note {
   margin: 1rem 0 0;
-  max-width: 780px;
+  max-width: 860px;
   font-size: 0.9375rem;
   line-height: 1.44;
 }
@@ -1851,9 +1859,9 @@
 
 .theme-ritual-guide__inner {
   position: relative;
-  max-width: 1392px;
+  max-width: 1460px;
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 24px;
 }
 
 .theme-ritual-guide__card {
@@ -1917,8 +1925,14 @@
 
 .theme-timeline__heading-band .theme-section-heading__title {
   margin-top: 0.5rem;
-  font-size: 2.375rem;
-  line-height: 1;
+  font-size: 2.25rem;
+  line-height: 0.98;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-timeline__heading-band .theme-section-heading__title {
+    font-size: 2.75rem;
+  }
 }
 
 .theme-timeline__heading-band .theme-section-heading__text {
@@ -1963,7 +1977,7 @@
 }
 
 .theme-dual-panel {
-  max-width: 1080px;
+  max-width: 1460px;
   margin: 3.5rem auto 0;
   display: grid;
   grid-template-columns: 1fr;
@@ -2038,7 +2052,7 @@
 
 @media screen and (min-width: 990px) {
   .theme-difference-heading .theme-section-heading__title {
-    font-size: 2.625rem;
+    font-size: 3rem;
     letter-spacing: normal;
   }
 }
@@ -2102,7 +2116,7 @@
 }
 
 .theme-review-grid--story {
-  max-width: 1180px;
+  max-width: 1460px;
   margin: 0 auto;
   gap: 3.5rem;
 }
@@ -2175,7 +2189,7 @@
 
 @media screen and (min-width: 990px) {
   .theme-milk-section .theme-section-heading__title {
-    font-size: 2.75rem;
+    font-size: 3.25rem;
   }
 }
 
@@ -2475,7 +2489,7 @@
   margin: 0;
   color: var(--theme-cream);
   font-family: var(--theme-heading-font);
-  font-size: 1.75rem;
+  font-size: 2rem;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -2616,7 +2630,7 @@
 
 @media screen and (min-width: 990px) {
   .theme-customer-reviews .theme-section-heading__title {
-    font-size: 2.625rem;
+    font-size: 3rem;
   }
 }
 
@@ -2765,8 +2779,8 @@
 
 @media screen and (min-width: 750px) {
   .theme-ritual-guide__inner {
-    padding-right: 3rem;
-    padding-left: 3rem;
+    padding-right: 24px;
+    padding-left: 24px;
   }
 
   .theme-ingredient-grid {
@@ -2781,8 +2795,8 @@
 
 @media screen and (min-width: 990px) {
   .theme-product-page__hero {
-    grid-template-columns: minmax(0, 0.66fr) minmax(0, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+    gap: 2rem;
   }
 
   .theme-product-page__badge {
@@ -3055,7 +3069,7 @@
 
   .theme-info-panel {
     max-width: 1460px;
-    padding: 0.5rem 1.25rem;
+    padding: 0.5rem 0;
   }
 
   .theme-info-panels {
