@@ -7,10 +7,10 @@
   }
 
   function initCarousel(root) {
-    const slides = Array.from(root.querySelectorAll('[data-neeli-carousel-slide]'));
-    const thumbs = Array.from(root.querySelectorAll('[data-neeli-carousel-thumb]'));
-    const prev = root.querySelector('[data-neeli-carousel-prev]');
-    const next = root.querySelector('[data-neeli-carousel-next]');
+    const slides = Array.from(root.querySelectorAll('[data-theme-carousel-slide]'));
+    const thumbs = Array.from(root.querySelectorAll('[data-theme-carousel-thumb]'));
+    const prev = root.querySelector('[data-theme-carousel-prev]');
+    const next = root.querySelector('[data-theme-carousel-next]');
     if (!slides.length) return;
 
     let current = Math.max(0, slides.findIndex((slide) => slide.classList.contains('is-active')));
@@ -39,7 +39,7 @@
     if (next) next.addEventListener('click', () => setActive(current + 1));
     thumbs.forEach((thumb) => {
       thumb.addEventListener('click', () => {
-        const index = Number(thumb.getAttribute('data-neeli-carousel-thumb'));
+        const index = Number(thumb.getAttribute('data-theme-carousel-thumb'));
         if (!Number.isNaN(index)) setActive(index);
       });
     });
@@ -53,7 +53,7 @@
   }
 
   function initReveal() {
-    const elements = Array.from(document.querySelectorAll('.neeli-reveal'));
+    const elements = Array.from(document.querySelectorAll('.theme-reveal'));
     if (!elements.length) return;
 
     if (!('IntersectionObserver' in window)) {
@@ -74,7 +74,7 @@
   }
 
   function boot() {
-    document.querySelectorAll('[data-neeli-carousel]').forEach(initCarousel);
+    document.querySelectorAll('[data-theme-carousel]').forEach(initCarousel);
     initReveal();
   }
 

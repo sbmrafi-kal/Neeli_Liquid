@@ -1,4 +1,4 @@
-{{ 'section-neeli-product-page.css' | asset_url | stylesheet_tag }}
+{{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -20,108 +20,108 @@
 
 <section
   id="NeeliHomeHero-{{ section.id }}"
-  class="neeli-product-page neeli-reveal section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="theme-product-page theme-reveal section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}"
 >
-  <script src="{{ 'neeli-product-page.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'theme-product-page.js' | asset_url }}" defer="defer"></script>
 
-  <div class="neeli-product-page__wrap">
-    <div class="neeli-product-page__hero">
-      <div class="neeli-product-page__hero-media">
-        <div class="neeli-hero-carousel" data-neeli-carousel data-neeli-autoplay="true" data-neeli-interval="4800">
-          <div class="neeli-hero-carousel__stage">
+  <div class="theme-product-page__wrap">
+    <div class="theme-product-page__hero">
+      <div class="theme-product-page__hero-media">
+        <div class="theme-hero-carousel" data-theme-carousel data-theme-autoplay="true" data-theme-interval="4800">
+          <div class="theme-hero-carousel__stage">
             {%- for image in hero_images -%}
-              <figure class="neeli-hero-carousel__slide{% if forloop.first %} is-active{% endif %}" data-neeli-carousel-slide>
+              <figure class="theme-hero-carousel__slide{% if forloop.first %} is-active{% endif %}" data-theme-carousel-slide>
                 {%- if forloop.first -%}
                   {%- assign hero_loading = 'eager' -%}
                 {%- else -%}
                   {%- assign hero_loading = 'lazy' -%}
                 {%- endif -%}
-                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ section.settings.hero_alt | escape }}">
+                <img src="{{ image | asset_url }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ section.settings.hero_alt | escape }}">
               </figure>
             {%- endfor -%}
 
-            <button class="neeli-hero-carousel__control neeli-hero-carousel__control--prev" type="button" aria-label="Previous image" data-neeli-carousel-prev>
+            <button class="theme-hero-carousel__control theme-hero-carousel__control--prev" type="button" aria-label="Previous image" data-theme-carousel-prev>
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </button>
-            <button class="neeli-hero-carousel__control neeli-hero-carousel__control--next" type="button" aria-label="Next image" data-neeli-carousel-next>
+            <button class="theme-hero-carousel__control theme-hero-carousel__control--next" type="button" aria-label="Next image" data-theme-carousel-next>
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </button>
           </div>
 
-          <div class="neeli-hero-carousel__thumbs" role="tablist" aria-label="Homepage gallery thumbnails">
+          <div class="theme-hero-carousel__thumbs" role="tablist" aria-label="Homepage gallery thumbnails">
             {%- for image in hero_thumbs -%}
               <button
-                class="neeli-hero-carousel__thumb{% if forloop.first %} is-active{% endif %}"
+                class="theme-hero-carousel__thumb{% if forloop.first %} is-active{% endif %}"
                 type="button"
                 aria-label="Show image {{ forloop.index }}"
-                data-neeli-carousel-thumb="{{ forloop.index0 }}"
+                data-theme-carousel-thumb="{{ forloop.index0 }}"
               >
-                <img src="{{ image | asset_url }}" class="neeli-hero-carousel__thumb-image" loading="lazy" width="750" height="1000" alt="">
+                <img src="{{ image | asset_url }}" class="theme-hero-carousel__thumb-image" loading="lazy" width="750" height="1000" alt="">
               </button>
             {%- endfor -%}
           </div>
 
-          <div class="neeli-hero-carousel__stats">
-            <div class="neeli-hero-carousel__stat">
-              <div class="neeli-hero-carousel__stat-value">4.64★</div>
-              <div class="neeli-hero-carousel__stat-label">Ratings</div>
+          <div class="theme-hero-carousel__stats">
+            <div class="theme-hero-carousel__stat">
+              <div class="theme-hero-carousel__stat-value">4.64★</div>
+              <div class="theme-hero-carousel__stat-label">Ratings</div>
             </div>
-            <div class="neeli-hero-carousel__stat">
-              <div class="neeli-hero-carousel__stat-value">312</div>
-              <div class="neeli-hero-carousel__stat-label">Reviews</div>
+            <div class="theme-hero-carousel__stat">
+              <div class="theme-hero-carousel__stat-value">312</div>
+              <div class="theme-hero-carousel__stat-label">Reviews</div>
             </div>
-            <div class="neeli-hero-carousel__stat">
-              <div class="neeli-hero-carousel__stat-value">30</div>
-              <div class="neeli-hero-carousel__stat-label">Uses</div>
+            <div class="theme-hero-carousel__stat">
+              <div class="theme-hero-carousel__stat-value">30</div>
+              <div class="theme-hero-carousel__stat-label">Uses</div>
             </div>
-            <div class="neeli-hero-carousel__stat">
-              <div class="neeli-hero-carousel__stat-value">300+</div>
-              <div class="neeli-hero-carousel__stat-label">Happy Customers</div>
+            <div class="theme-hero-carousel__stat">
+              <div class="theme-hero-carousel__stat-value">300+</div>
+              <div class="theme-hero-carousel__stat-label">Happy Customers</div>
             </div>
           </div>
         </div>
 
-        <div class="neeli-hero-below neeli-hero-below--desktop">
-          <img src="{{ 'Below_the_product.png' | asset_url }}" class="neeli-hero-below__image" loading="lazy" width="2000" height="2000" alt="">
+        <div class="theme-hero-below theme-hero-below--desktop">
+          <img src="{{ 'Below_the_product.png' | asset_url }}" class="theme-hero-below__image" loading="lazy" width="2000" height="2000" alt="">
         </div>
       </div>
 
-      <div class="neeli-product-page__hero-info">
-        <div class="neeli-product-page__hero-header">
-          <div class="neeli-product-page__badge-row">
-            <span class="neeli-product-page__badge">{{ section.settings.badge }}</span>
+      <div class="theme-product-page__hero-info">
+        <div class="theme-product-page__hero-header">
+          <div class="theme-product-page__badge-row">
+            <span class="theme-product-page__badge">{{ section.settings.badge }}</span>
           </div>
 
           <div>
-            <h1 class="neeli-product-page__title">{{ section.settings.title }}</h1>
-            <p class="neeli-product-page__subtitle">{{ section.settings.subtitle }}</p>
+            <h1 class="theme-product-page__title">{{ section.settings.title }}</h1>
+            <p class="theme-product-page__subtitle">{{ section.settings.subtitle }}</p>
           </div>
 
-          <p class="neeli-product-page__body">{{ section.settings.body }}</p>
+          <p class="theme-product-page__body">{{ section.settings.body }}</p>
 
-          <div class="neeli-reorder-card cta-sheen motion-panel">
-            <a class="neeli-reorder-card__button" href="{{ section.settings.button_link }}">
-              <div class="neeli-reorder-card__main">
-                <svg class="neeli-reorder-card__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <div class="theme-reorder-card cta-sheen motion-panel">
+            <a class="theme-reorder-card__button" href="{{ section.settings.button_link }}">
+              <div class="theme-reorder-card__main">
+                <svg class="theme-reorder-card__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M3 3v5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <div>
-                  <div class="neeli-reorder-card__title">{{ section.settings.cta_title }}</div>
-                  <div class="neeli-reorder-card__meta">{{ section.settings.cta_meta }}</div>
+                  <div class="theme-reorder-card__title">{{ section.settings.cta_title }}</div>
+                  <div class="theme-reorder-card__meta">{{ section.settings.cta_meta }}</div>
                 </div>
               </div>
-              <div class="neeli-reorder-card__price">
-                <span class="neeli-reorder-card__price-old">{{ section.settings.cta_old_price }}</span>
-                <span class="neeli-reorder-card__price-new">{{ section.settings.cta_price }}</span>
+              <div class="theme-reorder-card__price">
+                <span class="theme-reorder-card__price-old">{{ section.settings.cta_old_price }}</span>
+                <span class="theme-reorder-card__price-new">{{ section.settings.cta_price }}</span>
               </div>
             </a>
           </div>
 
-          <div class="neeli-delivery-row">
-            <div class="neeli-delivery-row__item">
-              <svg class="neeli-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <div class="theme-delivery-row">
+            <div class="theme-delivery-row__item">
+              <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M3 7h11v10H3z" stroke="currentColor" stroke-width="1.7" />
                 <path d="M14 10h3l2 2v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
                 <circle cx="7" cy="18" r="1.4" fill="currentColor" />
@@ -129,15 +129,15 @@
               </svg>
               <span>2-4 day delivery</span>
             </div>
-            <div class="neeli-delivery-row__item">
-              <svg class="neeli-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <div class="theme-delivery-row__item">
+              <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="1.7" />
                 <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
               </svg>
               <span>COD available</span>
             </div>
-            <div class="neeli-delivery-row__item">
-              <svg class="neeli-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <div class="theme-delivery-row__item">
+              <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M6 8h12l-1 11H7L6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
                 <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
               </svg>
@@ -145,27 +145,27 @@
             </div>
           </div>
 
-          <div class="neeli-stamp-card motion-panel">
-            <div class="neeli-stamp-card__top">
+          <div class="theme-stamp-card motion-panel">
+            <div class="theme-stamp-card__top">
               {%- for stamp in homepage_stamps -%}
-                <div class="neeli-stamp-card__stamp">
+                <div class="theme-stamp-card__stamp">
                   {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
-                  <img src="{{ stamp | asset_url }}" class="neeli-stamp-card__stamp-image" loading="lazy" width="1920" height="1080" alt="{{ stamp_alt | escape }}">
+                  <img src="{{ stamp | asset_url }}" class="theme-stamp-card__stamp-image" loading="lazy" width="1920" height="1080" alt="{{ stamp_alt | escape }}">
                 </div>
               {%- endfor -%}
             </div>
-            <div class="neeli-stamp-card__stats">
-              <div class="neeli-stamp-card__stat">
-                <div class="neeli-stamp-card__stat-value">1945</div>
-                <div class="neeli-stamp-card__stat-label">Established</div>
+            <div class="theme-stamp-card__stats">
+              <div class="theme-stamp-card__stat">
+                <div class="theme-stamp-card__stat-value">1945</div>
+                <div class="theme-stamp-card__stat-label">Established</div>
               </div>
-              <div class="neeli-stamp-card__stat">
-                <div class="neeli-stamp-card__stat-value">350+</div>
-                <div class="neeli-stamp-card__stat-label">Products</div>
+              <div class="theme-stamp-card__stat">
+                <div class="theme-stamp-card__stat-value">350+</div>
+                <div class="theme-stamp-card__stat-label">Products</div>
               </div>
-              <div class="neeli-stamp-card__stat">
-                <div class="neeli-stamp-card__stat-value">Clinics &amp; Academy</div>
-                <div class="neeli-stamp-card__stat-label">Expert led</div>
+              <div class="theme-stamp-card__stat">
+                <div class="theme-stamp-card__stat-value">Clinics &amp; Academy</div>
+                <div class="theme-stamp-card__stat-label">Expert led</div>
               </div>
             </div>
           </div>
@@ -180,7 +180,7 @@
 {
   "name": "homepage hero",
   "tag": "section",
-  "class": "section neeli-home-hero",
+  "class": "section theme-home-hero",
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "text", "id": "badge", "label": "Badge", "default": "Minimizes hair fall" },

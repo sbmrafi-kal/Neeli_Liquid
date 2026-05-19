@@ -1,9 +1,9 @@
-<article class="neeli-container neeli-container--narrow neeli-page-spacing" style="max-width: 720px; margin: 0 auto;">
+<article class="theme-container theme-container--narrow theme-page-spacing" style="max-width: 720px; margin: 0 auto;">
   <header class="article-header text-center" style="margin-bottom: 3rem;">
     <span style="font-size: 0.8125rem; text-transform: uppercase; color: #8f4f36; letter-spacing: 0.08em; font-weight: 500;">
       {{ article.published_at | time_tag: format: 'date' }}
     </span>
-    <h1 class="neeli-page-title" style="font-family: var(--font-heading-family); font-size: 2.75rem; color: var(--neeli-forest); margin: 0.75rem 0 1rem; line-height: 1.1; font-weight: 400;">
+    <h1 class="theme-page-title" style="font-family: var(--font-heading-family); font-size: 2.75rem; color: var(--theme-forest); margin: 0.75rem 0 1rem; line-height: 1.1; font-weight: 400;">
       {{ article.title | escape }}
     </h1>
     {%- if article.author -%}
@@ -22,7 +22,7 @@
     </div>
   {%- endif -%}
 
-  <div class="neeli-page-content rte" style="font-size: 1.0625rem; color: rgba(23, 55, 45, 0.82); line-height: 1.6; display: grid; gap: 1.5rem;">
+  <div class="theme-page-content rte" style="font-size: 1.0625rem; color: rgba(23, 55, 45, 0.82); line-height: 1.6; display: grid; gap: 1.5rem;">
     {{ article.content }}
   </div>
 </article>

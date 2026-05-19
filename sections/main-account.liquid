@@ -1,7 +1,7 @@
-<div class="neeli-container neeli-page-spacing">
+<div class="theme-container theme-page-spacing">
   <header style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(23, 55, 45, 0.08); padding-bottom: 1.5rem; margin-bottom: 3rem;">
     <div>
-      <h1 style="font-family: var(--font-heading-family); font-size: 2.75rem; color: var(--neeli-forest); margin: 0; font-weight: 400;">Your Account</h1>
+      <h1 style="font-family: var(--font-heading-family); font-size: 2.75rem; color: var(--theme-forest); margin: 0; font-weight: 400;">Your Account</h1>
       <p style="font-size: 0.9375rem; color: rgba(23, 55, 45, 0.72); margin: 0.5rem 0 0;">Welcome back, {{ customer.first_name }}</p>
     </div>
     <a href="{{ routes.account_logout_url }}" style="color: rgba(23, 55, 45, 0.62); text-decoration: underline; font-size: 0.9375rem;">Log Out</a>
@@ -9,7 +9,7 @@
 
   <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; @media screen and (min-width: 990px) { grid-template-columns: 2.5fr 1fr; }">
     <div>
-      <h2 style="font-family: var(--font-heading-family); font-size: 1.75rem; color: var(--neeli-forest); margin-top: 0; margin-bottom: 1.5rem; font-weight: 400;">Order History</h2>
+      <h2 style="font-family: var(--font-heading-family); font-size: 1.75rem; color: var(--theme-forest); margin-top: 0; margin-bottom: 1.5rem; font-weight: 400;">Order History</h2>
 
       {%- paginate customer.orders by 20 -%}
         {%- if customer.orders.size > 0 -%}
@@ -17,7 +17,7 @@
             {%- for order in customer.orders -%}
               <div style="background: #fff; border: 1px solid rgba(23, 55, 45, 0.08); border-radius: 12px; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
                 <div>
-                  <h3 style="font-size: 1rem; font-weight: 600; margin: 0; color: var(--neeli-forest);">
+                  <h3 style="font-size: 1rem; font-weight: 600; margin: 0; color: var(--theme-forest);">
                     <a href="{{ order.customer_url }}" style="color: inherit; text-decoration: underline;">Order {{ order.name }}</a>
                   </h3>
                   <p style="font-size: 0.8125rem; color: rgba(23, 55, 45, 0.54); margin: 0.25rem 0 0;">Placed on {{ order.created_at | time_tag: format: 'date' }}</p>
@@ -26,7 +26,7 @@
                   </span>
                 </div>
                 <div style="text-align: right;">
-                  <span style="font-weight: 600; color: var(--neeli-forest); display: block;">{{ order.total_net_amount | money }}</span>
+                  <span style="font-weight: 600; color: var(--theme-forest); display: block;">{{ order.total_net_amount | money }}</span>
                   <span style="font-size: 0.8125rem; color: rgba(23, 55, 45, 0.62);">{{ order.item_count }} item(s)</span>
                 </div>
               </div>
@@ -44,7 +44,7 @@
     </div>
 
     <div>
-      <h2 style="font-family: var(--font-heading-family); font-size: 1.75rem; color: var(--neeli-forest); margin-top: 0; margin-bottom: 1.5rem; font-weight: 400;">Primary Address</h2>
+      <h2 style="font-family: var(--font-heading-family); font-size: 1.75rem; color: var(--theme-forest); margin-top: 0; margin-bottom: 1.5rem; font-weight: 400;">Primary Address</h2>
       <div style="background: #fcfaf4; border: 1px solid rgba(23, 55, 45, 0.1); border-radius: 12px; padding: 1.5rem; line-height: 1.5; font-size: 0.9375rem; color: rgba(23, 55, 45, 0.88);">
         {%- if customer.default_address -%}
           {{ customer.default_address | format_address }}
@@ -52,7 +52,7 @@
           <p style="margin: 0; color: rgba(23, 55, 45, 0.62);">No addresses saved.</p>
         {%- endif -%}
         <div style="margin-top: 1.5rem;">
-          <a href="{{ routes.addresses_url }}" class="neeli-review-button" style="display: inline-flex; width: 100%; justify-content: center; padding: 0.75rem 1.25rem; font-size: 0.875rem; text-decoration: none;">
+          <a href="{{ routes.addresses_url }}" class="theme-review-button" style="display: inline-flex; width: 100%; justify-content: center; padding: 0.75rem 1.25rem; font-size: 0.875rem; text-decoration: none;">
             Manage Addresses
           </a>
         </div>

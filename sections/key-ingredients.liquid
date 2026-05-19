@@ -1,4 +1,4 @@
-{{ 'section-neeli-product-page.css' | asset_url | stylesheet_tag }}
+{{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -14,15 +14,15 @@
   }
 {%- endstyle -%}
 
-<section class="neeli-product-page__section neeli-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}neeli-product-page__section--soft{% endif %}">
-  <div class="neeli-product-page__wrap">
-    <div class="neeli-section-heading neeli-section-heading--center neeli-key-ingredients__heading">
+<section class="theme-product-page__section theme-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}theme-product-page__section--soft{% endif %}">
+  <div class="theme-product-page__wrap">
+    <div class="theme-section-heading theme-section-heading--center theme-key-ingredients__heading">
       {%- if section.settings.heading != blank -%}
-        <h2 class="neeli-section-heading__title">{{ section.settings.heading }}</h2>
+        <h2 class="theme-section-heading__title">{{ section.settings.heading }}</h2>
       {%- endif -%}
     </div>
 
-    <div class="neeli-ingredient-grid">
+    <div class="theme-ingredient-grid">
       {%- assign ingredient_index = 0 -%}
       {%- for block in section.blocks -%}
         {%- if block.type == 'ingredient' -%}
@@ -37,22 +37,22 @@
             {%- else -%}
               {%- assign default_image = 'ing-coconut.jpg' -%}
           {%- endcase -%}
-            <article class="neeli-ingredient neeli-panel" {{ block.shopify_attributes }}>
+            <article class="theme-ingredient theme-panel" {{ block.shopify_attributes }}>
               {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 1200 | image_tag: class: 'neeli-ingredient__media', loading: 'lazy', alt: block.settings.title }}
+                {{ block.settings.image | image_url: width: 1200 | image_tag: class: 'theme-ingredient__media', loading: 'lazy', alt: block.settings.title }}
               {%- else -%}
-                <img src="{{ default_image | asset_url }}" class="neeli-ingredient__media" loading="lazy" width="670" height="302" alt="{{ block.settings.title | escape }}">
+                <img src="{{ default_image | asset_url }}" class="theme-ingredient__media" loading="lazy" width="670" height="302" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
-              <div class="neeli-ingredient__body">
-                <h3 class="neeli-ingredient__title">{{ block.settings.title }}</h3>
-                <p class="neeli-ingredient__text">{{ block.settings.text }}</p>
+              <div class="theme-ingredient__body">
+                <h3 class="theme-ingredient__title">{{ block.settings.title }}</h3>
+                <p class="theme-ingredient__text">{{ block.settings.text }}</p>
               </div>
             </article>
           {%- endif -%}
         {%- endfor -%}
     </div>
 
-    <div class="neeli-milk-section">
+    <div class="theme-milk-section">
       {% render 'section-heading',
         kicker: section.settings.milk_kicker,
         title: section.settings.milk_heading,
@@ -61,7 +61,7 @@
         heading_tag: 'h2'
       %}
 
-      <div class="neeli-milk-grid">
+      <div class="theme-milk-grid">
         {%- assign milk_index = 0 -%}
         {%- for block in section.blocks -%}
           {%- if block.type == 'milk' -%}
@@ -74,28 +74,28 @@
               {%- else -%}
                 {%- assign default_milk_image = 'Cow_milk.jpg' -%}
             {%- endcase -%}
-            <article class="neeli-milk neeli-panel" {{ block.shopify_attributes }}>
+            <article class="theme-milk theme-panel" {{ block.shopify_attributes }}>
               {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 1000 | image_tag: class: 'neeli-milk__media', loading: 'lazy', alt: block.settings.title }}
+                {{ block.settings.image | image_url: width: 1000 | image_tag: class: 'theme-milk__media', loading: 'lazy', alt: block.settings.title }}
               {%- else -%}
-                <img src="{{ default_milk_image | asset_url }}" class="neeli-milk__media" loading="lazy" width="800" height="920" alt="{{ block.settings.title | escape }}">
+                <img src="{{ default_milk_image | asset_url }}" class="theme-milk__media" loading="lazy" width="800" height="920" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
-              <div class="neeli-milk__body">
-                <h3 class="neeli-milk__title">{{ block.settings.title }}</h3>
-                <p class="neeli-milk__text">{{ block.settings.text }}</p>
+              <div class="theme-milk__body">
+                <h3 class="theme-milk__title">{{ block.settings.title }}</h3>
+                <p class="theme-milk__text">{{ block.settings.text }}</p>
               </div>
             </article>
           {%- endif -%}
         {%- endfor -%}
       </div>
 
-      <div class="neeli-patch-test">
-        <span class="neeli-patch-test__icon" aria-hidden="true">!</span>
+      <div class="theme-patch-test">
+        <span class="theme-patch-test__icon" aria-hidden="true">!</span>
         <span>Always patch test first</span>
       </div>
     </div>
 
-    <div class="neeli-steps-section">
+    <div class="theme-steps-section">
       {% render 'section-heading',
         kicker: section.settings.steps_kicker,
         title: section.settings.steps_heading,
@@ -104,18 +104,18 @@
         heading_tag: 'h2'
       %}
 
-      <div class="neeli-step-hero">
+      <div class="theme-step-hero">
         <img src="{{ 'massage-ritual.png' | asset_url }}" class="float-soft image-zoom" loading="lazy" width="1206" height="678" alt="{{ section.settings.steps_heading | escape }}">
       </div>
 
-      <div class="neeli-step-grid">
+      <div class="theme-step-grid">
         {%- for block in section.blocks -%}
           {%- if block.type == 'step' -%}
-            <article class="neeli-step neeli-panel" {{ block.shopify_attributes }}>
-              <div class="neeli-step__body">
-                <div class="neeli-step__number">{{ block.settings.number }}</div>
-                <h3 class="neeli-step__title">{{ block.settings.title }}</h3>
-                <p class="neeli-step__text">{{ block.settings.text }}</p>
+            <article class="theme-step theme-panel" {{ block.shopify_attributes }}>
+              <div class="theme-step__body">
+                <div class="theme-step__number">{{ block.settings.number }}</div>
+                <h3 class="theme-step__title">{{ block.settings.title }}</h3>
+                <p class="theme-step__text">{{ block.settings.text }}</p>
               </div>
             </article>
           {%- endif -%}
@@ -129,7 +129,7 @@
 {
   "name": "key ingredients",
   "tag": "section",
-  "class": "section neeli-key-ingredients",
+  "class": "section theme-key-ingredients",
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "checkbox", "id": "soft_background", "label": "Soft background", "default": true },

@@ -1,6 +1,6 @@
-<div class="neeli-container neeli-page-spacing" style="max-width: 440px; margin: 0 auto;">
+<div class="theme-container theme-page-spacing" style="max-width: 440px; margin: 0 auto;">
   <div id="recover" style="display: none;">
-    <h2 style="font-family: var(--font-heading-family); font-size: 2.25rem; color: var(--neeli-forest); text-align: center; margin-bottom: 1rem; font-weight: 400;">Reset your password</h2>
+    <h2 style="font-family: var(--font-heading-family); font-size: 2.25rem; color: var(--theme-forest); text-align: center; margin-bottom: 1rem; font-weight: 400;">Reset your password</h2>
     <p style="font-size: 0.9375rem; color: rgba(23, 55, 45, 0.72); text-align: center; margin-bottom: 2rem;">We will send you an email to reset your password.</p>
 
     {%- form 'recover_customer_password' -%}
@@ -22,7 +22,7 @@
         >
       </div>
 
-      <button type="submit" class="neeli-review-button" style="display: inline-flex; width: 100%; justify-content: center; background: #8f4f36; border-color: #8f4f36; color: #fff; cursor: pointer; padding: 0.875rem 1.5rem;">
+      <button type="submit" class="theme-review-button" style="display: inline-flex; width: 100%; justify-content: center; background: #8f4f36; border-color: #8f4f36; color: #fff; cursor: pointer; padding: 0.875rem 1.5rem;">
         Submit
       </button>
 
@@ -33,7 +33,7 @@
   </div>
 
   <div id="login">
-    <h2 style="font-family: var(--font-heading-family); font-size: 2.5rem; color: var(--neeli-forest); text-align: center; margin-bottom: 2rem; font-weight: 400;">Login</h2>
+    <h2 style="font-family: var(--font-heading-family); font-size: 2.5rem; color: var(--theme-forest); text-align: center; margin-bottom: 2rem; font-weight: 400;">Login</h2>
 
     {%- form 'customer_login' -%}
       {%- if form.errors -%}
@@ -71,12 +71,12 @@
         </div>
       {%- endif -%}
 
-      <button type="submit" class="neeli-review-button" style="display: inline-flex; width: 100%; justify-content: center; background: #8f4f36; border-color: #8f4f36; color: #fff; cursor: pointer; padding: 1rem 2rem;">
+      <button type="submit" class="theme-review-button" style="display: inline-flex; width: 100%; justify-content: center; background: #8f4f36; border-color: #8f4f36; color: #fff; cursor: pointer; padding: 1rem 2rem;">
         Sign In
       </button>
 
       <div style="text-align: center; margin-top: 2rem; font-size: 0.9375rem; color: rgba(23, 55, 45, 0.72);">
-        New customer? <a href="{{ routes.account_register_url }}" style="color: var(--neeli-forest); font-weight: 600; text-decoration: underline;">Create account</a>
+        New customer? <a href="{{ routes.account_register_url }}" style="color: var(--theme-forest); font-weight: 600; text-decoration: underline;">Create account</a>
       </div>
     {%- endform -%}
   </div>

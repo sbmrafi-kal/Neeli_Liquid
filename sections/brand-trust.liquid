@@ -1,4 +1,4 @@
-{{ 'section-neeli-product-page.css' | asset_url | stylesheet_tag }}
+{{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -14,48 +14,48 @@
   }
 {%- endstyle -%}
 
-<section class="neeli-product-page__section neeli-product-page__section--forest neeli-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
-  <div class="neeli-product-page__wrap">
-    <div class="neeli-trust-band">
-      <div class="neeli-trust-band__image-wrap">
-        <img src="{{ 'Flower.png' | asset_url }}" class="neeli-trust-band__image image-zoom" loading="lazy" width="1024" height="1024" alt="{{ section.settings.heading | escape }}">
+<section class="theme-product-page__section theme-product-page__section--forest theme-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="theme-product-page__wrap">
+    <div class="theme-trust-band">
+      <div class="theme-trust-band__image-wrap">
+        <img src="{{ 'Flower.png' | asset_url }}" class="theme-trust-band__image image-zoom" loading="lazy" width="1024" height="1024" alt="{{ section.settings.heading | escape }}">
       </div>
 
-      <div class="neeli-trust-band__content">
+      <div class="theme-trust-band__content">
         {%- if section.settings.kicker != blank -%}
-          <p class="neeli-trust-band__eyebrow">{{ section.settings.kicker }}</p>
+          <p class="theme-trust-band__eyebrow">{{ section.settings.kicker }}</p>
         {%- endif -%}
-        <h2 class="neeli-trust-band__title">{{ section.settings.heading }}</h2>
-        <div class="neeli-trust-band__text rte">{{ section.settings.text }}</div>
+        <h2 class="theme-trust-band__title">{{ section.settings.heading }}</h2>
+        <div class="theme-trust-band__text rte">{{ section.settings.text }}</div>
 
-        <div class="neeli-trust-band__divider"></div>
+        <div class="theme-trust-band__divider"></div>
 
         {%- if section.settings.patents_kicker != blank -%}
-          <p class="neeli-trust-band__eyebrow">{{ section.settings.patents_kicker }}</p>
+          <p class="theme-trust-band__eyebrow">{{ section.settings.patents_kicker }}</p>
         {%- endif -%}
-        <h2 class="neeli-trust-band__title neeli-trust-band__title--secondary">{{ section.settings.patents_heading }}</h2>
-        <div class="neeli-trust-band__text rte">{{ section.settings.patents_text }}</div>
+        <h2 class="theme-trust-band__title theme-trust-band__title--secondary">{{ section.settings.patents_heading }}</h2>
+        <div class="theme-trust-band__text rte">{{ section.settings.patents_text }}</div>
 
-        <div class="neeli-trust-band__patents">
-          <div class="neeli-trust-band__patent-card motion-panel">
-            <img src="{{ 'US_Flag.png' | asset_url }}" class="neeli-trust-band__flag" loading="lazy" width="1432" height="954" alt="{{ section.settings.us_title | escape }}">
-            <div class="neeli-trust-band__patent-title">{{ section.settings.us_title }}</div>
-            <div class="neeli-trust-band__patent-text rte">{{ section.settings.us_text }}</div>
+        <div class="theme-trust-band__patents">
+          <div class="theme-trust-band__patent-card motion-panel">
+            <img src="{{ 'US_Flag.png' | asset_url }}" class="theme-trust-band__flag" loading="lazy" width="1432" height="954" alt="{{ section.settings.us_title | escape }}">
+            <div class="theme-trust-band__patent-title">{{ section.settings.us_title }}</div>
+            <div class="theme-trust-band__patent-text rte">{{ section.settings.us_text }}</div>
           </div>
-          <div class="neeli-trust-band__patent-card motion-panel">
-            <img src="{{ 'Japan_Flag.png' | asset_url }}" class="neeli-trust-band__flag" loading="lazy" width="1270" height="844" alt="{{ section.settings.japan_title | escape }}">
-            <div class="neeli-trust-band__patent-title">{{ section.settings.japan_title }}</div>
-            <div class="neeli-trust-band__patent-text rte">{{ section.settings.japan_text }}</div>
+          <div class="theme-trust-band__patent-card motion-panel">
+            <img src="{{ 'Japan_Flag.png' | asset_url }}" class="theme-trust-band__flag" loading="lazy" width="1270" height="844" alt="{{ section.settings.japan_title | escape }}">
+            <div class="theme-trust-band__patent-title">{{ section.settings.japan_title }}</div>
+            <div class="theme-trust-band__patent-text rte">{{ section.settings.japan_text }}</div>
           </div>
         </div>
       </div>
 
-      <div class="neeli-trust-band__mark">
-        <div class="neeli-trust-band__mark-logo-wrap">
-          <img src="{{ 'ka-mark.png' | asset_url }}" class="neeli-trust-band__mark-image" loading="lazy" width="238" height="328" alt="{{ section.settings.mark_heading | escape }}">
+      <div class="theme-trust-band__mark">
+        <div class="theme-trust-band__mark-logo-wrap">
+          <img src="{{ 'ka-mark.png' | asset_url }}" class="theme-trust-band__mark-image" loading="lazy" width="238" height="328" alt="{{ section.settings.mark_heading | escape }}">
         </div>
-        <div class="neeli-trust-band__mark-text-wrap">
-          <p class="neeli-trust-band__mark-vertical-text">
+        <div class="theme-trust-band__mark-text-wrap">
+          <p class="theme-trust-band__mark-vertical-text">
             Rooted in<br>Authentic Ayurveda.
           </p>
         </div>
@@ -68,7 +68,7 @@
 {
   "name": "brand trust",
   "tag": "section",
-  "class": "section neeli-brand-trust",
+  "class": "section theme-brand-trust",
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-3" },
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "Full spectrum" },

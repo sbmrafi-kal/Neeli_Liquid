@@ -1,22 +1,22 @@
 {%- liquid
-  assign item_id = item_id | default: 'neeli-accordion-item'
+  assign item_id = item_id | default: 'theme-accordion-item'
   assign title = title | default: ''
   assign content = content | default: ''
   assign icon = icon | default: 'none'
   assign open = open | default: false
 -%}
 
-<details class="neeli-accordion__item" id="{{ item_id }}"{% if open %} open{% endif %}>
-  <summary class="neeli-accordion__summary">
+<details class="theme-accordion__item" id="{{ item_id }}"{% if open %} open{% endif %}>
+  <summary class="theme-accordion__summary">
     <span class="summary__title">
       {% render 'icon-accordion', icon: icon %}
-      <span class="neeli-accordion__title">{{ title }}</span>
+      <span class="theme-accordion__title">{{ title }}</span>
     </span>
-    <span class="neeli-accordion__caret" aria-hidden="true">
+    <span class="theme-accordion__caret" aria-hidden="true">
       {{- 'icon-caret.svg' | inline_asset_content -}}
     </span>
   </summary>
-  <div class="neeli-accordion__content rte">
+  <div class="theme-accordion__content rte">
     {{ content }}
   </div>
 </details>

@@ -1,4 +1,4 @@
-{{ 'section-neeli-product-page.css' | asset_url | stylesheet_tag }}
+{{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -12,15 +12,33 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .theme-product-info-desktop {
+    display: none;
+  }
+  
+  .theme-product-info-mobile {
+    display: block;
+    margin-top: 1.5rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .theme-product-info-desktop {
+      display: block;
+    }
+    .theme-product-info-mobile {
+      display: none;
+    }
+  }
 {%- endstyle -%}
 
 <section
   id="NeeliProduct-{{ section.id }}"
-  class="neeli-product-page neeli-reveal section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="theme-product-page theme-reveal section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
 >
-  <script src="{{ 'neeli-product-page.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'theme-product-page.js' | asset_url }}" defer="defer"></script>
 
   {%- if product.media.size > 0 -%}
     {%- assign hero_images = product.media -%}
@@ -28,120 +46,122 @@
     {%- assign hero_images = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' -%}
   {%- endif -%}
 
-  <div class="neeli-product-page__wrap">
-    <div class="neeli-product-page__hero">
-      <div class="neeli-product-page__hero-media">
-        <div class="neeli-hero-carousel" data-neeli-carousel data-neeli-autoplay="true" data-neeli-interval="4800">
-          <div class="neeli-hero-carousel__stage">
+  <div class="theme-product-page__wrap">
+    <div class="theme-product-page__hero">
+      <div class="theme-product-page__hero-media">
+        <div class="theme-hero-carousel" data-theme-carousel data-theme-autoplay="true" data-theme-interval="4800">
+          <div class="theme-hero-carousel__stage">
             {%- for media in hero_images -%}
-              <figure class="neeli-hero-carousel__slide{% if forloop.first %} is-active{% endif %}" data-neeli-carousel-slide>
+              <figure class="theme-hero-carousel__slide{% if forloop.first %} is-active{% endif %}" data-theme-carousel-slide>
                 {%- if forloop.first -%}
                   {%- assign hero_loading = 'eager' -%}
                 {%- else -%}
                   {%- assign hero_loading = 'lazy' -%}
                 {%- endif -%}
                 {%- if media.preview_image != blank -%}
-                  <img src="{{ media.preview_image | image_url: width: 750 }}" class="neeli-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product.title | escape }}">
+                  <img src="{{ media.preview_image | image_url: width: 750 }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product.title | escape }}">
                 {%- elsif media.src != blank -%}
-                  <img src="{{ media | image_url: width: 750 }}" class="neeli-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product.title | escape }}">
+                  <img src="{{ media | image_url: width: 750 }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product.title | escape }}">
                 {%- else -%}
-                  <img src="{{ media | asset_url }}" class="neeli-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product.title | escape }}">
+                  <img src="{{ media | asset_url }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product.title | escape }}">
                 {%- endif -%}
               </figure>
             {%- endfor -%}
 
-            <button class="neeli-hero-carousel__control neeli-hero-carousel__control--prev" type="button" aria-label="Previous image" data-neeli-carousel-prev>
+            <button class="theme-hero-carousel__control theme-hero-carousel__control--prev" type="button" aria-label="Previous image" data-theme-carousel-prev>
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </button>
-            <button class="neeli-hero-carousel__control neeli-hero-carousel__control--next" type="button" aria-label="Next image" data-neeli-carousel-next>
+            <button class="theme-hero-carousel__control theme-hero-carousel__control--next" type="button" aria-label="Next image" data-theme-carousel-next>
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </button>
           </div>
 
-          <div class="neeli-hero-carousel__thumbs" role="tablist" aria-label="Product gallery thumbnails">
+          <div class="theme-hero-carousel__thumbs" role="tablist" aria-label="Product gallery thumbnails">
             {%- for media in hero_images -%}
               <button
-                class="neeli-hero-carousel__thumb{% if forloop.first %} is-active{% endif %}"
+                class="theme-hero-carousel__thumb{% if forloop.first %} is-active{% endif %}"
                 type="button"
                 aria-label="Show image {{ forloop.index }}"
-                data-neeli-carousel-thumb="{{ forloop.index0 }}"
+                data-theme-carousel-thumb="{{ forloop.index0 }}"
               >
                 {%- if media.preview_image != blank -%}
-                  <img src="{{ media.preview_image | image_url: width: 120 }}" class="neeli-hero-carousel__thumb-image" loading="lazy" width="90" height="120" alt="">
+                  <img src="{{ media.preview_image | image_url: width: 120 }}" class="theme-hero-carousel__thumb-image" loading="lazy" width="90" height="120" alt="">
                 {%- elsif media.src != blank -%}
-                  <img src="{{ media | image_url: width: 120 }}" class="neeli-hero-carousel__thumb-image" loading="lazy" width="90" height="120" alt="">
+                  <img src="{{ media | image_url: width: 120 }}" class="theme-hero-carousel__thumb-image" loading="lazy" width="90" height="120" alt="">
                 {%- else -%}
-                  <img src="{{ media | asset_url }}" class="neeli-hero-carousel__thumb-image" loading="lazy" width="90" height="120" alt="">
+                  <img src="{{ media | asset_url }}" class="theme-hero-carousel__thumb-image" loading="lazy" width="90" height="120" alt="">
                 {%- endif -%}
               </button>
             {%- endfor -%}
           </div>
 
-          <div class="neeli-hero-carousel__stats">
+          <div class="theme-hero-carousel__stats">
             {%- assign stat_blocks = section.blocks | where: "type", "hero_stat" -%}
             {%- if stat_blocks.size > 0 -%}
               {%- for block in stat_blocks -%}
-                <div class="neeli-hero-carousel__stat" {{ block.shopify_attributes }}>
-                  <div class="neeli-hero-carousel__stat-value">{{ block.settings.value }}</div>
-                  <div class="neeli-hero-carousel__stat-label">{{ block.settings.label }}</div>
+                <div class="theme-hero-carousel__stat" {{ block.shopify_attributes }}>
+                  <div class="theme-hero-carousel__stat-value">{{ block.settings.value }}</div>
+                  <div class="theme-hero-carousel__stat-label">{{ block.settings.label }}</div>
                 </div>
               {%- endfor -%}
             {%- else -%}
-              <div class="neeli-hero-carousel__stat">
-                <div class="neeli-hero-carousel__stat-value">4.64★</div>
-                <div class="neeli-hero-carousel__stat-label">Ratings</div>
+              <div class="theme-hero-carousel__stat">
+                <div class="theme-hero-carousel__stat-value">4.64★</div>
+                <div class="theme-hero-carousel__stat-label">Ratings</div>
               </div>
-              <div class="neeli-hero-carousel__stat">
-                <div class="neeli-hero-carousel__stat-value">312</div>
-                <div class="neeli-hero-carousel__stat-label">Reviews</div>
+              <div class="theme-hero-carousel__stat">
+                <div class="theme-hero-carousel__stat-value">312</div>
+                <div class="theme-hero-carousel__stat-label">Reviews</div>
               </div>
-              <div class="neeli-hero-carousel__stat">
-                <div class="neeli-hero-carousel__stat-value">30</div>
-                <div class="neeli-hero-carousel__stat-label">Uses</div>
+              <div class="theme-hero-carousel__stat">
+                <div class="theme-hero-carousel__stat-value">30</div>
+                <div class="theme-hero-carousel__stat-label">Uses</div>
               </div>
-              <div class="neeli-hero-carousel__stat">
-                <div class="neeli-hero-carousel__stat-value">300+</div>
-                <div class="neeli-hero-carousel__stat-label">Happy Customers</div>
+              <div class="theme-hero-carousel__stat">
+                <div class="theme-hero-carousel__stat-value">300+</div>
+                <div class="theme-hero-carousel__stat-label">Happy Customers</div>
               </div>
             {%- endif -%}
           </div>
         </div>
       </div>
 
-      <div
-        id="ProductInfo-{{ section.id }}"
-        class="neeli-product-page__hero-info"
-      >
-        <div class="neeli-product-page__hero-header">
-          {%- for block in section.blocks -%}
-            {%- case block.type -%}
-              {%- when 'text' -%}
-                {%- if block.settings.text != blank -%}
-                  <div class="neeli-product-page__badge-row" {{ block.shopify_attributes }}>
-                    <span class="neeli-product-page__badge">{{ block.settings.text }}</span>
-                  </div>
-                {%- endif -%}
-              {%- when 'title' -%}
-                <div class="neeli-product-page__title-wrap" {{ block.shopify_attributes }}>
-                  <h1 class="neeli-product-page__title">{{ product.title | escape }}</h1>
-                </div>
-              {%- when 'caption' -%}
-                {%- if block.settings.text != blank -%}
-                  <p
-                    class="neeli-product-page__subtitle{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
-                    {{ block.shopify_attributes }}
-                  >
-                    {{ block.settings.text }}
-                  </p>
-                {%- endif -%}
-              {%- when 'custom_liquid' -%}
-                <div {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
-            {%- endcase -%}
-          {%- endfor -%}
+      <!-- DESKTOP HERO INFO COLUMN -->
+      <div id="ProductInfo-{{ section.id }}" class="theme-product-page__hero-info theme-product-info-desktop">
+        <div class="theme-product-page__hero-header">
+          {%- assign badges = section.blocks | where: "type", "text" -%}
+          {%- if badges.size > 0 -%}
+            <div class="micro-fade-delayed mt-4 inline-flex flex-wrap items-center gap-2 rounded-[18px] border border-[#d8cba1] bg-[#f8f0d6] px-4 py-2 text-[12px] font-medium uppercase tracking-[0.07em] text-[#17372d] sm:text-[13px] xl:text-[14px]">
+              {%- for block in badges -%}
+                {%- unless forloop.first -%}<span class="text-[13px] leading-none">•</span>{%- endunless -%}
+                <span {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <div class="micro-fade-delayed mt-4 inline-flex flex-wrap items-center gap-2 rounded-[18px] border border-[#d8cba1] bg-[#f8f0d6] px-4 py-2 text-[12px] font-medium uppercase tracking-[0.07em] text-[#17372d] sm:text-[13px] xl:text-[14px]">
+              <span class="text-[13px] leading-none">•</span>
+              <span>Minimizes hair fall</span>
+              <span class="text-[13px] leading-none">•</span>
+              <span>Supports hair growth</span>
+            </div>
+          {%- endif -%}
+
+          <div class="theme-product-page__title-wrap">
+            <h1 class="theme-product-page__title">{{ product.title | escape }}</h1>
+          </div>
+
+          {%- assign subtitle_block = section.blocks | where: "type", "caption" | first -%}
+          <p class="theme-product-page__subtitle subtitle">
+            {%- if subtitle_block -%}
+              {{ subtitle_block.settings.text }}
+            {%- else -%}
+              One oil for complete hair recovery
+            {%- endif -%}
+          </p>
         </div>
 
-        <div class="neeli-product-page__form-card">
-          <div class="neeli-product-page__body neeli-product-page__intro" style="margin-bottom: 1.5rem;">
+        <div class="theme-product-page__form-card">
+          <div class="theme-product-page__body theme-product-page__intro" style="margin-bottom: 1.5rem;">
             {%- if product.description != blank -%}
               {{ product.description | strip_html | truncatewords: 35 }}
             {%- else -%}
@@ -150,10 +170,10 @@
           </div>
 
           <!-- Dynamic Shopify Form -->
-          {%- form 'product', product, id: "neeli-product-form", class: "neeli-product-form" -%}
+          {%- form 'product', product, id: "theme-product-form", class: "theme-product-form" -%}
             <!-- Product Price -->
-            <div class="neeli-product-price-row" style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem;">
-              <span style="font-size: 2rem; font-weight: 700; color: var(--neeli-forest);">{{ product.selected_or_first_available_variant.price | money }}</span>
+            <div class="theme-product-price-row" style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem;">
+              <span style="font-size: 2rem; font-weight: 700; color: var(--theme-forest);">{{ product.selected_or_first_available_variant.price | money }}</span>
               {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
                 <span style="font-size: 1.25rem; text-decoration: line-through; color: rgba(23, 55, 45, 0.44);">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
               {%- endif -%}
@@ -161,9 +181,9 @@
 
             <!-- Variant Select -->
             {%- if product.variants.size > 1 -%}
-              <div class="neeli-variant-picker" style="margin-bottom: 1.5rem;">
+              <div class="theme-variant-picker" style="margin-bottom: 1.5rem;">
                 <label for="ProductSelect-{{ section.id }}" style="display: block; font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; color: rgba(23, 55, 45, 0.62); margin-bottom: 0.5rem; letter-spacing: 0.05em;">Select Option</label>
-                <select name="id" id="ProductSelect-{{ section.id }}" class="neeli-variant-select" style="width: 100%; border: 1px solid rgba(23, 55, 45, 0.2); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.9375rem; background: #fff; color: var(--neeli-forest); outline: none;">
+                <select name="id" id="ProductSelect-{{ section.id }}" class="theme-variant-select" style="width: 100%; border: 1px solid rgba(23, 55, 45, 0.2); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.9375rem; background: #fff; color: var(--theme-forest); outline: none;">
                   {%- for variant in product.variants -%}
                     <option value="{{ variant.id }}" 
                       {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %} 
@@ -178,17 +198,17 @@
             {%- endif -%}
 
             <!-- Quantity Selector -->
-            <div class="neeli-quantity-selector" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.75rem;">
+            <div class="theme-quantity-selector" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.75rem;">
               <span style="font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; color: rgba(23, 55, 45, 0.62); letter-spacing: 0.05em;">Quantity</span>
               <div style="display: flex; align-items: center; border: 1px solid rgba(23, 55, 45, 0.2); border-radius: 8px; overflow: hidden; background: #fff;">
-                <button type="button" onclick="adjustQty(-1)" style="border: none; background: transparent; padding: 0.5rem 1rem; cursor: pointer; color: var(--neeli-forest); font-weight: 600; font-size: 1rem;">-</button>
-                <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1" style="width: 50px; text-align: center; border: none; outline: none; font-size: 0.9375rem; color: var(--neeli-forest); background: transparent; pointer-events: none;">
-                <button type="button" onclick="adjustQty(1)" style="border: none; background: transparent; padding: 0.5rem 1rem; cursor: pointer; color: var(--neeli-forest); font-weight: 600; font-size: 1rem;">+</button>
+                <button type="button" onclick="adjustQty(-1)" style="border: none; background: transparent; padding: 0.5rem 1rem; cursor: pointer; color: var(--theme-forest); font-weight: 600; font-size: 1rem;">-</button>
+                <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1" style="width: 50px; text-align: center; border: none; outline: none; font-size: 0.9375rem; color: var(--theme-forest); background: transparent; pointer-events: none;">
+                <button type="button" onclick="adjustQty(1)" style="border: none; background: transparent; padding: 0.5rem 1rem; cursor: pointer; color: var(--theme-forest); font-weight: 600; font-size: 1rem;">+</button>
               </div>
             </div>
 
             <!-- Add to Cart CTA -->
-            <button type="submit" name="add" class="neeli-review-button" style="width: 100%; display: flex; justify-content: center; align-items: center; padding: 1.125rem 2rem; font-size: 1rem; background: #8f4f36; border-color: #8f4f36; color: #fff; cursor: pointer; margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 700; border-radius: 9999px; letter-spacing: 0.05em; transition: transform 0.2s ease, background-color 0.2s ease;">
+            <button type="submit" name="add" class="theme-review-button" style="width: 100%; display: flex; justify-content: center; align-items: center; padding: 1.125rem 2rem; font-size: 1rem; background: #8f4f36; border-color: #8f4f36; color: #fff; cursor: pointer; margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 700; border-radius: 9999px; letter-spacing: 0.05em; transition: transform 0.2s ease, background-color 0.2s ease;">
               {%- if product.selected_or_first_available_variant.available -%}
                 Add to Cart
               {%- else -%}
@@ -206,81 +226,92 @@
             }
           </script>
 
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'hero_quote' -%}
-              <blockquote class="neeli-product-page__quote-wrap" {{ block.shopify_attributes }}>
-                <p class="neeli-product-page__quote">{{ block.settings.quote }}</p>
-                <p class="neeli-product-page__quote-meta">{{ block.settings.author }}</p>
-              </blockquote>
-            {%- endif -%}
-          {%- endfor -%}
+          {%- assign quote_block = section.blocks | where: "type", "hero_quote" | first -%}
+          <div class="hover-rise mt-5 rounded-r-xl border-l-[4px] border-[#f3b324] bg-[#f8f1df] px-4 py-3 sm:px-5" style="margin-bottom: 1.5rem;">
+            <p class="text-[13px] leading-[1.35] text-[#17372d]/78 sm:text-[14px]">
+              {%- if quote_block -%}
+                {{ quote_block.settings.quote }}
+              {%- else -%}
+                "Hair fall reduced noticeably, and I can already see tiny baby hairs coming"
+              {%- endif -%}
+            </p>
+            <p class="mt-1 text-[12px] font-medium uppercase tracking-[0.08em] text-[#17372d]/58 sm:text-[13px]">
+              {%- if quote_block -%}
+                {{ quote_block.settings.author }}
+              {%- else -%}
+                - ANU R., CHENNAI
+              {%- endif -%}
+            </p>
+          </div>
 
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'hero_feature' and block.settings.text != blank -%}
-              <p class="neeli-product-page__body neeli-product-page__cert-note" {{ block.shopify_attributes }}>
-                {{ block.settings.text }}
-              </p>
+          {%- assign feature_block = section.blocks | where: "type", "hero_feature" | first -%}
+          <p class="theme-product-page__body theme-product-page__cert-note" style="margin-bottom: 1.5rem;">
+            {%- if feature_block -%}
+              {{ feature_block.settings.title }} {{ feature_block.settings.text }}
+            {%- else -%}
+              Made by BAMS doctors in our GMP & ISO - certified facility. FDA compliant and AYUSH licensed.
             {%- endif -%}
-          {%- endfor -%}
+          </p>
 
-          <div class="neeli-stamp-card motion-panel" style="margin-top: 1rem;">
-            <div class="neeli-stamp-card__top">
+          <div class="theme-stamp-card motion-panel" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+            <div class="theme-stamp-card__top">
               {%- assign stamp_images = 'stamp_01.png|stamp_02.png|stamp_03.png|stamp_04.png|stamp_05.png' | split: '|' -%}
               {%- for stamp in stamp_images -%}
-                <div class="neeli-stamp-card__stamp">
+                <div class="theme-stamp-card__stamp">
                   {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
-                  <img src="{{ stamp | asset_url }}" class="neeli-stamp-card__stamp-image" loading="lazy" width="1920" height="1080" alt="{{ stamp_alt | escape }}">
+                  <img src="{{ stamp | asset_url }}" class="theme-stamp-card__stamp-image" loading="lazy" width="1920" height="1080" alt="{{ stamp_alt | escape }}">
                 </div>
               {%- endfor -%}
             </div>
-            <div class="neeli-stamp-card__stats">
-              <div class="neeli-stamp-card__stat">
-                <div class="neeli-stamp-card__stat-value">1945</div>
-                <div class="neeli-stamp-card__stat-label">Established</div>
+            <div class="theme-stamp-card__stats">
+              <div class="theme-stamp-card__stat">
+                <div class="theme-stamp-card__stat-value">1945</div>
+                <div class="theme-stamp-card__stat-label">Established</div>
               </div>
-              <div class="neeli-stamp-card__stat">
-                <div class="neeli-stamp-card__stat-value">350+</div>
-                <div class="neeli-stamp-card__stat-label">Products</div>
+              <div class="theme-stamp-card__stat">
+                <div class="theme-stamp-card__stat-value">350+</div>
+                <div class="theme-stamp-card__stat-label">Products</div>
               </div>
-              <div class="neeli-stamp-card__stat">
-                <div class="neeli-stamp-card__stat-value">Clinics &amp; Academy</div>
-                <div class="neeli-stamp-card__stat-label">Expert led</div>
+              <div class="theme-stamp-card__stat">
+                <div class="theme-stamp-card__stat-value">Clinics &amp; Academy</div>
+                <div class="theme-stamp-card__stat-label">Expert led</div>
               </div>
             </div>
           </div>
 
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'hero_note' and block.settings.text != blank -%}
-              <p class="neeli-product-page__body neeli-product-page__hero-note" {{ block.shopify_attributes }}>
-                {{ block.settings.text }}
-              </p>
+          {%- assign note_block = section.blocks | where: "type", "hero_note" | first -%}
+          <p class="theme-product-page__body theme-product-page__hero-note" style="margin-bottom: 1.5rem;">
+            {%- if note_block -%}
+              {{ note_block.settings.text }}
+            {%- else -%}
+              Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within.
             {%- endif -%}
-          {%- endfor -%}
+          </p>
 
-          <div class="neeli-reorder-card cta-sheen motion-panel" style="margin-top: 1.5rem;">
-            <button class="neeli-reorder-card__button" type="button" onclick="document.getElementById('neeli-product-form').submit();">
-              <div class="neeli-reorder-card__main">
-                <svg class="neeli-reorder-card__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <div class="theme-reorder-card cta-sheen motion-panel" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+            <button class="theme-reorder-card__button" type="button" onclick="document.getElementById('theme-product-form').submit();">
+              <div class="theme-reorder-card__main">
+                <svg class="theme-reorder-card__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M3 3v5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <div>
-                  <div class="neeli-reorder-card__title">Reorder now</div>
-                  <div class="neeli-reorder-card__meta">Quick checkouts</div>
+                  <div class="theme-reorder-card__title">Reorder now</div>
+                  <div class="theme-reorder-card__meta">Quick checkouts</div>
                 </div>
               </div>
-              <div class="neeli-reorder-card__price">
+              <div class="theme-reorder-card__price">
                 {%- if product.compare_at_price > product.price -%}
-                  <span class="neeli-reorder-card__price-old">{{ product.compare_at_price | money }}</span>
+                  <span class="theme-reorder-card__price-old">{{ product.compare_at_price | money }}</span>
                 {%- endif -%}
-                <span class="neeli-reorder-card__price-new">{{ product.price | money }}</span>
+                <span class="theme-reorder-card__price-new">{{ product.price | money }}</span>
               </div>
             </button>
           </div>
 
-          <div class="neeli-delivery-row">
-            <div class="neeli-delivery-row__item">
-              <svg class="neeli-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <div class="theme-delivery-row" style="margin-bottom: 1.5rem;">
+            <div class="theme-delivery-row__item">
+              <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M3 7h11v10H3z" stroke="currentColor" stroke-width="1.7" />
                 <path d="M14 10h3l2 2v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
                 <circle cx="7" cy="18" r="1.4" fill="currentColor" />
@@ -288,15 +319,15 @@
               </svg>
               <span>2-4 day delivery</span>
             </div>
-            <div class="neeli-delivery-row__item">
-              <svg class="neeli-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <div class="theme-delivery-row__item">
+              <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="1.7" />
                 <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
               </svg>
               <span>COD available</span>
             </div>
-            <div class="neeli-delivery-row__item">
-              <svg class="neeli-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <div class="theme-delivery-row__item">
+              <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M6 8h12l-1 11H7L6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
                 <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
               </svg>
@@ -304,30 +335,217 @@
             </div>
           </div>
 
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'hero_upsell' -%}
-              <div class="neeli-upsell-card hover-rise" {{ block.shopify_attributes }}>
-                <img src="{{ 'upsell.png' | asset_url }}" class="neeli-upsell-card__image" loading="lazy" width="1000" height="1000" alt="{{ block.settings.title | escape }}">
-                <div class="neeli-upsell-card__copy">
-                  <div class="neeli-upsell-card__title">{{ block.settings.title }}</div>
-                  <p class="neeli-upsell-card__text">{{ block.settings.text }}</p>
-                </div>
-                {%- if block.settings.button_label != blank -%}
-                  {%- if block.settings.button_link != blank -%}
-                    <a class="neeli-upsell-card__button premium-button" href="{{ block.settings.button_link }}">
-                      {{ block.settings.button_label }}
-                    </a>
-                  {%- else -%}
-                    <span class="neeli-upsell-card__button premium-button" role="presentation">
-                      {{ block.settings.button_label }}
-                    </span>
-                  {%- endif -%}
-                {%- endif -%}
+          {%- assign upsell_block = section.blocks | where: "type", "hero_upsell" | first -%}
+          {%- if upsell_block -%}
+            <div class="theme-upsell-card hover-rise" style="margin-top: 1rem;">
+              <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-card__image" loading="lazy" width="1000" height="1000" alt="{{ upsell_block.settings.title | escape }}">
+              <div class="theme-upsell-card__copy">
+                <div class="theme-upsell-card__title">{{ upsell_block.settings.title }}</div>
+                <p class="theme-upsell-card__text">{{ upsell_block.settings.text }}</p>
               </div>
+              {%- if upsell_block.settings.button_label != blank -%}
+                {%- if upsell_block.settings.button_link != blank -%}
+                  <a class="theme-upsell-card__button premium-button" href="{{ upsell_block.settings.button_link }}">
+                    {{ upsell_block.settings.button_label }}
+                  </a>
+                {%- else -%}
+                  <span class="theme-upsell-card__button premium-button" role="presentation">
+                    {{ upsell_block.settings.button_label }}
+                  </span>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE HERO INFO CONTAINER (Spans full narrow width) -->
+    <div class="theme-product-info-mobile">
+      {%- if badges.size > 0 -%}
+        <div class="inline-flex flex-wrap items-center gap-2 rounded-full border border-[#e4cf8f] bg-[#fbf4de] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.08em] text-[#17372d]">
+          {%- for block in badges -%}
+            {%- unless forloop.first -%}<span class="text-[11px] leading-none">•</span>{%- endunless -%}
+            <span>{{ block.settings.text }}</span>
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="inline-flex flex-wrap items-center gap-2 rounded-full border border-[#e4cf8f] bg-[#fbf4de] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.08em] text-[#17372d]">
+          <span class="text-[11px] leading-none">•</span>
+          <span>Minimizes hair fall</span>
+          <span class="text-[11px] leading-none">•</span>
+          <span>Supports hair growth</span>
+        </div>
+      {%- endif -%}
+
+      <!-- Mobile Checkout Forms (for checkout flow support on mobile) -->
+      {%- form 'product', product, id: "theme-product-form-mobile", class: "theme-product-form theme-product-form--mobile", style: "margin-top: 1rem;" -%}
+        <!-- Price Display -->
+        <div class="theme-product-price-row" style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 1rem;">
+          <span style="font-size: 1.75rem; font-weight: 700; color: var(--theme-forest);">{{ product.selected_or_first_available_variant.price | money }}</span>
+          {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+            <span style="font-size: 1.15rem; text-decoration: line-through; color: rgba(23, 55, 45, 0.44);">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+          {%- endif -%}
+        </div>
+
+        <!-- Variant Selector -->
+        {%- if product.variants.size > 1 -%}
+          <div class="theme-variant-picker" style="margin-bottom: 1rem;">
+            <select name="id" id="ProductSelect-Mobile-{{ section.id }}" class="theme-variant-select" style="width: 100%; border: 1px solid rgba(23, 55, 45, 0.2); border-radius: 8px; padding: 0.65rem 0.85rem; font-size: 0.875rem; background: #fff; color: var(--theme-forest); outline: none;">
+              {%- for variant in product.variants -%}
+                <option value="{{ variant.id }}" 
+                  {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %} 
+                  {% unless variant.available %}disabled="disabled"{% endunless %}>
+                  {{ variant.title }} - {{ variant.price | money }} {% unless variant.available %}(Sold Out){% endunless %}
+                </option>
+              {%- endfor -%}
+            </select>
+          </div>
+        {%- else -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        {%- endif -%}
+      {%- endform -%}
+
+      <!-- Mobile Reorder / Checkout CTA (8px rounded shape matching visual reference mocks) -->
+      <div class="cta-sheen mt-3 overflow-hidden rounded-[8px] bg-[#8f4f36] text-white shadow-sm" style="margin-bottom: 1rem;">
+        <button type="button" onclick="document.getElementById('theme-product-form-mobile').submit();" class="flex w-full items-center justify-between px-4 py-3 text-left border-0 bg-transparent cursor-pointer text-white">
+          <div class="flex items-center gap-3">
+            <svg class="h-5 w-5" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+              <path d="M3 3v5h5" />
+            </svg>
+            <div>
+              <div class="text-[14px] font-bold uppercase leading-none tracking-[0.04em]">Reorder now</div>
+              <div class="mt-1 text-[11px] text-white/72">Last ordered 28 Mar</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 border-l border-white/14 pl-4">
+            {%- if product.compare_at_price > product.price -%}
+              <span class="text-[12px] text-white/38 line-through">{{ product.compare_at_price | money }}</span>
             {%- endif -%}
+            <span class="text-[18px] font-bold leading-none">{{ product.price | money }}</span>
+          </div>
+        </button>
+      </div>
+
+      <h2 class="font-serif text-[24px] font-normal leading-[1.1] text-[#17372d]">
+        {{ product.title | escape }}
+      </h2>
+      <p class="mt-1 text-[14px] leading-tight text-[#17372d]/78">
+        {%- if subtitle_block -%}
+          {{ subtitle_block.settings.text }}
+        {%- else -%}
+          One oil for complete hair recovery
+        {%- endif -%}
+      </p>
+      <div class="mt-3 h-px w-full bg-[#17372d]/10" />
+
+      <p class="mt-4 text-[14px] leading-[1.42] text-[#17372d]/72">
+        {%- if product.description != blank -%}
+          {{ product.description | strip_html | truncatewords: 35 }}
+        {%- else -%}
+          Hair recovery needs two wins - reduce the fall and support new growth. Neelibhringadi works both sides.
+        {%- endif -%}
+      </p>
+
+      <!-- Delivery columns -->
+      <div class="mt-5 grid grid-cols-3 overflow-hidden rounded-[2px] bg-[#f6f2e8] text-[#17372d]">
+        <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
+          <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
+            <path d="M3 7h11v10H3z" />
+            <path d="M14 10h3l2 2v5h-5" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="7" cy="18" r="1.4" fill="currentColor" />
+            <circle cx="17" cy="18" r="1.4" fill="currentColor" />
+          </svg>
+          <span>2-4 day delivery</span>
+        </div>
+        <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
+          <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
+            <path d="M3 7h18v10H3z" />
+            <path d="M8 12h8" stroke-linecap="round" />
+          </svg>
+          <span>COD available</span>
+        </div>
+        <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
+          <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
+            <path d="M6 8h12l-1 11H7L6 8Z" stroke-linejoin="round" />
+            <path d="M9 8a3 3 0 0 1 6 0" stroke-linecap="round" />
+          </svg>
+          <span>Easy returns</span>
+        </div>
+      </div>
+
+      <!-- Upsell container -->
+      {%- if upsell_block -%}
+        <div class="mt-3 flex items-center gap-3 rounded-[16px] bg-[#8f4f36] p-3 text-white shadow-sm">
+          <img src="{{ 'upsell.png' | asset_url }}" class="h-[58px] w-[66px] rounded-[10px] object-cover" alt="Upsell Product">
+          <div class="min-w-0 flex-1">
+            <div class="text-[13px] font-medium leading-none">{{ upsell_block.settings.title }}</div>
+            <div class="mt-1 text-[12px] leading-tight text-white/74">{{ upsell_block.settings.text }}</div>
+          </div>
+          <button type="button" onclick="document.getElementById('theme-product-form-mobile').submit();" class="premium-button rounded-[12px] bg-[#f4bb28] px-3 py-2 text-[13px] font-bold leading-none text-[#1c2018] border-0 cursor-pointer">
+            {{ upsell_block.settings.button_label }}
+          </button>
+        </div>
+      {%- endif -%}
+
+      <!-- Review Quote -->
+      <div class="mt-4 rounded-r-xl border-l-[4px] border-[#f3b324] bg-[#f8f1df] px-4 py-3">
+        <p class="text-[13px] leading-[1.35] text-[#17372d]/78">
+          {%- if quote_block -%}
+            {{ quote_block.settings.quote }}
+          {%- else -%}
+            "Hair fall reduced noticeably, and I can already see tiny baby hairs coming"
+          {%- endif -%}
+        </p>
+        <p class="mt-1 text-[11px] font-medium uppercase tracking-[0.08em] text-[#17372d]/58">
+          {%- if quote_block -%}
+            {{ quote_block.settings.author }}
+          {%- else -%}
+            - ANU R., CHENNAI
+          {%- endif -%}
+        </p>
+      </div>
+
+      <p class="mt-4 text-[14px] leading-[1.45] text-[#17372d]/72">
+        {%- if feature_block -%}
+          {{ feature_block.settings.title }} {{ feature_block.settings.text }}
+        {%- else -%}
+          Made by BAMS doctors in our GMP & ISO - certified facility. FDA compliant and AYUSH licensed.
+        {%- endif -%}
+      </p>
+
+      <!-- Mobile certifications panel -->
+      <div class="motion-panel mt-3 rounded-[14px] border border-[#17372d]/10 bg-white px-3 py-2 shadow-[0_8px_20px_rgba(17,48,39,0.04)]">
+        <div class="grid grid-cols-3 gap-2 text-[#17372d]">
+          <div class="border-r border-[#17372d]/8 px-2">
+            <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">1945</div>
+            <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">Established</div>
+          </div>
+          <div class="border-r border-[#17372d]/8 px-2">
+            <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">350+</div>
+            <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">Products</div>
+          </div>
+          <div class="px-2">
+            <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">Clinics &amp; Academy</div>
+            <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">Expert led</div>
+          </div>
+        </div>
+
+        <div class="mt-1.5 grid grid-cols-4 items-center gap-0.5 pt-1">
+          {%- for stamp in stamp_images limit: 4 -%}
+            <div class="flex justify-center overflow-hidden">
+              <img src="{{ stamp | asset_url }}" class="h-[58px] w-[58px] scale-[2.02] object-contain opacity-95 contrast-125 saturate-0" loading="lazy" width="58" height="58" alt="Certification">
+            </div>
           {%- endfor -%}
         </div>
       </div>
+
+      {%- if note_block -%}
+        <p class="mt-4 text-[14px] leading-[1.44] text-[#17372d]/72" style="margin-bottom: 2rem;">
+          {{ note_block.settings.text }}
+        </p>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -336,7 +554,7 @@
 {
   "name": "product hero",
   "tag": "section",
-  "class": "section neeli-product-hero",
+  "class": "section theme-product-hero",
   "settings": [
     {
       "type": "checkbox",

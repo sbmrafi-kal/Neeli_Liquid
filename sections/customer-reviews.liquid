@@ -1,4 +1,4 @@
-{{ 'section-neeli-product-page.css' | asset_url | stylesheet_tag }}
+{{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -14,8 +14,8 @@
   }
 {%- endstyle -%}
 
-<section class="neeli-product-page__section neeli-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}neeli-product-page__section--soft{% endif %}">
-  <div class="neeli-product-page__wrap">
+<section class="theme-product-page__section theme-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}theme-product-page__section--soft{% endif %}">
+  <div class="theme-product-page__wrap">
     {% render 'section-heading',
       kicker: section.settings.kicker,
       title: section.settings.heading,
@@ -24,12 +24,12 @@
       heading_tag: 'h2'
     %}
 
-    <div class="neeli-reviews-rating" aria-label="4.64 out of 5 stars">
-      <div class="neeli-reviews-rating__stars" aria-hidden="true">★★★★☆</div>
-      <div class="neeli-reviews-rating__score">4.64 / 5.0</div>
+    <div class="theme-reviews-rating" aria-label="4.64 out of 5 stars">
+      <div class="theme-reviews-rating__stars" aria-hidden="true">★★★★☆</div>
+      <div class="theme-reviews-rating__score">4.64 / 5.0</div>
     </div>
 
-    <div class="neeli-review-grid">
+    <div class="theme-review-grid">
       {%- for block in section.blocks -%}
         {%- if block.type == 'review' -%}
           {% render 'review-card',
@@ -45,11 +45,11 @@
     {%- if section.settings.button_label != blank -%}
       <div style="margin-top: 1.5rem; display: flex; justify-content: center;">
         {%- if section.settings.button_link != blank -%}
-          <a class="neeli-review-button premium-button" href="{{ section.settings.button_link }}">
+          <a class="theme-review-button premium-button" href="{{ section.settings.button_link }}">
             {{ section.settings.button_label }}
           </a>
         {%- else -%}
-          <span class="neeli-review-button premium-button" role="presentation">{{ section.settings.button_label }}</span>
+          <span class="theme-review-button premium-button" role="presentation">{{ section.settings.button_label }}</span>
         {%- endif -%}
       </div>
     {%- endif -%}
@@ -60,7 +60,7 @@
 {
   "name": "customer reviews",
   "tag": "section",
-  "class": "section neeli-customer-reviews",
+  "class": "section theme-customer-reviews",
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "checkbox", "id": "soft_background", "label": "Soft background", "default": false },

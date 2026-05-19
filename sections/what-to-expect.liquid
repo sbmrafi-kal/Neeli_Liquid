@@ -1,4 +1,4 @@
-{{ 'section-neeli-product-page.css' | asset_url | stylesheet_tag }}
+{{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -14,25 +14,25 @@
   }
 {%- endstyle -%}
 
-<section class="neeli-product-page__section neeli-timeline neeli-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
-  <div class="neeli-ritual-guide">
-    <div class="neeli-ritual-guide__inner">
-      <div class="neeli-ritual-guide__card motion-panel">
-        <div class="neeli-ritual-guide__content">
-          <svg class="neeli-ritual-guide__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+<section class="theme-product-page__section theme-timeline theme-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="theme-ritual-guide">
+    <div class="theme-ritual-guide__inner">
+      <div class="theme-ritual-guide__card motion-panel">
+        <div class="theme-ritual-guide__content">
+          <svg class="theme-ritual-guide__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8" />
             <path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
           </svg>
           <div>
-            <div class="neeli-ritual-guide__title">The Ritual Guide</div>
-            <p class="neeli-ritual-guide__text">Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.</p>
+            <div class="theme-ritual-guide__title">The Ritual Guide</div>
+            <p class="theme-ritual-guide__text">Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="neeli-timeline__heading-band">
+  <div class="theme-timeline__heading-band">
     {% render 'section-heading',
       kicker: section.settings.kicker,
       title: section.settings.heading,
@@ -43,8 +43,8 @@
     %}
   </div>
 
-  <div class="neeli-product-page__wrap">
-    <div class="neeli-timeline__grid">
+  <div class="theme-product-page__wrap">
+    <div class="theme-timeline__grid">
       {%- assign stage_index = 0 -%}
       {%- for block in section.blocks -%}
         {%- if block.type == 'stage' -%}
@@ -57,20 +57,20 @@
             {%- else -%}
               {%- assign default_stage_image = 'expect-3.jpg' -%}
           {%- endcase -%}
-          <article class="neeli-timeline__item" {{ block.shopify_attributes }}>
-            <div class="neeli-timeline__media">
-              <div class="neeli-timeline__phase neeli-timeline__phase--media">{{ block.settings.phase }}</div>
+          <article class="theme-timeline__item" {{ block.shopify_attributes }}>
+            <div class="theme-timeline__media">
+              <div class="theme-timeline__phase theme-timeline__phase--media">{{ block.settings.phase }}</div>
               {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 900 | image_tag: class: 'neeli-timeline__image', loading: 'lazy', alt: block.settings.title }}
+                {{ block.settings.image | image_url: width: 900 | image_tag: class: 'theme-timeline__image', loading: 'lazy', alt: block.settings.title }}
               {%- else -%}
-                <img src="{{ default_stage_image | asset_url }}" class="neeli-timeline__image" loading="lazy" width="650" height="208" alt="{{ block.settings.title | escape }}">
+                <img src="{{ default_stage_image | asset_url }}" class="theme-timeline__image" loading="lazy" width="650" height="208" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
-              <div class="neeli-timeline__caption">{{ block.settings.mobile_phase }}</div>
+              <div class="theme-timeline__caption">{{ block.settings.mobile_phase }}</div>
             </div>
-            <div class="neeli-timeline__content">
-              <div class="neeli-timeline__label">{{ block.settings.label }}</div>
-              <h3 class="neeli-timeline__title">{{ block.settings.title }}</h3>
-              <p class="neeli-timeline__text">{{ block.settings.body }}</p>
+            <div class="theme-timeline__content">
+              <div class="theme-timeline__label">{{ block.settings.label }}</div>
+              <h3 class="theme-timeline__title">{{ block.settings.title }}</h3>
+              <p class="theme-timeline__text">{{ block.settings.body }}</p>
             </div>
           </article>
         {%- endif -%}
@@ -78,7 +78,7 @@
     </div>
 
     {%- if section.settings.footnote != blank -%}
-      <p class="neeli-product-page__body" style="margin-top: 1.8rem; text-align: center;">{{ section.settings.footnote }}</p>
+      <p class="theme-product-page__body" style="margin-top: 1.8rem; text-align: center;">{{ section.settings.footnote }}</p>
     {%- endif -%}
   </div>
 </section>
@@ -87,7 +87,7 @@
 {
   "name": "timeline",
   "tag": "section",
-  "class": "section neeli-timeline-section",
+  "class": "section theme-timeline-section",
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "checkbox", "id": "inverse_text", "label": "Use inverse heading text", "default": false },

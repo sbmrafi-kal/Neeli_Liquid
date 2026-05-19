@@ -1,4 +1,4 @@
-{{ 'section-neeli-product-page.css' | asset_url | stylesheet_tag }}
+{{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -14,24 +14,24 @@
   }
 {%- endstyle -%}
 
-<section class="neeli-product-page__section neeli-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}neeli-product-page__section--soft{% endif %}">
-  <div class="neeli-product-page__wrap">
-    <div class="neeli-section-heading neeli-section-heading--center">
+<section class="theme-product-page__section theme-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}theme-product-page__section--soft{% endif %}">
+  <div class="theme-product-page__wrap">
+    <div class="theme-section-heading theme-section-heading--center">
       {%- if section.settings.heading != blank -%}
-        <h2 class="neeli-section-heading__title">{{ section.settings.heading }}</h2>
+        <h2 class="theme-section-heading__title">{{ section.settings.heading }}</h2>
       {%- endif -%}
     </div>
 
-    <div class="neeli-dual-panel">
-      <div class="neeli-panel neeli-panel--soft">
-        <div class="neeli-list">
+    <div class="theme-dual-panel">
+      <div class="theme-panel theme-panel--soft">
+        <div class="theme-list">
           {%- for block in section.blocks -%}
             {%- if block.type == 'inclusion' -%}
-              <div class="neeli-list__item" {{ block.shopify_attributes }}>
-                <div class="neeli-list__marker neeli-list__marker--ok">+</div>
+              <div class="theme-list__item" {{ block.shopify_attributes }}>
+                <div class="theme-list__marker theme-list__marker--ok">+</div>
                 <div>
-                  <h3 class="neeli-list__title">{{ block.settings.title }}</h3>
-                  <p class="neeli-list__text">{{ block.settings.text }}</p>
+                  <h3 class="theme-list__title">{{ block.settings.title }}</h3>
+                  <p class="theme-list__text">{{ block.settings.text }}</p>
                 </div>
               </div>
             {%- endif -%}
@@ -39,15 +39,15 @@
         </div>
       </div>
 
-      <div class="neeli-panel neeli-panel--dark">
-        <div class="neeli-list">
+      <div class="theme-panel theme-panel--dark">
+        <div class="theme-list">
           {%- for block in section.blocks -%}
             {%- if block.type == 'exclusion' -%}
-              <div class="neeli-list__item" {{ block.shopify_attributes }}>
-                <div class="neeli-list__marker neeli-list__marker--no">-</div>
+              <div class="theme-list__item" {{ block.shopify_attributes }}>
+                <div class="theme-list__marker theme-list__marker--no">-</div>
                 <div>
-                  <h3 class="neeli-list__title" style="color: #fff;">{{ block.settings.title }}</h3>
-                  <p class="neeli-list__text" style="color: rgba(255,255,255,0.84);">{{ block.settings.text }}</p>
+                  <h3 class="theme-list__title" style="color: #fff;">{{ block.settings.title }}</h3>
+                  <p class="theme-list__text" style="color: rgba(255,255,255,0.84);">{{ block.settings.text }}</p>
                 </div>
               </div>
             {%- endif -%}
@@ -56,7 +56,7 @@
       </div>
     </div>
 
-    <div class="neeli-difference-heading">
+    <div class="theme-difference-heading">
       {% render 'section-heading',
         title: section.settings.accordion_kicker,
         align: 'center',
@@ -64,8 +64,8 @@
       %}
     </div>
 
-    <div class="neeli-difference-panel motion-panel">
-      <div class="neeli-accordion">
+    <div class="theme-difference-panel motion-panel">
+      <div class="theme-accordion">
         {%- for block in section.blocks -%}
           {%- if block.type == 'difference' -%}
             {% render 'accordion-item',
@@ -80,9 +80,9 @@
     </div>
   </div>
 
-  <div class="neeli-story-review-band">
-    <div class="neeli-product-page__wrap">
-      <div class="neeli-review-grid neeli-review-grid--story">
+  <div class="theme-story-review-band">
+    <div class="theme-product-page__wrap">
+      <div class="theme-review-grid theme-review-grid--story">
       {%- for block in section.blocks -%}
         {%- if block.type == 'story_review' -%}
           {% render 'review-card',
@@ -102,7 +102,7 @@
 {
   "name": "ingredient story",
   "tag": "section",
-  "class": "section neeli-ingredient-story",
+  "class": "section theme-ingredient-story",
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "checkbox", "id": "soft_background", "label": "Soft background", "default": true },
