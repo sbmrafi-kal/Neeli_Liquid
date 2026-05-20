@@ -4897,3 +4897,342 @@
   color: rgba(23, 55, 45, 0.72);
   text-align: left;
 }
+
+/* ==========================================================================
+   2026-05-20 parity fixes from changes.md
+   ========================================================================== */
+
+:root {
+  --ka-green: #183d2c;
+  --ka-cream: #f8f3ed;
+  --ka-cream-light: #fcf7f3;
+  --ka-brown: #804433;
+  --ka-gold: #d9a441;
+  --ka-text: #183d2c;
+  --ka-muted: #5f6f66;
+}
+
+body {
+  background: var(--ka-cream-light);
+  color: var(--ka-text);
+}
+
+.theme-site-header,
+.theme-site-header.is-scrolled {
+  position: sticky;
+  top: 0;
+  z-index: 1200 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 0 !important;
+}
+
+.theme-site-header__bar,
+.theme-site-header.is-scrolled .theme-site-header__bar {
+  background: var(--ka-green) !important;
+  color: #f4f0e8 !important;
+}
+
+.theme-site-header__inner {
+  min-height: 78px !important;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-site-header__inner {
+    min-height: 86px !important;
+    height: 86px !important;
+  }
+}
+
+.theme-site-header__nav-link {
+  font-size: 12px !important;
+  letter-spacing: 0.12em !important;
+  font-weight: 500 !important;
+  color: #f4f0e8 !important;
+}
+
+.theme-site-header__icon-button svg {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+.theme-site-header__actions {
+  gap: 1rem !important;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-site-header__icon-button--menu {
+    display: none !important;
+  }
+}
+
+.theme-site-header__subnav,
+.theme-site-header.is-scrolled .theme-site-header__subnav {
+  background: var(--ka-cream-light) !important;
+}
+
+.theme-site-header__subnav-inner {
+  max-width: 1460px !important;
+  padding-top: 0.42rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.theme-site-header__breadcrumb {
+  font-size: 12px !important;
+  letter-spacing: 0.12em !important;
+  color: rgba(24, 61, 44, 0.62) !important;
+}
+
+.theme-site-header__breadcrumb a,
+.theme-site-header__breadcrumb-current {
+  color: var(--ka-text) !important;
+}
+
+.theme-site-header__breadcrumb-current {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+.theme-site-header__search {
+  max-width: 300px !important;
+}
+
+.theme-site-header__search-input {
+  width: 300px !important;
+  height: 30px !important;
+  border-color: rgba(24, 61, 44, 0.45) !important;
+  font-size: 12px !important;
+  background: transparent !important;
+}
+
+.theme-hero-carousel__image {
+  object-fit: contain !important;
+  object-position: center top !important;
+  background: var(--ka-cream-light) !important;
+  height: 460px !important;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-hero-carousel__image {
+    height: 520px !important;
+  }
+}
+
+.theme-hero-carousel__thumbs {
+  bottom: 72px !important;
+}
+
+.theme-product-page__title {
+  color: var(--ka-text) !important;
+  font-size: 38px !important;
+  line-height: 1 !important;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-product-page__title {
+    font-size: 54px !important;
+  }
+}
+
+.theme-product-page__subtitle {
+  font-size: 15px !important;
+  line-height: 1.28 !important;
+}
+
+.theme-product-page__intro,
+.theme-product-page__cert-note {
+  line-height: 1.58 !important;
+}
+
+.cta-sheen {
+  background: var(--ka-brown) !important;
+}
+
+.theme-upsell-card {
+  background: var(--ka-brown) !important;
+}
+
+.theme-ritual-guide {
+  padding-top: 1.25rem !important;
+  padding-bottom: 1.25rem !important;
+  background: transparent !important;
+}
+
+.theme-ritual-guide__card {
+  max-width: 620px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.theme-timeline-section .theme-product-page__section {
+  padding-bottom: 78px !important;
+}
+
+.theme-ingredient-story__whats-in-it {
+  padding-bottom: 4.75rem !important;
+}
+
+.theme-difference-panel {
+  max-width: 760px !important;
+  margin-top: 2rem !important;
+}
+
+.theme-difference-panel .theme-accordion__summary {
+  min-height: 64px !important;
+}
+
+.theme-difference-panel .theme-accordion__title {
+  font-size: 18px !important;
+  letter-spacing: 0.03em !important;
+}
+
+.theme-difference-reviews-wrap {
+  margin-top: 0 !important;
+  padding-top: 2.6rem !important;
+  padding-bottom: 4.75rem !important;
+  background: var(--ka-green) !important;
+}
+
+.theme-difference-reviews-wrap .theme-review-grid--story {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 2.25rem !important;
+  max-width: 1120px !important;
+  padding: 0 !important;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-difference-reviews-wrap .theme-review-grid--story {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+.theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card {
+  border-left: 0 !important;
+  padding: 0 !important;
+}
+
+.theme-key-ingredients .theme-product-page__section {
+  padding-top: 86px !important;
+  padding-bottom: 94px !important;
+}
+
+.theme-ingredient-desktop__media {
+  height: 166px !important;
+  object-fit: cover !important;
+}
+
+.theme-ingredient-desktop__title {
+  font-size: 28px !important;
+}
+
+.theme-ingredient-desktop__text {
+  font-size: 12px !important;
+  line-height: 1.42 !important;
+}
+
+.theme-milk-section {
+  margin-top: 2.75rem !important;
+  padding-top: 3rem !important;
+}
+
+.theme-step-hero {
+  margin-top: 2.2rem !important;
+  height: auto !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+}
+
+.theme-step-hero img {
+  height: auto !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+
+.theme-step-cell-desktop {
+  min-height: 110px !important;
+}
+
+.theme-information .theme-product-page__section {
+  background: var(--ka-cream) !important;
+  padding-top: 86px !important;
+  padding-bottom: 94px !important;
+}
+
+.theme-info-panel--wide {
+  border: 1px solid rgba(24, 61, 44, 0.1) !important;
+  box-shadow: none !important;
+}
+
+.theme-info-panel--wide .theme-accordion__summary {
+  min-height: 62px !important;
+}
+
+.theme-info-panel--wide .theme-accordion__title {
+  font-family: var(--theme-body-font) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: rgba(24, 61, 44, 0.9) !important;
+}
+
+.theme-brand-trust .theme-product-page__section {
+  padding-top: 74px !important;
+  padding-bottom: 82px !important;
+}
+
+.theme-trust-band {
+  background: var(--ka-green) !important;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-trust-band {
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 1.24fr) minmax(250px, 0.58fr) !important;
+  }
+}
+
+.theme-trust-band__content {
+  padding-top: 3rem !important;
+}
+
+.theme-trust-band__divider {
+  background: rgba(248, 243, 237, 0.42) !important;
+}
+
+.theme-trust-band__patent-card {
+  min-height: 146px !important;
+}
+
+.theme-customer-reviews .theme-product-page__section {
+  padding-top: 84px !important;
+  padding-bottom: 94px !important;
+}
+
+.theme-review-grid {
+  margin-top: 3rem !important;
+  gap: 3.25rem !important;
+}
+
+.theme-reviews-footer {
+  margin-top: 3rem !important;
+}
+
+.theme-footer {
+  padding-top: 98px !important;
+  padding-bottom: 118px !important;
+  background: #f9f8f3 !important;
+}
+
+.theme-footer a,
+.theme-footer a:visited,
+.theme-footer a:hover,
+.theme-footer a:active {
+  color: var(--ka-text) !important;
+  text-decoration: none !important;
+}
+
+.theme-footer-social__icon svg {
+  width: 24px !important;
+  height: 24px !important;
+}

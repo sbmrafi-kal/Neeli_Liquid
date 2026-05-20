@@ -59,7 +59,7 @@
   <div class="theme-product-page__wrap">
     <div class="theme-product-page__hero">
       <div class="theme-product-page__hero-media">
-        <div class="theme-hero-carousel" data-theme-carousel data-theme-autoplay="true" data-theme-interval="4800">
+        <div class="theme-hero-carousel" data-theme-carousel data-theme-autoplay="false" data-theme-interval="4800">
           <div class="theme-hero-carousel__stage">
             {%- for media in hero_images -%}
               <figure class="theme-hero-carousel__slide{% if forloop.first %} is-active{% endif %}" data-theme-carousel-slide>
@@ -221,6 +221,7 @@
 
         <div class="theme-product-page__form-card" style="margin-top: 1.5rem; background: transparent; padding: 0; box-shadow: none; border: 0;">
           <!-- Dynamic Shopify Form -->
+          {%- if product != blank and product.selected_or_first_available_variant != blank -%}
           {%- form 'product', product, id: "theme-product-form", class: "theme-product-form" -%}
             <!-- Variant Select -->
             {%- if product.variants.size > 1 -%}
@@ -274,6 +275,7 @@
               </div>
             </button>
           {%- endform -%}
+          {%- endif -%}
         </div>
 
         <div class="theme-delivery-row" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
@@ -345,6 +347,7 @@
       {%- endif -%}
 
       <!-- Mobile Checkout Forms -->
+      {%- if product != blank and product.selected_or_first_available_variant != blank -%}
       {%- form 'product', product, id: "theme-product-form-mobile", class: "theme-product-form theme-product-form--mobile", style: "margin-top: 1rem;" -%}
         <!-- Variant Selector -->
         {%- if product.variants.size > 1 -%}
@@ -397,6 +400,7 @@
           </div>
         </button>
       {%- endform -%}
+      {%- endif -%}
 
       <h2 class="mt-4 font-serif text-[15px] font-normal leading-none text-[#17372d]/84">
         {%- if subtitle_block -%}

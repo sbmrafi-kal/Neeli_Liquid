@@ -27,7 +27,7 @@
 
       <!-- Quick Links Column -->
       <div class="theme-footer-column">
-        {%- if section.settings.quick_links_menu != blank and section.settings.quick_links_menu != 'footer' and quick_links_menu.links.size > 0 -%}
+        {%- if section.settings.quick_links_menu != blank and section.settings.quick_links_menu != 'footer' and quick_links_menu.links.size > 2 and quick_links_menu.title != 'Footer menu' -%}
           <h2 class="theme-footer-column__title">{{ quick_links_menu.title }}</h2>
           <ul class="theme-footer-list">
             {%- for link in quick_links_menu.links -%}
@@ -52,7 +52,7 @@
 
       <!-- Policies Column -->
       <div class="theme-footer-column">
-        {%- if section.settings.policies_menu != blank and section.settings.policies_menu != 'footer' and policies_menu.links.size > 0 -%}
+        {%- if section.settings.policies_menu != blank and section.settings.policies_menu != 'footer' and policies_menu.links.size > 2 and policies_menu.title != 'Footer menu' -%}
           <h2 class="theme-footer-column__title">{{ policies_menu.title }}</h2>
           <ul class="theme-footer-list">
             {%- for link in policies_menu.links -%}
@@ -73,7 +73,7 @@
 
       <!-- Our Network Column -->
       <div class="theme-footer-column">
-        {%- if section.settings.network_menu != blank and section.settings.network_menu != 'footer' and network_menu.links.size > 0 -%}
+        {%- if section.settings.network_menu != blank and section.settings.network_menu != 'footer' and network_menu.links.size > 2 and network_menu.title != 'Footer menu' -%}
           <h2 class="theme-footer-column__title">{{ network_menu.title }}</h2>
           <ul class="theme-footer-list">
             {%- for link in network_menu.links -%}
