@@ -124,6 +124,11 @@
             {%- endif -%}
           </div>
         </div>
+        <div class="pointer-events-none hidden justify-center lg:flex" style="margin-top: 0.5rem;">
+          <div class="relative overflow-visible" style="height: 126px; width: 100%; max-width: 458px; position: relative;">
+            <img src="{{ 'Below_the_product.png' | asset_url }}" alt="" class="absolute left-1/2 top-2 h-auto -translate-x-1/2 opacity-[0.14]" style="width: 260px; position: absolute; left: 50%; transform: translateX(-50%); top: 8px;">
+          </div>
+        </div>
       </div>
 
       <!-- DESKTOP HERO INFO COLUMN -->
@@ -529,7 +534,8 @@
         </div>
 
         <div class="mt-1.5 grid grid-cols-4 items-center gap-0.5 pt-1">
-          {%- for stamp in stamp_images limit: 4 -%}
+          {%- assign mobile_stamp_images = 'stamp_01.png|stamp_02.png|stamp_03.png|stamp_04.png|stamp_05.png' | split: '|' -%}
+          {%- for stamp in mobile_stamp_images offset: 1 limit: 4 -%}
             <div class="flex justify-center overflow-hidden">
               <img src="{{ stamp | asset_url }}" class="h-[58px] w-[58px] scale-[2.02] object-contain opacity-95 contrast-125 saturate-0" loading="lazy" width="58" height="58" alt="Certification">
             </div>

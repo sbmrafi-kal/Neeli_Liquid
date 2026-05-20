@@ -102,12 +102,21 @@
       <div class="theme-review-grid theme-review-grid--story">
         {%- for block in section.blocks -%}
           {%- if block.type == 'story_review' -%}
-            {% render 'review-card',
-              name: block.settings.name,
-              meta: block.settings.meta,
-              badge: block.settings.badge,
-              quote: block.settings.quote
-            %}
+            <div class="theme-story-review-item" {{ block.shopify_attributes }}>
+              <div class="theme-story-review-top">
+                <div>
+                  <div class="theme-story-review-name">{{ block.settings.name }}</div>
+                  <div class="theme-story-review-meta">{{ block.settings.meta }}</div>
+                </div>
+                <div class="theme-story-review-stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+              {%- if block.settings.badge != blank -%}
+                <div class="theme-story-review-badge">{{ block.settings.badge }}</div>
+              {%- endif -%}
+              <p class="theme-story-review-quote">"{{ block.settings.quote }}"</p>
+            </div>
           {%- endif -%}
         {%- endfor -%}
       </div>

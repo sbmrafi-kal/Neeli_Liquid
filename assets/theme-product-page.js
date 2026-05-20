@@ -73,9 +73,20 @@
     elements.forEach((element) => observer.observe(element));
   }
 
+  function initHeaderScroll() {
+    const header = document.querySelector('.theme-site-header');
+    if (!header) return;
+    function update() {
+      header.classList.toggle('is-scrolled', window.scrollY > 10);
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
   function boot() {
     document.querySelectorAll('[data-theme-carousel]').forEach(initCarousel);
     initReveal();
+    initHeaderScroll();
   }
 
   if (document.readyState === 'loading') {
