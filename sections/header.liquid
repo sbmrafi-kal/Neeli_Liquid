@@ -1,6 +1,7 @@
 {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
 
 {%- assign main_menu = linklists[section.settings.menu_handle] -%}
+{%- assign nav_links = main_menu.links -%}
 
 <header class="theme-site-header" role="banner">
   <div class="theme-site-header__bar">
@@ -13,9 +14,10 @@
         </button>
 
         <nav class="theme-site-header__nav" aria-label="Primary">
-          {%- for link in main_menu.links -%}
-            <a class="theme-site-header__nav-link" href="{{ link.url }}">{{ link.title }}</a>
-          {%- endfor -%}
+          <a class="theme-site-header__nav-link" href="{{ nav_links[0].url | default: routes.root_url }}">Shop All</a>
+          <a class="theme-site-header__nav-link" href="{{ nav_links[1].url | default: routes.root_url }}">Hair Care</a>
+          <a class="theme-site-header__nav-link" href="{{ nav_links[2].url | default: routes.root_url }}">Skin Care</a>
+          <a class="theme-site-header__nav-link" href="{{ nav_links[3].url | default: routes.root_url }}">Wellness</a>
         </nav>
       </div>
 

@@ -4,6 +4,7 @@
   assign content = content | default: ''
   assign icon = icon | default: 'none'
   assign open = open | default: false
+  assign faq_blocks = faq_blocks | default: blank
 -%}
 
 <details class="theme-accordion__item" id="{{ item_id }}"{% if open %} open{% endif %}>
@@ -17,6 +18,27 @@
     </span>
   </summary>
   <div class="theme-accordion__content rte">
-    {{ content }}
+    {%- if content != blank -%}
+      {{ content }}
+    {%- elsif faq_blocks != blank -%}
+      <div class="theme-faq-nested-list">
+        {%- assign faq_index = 0 -%}
+        {%- for nested_block in faq_blocks -%}
+          {%- if nested_block.type == 'faq' -%}
+            {%- assign faq_index = faq_index | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign current_faq = 0 -%}
+        {%- for nested_block in faq_blocks -%}
+          {%- if nested_block.type == 'faq' -%}
+            {%- assign current_faq = current_faq | plus: 1 -%}
+            <div class="theme-faq-nested-item {% if current_faq < faq_index %}theme-faq-nested-item--border{% endif %}">
+              <div class="theme-faq-nested-question">{{ nested_block.settings.question }}</div>
+              <p class="theme-faq-nested-answer">{{ nested_block.settings.answer }}</p>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
   </div>
 </details>
