@@ -349,7 +349,7 @@
           "type": "info",
           "settings": {
             "icon": "heart",
-            "title": "Safety & interactions",
+            "title": "Safety & Interactions",
             "text": "<p><strong>Safety & interactions</strong></p><p>External use only. Always patch test before first full application. Pregnant or nursing? Talk to your doctor before starting a new topical regimen.</p>"
           }
         },
@@ -394,11 +394,7 @@
         "info_1",
         "info_2",
         "info_3",
-        "info_4",
-        "faq_1",
-        "faq_2",
-        "faq_3",
-        "faq_4"
+        "info_4"
       ],
       "settings": {
         "color_scheme": "scheme-1",
