@@ -1,5 +1,7 @@
 {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
 
+{%- assign main_menu = linklists[section.settings.menu_handle] -%}
+
 <header class="theme-site-header" role="banner">
   <div class="theme-site-header__bar">
     <div class="theme-site-header__inner">
@@ -11,10 +13,9 @@
         </button>
 
         <nav class="theme-site-header__nav" aria-label="Primary">
-          <a class="theme-site-header__nav-link" href="#">Shop All</a>
-          <a class="theme-site-header__nav-link" href="#">Hair Care</a>
-          <a class="theme-site-header__nav-link" href="#">Skin Care</a>
-          <a class="theme-site-header__nav-link" href="#">Wellness</a>
+          {%- for link in main_menu.links -%}
+            <a class="theme-site-header__nav-link" href="{{ link.url }}">{{ link.title }}</a>
+          {%- endfor -%}
         </nav>
       </div>
 
@@ -30,12 +31,12 @@
           </svg>
         </button>
 
-        <button class="theme-site-header__icon-button" type="button" aria-label="Cart">
+        <a class="theme-site-header__icon-button" href="{{ routes.cart_url }}" aria-label="Cart">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M3.5 5h2l1.4 9.2c.1.8.8 1.3 1.6 1.3h8.2c.7 0 1.3-.5 1.5-1.2L20 8.3H7.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM17 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor" stroke="none" />
           </svg>
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -43,7 +44,7 @@
   <div class="theme-site-header__subnav">
     <div class="theme-site-header__subnav-inner">
       <div class="theme-site-header__breadcrumb">
-        Home <span class="theme-site-header__breadcrumb-separator">›</span>
+        <a href="{{ routes.root_url }}">Home</a> <span class="theme-site-header__breadcrumb-separator">›</span>
         <span class="theme-site-header__breadcrumb-current">
           {%- if product != blank -%}
             {{ product.title }}
@@ -72,6 +73,12 @@
   "tag": "section",
   "class": "section theme-header",
   "settings": [
+    {
+      "type": "link_list",
+      "id": "menu_handle",
+      "label": "Main menu",
+      "default": "main-menu"
+    },
     {
       "type": "range",
       "id": "padding_top",

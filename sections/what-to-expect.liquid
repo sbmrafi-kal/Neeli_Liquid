@@ -24,8 +24,8 @@
             <path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
           </svg>
           <div>
-            <div class="theme-ritual-guide__title">The Ritual Guide</div>
-            <p class="theme-ritual-guide__text">Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.</p>
+            <div class="theme-ritual-guide__title">{{ section.settings.ritual_title }}</div>
+            <p class="theme-ritual-guide__text">{{ section.settings.ritual_text }}</p>
           </div>
         </div>
       </div>
@@ -91,6 +91,8 @@
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "checkbox", "id": "inverse_text", "label": "Use inverse heading text", "default": false },
+    { "type": "text", "id": "ritual_title", "label": "Ritual guide title", "default": "The Ritual Guide" },
+    { "type": "textarea", "id": "ritual_text", "label": "Ritual guide text", "default": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week." },
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "What to expect" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "The honest sequence." },
     { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Root strength comes before visible density.</p>" },

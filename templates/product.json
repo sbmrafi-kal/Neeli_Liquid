@@ -67,7 +67,18 @@
       "settings": {
         "color_scheme": "scheme-1",
         "padding_top": 0,
-        "padding_bottom": 16
+        "padding_bottom": 16,
+        "stat_1_value": "1945",
+        "stat_1_label": "Established",
+        "stat_2_value": "350+",
+        "stat_2_label": "Products",
+        "stat_3_value": "Clinics & Academy",
+        "stat_3_label": "Expert led",
+        "delivery_1_text": "2-4 day delivery",
+        "delivery_2_text": "COD available",
+        "delivery_3_text": "7-day returns",
+        "cta_meta": "",
+        "description_block": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil."
       }
     },
     "timeline": {

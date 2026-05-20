@@ -81,22 +81,13 @@
           </div>
 
           <div class="theme-hero-carousel__stats">
-            <div class="theme-hero-carousel__stat">
-              <div class="theme-hero-carousel__stat-value">4.64★</div>
-              <div class="theme-hero-carousel__stat-label">Ratings</div>
-            </div>
-            <div class="theme-hero-carousel__stat">
-              <div class="theme-hero-carousel__stat-value">312</div>
-              <div class="theme-hero-carousel__stat-label">Reviews</div>
-            </div>
-            <div class="theme-hero-carousel__stat">
-              <div class="theme-hero-carousel__stat-value">30</div>
-              <div class="theme-hero-carousel__stat-label">Uses</div>
-            </div>
-            <div class="theme-hero-carousel__stat">
-              <div class="theme-hero-carousel__stat-value">300+</div>
-              <div class="theme-hero-carousel__stat-label">Happy Customers</div>
-            </div>
+            {%- assign stat_blocks = section.blocks | where: "type", "hero_stat" -%}
+            {%- for block in stat_blocks -%}
+              <div class="theme-hero-carousel__stat" {{ block.shopify_attributes }}>
+                <div class="theme-hero-carousel__stat-value">{{ block.settings.value }}</div>
+                <div class="theme-hero-carousel__stat-label">{{ block.settings.label }}</div>
+              </div>
+            {%- endfor -%}
           </div>
         </div>
 
@@ -159,21 +150,21 @@
               <circle cx="7" cy="18" r="1.4" fill="currentColor" />
               <circle cx="17" cy="18" r="1.4" fill="currentColor" />
             </svg>
-            <span>2-4 day delivery</span>
+            <span>{{ section.settings.delivery_1_text }}</span>
           </div>
           <div class="theme-delivery-row__item">
             <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="1.7" />
               <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
             </svg>
-            <span>COD available</span>
+            <span>{{ section.settings.delivery_2_text }}</span>
           </div>
           <div class="theme-delivery-row__item">
             <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 8h12l-1 11H7L6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
               <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
             </svg>
-            <span>7-day returns</span>
+            <span>{{ section.settings.delivery_3_text }}</span>
           </div>
         </div>
 
@@ -188,16 +179,16 @@
           </div>
           <div class="theme-stamp-card__stats">
             <div class="theme-stamp-card__stat">
-              <div class="theme-stamp-card__stat-value">1945</div>
-              <div class="theme-stamp-card__stat-label">Established</div>
+              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_1_value }}</div>
+              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_1_label }}</div>
             </div>
             <div class="theme-stamp-card__stat">
-              <div class="theme-stamp-card__stat-value">350+</div>
-              <div class="theme-stamp-card__stat-label">Products</div>
+              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_2_value }}</div>
+              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_2_label }}</div>
             </div>
             <div class="theme-stamp-card__stat">
-              <div class="theme-stamp-card__stat-value">Clinics &amp; Academy</div>
-              <div class="theme-stamp-card__stat-label">Expert led</div>
+              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_3_value }}</div>
+              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_3_label }}</div>
             </div>
           </div>
         </div>
@@ -253,21 +244,21 @@
               <circle cx="7" cy="18" r="1.4" fill="currentColor" />
               <circle cx="17" cy="18" r="1.4" fill="currentColor" />
             </svg>
-            <span>2-4 day delivery</span>
+            <span>{{ section.settings.delivery_1_text }}</span>
           </div>
           <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
             <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
               <path d="M3 7h18v10H3z" />
               <path d="M8 12h8" stroke-linecap="round" />
             </svg>
-            <span>COD available</span>
+            <span>{{ section.settings.delivery_2_text }}</span>
           </div>
           <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
             <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
               <path d="M6 8h12l-1 11H7L6 8Z" stroke-linejoin="round" />
               <path d="M9 8a3 3 0 0 1 6 0" stroke-linecap="round" />
             </svg>
-            <span>Easy returns</span>
+            <span>{{ section.settings.delivery_3_text }}</span>
           </div>
         </div>
 
@@ -275,16 +266,16 @@
         <div class="motion-panel mt-3 rounded-[14px] border border-[#17372d]/10 bg-white px-3 py-2 shadow-[0_8px_20px_rgba(17,48,39,0.04)]">
           <div class="grid grid-cols-3 gap-2 text-[#17372d]">
             <div class="border-r border-[#17372d]/8 px-2">
-              <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">1945</div>
-              <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">Established</div>
+              <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">{{ section.settings.stat_1_value }}</div>
+              <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">{{ section.settings.stat_1_label }}</div>
             </div>
             <div class="border-r border-[#17372d]/8 px-2">
-              <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">350+</div>
-              <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">Products</div>
+              <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">{{ section.settings.stat_2_value }}</div>
+              <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">{{ section.settings.stat_2_label }}</div>
             </div>
             <div class="px-2">
-              <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">Clinics &amp; Academy</div>
-              <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">Expert led</div>
+              <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">{{ section.settings.stat_3_value }}</div>
+              <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">{{ section.settings.stat_3_label }}</div>
             </div>
           </div>
 
@@ -314,17 +305,42 @@
     { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "One oil for complete hair recovery" },
     { "type": "textarea", "id": "body", "label": "Body", "default": "Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides." },
     { "type": "text", "id": "cta_title", "label": "CTA title", "default": "Reorder now" },
-    { "type": "text", "id": "cta_meta", "label": "CTA meta", "default": "Last ordered 28 Mar" },
+    { "type": "text", "id": "cta_meta", "label": "CTA meta", "default": "" },
     { "type": "text", "id": "cta_old_price", "label": "Old price", "default": "₹350" },
     { "type": "text", "id": "cta_price", "label": "Price", "default": "₹315" },
     { "type": "url", "id": "button_link", "label": "CTA link" },
     { "type": "text", "id": "hero_alt", "label": "Hero image alt", "default": "Neelibhringadi Keram product gallery" },
+    { "type": "text", "id": "stat_1_value", "label": "Stamp stat 1 value", "default": "1945" },
+    { "type": "text", "id": "stat_1_label", "label": "Stamp stat 1 label", "default": "Established" },
+    { "type": "text", "id": "stat_2_value", "label": "Stamp stat 2 value", "default": "350+" },
+    { "type": "text", "id": "stat_2_label", "label": "Stamp stat 2 label", "default": "Products" },
+    { "type": "text", "id": "stat_3_value", "label": "Stamp stat 3 value", "default": "Clinics & Academy" },
+    { "type": "text", "id": "stat_3_label", "label": "Stamp stat 3 label", "default": "Expert led" },
+    { "type": "text", "id": "delivery_1_text", "label": "Delivery row 1 text", "default": "2-4 day delivery" },
+    { "type": "text", "id": "delivery_2_text", "label": "Delivery row 2 text", "default": "COD available" },
+    { "type": "text", "id": "delivery_3_text", "label": "Delivery row 3 text", "default": "7-day returns" },
     { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "default": 0, "label": "Top padding" },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 16, "label": "Bottom padding" }
   ],
+  "blocks": [
+    {
+      "type": "hero_stat",
+      "name": "Hero stat",
+      "settings": [
+        { "type": "text", "id": "value", "default": "4.64★", "label": "Value" },
+        { "type": "text", "id": "label", "default": "Ratings", "label": "Label" }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "homepage hero"
+      "name": "homepage hero",
+      "blocks": [
+        { "type": "hero_stat" },
+        { "type": "hero_stat" },
+        { "type": "hero_stat" },
+        { "type": "hero_stat" }
+      ]
     }
   ]
 }

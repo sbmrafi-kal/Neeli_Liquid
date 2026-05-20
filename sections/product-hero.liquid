@@ -97,31 +97,12 @@
 
           <div class="theme-hero-carousel__stats">
             {%- assign stat_blocks = section.blocks | where: "type", "hero_stat" -%}
-            {%- if stat_blocks.size > 0 -%}
-              {%- for block in stat_blocks -%}
-                <div class="theme-hero-carousel__stat" {{ block.shopify_attributes }}>
-                  <div class="theme-hero-carousel__stat-value">{{ block.settings.value }}</div>
-                  <div class="theme-hero-carousel__stat-label">{{ block.settings.label }}</div>
-                </div>
-              {%- endfor -%}
-            {%- else -%}
-              <div class="theme-hero-carousel__stat">
-                <div class="theme-hero-carousel__stat-value">4.64★</div>
-                <div class="theme-hero-carousel__stat-label">Ratings</div>
+            {%- for block in stat_blocks -%}
+              <div class="theme-hero-carousel__stat" {{ block.shopify_attributes }}>
+                <div class="theme-hero-carousel__stat-value">{{ block.settings.value }}</div>
+                <div class="theme-hero-carousel__stat-label">{{ block.settings.label }}</div>
               </div>
-              <div class="theme-hero-carousel__stat">
-                <div class="theme-hero-carousel__stat-value">312</div>
-                <div class="theme-hero-carousel__stat-label">Reviews</div>
-              </div>
-              <div class="theme-hero-carousel__stat">
-                <div class="theme-hero-carousel__stat-value">30</div>
-                <div class="theme-hero-carousel__stat-label">Uses</div>
-              </div>
-              <div class="theme-hero-carousel__stat">
-                <div class="theme-hero-carousel__stat-value">300+</div>
-                <div class="theme-hero-carousel__stat-label">Happy Customers</div>
-              </div>
-            {%- endif -%}
+            {%- endfor -%}
           </div>
         </div>
         <div class="pointer-events-none hidden justify-center lg:flex" style="margin-top: 0.5rem;">
@@ -213,23 +194,25 @@
           </div>
           <div class="theme-stamp-card__stats">
             <div class="theme-stamp-card__stat">
-              <div class="theme-stamp-card__stat-value">1945</div>
-              <div class="theme-stamp-card__stat-label">Established</div>
+              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_1_value }}</div>
+              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_1_label }}</div>
             </div>
             <div class="theme-stamp-card__stat">
-              <div class="theme-stamp-card__stat-value">350+</div>
-              <div class="theme-stamp-card__stat-label">Products</div>
+              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_2_value }}</div>
+              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_2_label }}</div>
             </div>
             <div class="theme-stamp-card__stat">
-              <div class="theme-stamp-card__stat-value">Clinics &amp; Academy</div>
-              <div class="theme-stamp-card__stat-label">Expert led</div>
+              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_3_value }}</div>
+              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_3_label }}</div>
             </div>
           </div>
         </div>
 
-        <p class="theme-product-page__description-block" style="margin-top: 1rem; margin-bottom: 1rem;">
-          Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.
-        </p>
+        {%- if section.settings.description_block != blank -%}
+          <p class="theme-product-page__description-block" style="margin-top: 1rem; margin-bottom: 1rem;">
+            {{ section.settings.description_block }}
+          </p>
+        {%- endif -%}
 
         <div class="theme-product-page__form-card" style="margin-top: 1.5rem; background: transparent; padding: 0; box-shadow: none; border: 0;">
           <!-- Dynamic Shopify Form -->
@@ -271,7 +254,9 @@
                       Sold Out
                     {%- endif -%}
                   </div>
-                  <div class="mt-1 text-[12px] text-white/72">Last ordered 28 Mar</div>
+                  {%- if section.settings.cta_meta != blank -%}
+                    <div class="mt-1 text-[12px] text-white/72">{{ section.settings.cta_meta }}</div>
+                  {%- endif -%}
                 </div>
               </div>
               <div class="flex items-center justify-end gap-3 border-t border-white/12 px-5 py-3 sm:min-w-[188px] sm:border-l sm:border-t-0">
@@ -294,21 +279,21 @@
               <circle cx="7" cy="18" r="1.4" fill="currentColor" />
               <circle cx="17" cy="18" r="1.4" fill="currentColor" />
             </svg>
-            <span>2-4 day delivery</span>
+            <span>{{ section.settings.delivery_1_text }}</span>
           </div>
           <div class="theme-delivery-row__item">
             <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="1.7" />
               <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
             </svg>
-            <span>COD available</span>
+            <span>{{ section.settings.delivery_2_text }}</span>
           </div>
           <div class="theme-delivery-row__item">
             <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 8h12l-1 11H7L6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
               <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
             </svg>
-            <span>7-day returns</span>
+            <span>{{ section.settings.delivery_3_text }}</span>
           </div>
         </div>
 
@@ -392,7 +377,9 @@
                   Sold Out
                 {%- endif -%}
               </div>
-              <div class="mt-1 text-[11px] text-white/72">Last ordered 28 Mar</div>
+              {%- if section.settings.cta_meta != blank -%}
+                <div class="mt-1 text-[11px] text-white/72">{{ section.settings.cta_meta }}</div>
+              {%- endif -%}
             </div>
           </div>
           <div class="flex items-center gap-2 border-l border-white/14 pl-4">
@@ -432,21 +419,21 @@
             <circle cx="7" cy="18" r="1.4" fill="currentColor" />
             <circle cx="17" cy="18" r="1.4" fill="currentColor" />
           </svg>
-          <span>2-4 day delivery</span>
+          <span>{{ section.settings.delivery_1_text }}</span>
         </div>
         <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
           <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
             <path d="M3 7h18v10H3z" />
             <path d="M8 12h8" stroke-linecap="round" />
           </svg>
-          <span>COD available</span>
+          <span>{{ section.settings.delivery_2_text }}</span>
         </div>
         <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
           <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
             <path d="M6 8h12l-1 11H7L6 8Z" stroke-linejoin="round" />
             <path d="M9 8a3 3 0 0 1 6 0" stroke-linecap="round" />
           </svg>
-          <span>Easy returns</span>
+          <span>{{ section.settings.delivery_3_text }}</span>
         </div>
       </div>
 
@@ -500,16 +487,16 @@
       <div class="motion-panel mt-3 rounded-[14px] border border-[#17372d]/10 bg-white px-3 py-2 shadow-[0_8px_20px_rgba(17,48,39,0.04)]">
         <div class="grid grid-cols-3 gap-2 text-[#17372d]">
           <div class="border-r border-[#17372d]/8 px-2">
-            <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">1945</div>
-            <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">Established</div>
+            <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">{{ section.settings.stat_1_value }}</div>
+            <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">{{ section.settings.stat_1_label }}</div>
           </div>
           <div class="border-r border-[#17372d]/8 px-2">
-            <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">350+</div>
-            <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">Products</div>
+            <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">{{ section.settings.stat_2_value }}</div>
+            <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">{{ section.settings.stat_2_label }}</div>
           </div>
           <div class="px-2">
-            <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">Clinics &amp; Academy</div>
-            <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">Expert led</div>
+            <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">{{ section.settings.stat_3_value }}</div>
+            <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">{{ section.settings.stat_3_label }}</div>
           </div>
         </div>
 
@@ -523,9 +510,11 @@
         </div>
       </div>
 
-      <p class="theme-product-page__description-block" style="margin-top: 1rem; margin-bottom: 1rem;">
-        Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.
-      </p>
+      {%- if section.settings.description_block != blank -%}
+        <p class="theme-product-page__description-block" style="margin-top: 1rem; margin-bottom: 1rem;">
+          {{ section.settings.description_block }}
+        </p>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -619,6 +608,72 @@
       "id": "enable_video_looping",
       "default": false,
       "label": "Enable video looping"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_value",
+      "label": "Stamp stat 1 value",
+      "default": "1945"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "label": "Stamp stat 1 label",
+      "default": "Established"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_value",
+      "label": "Stamp stat 2 value",
+      "default": "350+"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "label": "Stamp stat 2 label",
+      "default": "Products"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_value",
+      "label": "Stamp stat 3 value",
+      "default": "Clinics & Academy"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "label": "Stamp stat 3 label",
+      "default": "Expert led"
+    },
+    {
+      "type": "text",
+      "id": "delivery_1_text",
+      "label": "Delivery row 1 text",
+      "default": "2-4 day delivery"
+    },
+    {
+      "type": "text",
+      "id": "delivery_2_text",
+      "label": "Delivery row 2 text",
+      "default": "COD available"
+    },
+    {
+      "type": "text",
+      "id": "delivery_3_text",
+      "label": "Delivery row 3 text",
+      "default": "7-day returns"
+    },
+    {
+      "type": "text",
+      "id": "cta_meta",
+      "label": "CTA meta text",
+      "default": ""
+    },
+    {
+      "type": "textarea",
+      "id": "description_block",
+      "label": "Description block",
+      "default": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil."
     },
     {
       "type": "range",

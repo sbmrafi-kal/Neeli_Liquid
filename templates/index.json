@@ -9,6 +9,37 @@
     },
     "main": {
       "type": "home-hero",
+      "blocks": {
+        "stat_1": {
+          "type": "hero_stat",
+          "settings": {
+            "value": "4.64★",
+            "label": "Ratings"
+          }
+        },
+        "stat_2": {
+          "type": "hero_stat",
+          "settings": {
+            "value": "312",
+            "label": "Reviews"
+          }
+        },
+        "stat_3": {
+          "type": "hero_stat",
+          "settings": {
+            "value": "30",
+            "label": "Uses"
+          }
+        },
+        "stat_4": {
+          "type": "hero_stat",
+          "settings": {
+            "value": "300+",
+            "label": "Happy Customers"
+          }
+        }
+      },
+      "block_order": ["stat_1", "stat_2", "stat_3", "stat_4"],
       "settings": {
         "color_scheme": "scheme-1",
         "badge": "Minimizes hair fall",
@@ -21,6 +52,15 @@
         "cta_price": "₹315",
         "button_link": "/collections/all",
         "hero_alt": "Neelibhringadi Keram product gallery",
+        "stat_1_value": "1945",
+        "stat_1_label": "Established",
+        "stat_2_value": "350+",
+        "stat_2_label": "Products",
+        "stat_3_value": "Clinics & Academy",
+        "stat_3_label": "Expert led",
+        "delivery_1_text": "2-4 day delivery",
+        "delivery_2_text": "COD available",
+        "delivery_3_text": "7-day returns",
         "padding_top": 0,
         "padding_bottom": 16
       }

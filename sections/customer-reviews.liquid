@@ -30,7 +30,7 @@
       </div>
 
       <div class="theme-reviews-rating-header">
-        <div class="theme-reviews-rating-header__score-mobile lg:hidden">4.64 / 5.0</div>
+        <div class="theme-reviews-rating-header__score-mobile lg:hidden">{{ section.settings.rating_score }}</div>
         <div class="theme-reviews-rating-header__stars">
           {%- for i in (1..4) -%}
             <svg class="theme-reviews-rating-header__star-svg theme-reviews-rating-header__star-svg--filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -41,7 +41,7 @@
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
           </svg>
         </div>
-        <div class="theme-reviews-rating-header__score-desktop hidden lg:block">4.64 / 5.0</div>
+        <div class="theme-reviews-rating-header__score-desktop hidden lg:block">{{ section.settings.rating_score }}</div>
       </div>
     </div>
 
@@ -99,6 +99,7 @@
     { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Real customer language, carried into the Shopify theme.</p>" },
     { "type": "text", "id": "button_label", "label": "Button label", "default": "Read all reviews" },
     { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "text", "id": "rating_score", "label": "Rating score", "default": "4.64 / 5.0" },
     { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Top padding" },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Bottom padding" }
   ],

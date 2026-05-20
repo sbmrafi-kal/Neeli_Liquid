@@ -14,101 +14,111 @@
   }
 {%- endstyle -%}
 
+{%- assign quick_links_menu = linklists[section.settings.quick_links_menu] -%}
+{%- assign policies_menu = linklists[section.settings.policies_menu] -%}
+{%- assign network_menu = linklists[section.settings.network_menu] -%}
+
 <footer class="theme-product-page__section theme-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient" style="background: #f9f8f3;">
   <div class="theme-product-page__wrap">
     <div class="theme-footer-grid">
       <div class="theme-footer-brand">
-        <img src="{{ 'logo-kerala.png' | asset_url }}" class="theme-footer-brand__logo" loading="lazy" width="4167" height="4167" alt="Kerala Ayurveda">
+        <img src="{{ 'logo-kerala.png' | asset_url }}" class="theme-footer-brand__logo" loading="lazy" width="4167" height="4167" alt="{{ shop.name | escape }}">
       </div>
 
-      <div class="theme-footer-column">
-        <h2 class="theme-footer-column__title">Quick Links</h2>
-        <ul class="theme-footer-list">
-          <li>About Kerala Ayurveda</li>
-          <li>Clinics</li>
-          <li>Ayurveda Academy</li>
-          <li>Investors</li>
-          <li>Research &amp; Development</li>
-          <li>Careers</li>
-          <li>Blogs</li>
-          <li>Our Editorial Team</li>
-          <li>Contact Us</li>
-        </ul>
-      </div>
+      {%- if quick_links_menu.links.size > 0 -%}
+        <div class="theme-footer-column">
+          <h2 class="theme-footer-column__title">{{ quick_links_menu.title }}</h2>
+          <ul class="theme-footer-list">
+            {%- for link in quick_links_menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
 
-      <div class="theme-footer-column">
-        <h2 class="theme-footer-column__title">Policies</h2>
-        <ul class="theme-footer-list">
-          <li>Terms Of Use</li>
-          <li>Privacy Policy</li>
-          <li>Shipping And Delivery Policy</li>
-          <li>Return/Cancellation Policy</li>
-          <li>FAQs</li>
-        </ul>
-      </div>
+      {%- if policies_menu.links.size > 0 -%}
+        <div class="theme-footer-column">
+          <h2 class="theme-footer-column__title">{{ policies_menu.title }}</h2>
+          <ul class="theme-footer-list">
+            {%- for link in policies_menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
 
-      <div class="theme-footer-column">
-        <h2 class="theme-footer-column__title">Our Network</h2>
-        <ul class="theme-footer-list">
-          <li>Ayurvedagram Bengaluru</li>
-          <li>Ayurvedagram Bali</li>
-          <li>The Health Village</li>
-          <li>Kerala Ayurveda India - Academy</li>
-          <li>Kerala Ayurveda USA - Store</li>
-          <li>Kerala Ayurveda USA - Wellness</li>
-          <li>Kerala Ayurveda USA - Academy</li>
-        </ul>
-      </div>
+      {%- if network_menu.links.size > 0 -%}
+        <div class="theme-footer-column">
+          <h2 class="theme-footer-column__title">{{ network_menu.title }}</h2>
+          <ul class="theme-footer-list">
+            {%- for link in network_menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
     </div>
 
     <div class="theme-footer-social-wrapper">
       <div class="theme-footer-social-empty"></div>
       <div class="theme-footer-social-content">
-        <div class="theme-footer-social__label">Follow Us</div>
+        {%- if section.settings.social_label != blank -%}
+          <div class="theme-footer-social__label">{{ section.settings.social_label }}</div>
+        {%- endif -%}
         <div class="theme-footer-social__icons">
-          <a href="#" aria-label="Facebook" class="theme-footer-social__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-              <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-          <a href="#" aria-label="X" class="theme-footer-social__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-              <path d="M5 4l14 16M19 4 5 20" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </a>
-          <a href="#" aria-label="Instagram" class="theme-footer-social__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-              <rect x="4" y="4" width="16" height="16" rx="4" stroke-width="1.5" />
-              <circle cx="12" cy="12" r="3.5" stroke-width="1.5" />
-              <circle cx="17.4" cy="6.6" r="0.8" fill="currentColor" stroke="none" />
-            </svg>
-          </a>
-          <a href="#" aria-label="YouTube" class="theme-footer-social__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-              <rect x="3.5" y="6.5" width="17" height="11" rx="3" stroke-width="1.5" />
-              <path d="M10 9.5 15 12l-5 2.5v-5Z" fill="currentColor" stroke="none" />
-            </svg>
-          </a>
-          <a href="#" aria-label="LinkedIn" class="theme-footer-social__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-              <path d="M6.5 9.5v8M6.5 6.5h.01M11 17.5v-5.2c0-1.4 1.1-2.5 2.5-2.5S16 10.9 16 12.3v5.2M11 11V9.5M6 9.5h1M16 17.5h1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              <rect x="4" y="4" width="16" height="16" rx="2.5" stroke-width="1.5" />
-            </svg>
-          </a>
+          {%- if settings.social_facebook_link != blank -%}
+            <a href="{{ settings.social_facebook_link }}" aria-label="Facebook" class="theme-footer-social__icon" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if settings.social_twitter_link != blank -%}
+            <a href="{{ settings.social_twitter_link }}" aria-label="X" class="theme-footer-social__icon" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M5 4l14 16M19 4 5 20" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if settings.social_instagram_link != blank -%}
+            <a href="{{ settings.social_instagram_link }}" aria-label="Instagram" class="theme-footer-social__icon" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="4" stroke-width="1.5" />
+                <circle cx="12" cy="12" r="3.5" stroke-width="1.5" />
+                <circle cx="17.4" cy="6.6" r="0.8" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if settings.social_youtube_link != blank -%}
+            <a href="{{ settings.social_youtube_link }}" aria-label="YouTube" class="theme-footer-social__icon" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <rect x="3.5" y="6.5" width="17" height="11" rx="3" stroke-width="1.5" />
+                <path d="M10 9.5 15 12l-5 2.5v-5Z" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if settings.social_linkedin_link != blank -%}
+            <a href="{{ settings.social_linkedin_link }}" aria-label="LinkedIn" class="theme-footer-social__icon" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M6.5 9.5v8M6.5 6.5h.01M11 17.5v-5.2c0-1.4 1.1-2.5 2.5-2.5S16 10.9 16 12.3v5.2M11 11V9.5M6 9.5h1M16 17.5h1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <rect x="4" y="4" width="16" height="16" rx="2.5" stroke-width="1.5" />
+              </svg>
+            </a>
+          {%- endif -%}
         </div>
       </div>
     </div>
 
-    <div class="theme-footer-tagline-wrapper">
-      <div class="theme-footer-tagline-empty"></div>
-      <div class="theme-footer-tagline-content">
-        <p class="theme-footer-tagline-p">
-          The Proprietary Kerala Ayurveda Formulation.
-          <br>
-          This Is One Of Them.
-        </p>
+    {%- if section.settings.tagline != blank -%}
+      <div class="theme-footer-tagline-wrapper">
+        <div class="theme-footer-tagline-empty"></div>
+        <div class="theme-footer-tagline-content">
+          <p class="theme-footer-tagline-p">
+            {{ section.settings.tagline }}
+          </p>
+        </div>
       </div>
-    </div>
+    {%- endif -%}
 </footer>
 
 {% schema %}
@@ -118,6 +128,11 @@
   "class": "section theme-footer",
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "link_list", "id": "quick_links_menu", "label": "Quick links menu", "default": "footer" },
+    { "type": "link_list", "id": "policies_menu", "label": "Policies menu", "default": "footer" },
+    { "type": "link_list", "id": "network_menu", "label": "Our network menu", "default": "footer" },
+    { "type": "text", "id": "social_label", "label": "Social label", "default": "Follow Us" },
+    { "type": "textarea", "id": "tagline", "label": "Tagline", "default": "The Proprietary Kerala Ayurveda Formulation.\nThis Is One Of Them." },
     { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "default": 40, "label": "Top padding" },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 40, "label": "Bottom padding" }
   ],
