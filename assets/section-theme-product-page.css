@@ -2836,6 +2836,12 @@
 @media screen and (min-width: 990px) {
   .theme-trust-band__content {
     padding: 3.25rem 2rem 3rem;
+    text-align: left;
+  }
+
+  .theme-trust-band__text {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -2918,7 +2924,25 @@
 }
 
 .theme-trust-band__patent-text {
-  display: none !important;
+  display: block;
+  margin: 0.5rem 0 0;
+  color: rgba(247, 243, 233, 0.64);
+  font-size: 12px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.theme-trust-band__mark-mobile-copy,
+.theme-trust-band__mark-desktop-copy {
+  margin-top: 0.75rem;
+  color: rgba(247, 243, 233, 0.78);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.theme-trust-band__mark-desktop-copy {
+  max-width: 170px;
 }
 
 .theme-trust-band__mark {
@@ -3534,7 +3558,10 @@
   }
 
   .theme-trust-band__patent-text {
-    display: none !important;
+    display: block !important;
+    margin-top: 0.5rem !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
   }
 
   .theme-trust-band__mark {
@@ -3568,6 +3595,12 @@
     color: rgba(247, 243, 233, 0.88) !important;
     text-align: center;
     margin-bottom: 0;
+  }
+
+  .theme-trust-band__mark-mobile-copy,
+  .theme-trust-band__mark-desktop-copy {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
   }
 
   .theme-reviews-rating {
@@ -4852,6 +4885,3 @@
   color: rgba(23, 55, 45, 0.72);
   text-align: left;
 }
-
-
-

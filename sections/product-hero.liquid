@@ -42,6 +42,9 @@
 {%- if product == blank -%}
   {%- assign product = all_products['neelibhringadi-keram'] -%}
 {%- endif -%}
+{%- assign product_title = product.title | default: 'Neelibhringadi Keram' -%}
+{%- assign product_variant = product.selected_or_first_available_variant -%}
+{%- assign product_price = product_variant.price | default: 38500 -%}
 
 <section
   id="NeeliProduct-{{ section.id }}"
@@ -70,11 +73,11 @@
                   {%- assign hero_loading = 'lazy' -%}
                 {%- endif -%}
                 {%- if media.preview_image != blank -%}
-                  <img src="{{ media.preview_image | image_url: width: 750 }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product.title | escape }}">
+                  <img src="{{ media.preview_image | image_url: width: 750 }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product_title | escape }}">
                 {%- elsif media.src != blank -%}
-                  <img src="{{ media | image_url: width: 750 }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product.title | escape }}">
+                  <img src="{{ media | image_url: width: 750 }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product_title | escape }}">
                 {%- else -%}
-                  <img src="{{ media | asset_url }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product.title | escape }}">
+                  <img src="{{ media | asset_url }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product_title | escape }}">
                 {%- endif -%}
               </figure>
             {%- endfor -%}
@@ -144,7 +147,7 @@
           {%- endif -%}
 
           <div class="theme-product-page__title-wrap">
-            <h1 class="theme-product-page__title">{{ product.title | escape }}</h1>
+            <h1 class="theme-product-page__title">{{ product_title | escape }}</h1>
           </div>
 
           {%- assign subtitle_block = section.blocks | where: "type", "caption" | first -%}
@@ -272,10 +275,10 @@
               </div>
               <div class="flex items-center justify-end gap-3 border-t border-white/12 px-5 py-3 sm:min-w-[188px] sm:border-l sm:border-t-0">
                 <span class="theme-reorder-card__price-old text-[16px] text-white/40 line-through" {% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}style="display:none;"{% endunless %}>
-                  {{ product.selected_or_first_available_variant.compare_at_price | money }}
+                  {{ product_variant.compare_at_price | money }}
                 </span>
                 <span class="theme-reorder-card__price-new text-[30px] font-bold leading-none lg:text-[32px]" style="color: white;">
-                  {{ product.selected_or_first_available_variant.price | money }}
+                  {{ product_price | money }}
                 </span>
               </div>
             </button>
@@ -394,11 +397,11 @@
             </div>
           </div>
           <div class="flex items-center gap-2 border-l border-white/14 pl-4">
-            <span class="theme-reorder-card__price-old text-[12px] text-white/38 line-through" {% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}style="display:none;"{% endunless %}>
-              {{ product.selected_or_first_available_variant.compare_at_price | money }}
+                <span class="theme-reorder-card__price-old text-[12px] text-white/38 line-through" {% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}style="display:none;"{% endunless %}>
+              {{ product_variant.compare_at_price | money }}
             </span>
             <span class="theme-reorder-card__price-new text-[18px] font-bold leading-none" style="color: white;">
-              {{ product.selected_or_first_available_variant.price | money }}
+              {{ product_price | money }}
             </span>
           </div>
         </button>
