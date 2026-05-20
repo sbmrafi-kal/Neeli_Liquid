@@ -69,10 +69,10 @@
             {%- endfor -%}
 
             <button class="theme-hero-carousel__control theme-hero-carousel__control--prev" type="button" aria-label="Previous image" data-theme-carousel-prev>
-              {{- 'icon-caret.svg' | inline_asset_content -}}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left" style="width: 24px; height: 24px;"><path d="m15 18-6-6 6-6"/></svg>
             </button>
             <button class="theme-hero-carousel__control theme-hero-carousel__control--next" type="button" aria-label="Next image" data-theme-carousel-next>
-              {{- 'icon-caret.svg' | inline_asset_content -}}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right" style="width: 24px; height: 24px;"><path d="m9 18 6-6-6-6"/></svg>
             </button>
           </div>
 
@@ -165,36 +165,87 @@
           </p>
         </div>
 
-        <div class="theme-product-page__form-card">
-          {%- assign hero_note_block = section.blocks | where: "type", "hero_note" | first -%}
-          <div class="theme-product-page__body theme-product-page__intro" style="margin-bottom: 1.5rem;">
-            {%- if hero_note_block -%}
-              {{ hero_note_block.settings.text }}
+        {%- assign hero_note_block = section.blocks | where: "type", "hero_note" | first -%}
+        <p class="theme-product-page__body theme-product-page__intro" style="margin-top: 1rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.44; color: rgba(23, 55, 45, 0.72);">
+          {%- if hero_note_block -%}
+            {{ hero_note_block.settings.text }}
+          {%- else -%}
+            Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
+          {%- endif -%}
+        </p>
+
+        {%- assign quote_block = section.blocks | where: "type", "hero_quote" | first -%}
+        <div class="theme-product-page__quote-wrap motion-panel" style="margin-top: 1.25rem; margin-bottom: 1.25rem;">
+          <div class="theme-product-page__quote">
+            {%- if quote_block -%}
+              {{ quote_block.settings.quote }}
             {%- else -%}
-              Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.
+              "Hair fall reduced noticeably, and I can already see tiny baby hairs coming"
             {%- endif -%}
           </div>
+          <div class="theme-product-page__quote-meta">
+            {%- if quote_block -%}
+              {{ quote_block.settings.author }}
+            {%- else -%}
+              - ANU R., CHENNAI
+            {%- endif -%}
+          </div>
+        </div>
 
+        {%- assign feature_block = section.blocks | where: "type", "hero_feature" | first -%}
+        <p class="theme-product-page__body theme-product-page__cert-note" style="margin-top: 1rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.46; color: rgba(23, 55, 45, 0.72);">
+          {%- if feature_block -%}
+            {{ feature_block.settings.title }} {{ feature_block.settings.text }}
+          {%- else -%}
+            Made by BAMS doctors in our GMP & ISO - certified facility. FDA compliant and AYUSH licensed.
+          {%- endif -%}
+        </p>
+
+        <div class="theme-stamp-card motion-panel" style="margin-top: 1rem; margin-bottom: 1rem;">
+          <div class="theme-stamp-card__top">
+            {%- assign stamp_images = 'stamp_01.png|stamp_02.png|stamp_03.png|stamp_04.png|stamp_05.png' | split: '|' -%}
+            {%- for stamp in stamp_images -%}
+              <div class="theme-stamp-card__stamp">
+                {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
+                <img src="{{ stamp | asset_url }}" class="theme-stamp-card__stamp-image" loading="lazy" width="1920" height="1080" alt="{{ stamp_alt | escape }}">
+              </div>
+            {%- endfor -%}
+          </div>
+          <div class="theme-stamp-card__stats">
+            <div class="theme-stamp-card__stat">
+              <div class="theme-stamp-card__stat-value">1945</div>
+              <div class="theme-stamp-card__stat-label">Established</div>
+            </div>
+            <div class="theme-stamp-card__stat">
+              <div class="theme-stamp-card__stat-value">350+</div>
+              <div class="theme-stamp-card__stat-label">Products</div>
+            </div>
+            <div class="theme-stamp-card__stat">
+              <div class="theme-stamp-card__stat-value">Clinics &amp; Academy</div>
+              <div class="theme-stamp-card__stat-label">Expert led</div>
+            </div>
+          </div>
+        </div>
+
+        <p class="theme-product-page__description-block" style="margin-top: 1rem; margin-bottom: 1rem;">
+          Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.
+        </p>
+
+        <div class="theme-product-page__form-card" style="margin-top: 1.5rem; background: transparent; padding: 0; box-shadow: none; border: 0;">
           <!-- Dynamic Shopify Form -->
           {%- form 'product', product, id: "theme-product-form", class: "theme-product-form" -%}
-            <!-- Product Price -->
-            <div class="theme-product-price-row" style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem;">
-              <span style="font-size: 2rem; font-weight: 700; color: var(--theme-forest);">{{ product.selected_or_first_available_variant.price | money }}</span>
-              {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
-                <span style="font-size: 1.25rem; text-decoration: line-through; color: rgba(23, 55, 45, 0.44);">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
-              {%- endif -%}
-            </div>
-
             <!-- Variant Select -->
             {%- if product.variants.size > 1 -%}
-              <div class="theme-variant-picker" style="margin-bottom: 1.5rem;">
+              <div class="theme-variant-picker" style="margin-bottom: 1.25rem;">
                 <label for="ProductSelect-{{ section.id }}" style="display: block; font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; color: rgba(23, 55, 45, 0.62); margin-bottom: 0.5rem; letter-spacing: 0.05em;">Select Option</label>
                 <select name="id" id="ProductSelect-{{ section.id }}" class="theme-variant-select" style="width: 100%; border: 1px solid rgba(23, 55, 45, 0.2); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.9375rem; background: #fff; color: var(--theme-forest); outline: none;">
                   {%- for variant in product.variants -%}
                     <option value="{{ variant.id }}" 
-                      {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %} 
-                      {% unless variant.available %}disabled="disabled"{% endunless %}>
-                      {{ variant.title }} - {{ variant.price | money }} {% unless variant.available %}(Sold Out){% endunless %}
+                      data-price="{{ variant.price | money }}"
+                      data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
+                      data-available="{{ variant.available }}"
+                      {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}>
+                      {{ variant.title }}
                     </option>
                   {%- endfor -%}
                 </select>
@@ -203,161 +254,85 @@
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
             {%- endif -%}
 
-            <!-- Quantity Selector -->
-            <div class="theme-quantity-selector" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.75rem;">
-              <span style="font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; color: rgba(23, 55, 45, 0.62); letter-spacing: 0.05em;">Quantity</span>
-              <div style="display: flex; align-items: center; border: 1px solid rgba(23, 55, 45, 0.2); border-radius: 8px; overflow: hidden; background: #fff;">
-                <button type="button" onclick="adjustQty(-1)" style="border: none; background: transparent; padding: 0.5rem 1rem; cursor: pointer; color: var(--theme-forest); font-weight: 600; font-size: 1rem;">-</button>
-                <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1" style="width: 50px; text-align: center; border: none; outline: none; font-size: 0.9375rem; color: var(--theme-forest); background: transparent; pointer-events: none;">
-                <button type="button" onclick="adjustQty(1)" style="border: none; background: transparent; padding: 0.5rem 1rem; cursor: pointer; color: var(--theme-forest); font-weight: 600; font-size: 1rem;">+</button>
-              </div>
-            </div>
+            <input type="hidden" name="quantity" value="1">
 
-            <!-- Add to Cart CTA -->
-            <button type="submit" name="add" class="theme-review-button" style="width: 100%; display: flex; justify-content: center; align-items: center; padding: 1.125rem 2rem; font-size: 1rem; background: #8f4f36; border-color: #8f4f36; color: #fff; cursor: pointer; margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 700; border-radius: 9999px; letter-spacing: 0.05em; transition: transform 0.2s ease, background-color 0.2s ease;">
-              {%- if product.selected_or_first_available_variant.available -%}
-                Add to Cart
-              {%- else -%}
-                Sold Out
-              {%- endif -%}
-            </button>
-          {%- endform -%}
-
-          <script>
-            function adjustQty(amount) {
-              const input = document.getElementById('Quantity-{{ section.id }}');
-              let currentVal = parseInt(input.value) || 1;
-              currentVal = Math.max(1, currentVal + amount);
-              input.value = currentVal;
-            }
-          </script>
-
-          {%- assign quote_block = section.blocks | where: "type", "hero_quote" | first -%}
-          <div class="theme-product-page__quote-wrap motion-panel">
-            <div class="theme-product-page__quote">
-              {%- if quote_block -%}
-                {{ quote_block.settings.quote }}
-              {%- else -%}
-                "Hair fall reduced noticeably, and I can already see tiny baby hairs coming"
-              {%- endif -%}
-            </div>
-            <div class="theme-product-page__quote-meta">
-              {%- if quote_block -%}
-                {{ quote_block.settings.author }}
-              {%- else -%}
-                - ANU R., CHENNAI
-              {%- endif -%}
-            </div>
-          </div>
-
-          {%- assign feature_block = section.blocks | where: "type", "hero_feature" | first -%}
-          <p class="theme-product-page__body theme-product-page__cert-note" style="margin-bottom: 1.5rem;">
-            {%- if feature_block -%}
-              {{ feature_block.settings.title }} {{ feature_block.settings.text }}
-            {%- else -%}
-              Made by BAMS doctors in our GMP & ISO - certified facility. FDA compliant and AYUSH licensed.
-            {%- endif -%}
-          </p>
-
-          <div class="theme-stamp-card motion-panel" style="margin-top: 1rem; margin-bottom: 1.5rem;">
-            <div class="theme-stamp-card__top">
-              {%- assign stamp_images = 'stamp_01.png|stamp_02.png|stamp_03.png|stamp_04.png|stamp_05.png' | split: '|' -%}
-              {%- for stamp in stamp_images -%}
-                <div class="theme-stamp-card__stamp">
-                  {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
-                  <img src="{{ stamp | asset_url }}" class="theme-stamp-card__stamp-image" loading="lazy" width="1920" height="1080" alt="{{ stamp_alt | escape }}">
-                </div>
-              {%- endfor -%}
-            </div>
-            <div class="theme-stamp-card__stats">
-              <div class="theme-stamp-card__stat">
-                <div class="theme-stamp-card__stat-value">1945</div>
-                <div class="theme-stamp-card__stat-label">Established</div>
-              </div>
-              <div class="theme-stamp-card__stat">
-                <div class="theme-stamp-card__stat-value">350+</div>
-                <div class="theme-stamp-card__stat-label">Products</div>
-              </div>
-              <div class="theme-stamp-card__stat">
-                <div class="theme-stamp-card__stat-value">Clinics &amp; Academy</div>
-                <div class="theme-stamp-card__stat-label">Expert led</div>
-              </div>
-            </div>
-          </div>
-
-          <p class="theme-product-page__description-block">
-            Real scalp repair + strengthening for weaker follicles. Neelibhringadi Keram is a traditional Ayurvedic recipe trusted for generations to prevent premature greying, arrest hair fall, and support natural root reactivation.
-          </p>
-
-          <div class="theme-reorder-card cta-sheen motion-panel" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
-            <button class="theme-reorder-card__button" type="button" onclick="document.getElementById('theme-product-form').submit();">
-              <div class="theme-reorder-card__main">
-                <svg class="theme-reorder-card__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M3 3v5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- Unified CTA Sheen Submit Button -->
+            <button type="submit" name="add" class="cta-sheen hover-rise mt-4 overflow-hidden rounded-[14px] bg-[#8f4f36] text-white shadow-sm border-0 w-full cursor-pointer flex flex-col items-stretch text-left sm:flex-row" style="padding: 0; outline: none; text-decoration: none;" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
+              <div class="flex flex-1 items-center gap-4 px-5 py-3">
+                <svg class="h-6 w-6 shrink-0" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; color: white;">
+                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <div>
-                  <div class="theme-reorder-card__title">Reorder now</div>
-                  <div class="theme-reorder-card__meta">Last ordered 28 Mar</div>
+                  <div class="theme-reorder-btn-text text-[18px] font-bold uppercase leading-none tracking-[0.03em] lg:text-[19px]" style="color: white;">
+                    {%- if product.selected_or_first_available_variant.available -%}
+                      Reorder now
+                    {%- else -%}
+                      Sold Out
+                    {%- endif -%}
+                  </div>
+                  <div class="mt-1 text-[12px] text-white/72">Last ordered 28 Mar</div>
                 </div>
               </div>
-              <div class="theme-reorder-card__price">
-                {%- if product.compare_at_price > product.price -%}
-                  <span class="theme-reorder-card__price-old">{{ product.compare_at_price | money }}</span>
-                {%- endif -%}
-                <span class="theme-reorder-card__price-new">{{ product.price | money }}</span>
+              <div class="flex items-center justify-end gap-3 border-t border-white/12 px-5 py-3 sm:min-w-[188px] sm:border-l sm:border-t-0">
+                <span class="theme-reorder-card__price-old text-[16px] text-white/40 line-through" {% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}style="display:none;"{% endunless %}>
+                  {{ product.selected_or_first_available_variant.compare_at_price | money }}
+                </span>
+                <span class="theme-reorder-card__price-new text-[30px] font-bold leading-none lg:text-[32px]" style="color: white;">
+                  {{ product.selected_or_first_available_variant.price | money }}
+                </span>
               </div>
             </button>
-          </div>
-
-          <div class="theme-delivery-row" style="margin-bottom: 1.5rem;">
-            <div class="theme-delivery-row__item">
-              <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M3 7h11v10H3z" stroke="currentColor" stroke-width="1.7" />
-                <path d="M14 10h3l2 2v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
-                <circle cx="7" cy="18" r="1.4" fill="currentColor" />
-                <circle cx="17" cy="18" r="1.4" fill="currentColor" />
-              </svg>
-              <span>2-4 day delivery</span>
-            </div>
-            <div class="theme-delivery-row__item">
-              <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="1.7" />
-                <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-              </svg>
-              <span>COD available</span>
-            </div>
-            <div class="theme-delivery-row__item">
-              <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 8h12l-1 11H7L6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-              </svg>
-              <span>7-day returns</span>
-            </div>
-          </div>
-
-          {%- assign upsell_block = section.blocks | where: "type", "hero_upsell" | first -%}
-          {%- if upsell_block -%}
-            <div class="theme-upsell-card hover-rise" style="margin-top: 1rem;">
-              <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-card__image" loading="lazy" width="1000" height="1000" alt="{{ upsell_block.settings.title | escape }}">
-              <div class="theme-upsell-card__copy">
-                <div class="theme-upsell-card__title">{{ upsell_block.settings.title }}</div>
-                <p class="theme-upsell-card__text">{{ upsell_block.settings.text }}</p>
-              </div>
-              {%- if upsell_block.settings.button_label != blank -%}
-                {%- if upsell_block.settings.button_link != blank -%}
-                  <a class="theme-upsell-card__button premium-button" href="{{ upsell_block.settings.button_link }}">
-                    {{ upsell_block.settings.button_label }}
-                  </a>
-                {%- else -%}
-                  <span class="theme-upsell-card__button premium-button" role="presentation">
-                    {{ upsell_block.settings.button_label }}
-                  </span>
-                {%- endif -%}
-              {%- endif -%}
-            </div>
-          {%- endif -%}
+          {%- endform -%}
         </div>
+
+        <div class="theme-delivery-row" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+          <div class="theme-delivery-row__item">
+            <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 7h11v10H3z" stroke="currentColor" stroke-width="1.7" />
+              <path d="M14 10h3l2 2v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="7" cy="18" r="1.4" fill="currentColor" />
+              <circle cx="17" cy="18" r="1.4" fill="currentColor" />
+            </svg>
+            <span>2-4 day delivery</span>
+          </div>
+          <div class="theme-delivery-row__item">
+            <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="1.7" />
+              <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+            </svg>
+            <span>COD available</span>
+          </div>
+          <div class="theme-delivery-row__item">
+            <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 8h12l-1 11H7L6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+              <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+            </svg>
+            <span>7-day returns</span>
+          </div>
+        </div>
+
+        {%- assign upsell_block = section.blocks | where: "type", "hero_upsell" | first -%}
+        {%- if upsell_block -%}
+          <div class="theme-upsell-card hover-rise" style="margin-top: 1rem;">
+            <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-card__image" loading="lazy" width="1000" height="1000" alt="{{ upsell_block.settings.title | escape }}">
+            <div class="theme-upsell-card__copy">
+              <div class="theme-upsell-card__title">{{ upsell_block.settings.title }}</div>
+              <p class="theme-upsell-card__text">{{ upsell_block.settings.text }}</p>
+            </div>
+            {%- if upsell_block.settings.button_label != blank -%}
+              {%- if upsell_block.settings.button_link != blank -%}
+                <a class="theme-upsell-card__button premium-button" href="{{ upsell_block.settings.button_link }}">
+                  {{ upsell_block.settings.button_label }}
+                </a>
+              {%- else -%}
+                <span class="theme-upsell-card__button premium-button" role="presentation">
+                  {{ upsell_block.settings.button_label }}
+                </span>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
       </div>
     </div>
 
@@ -379,25 +354,19 @@
         </div>
       {%- endif -%}
 
-      <!-- Mobile Checkout Forms (for checkout flow support on mobile) -->
+      <!-- Mobile Checkout Forms -->
       {%- form 'product', product, id: "theme-product-form-mobile", class: "theme-product-form theme-product-form--mobile", style: "margin-top: 1rem;" -%}
-        <!-- Price Display -->
-        <div class="theme-product-price-row" style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 1rem;">
-          <span style="font-size: 1.75rem; font-weight: 700; color: var(--theme-forest);">{{ product.selected_or_first_available_variant.price | money }}</span>
-          {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
-            <span style="font-size: 1.15rem; text-decoration: line-through; color: rgba(23, 55, 45, 0.44);">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
-          {%- endif -%}
-        </div>
-
         <!-- Variant Selector -->
         {%- if product.variants.size > 1 -%}
           <div class="theme-variant-picker" style="margin-bottom: 1rem;">
             <select name="id" id="ProductSelect-Mobile-{{ section.id }}" class="theme-variant-select" style="width: 100%; border: 1px solid rgba(23, 55, 45, 0.2); border-radius: 8px; padding: 0.65rem 0.85rem; font-size: 0.875rem; background: #fff; color: var(--theme-forest); outline: none;">
               {%- for variant in product.variants -%}
                 <option value="{{ variant.id }}" 
-                  {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %} 
-                  {% unless variant.available %}disabled="disabled"{% endunless %}>
-                  {{ variant.title }} - {{ variant.price | money }} {% unless variant.available %}(Sold Out){% endunless %}
+                  data-price="{{ variant.price | money }}"
+                  data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
+                  data-available="{{ variant.available }}"
+                  {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}>
+                  {{ variant.title }}
                 </option>
               {%- endfor -%}
             </select>
@@ -405,47 +374,52 @@
         {%- else -%}
           <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
         {%- endif -%}
-      {%- endform -%}
 
-      <!-- Mobile Reorder / Checkout CTA (8px rounded shape matching visual reference mocks) -->
-      <div class="cta-sheen mt-3 overflow-hidden rounded-[8px] bg-[#8f4f36] text-white shadow-sm" style="margin-bottom: 1rem;">
-        <button type="button" onclick="document.getElementById('theme-product-form-mobile').submit();" class="flex w-full items-center justify-between px-4 py-3 text-left border-0 bg-transparent cursor-pointer text-white">
+        <input type="hidden" name="quantity" value="1">
+
+        <!-- Mobile Unified Reorder / Checkout CTA -->
+        <button type="submit" name="add" class="cta-sheen mt-3 overflow-hidden rounded-[8px] bg-[#8f4f36] text-white shadow-sm border-0 w-full cursor-pointer flex items-center justify-between px-4 py-3 text-left" style="padding: 0; outline: none; text-decoration: none;" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
           <div class="flex items-center gap-3">
-            <svg class="h-5 w-5" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24">
-              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-              <path d="M3 3v5h5" />
+            <svg class="h-5 w-5 shrink-0" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; color: white;">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
             <div>
-              <div class="text-[14px] font-bold uppercase leading-none tracking-[0.04em]">Reorder now</div>
+              <div class="theme-reorder-btn-text text-[14px] font-bold uppercase leading-none tracking-[0.04em]" style="color: white;">
+                {%- if product.selected_or_first_available_variant.available -%}
+                  Reorder now
+                {%- else -%}
+                  Sold Out
+                {%- endif -%}
+              </div>
               <div class="mt-1 text-[11px] text-white/72">Last ordered 28 Mar</div>
             </div>
           </div>
           <div class="flex items-center gap-2 border-l border-white/14 pl-4">
-            {%- if product.compare_at_price > product.price -%}
-              <span class="text-[12px] text-white/38 line-through">{{ product.compare_at_price | money }}</span>
-            {%- endif -%}
-            <span class="text-[18px] font-bold leading-none">{{ product.price | money }}</span>
+            <span class="theme-reorder-card__price-old text-[12px] text-white/38 line-through" {% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}style="display:none;"{% endunless %}>
+              {{ product.selected_or_first_available_variant.compare_at_price | money }}
+            </span>
+            <span class="theme-reorder-card__price-new text-[18px] font-bold leading-none" style="color: white;">
+              {{ product.selected_or_first_available_variant.price | money }}
+            </span>
           </div>
         </button>
-      </div>
+      {%- endform -%}
 
-      <h2 class="font-serif text-[24px] font-normal leading-[1.1] text-[#17372d]">
-        {{ product.title | escape }}
-      </h2>
-      <p class="mt-1 text-[14px] leading-tight text-[#17372d]/78">
+      <h2 class="mt-4 font-serif text-[15px] font-normal leading-none text-[#17372d]/84">
         {%- if subtitle_block -%}
           {{ subtitle_block.settings.text }}
         {%- else -%}
           One oil for complete hair recovery
         {%- endif -%}
-      </p>
+      </h2>
       <div class="mt-3 h-px w-full bg-[#17372d]/10" />
 
       <p class="mt-4 text-[14px] leading-[1.42] text-[#17372d]/72">
         {%- if hero_note_block -%}
           {{ hero_note_block.settings.text }}
         {%- else -%}
-          Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.
+          Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
         {%- endif -%}
       </p>
 
@@ -472,7 +446,7 @@
             <path d="M6 8h12l-1 11H7L6 8Z" stroke-linejoin="round" />
             <path d="M9 8a3 3 0 0 1 6 0" stroke-linecap="round" />
           </svg>
-          <span>7-day returns</span>
+          <span>Easy returns</span>
         </div>
       </div>
 
@@ -484,9 +458,15 @@
             <div class="text-[13px] font-medium leading-none">{{ upsell_block.settings.title }}</div>
             <div class="mt-1 text-[12px] leading-tight text-white/74">{{ upsell_block.settings.text }}</div>
           </div>
-          <button type="button" onclick="document.getElementById('theme-product-form-mobile').submit();" class="premium-button rounded-[12px] bg-[#f4bb28] px-3 py-2 text-[13px] font-bold leading-none text-[#1c2018] border-0 cursor-pointer">
-            {{ upsell_block.settings.button_label }}
-          </button>
+          {%- if upsell_block.settings.button_link != blank -%}
+            <a href="{{ upsell_block.settings.button_link }}" class="premium-button rounded-[12px] bg-[#f4bb28] px-3 py-2 text-[13px] font-bold leading-none text-[#1c2018] border-0 cursor-pointer text-decoration-none" style="display: inline-block;">
+              {{ upsell_block.settings.button_label }}
+            </a>
+          {%- else -%}
+            <button type="submit" name="add" onclick="document.getElementById('theme-product-form-mobile').submit();" class="premium-button rounded-[12px] bg-[#f4bb28] px-3 py-2 text-[13px] font-bold leading-none text-[#1c2018] border-0 cursor-pointer">
+              {{ upsell_block.settings.button_label }}
+            </button>
+          {%- endif -%}
         </div>
       {%- endif -%}
 
@@ -543,8 +523,8 @@
         </div>
       </div>
 
-      <p class="theme-product-page__description-block">
-        Real scalp repair + strengthening for weaker follicles. Neelibhringadi Keram is a traditional Ayurvedic recipe trusted for generations to prevent premature greying, arrest hair fall, and support natural root reactivation.
+      <p class="theme-product-page__description-block" style="margin-top: 1rem; margin-bottom: 1rem;">
+        Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.
       </p>
     </div>
   </div>

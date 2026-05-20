@@ -12,6 +12,24 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .theme-product-info-desktop {
+    display: none;
+  }
+  
+  .theme-product-info-mobile {
+    display: block;
+    margin-top: 1.5rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .theme-product-info-desktop {
+      display: block;
+    }
+    .theme-product-info-mobile {
+      display: none;
+    }
+  }
 {%- endstyle -%}
 
 {%- assign hero_images = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' -%}
@@ -42,10 +60,10 @@
             {%- endfor -%}
 
             <button class="theme-hero-carousel__control theme-hero-carousel__control--prev" type="button" aria-label="Previous image" data-theme-carousel-prev>
-              {{- 'icon-caret.svg' | inline_asset_content -}}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left" style="width: 24px; height: 24px;"><path d="m15 18-6-6 6-6"/></svg>
             </button>
             <button class="theme-hero-carousel__control theme-hero-carousel__control--next" type="button" aria-label="Next image" data-theme-carousel-next>
-              {{- 'icon-caret.svg' | inline_asset_content -}}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right" style="width: 24px; height: 24px;"><path d="m9 18 6-6-6-6"/></svg>
             </button>
           </div>
 
@@ -87,87 +105,195 @@
         </div>
       </div>
 
-      <div class="theme-product-page__hero-info">
+      <!-- DESKTOP HERO INFO COLUMN -->
+      <div class="theme-product-page__hero-info theme-product-info-desktop">
         <div class="theme-product-page__hero-header">
-          <div class="theme-product-page__badge-row">
-            <span class="theme-product-page__badge">{{ section.settings.badge }}</span>
+          <div class="micro-fade-delayed mt-4 inline-flex flex-wrap items-center gap-2 rounded-[18px] border border-[#d8cba1] bg-[#f8f0d6] px-4 py-2 text-[12px] font-medium uppercase tracking-[0.07em] text-[#17372d] sm:text-[13px] xl:text-[14px]">
+            <span>{{ section.settings.badge }}</span>
           </div>
 
-          <div>
+          <div class="theme-product-page__title-wrap">
             <h1 class="theme-product-page__title">{{ section.settings.title }}</h1>
-            <p class="theme-product-page__subtitle">{{ section.settings.subtitle }}</p>
           </div>
 
-          <p class="theme-product-page__body">{{ section.settings.body }}</p>
+          <p class="theme-product-page__subtitle subtitle">
+            {{ section.settings.subtitle }}
+          </p>
+        </div>
 
-          <div class="theme-reorder-card cta-sheen motion-panel">
-            <a class="theme-reorder-card__button" href="{{ section.settings.button_link }}">
-              <div class="theme-reorder-card__main">
-                <svg class="theme-reorder-card__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M3 3v5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <div>
-                  <div class="theme-reorder-card__title">{{ section.settings.cta_title }}</div>
-                  <div class="theme-reorder-card__meta">{{ section.settings.cta_meta }}</div>
+        <p class="theme-product-page__body theme-product-page__intro" style="margin-top: 1rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.44; color: rgba(23, 55, 45, 0.72);">
+          {{ section.settings.body }}
+        </p>
+
+        <!-- Unified CTA Sheen Reorder Link Card -->
+        <div class="theme-reorder-card cta-sheen motion-panel" style="margin-top: 1.5rem;">
+          <a class="hover-rise mt-4 overflow-hidden rounded-[14px] bg-[#8f4f36] text-white shadow-sm border-0 w-full cursor-pointer flex flex-col items-stretch text-left sm:flex-row" href="{{ section.settings.button_link }}" style="padding: 0; outline: none; text-decoration: none; display: flex;">
+            <div class="flex flex-1 items-center gap-4 px-5 py-3">
+              <svg class="h-6 w-6 shrink-0" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; color: white;">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <div>
+                <div class="text-[18px] font-bold uppercase leading-none tracking-[0.03em] lg:text-[19px]" style="color: white;">
+                  {{ section.settings.cta_title }}
                 </div>
+                <div class="mt-1 text-[12px] text-white/72">{{ section.settings.cta_meta }}</div>
               </div>
-              <div class="theme-reorder-card__price">
-                <span class="theme-reorder-card__price-old">{{ section.settings.cta_old_price }}</span>
-                <span class="theme-reorder-card__price-new">{{ section.settings.cta_price }}</span>
+            </div>
+            <div class="flex items-center justify-end gap-3 border-t border-white/12 px-5 py-3 sm:min-w-[188px] sm:border-l sm:border-t-0">
+              <span class="text-[16px] text-white/40 line-through">
+                {{ section.settings.cta_old_price }}
+              </span>
+              <span class="text-[30px] font-bold leading-none lg:text-[32px]" style="color: white;">
+                {{ section.settings.cta_price }}
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <div class="theme-delivery-row" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+          <div class="theme-delivery-row__item">
+            <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 7h11v10H3z" stroke="currentColor" stroke-width="1.7" />
+              <path d="M14 10h3l2 2v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="7" cy="18" r="1.4" fill="currentColor" />
+              <circle cx="17" cy="18" r="1.4" fill="currentColor" />
+            </svg>
+            <span>2-4 day delivery</span>
+          </div>
+          <div class="theme-delivery-row__item">
+            <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="1.7" />
+              <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+            </svg>
+            <span>COD available</span>
+          </div>
+          <div class="theme-delivery-row__item">
+            <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 8h12l-1 11H7L6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+              <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+            </svg>
+            <span>7-day returns</span>
+          </div>
+        </div>
+
+        <div class="theme-stamp-card motion-panel" style="margin-top: 1rem; margin-bottom: 1rem;">
+          <div class="theme-stamp-card__top">
+            {%- for stamp in homepage_stamps -%}
+              <div class="theme-stamp-card__stamp">
+                {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
+                <img src="{{ stamp | asset_url }}" class="theme-stamp-card__stamp-image" loading="lazy" width="1920" height="1080" alt="{{ stamp_alt | escape }}">
               </div>
-            </a>
+            {%- endfor -%}
           </div>
-
-          <div class="theme-delivery-row">
-            <div class="theme-delivery-row__item">
-              <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M3 7h11v10H3z" stroke="currentColor" stroke-width="1.7" />
-                <path d="M14 10h3l2 2v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
-                <circle cx="7" cy="18" r="1.4" fill="currentColor" />
-                <circle cx="17" cy="18" r="1.4" fill="currentColor" />
-              </svg>
-              <span>2-4 day delivery</span>
+          <div class="theme-stamp-card__stats">
+            <div class="theme-stamp-card__stat">
+              <div class="theme-stamp-card__stat-value">1945</div>
+              <div class="theme-stamp-card__stat-label">Established</div>
             </div>
-            <div class="theme-delivery-row__item">
-              <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="1.7" />
-                <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-              </svg>
-              <span>COD available</span>
+            <div class="theme-stamp-card__stat">
+              <div class="theme-stamp-card__stat-value">350+</div>
+              <div class="theme-stamp-card__stat-label">Products</div>
             </div>
-            <div class="theme-delivery-row__item">
-              <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 8h12l-1 11H7L6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-              </svg>
-              <span>7-day returns</span>
+            <div class="theme-stamp-card__stat">
+              <div class="theme-stamp-card__stat-value">Clinics &amp; Academy</div>
+              <div class="theme-stamp-card__stat-label">Expert led</div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="theme-stamp-card motion-panel">
-            <div class="theme-stamp-card__top">
-              {%- for stamp in homepage_stamps -%}
-                <div class="theme-stamp-card__stamp">
-                  {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
-                  <img src="{{ stamp | asset_url }}" class="theme-stamp-card__stamp-image" loading="lazy" width="1920" height="1080" alt="{{ stamp_alt | escape }}">
+      <!-- MOBILE HERO INFO CONTAINER (Spans full narrow width) -->
+      <div class="theme-product-page__hero-info theme-product-info-mobile">
+        <div class="inline-flex flex-wrap items-center gap-2 rounded-full border border-[#e4cf8f] bg-[#fbf4de] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.08em] text-[#17372d]">
+          <span>{{ section.settings.badge }}</span>
+        </div>
+
+        <!-- Mobile Unified Reorder / Checkout CTA -->
+        <div class="theme-reorder-card cta-sheen" style="margin-top: 1rem;">
+          <a class="mt-3 overflow-hidden rounded-[8px] bg-[#8f4f36] text-white shadow-sm border-0 w-full cursor-pointer flex items-center justify-between px-4 py-3 text-left" href="{{ section.settings.button_link }}" style="padding: 0; outline: none; text-decoration: none; display: flex;">
+            <div class="flex items-center gap-3">
+              <svg class="h-5 w-5 shrink-0" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; color: white;">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <div>
+                <div class="text-[14px] font-bold uppercase leading-none tracking-[0.04em]" style="color: white;">
+                  {{ section.settings.cta_title }}
                 </div>
-              {%- endfor -%}
-            </div>
-            <div class="theme-stamp-card__stats">
-              <div class="theme-stamp-card__stat">
-                <div class="theme-stamp-card__stat-value">1945</div>
-                <div class="theme-stamp-card__stat-label">Established</div>
-              </div>
-              <div class="theme-stamp-card__stat">
-                <div class="theme-stamp-card__stat-value">350+</div>
-                <div class="theme-stamp-card__stat-label">Products</div>
-              </div>
-              <div class="theme-stamp-card__stat">
-                <div class="theme-stamp-card__stat-value">Clinics &amp; Academy</div>
-                <div class="theme-stamp-card__stat-label">Expert led</div>
+                <div class="mt-1 text-[11px] text-white/72">{{ section.settings.cta_meta }}</div>
               </div>
             </div>
+            <div class="flex items-center gap-2 border-l border-white/14 pl-4">
+              <span class="text-[12px] text-white/38 line-through">
+                {{ section.settings.cta_old_price }}
+              </span>
+              <span class="text-[18px] font-bold leading-none" style="color: white;">
+                {{ section.settings.cta_price }}
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <h2 class="mt-4 font-serif text-[15px] font-normal leading-none text-[#17372d]/84">
+          {{ section.settings.subtitle }}
+        </h2>
+        <div class="mt-3 h-px w-full bg-[#17372d]/10" />
+
+        <p class="mt-4 text-[14px] leading-[1.42] text-[#17372d]/72">
+          {{ section.settings.body }}
+        </p>
+
+        <!-- Delivery columns -->
+        <div class="mt-5 grid grid-cols-3 overflow-hidden rounded-[2px] bg-[#f6f2e8] text-[#17372d]">
+          <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
+            <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
+              <path d="M3 7h11v10H3z" />
+              <path d="M14 10h3l2 2v5h-5" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="7" cy="18" r="1.4" fill="currentColor" />
+              <circle cx="17" cy="18" r="1.4" fill="currentColor" />
+            </svg>
+            <span>2-4 day delivery</span>
+          </div>
+          <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
+            <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
+              <path d="M3 7h18v10H3z" />
+              <path d="M8 12h8" stroke-linecap="round" />
+            </svg>
+            <span>COD available</span>
+          </div>
+          <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
+            <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
+              <path d="M6 8h12l-1 11H7L6 8Z" stroke-linejoin="round" />
+              <path d="M9 8a3 3 0 0 1 6 0" stroke-linecap="round" />
+            </svg>
+            <span>Easy returns</span>
+          </div>
+        </div>
+
+        <!-- Mobile certifications panel -->
+        <div class="motion-panel mt-3 rounded-[14px] border border-[#17372d]/10 bg-white px-3 py-2 shadow-[0_8px_20px_rgba(17,48,39,0.04)]">
+          <div class="grid grid-cols-3 gap-2 text-[#17372d]">
+            <div class="border-r border-[#17372d]/8 px-2">
+              <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">1945</div>
+              <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">Established</div>
+            </div>
+            <div class="border-r border-[#17372d]/8 px-2">
+              <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">350+</div>
+              <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">Products</div>
+            </div>
+            <div class="px-2">
+              <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#17372d]">Clinics &amp; Academy</div>
+              <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#17372d]/72">Expert led</div>
+            </div>
+          </div>
+
+          <div class="mt-1.5 grid grid-cols-4 items-center gap-0.5 pt-1">
+            {%- for stamp in homepage_stamps offset: 1 limit: 4 -%}
+              <div class="flex justify-center overflow-hidden">
+                <img src="{{ stamp | asset_url }}" class="h-[58px] w-[58px] scale-[2.02] object-contain opacity-95 contrast-125 saturate-0" loading="lazy" width="58" height="58" alt="Certification">
+              </div>
+            {%- endfor -%}
           </div>
         </div>
       </div>

@@ -83,10 +83,93 @@
     update();
   }
 
+  function initVariantSync() {
+    const selects = Array.from(document.querySelectorAll('.theme-variant-select'));
+    if (!selects.length) return;
+
+    let isSyncing = false;
+
+    selects.forEach((select) => {
+      select.addEventListener('change', (e) => {
+        if (isSyncing) return;
+        isSyncing = true;
+
+        const targetValue = e.target.value;
+        
+        // 1. Sync other selects to the same value
+        selects.forEach((otherSelect) => {
+          if (otherSelect !== select && otherSelect.value !== targetValue) {
+            otherSelect.value = targetValue;
+            // Trigger change event to keep other selectors in sync if nested
+            otherSelect.dispatchEvent(new Event('change'));
+          }
+        });
+
+        isSyncing = false;
+
+        // 2. Parse selected option attributes
+        const selectedOption = select.options[select.selectedIndex];
+        if (!selectedOption) return;
+
+        const price = selectedOption.getAttribute('data-price');
+        const comparePrice = selectedOption.getAttribute('data-compare-price');
+        const available = selectedOption.getAttribute('data-available') === 'true';
+
+        // 3. Update all CTA buttons' price and text states
+        const ctaButtons = Array.from(document.querySelectorAll('.cta-sheen'));
+        ctaButtons.forEach((btn) => {
+          // Update prices
+          const newPriceEl = btn.querySelector('.theme-reorder-card__price-new');
+          const oldPriceEl = btn.querySelector('.theme-reorder-card__price-old');
+          
+          if (newPriceEl && price) {
+            newPriceEl.textContent = price;
+          }
+          
+          if (oldPriceEl) {
+            if (comparePrice && comparePrice.trim() !== '') {
+              oldPriceEl.textContent = comparePrice;
+              oldPriceEl.style.display = '';
+            } else {
+              oldPriceEl.style.display = 'none';
+            }
+          }
+
+          // Update availability state
+          const textEl = btn.querySelector('.theme-reorder-btn-text');
+          if (available) {
+            btn.removeAttribute('disabled');
+            if (textEl) {
+              const isMobileText = textEl.closest('.theme-product-info-mobile') !== null;
+              if (isMobileText) {
+                textEl.textContent = 'REORDER NOW';
+              } else {
+                textEl.textContent = 'Reorder now';
+              }
+            }
+          } else {
+            btn.setAttribute('disabled', 'disabled');
+            if (textEl) {
+              textEl.textContent = 'Sold Out';
+            }
+          }
+        });
+      });
+    });
+
+    // Run once at start to initialize correct pricing from the pre-selected option
+    const firstSelect = selects[0];
+    if (firstSelect) {
+      // Trigger a change to align initial UI states
+      firstSelect.dispatchEvent(new Event('change'));
+    }
+  }
+
   function boot() {
     document.querySelectorAll('[data-theme-carousel]').forEach(initCarousel);
     initReveal();
     initHeaderScroll();
+    initVariantSync();
   }
 
   if (document.readyState === 'loading') {

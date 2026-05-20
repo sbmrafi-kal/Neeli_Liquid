@@ -593,11 +593,11 @@
 }
 
 .theme-hero-carousel__control--prev svg {
-  transform: rotate(90deg);
+  transform: none !important;
 }
 
 .theme-hero-carousel__control--next svg {
-  transform: rotate(-90deg);
+  transform: none !important;
 }
 
 .theme-hero-carousel__thumbs {
@@ -2874,6 +2874,16 @@
   text-transform: uppercase;
 }
 
+.theme-trust-band__patents-eyebrow {
+  margin: 0 0 0.5rem;
+  color: #d7c870 !important;
+  font-size: 12px !important;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
 .theme-trust-band__title {
   margin: 0;
   color: var(--theme-cream);
@@ -3483,7 +3493,7 @@
     min-height: 400px;
   }
 
-  .theme-trust-band__eyebrow {
+  .theme-trust-band__patents-eyebrow {
     display: none !important;
   }
 
