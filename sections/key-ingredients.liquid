@@ -22,7 +22,8 @@
       {%- endif -%}
     </div>
 
-    <div class="theme-ingredient-grid">
+    <!-- Mobile Key Ingredients Layout -->
+    <div class="theme-key-ingredients--mobile lg:hidden">
       {%- assign ingredient_index = 0 -%}
       {%- for block in section.blocks -%}
         {%- if block.type == 'ingredient' -%}
@@ -37,31 +38,71 @@
             {%- else -%}
               {%- assign default_image = 'ing-coconut.jpg' -%}
           {%- endcase -%}
-            <article class="theme-ingredient theme-panel" {{ block.shopify_attributes }}>
+          <article class="theme-ingredient-mobile motion-panel" {{ block.shopify_attributes }}>
+            <div class="theme-ingredient-mobile__media-wrap">
               {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 1200 | image_tag: class: 'theme-ingredient__media', loading: 'lazy', alt: block.settings.title }}
+                {{ block.settings.image | image_url: width: 400 | image_tag: class: 'theme-ingredient-mobile__media image-zoom', loading: 'lazy', alt: block.settings.title }}
               {%- else -%}
-                <img src="{{ default_image | asset_url }}" class="theme-ingredient__media" loading="lazy" width="670" height="302" alt="{{ block.settings.title | escape }}">
+                <img src="{{ default_image | asset_url }}" class="theme-ingredient-mobile__media image-zoom" loading="lazy" width="126" height="126" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
-              <div class="theme-ingredient__body">
-                <h3 class="theme-ingredient__title">{{ block.settings.title }}</h3>
-                <p class="theme-ingredient__text">{{ block.settings.text }}</p>
-              </div>
-            </article>
-          {%- endif -%}
-        {%- endfor -%}
+            </div>
+            <div class="theme-ingredient-mobile__body">
+              <h3 class="theme-ingredient-mobile__title">{{ block.settings.title }}</h3>
+              <p class="theme-ingredient-mobile__text">{{ block.settings.text }}</p>
+            </div>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <!-- Desktop Key Ingredients Layout -->
+    <div class="theme-key-ingredients--desktop hidden lg:grid">
+      {%- assign ingredient_index = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'ingredient' -%}
+          {%- assign ingredient_index = ingredient_index | plus: 1 -%}
+          {%- case ingredient_index -%}
+            {%- when 1 -%}
+              {%- assign default_image = 'ing-bringaraj.jpg' -%}
+            {%- when 2 -%}
+              {%- assign default_image = 'ing-amla.jpg' -%}
+            {%- when 3 -%}
+              {%- assign default_image = 'ing-neeli.jpg' -%}
+            {%- else -%}
+              {%- assign default_image = 'ing-coconut.jpg' -%}
+          {%- endcase -%}
+          <article class="theme-ingredient-desktop motion-panel" {{ block.shopify_attributes }}>
+            <div class="theme-ingredient-desktop__media-wrap">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 600 | image_tag: class: 'theme-ingredient-desktop__media image-zoom', loading: 'lazy', alt: block.settings.title }}
+              {%- else -%}
+                <img src="{{ default_image | asset_url }}" class="theme-ingredient-desktop__media image-zoom" loading="lazy" width="600" height="300" alt="{{ block.settings.title | escape }}">
+              {%- endif -%}
+            </div>
+            <div class="theme-ingredient-desktop__body">
+              <h3 class="theme-ingredient-desktop__title">{{ block.settings.title }}</h3>
+              <p class="theme-ingredient-desktop__text">{{ block.settings.text }}</p>
+            </div>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
     </div>
 
     <div class="theme-milk-section">
-      {% render 'section-heading',
-        kicker: section.settings.milk_kicker,
-        title: section.settings.milk_heading,
-        text: section.settings.milk_text,
-        align: 'center',
-        heading_tag: 'h2'
-      %}
+      <div class="theme-section-heading theme-section-heading--center">
+        {%- if section.settings.milk_kicker != blank -%}
+          <span class="theme-section-heading__kicker theme-milk-section__kicker">{{ section.settings.milk_kicker }}</span>
+        {%- endif -%}
+        {%- if section.settings.milk_heading != blank -%}
+          <h2 class="theme-section-heading__title theme-milk-section__heading">{{ section.settings.milk_heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.milk_text != blank -%}
+          <div class="theme-section-heading__text theme-milk-section__text">{{ section.settings.milk_text }}</div>
+        {%- endif -%}
+      </div>
 
-      <div class="theme-milk-grid">
+      <!-- Mobile Three Milks Layout -->
+      <div class="theme-milk-grid--mobile lg:hidden">
         {%- assign milk_index = 0 -%}
         {%- for block in section.blocks -%}
           {%- if block.type == 'milk' -%}
@@ -74,50 +115,127 @@
               {%- else -%}
                 {%- assign default_milk_image = 'Cow_milk.jpg' -%}
             {%- endcase -%}
-            <article class="theme-milk theme-panel" {{ block.shopify_attributes }}>
-              {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 1000 | image_tag: class: 'theme-milk__media', loading: 'lazy', alt: block.settings.title }}
-              {%- else -%}
-                <img src="{{ default_milk_image | asset_url }}" class="theme-milk__media" loading="lazy" width="800" height="920" alt="{{ block.settings.title | escape }}">
-              {%- endif -%}
-              <div class="theme-milk__body">
-                <h3 class="theme-milk__title">{{ block.settings.title }}</h3>
-                <p class="theme-milk__text">{{ block.settings.text }}</p>
+            <article class="theme-milk-mobile motion-panel" {{ block.shopify_attributes }}>
+              <div class="theme-milk-mobile__image-wrap">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 200 | image_tag: class: 'theme-milk-mobile__media', loading: 'lazy', alt: block.settings.title }}
+                {%- else -%}
+                  <img src="{{ default_milk_image | asset_url }}" class="theme-milk-mobile__media" loading="lazy" width="62" height="62" alt="{{ block.settings.title | escape }}">
+                {%- endif -%}
+              </div>
+              <div class="theme-milk-mobile__body">
+                <h3 class="theme-milk-mobile__title">{{ block.settings.title }}</h3>
+                <p class="theme-milk-mobile__text">{{ block.settings.text }}</p>
               </div>
             </article>
           {%- endif -%}
         {%- endfor -%}
       </div>
 
-      <div class="theme-patch-test">
-        <span class="theme-patch-test__icon" aria-hidden="true">!</span>
+      <!-- Desktop Three Milks Layout -->
+      <div class="theme-milk-grid--desktop hidden lg:grid">
+        {%- assign milk_index = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'milk' -%}
+            {%- assign milk_index = milk_index | plus: 1 -%}
+            {%- case milk_index -%}
+              {%- when 1 -%}
+                {%- assign default_milk_image = 'Coconut_milk.jpg' -%}
+              {%- when 2 -%}
+                {%- assign default_milk_image = 'Goat_milk.jpg' -%}
+              {%- else -%}
+                {%- assign default_milk_image = 'Cow_milk.jpg' -%}
+            {%- endcase -%}
+            <article class="theme-milk-desktop motion-panel" {{ block.shopify_attributes }}>
+              <div class="theme-milk-desktop__image-wrap">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 300 | image_tag: class: 'theme-milk-desktop__media', loading: 'lazy', alt: block.settings.title }}
+                {%- else -%}
+                  <img src="{{ default_milk_image | asset_url }}" class="theme-milk-desktop__media" loading="lazy" width="94" height="94" alt="{{ block.settings.title | escape }}">
+                {%- endif -%}
+              </div>
+              <div class="theme-milk-desktop__body">
+                <h3 class="theme-milk-desktop__title">{{ block.settings.title }}</h3>
+                <p class="theme-milk-desktop__text">{{ block.settings.text }}</p>
+              </div>
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <!-- Patch Test Pills -->
+      <div class="theme-patch-test--desktop hidden lg:flex">
+        <svg class="theme-patch-test__icon-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>Always patch test first</span>
+      </div>
+
+      <div class="theme-patch-test--mobile lg:hidden">
+        <svg class="theme-patch-test__icon-svg" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         <span>Always patch test first</span>
       </div>
     </div>
 
     <div class="theme-steps-section">
-      {% render 'section-heading',
-        kicker: section.settings.steps_kicker,
-        title: section.settings.steps_heading,
-        text: section.settings.steps_text,
-        align: 'center',
-        heading_tag: 'h2'
-      %}
+      <div class="theme-section-heading theme-section-heading--center">
+        {%- if section.settings.steps_kicker != blank -%}
+          <span class="theme-section-heading__kicker theme-steps-section__kicker">{{ section.settings.steps_kicker }}</span>
+        {%- endif -%}
+        {%- if section.settings.steps_heading != blank -%}
+          <h2 class="theme-section-heading__title theme-steps-section__heading">{{ section.settings.steps_heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.steps_text != blank -%}
+          <div class="theme-section-heading__text theme-steps-section__text">{{ section.settings.steps_text }}</div>
+        {%- endif -%}
+      </div>
 
       <div class="theme-step-hero">
         <img src="{{ 'massage-ritual.png' | asset_url }}" class="float-soft image-zoom" loading="lazy" width="1206" height="678" alt="{{ section.settings.steps_heading | escape }}">
       </div>
 
-      <div class="theme-step-grid">
+      <!-- Mobile Steps Layout -->
+      <div class="theme-step-grid--mobile md:hidden">
+        {%- assign step_count = 0 -%}
         {%- for block in section.blocks -%}
           {%- if block.type == 'step' -%}
-            <article class="theme-step theme-panel" {{ block.shopify_attributes }}>
-              <div class="theme-step__body">
-                <div class="theme-step__number">{{ block.settings.number }}</div>
-                <h3 class="theme-step__title">{{ block.settings.title }}</h3>
-                <p class="theme-step__text">{{ block.settings.text }}</p>
+            {%- assign step_count = step_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+        
+        {%- assign current_step = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'step' -%}
+            {%- assign current_step = current_step | plus: 1 -%}
+            <div class="theme-step-row-mobile {% if current_step < step_count %}theme-step-row-mobile--border-b{% endif %}" {{ block.shopify_attributes }}>
+              <div class="theme-step-row-mobile__left">
+                <div class="theme-step-row-mobile__number">{{ block.settings.number }}</div>
+                <div class="theme-step-row-mobile__title">{{ block.settings.title }}</div>
               </div>
-            </article>
+              <div class="theme-step-row-mobile__right">
+                <p class="theme-step-row-mobile__text">{{ block.settings.text }}</p>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <!-- Desktop Steps Layout -->
+      <div class="theme-step-grid--desktop hidden md:grid">
+        {%- assign step_count = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'step' -%}
+            {%- assign step_count = step_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+        
+        {%- assign current_step = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'step' -%}
+            {%- assign current_step = current_step | plus: 1 -%}
+            <div class="theme-step-cell-desktop {% if current_step < 3 %}theme-step-cell-desktop--border-r{% endif %}" {{ block.shopify_attributes }}>
+              <div class="theme-step-cell-desktop__number">{{ block.settings.number }}</div>
+              <div class="theme-step-cell-desktop__title">{{ block.settings.title }}</div>
+              <p class="theme-step-cell-desktop__text">{{ block.settings.text }}</p>
+            </div>
           {%- endif -%}
         {%- endfor -%}
       </div>

@@ -16,40 +16,70 @@
 
 <section class="theme-product-page__section theme-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}theme-product-page__section--soft{% endif %}">
   <div class="theme-product-page__wrap">
-    {% render 'section-heading',
-      kicker: section.settings.kicker,
-      title: section.settings.heading,
-      text: section.settings.text,
-      align: 'center',
-      heading_tag: 'h2'
-    %}
+    <div class="theme-reviews-header-wrap">
+      <div class="theme-section-heading theme-section-heading--center">
+        {%- if section.settings.kicker != blank -%}
+          <span class="theme-section-heading__kicker theme-reviews-section__kicker">{{ section.settings.kicker }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="theme-section-heading__title theme-reviews-section__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="theme-section-heading__text theme-reviews-section__text">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
 
-    <div class="theme-reviews-rating" aria-label="4.64 out of 5 stars">
-      <div class="theme-reviews-rating__stars" aria-hidden="true">★★★★☆</div>
-      <div class="theme-reviews-rating__score">4.64 / 5.0</div>
+      <div class="theme-reviews-rating-header">
+        <div class="theme-reviews-rating-header__score-mobile lg:hidden">4.64 / 5.0</div>
+        <div class="theme-reviews-rating-header__stars">
+          {%- for i in (1..4) -%}
+            <svg class="theme-reviews-rating-header__star-svg theme-reviews-rating-header__star-svg--filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          {%- endfor -%}
+          <svg class="theme-reviews-rating-header__star-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="theme-reviews-rating-header__score-desktop hidden lg:block">4.64 / 5.0</div>
+      </div>
     </div>
 
     <div class="theme-review-grid">
       {%- for block in section.blocks -%}
         {%- if block.type == 'review' -%}
-          {% render 'review-card',
-            name: block.settings.name,
-            meta: block.settings.meta,
-            badge: block.settings.badge,
-            quote: block.settings.body
-          %}
+          <article class="theme-review-card motion-panel" {{ block.shopify_attributes }}>
+            <div class="theme-review-card__header">
+              <div class="theme-review-card__header-left">
+                <div class="theme-review-card__author-name">{{ block.settings.name }}</div>
+                <div class="theme-review-card__stars">
+                  {%- for i in (1..5) -%}
+                    <svg class="theme-review-card__star-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                  {%- endfor -%}
+                </div>
+              </div>
+              <div class="theme-review-card__verified">{{ block.settings.meta }}</div>
+            </div>
+            <p class="theme-review-card__quote">
+              &ldquo;{{ block.settings.body }}&rdquo;
+            </p>
+          </article>
         {%- endif -%}
       {%- endfor -%}
     </div>
 
     {%- if section.settings.button_label != blank -%}
-      <div style="margin-top: 1.5rem; display: flex; justify-content: center;">
+      <div class="theme-reviews-footer">
         {%- if section.settings.button_link != blank -%}
-          <a class="theme-review-button premium-button" href="{{ section.settings.button_link }}">
+          <a class="theme-review-button-v2 premium-button" href="{{ section.settings.button_link }}">
             {{ section.settings.button_label }}
           </a>
         {%- else -%}
-          <span class="theme-review-button premium-button" role="presentation">{{ section.settings.button_label }}</span>
+          <button type="button" class="theme-review-button-v2 premium-button">
+            {{ section.settings.button_label }}
+          </button>
         {%- endif -%}
       </div>
     {%- endif -%}
