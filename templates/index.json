@@ -8,8 +8,51 @@
       }
     },
     "main": {
-      "type": "home-hero",
+      "type": "product-hero",
       "blocks": {
+        "badge": {
+          "type": "text",
+          "settings": {
+            "text": "• Minimizes hair fall • Supports hair growth"
+          }
+        },
+        "title": {
+          "type": "title"
+        },
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "text": "One oil for complete hair recovery",
+            "text_style": "body"
+          }
+        },
+        "feature_1": {
+          "type": "hero_feature",
+          "settings": {
+            "title": "",
+            "text": "Made by BAMS doctors in our GMP & ISO - certified facility. FDA compliant and AYUSH licensed."
+          }
+        },
+        "quote": {
+          "type": "hero_quote",
+          "settings": {
+            "quote": "\"Hair fall reduced noticeably, and I can already see tiny baby hairs coming\"",
+            "author": "- ANU R., CHENNAI"
+          }
+        },
+        "hero_note": {
+          "type": "hero_note",
+          "settings": {
+            "text": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil."
+          }
+        },
+          "type": "hero_upsell",
+          "settings": {
+            "title": "Add internal support",
+            "text": "Bringarajasava - fermented herbal brew for hair growth from within.",
+            "button_label": "+ ₹225"
+          }
+        },
         "stat_1": {
           "type": "hero_stat",
           "settings": {
@@ -39,19 +82,23 @@
           }
         }
       },
-      "block_order": ["stat_1", "stat_2", "stat_3", "stat_4"],
+      "block_order": [
+        "badge",
+        "title",
+        "caption",
+        "feature_1",
+        "quote",
+        "hero_note",
+        "upsell",
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
-        "badge": "Minimizes hair fall",
-        "title": "Neelibhringadi Keram",
-        "subtitle": "One oil for complete hair recovery",
-        "body": "Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.",
-        "cta_title": "Reorder now",
-        "cta_meta": "Last ordered 28 Mar",
-        "cta_old_price": "₹350",
-        "cta_price": "₹315",
-        "button_link": "/collections/all",
-        "hero_alt": "Neelibhringadi Keram product gallery",
+        "padding_top": 0,
+        "padding_bottom": 16,
         "stat_1_value": "1945",
         "stat_1_label": "Established",
         "stat_2_value": "350+",
@@ -61,8 +108,8 @@
         "delivery_1_text": "2-4 day delivery",
         "delivery_2_text": "COD available",
         "delivery_3_text": "7-day returns",
-        "padding_top": 0,
-        "padding_bottom": 16
+        "cta_meta": "",
+        "description_block": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil."
       }
     },
     "timeline": {
@@ -197,7 +244,7 @@
         "color_scheme": "scheme-1",
         "soft_background": true,
         "kicker": "What's in it. What is not.",
-        "heading": "The formula, simplified.",
+        "heading": "What's in it. What is not.",
         "text": "<p>Two clear columns make the formula easier to scan and trust.</p>",
         "accordion_kicker": "Kerala Ayurveda Difference",
         "accordion_heading": "Why the process matters",
@@ -254,7 +301,7 @@
         "soft_background": true,
         "kicker": "Information",
         "heading": "Go deeper.",
-        "text": "<p>Clear answers for the most common questions.</p>",
+        "text": "",
         "info_kicker": "Full ingredient list",
         "info_heading": "What is inside",
         "faq_kicker": "Frequently asked",
@@ -296,7 +343,7 @@
         "soft_background": false,
         "kicker": "Feedback",
         "heading": "Customer Reviews",
-        "text": "<p>Real customer language, carried into the Shopify theme.</p>",
+        "text": "",
         "button_label": "Read all 86 reviews",
         "padding_top": 36,
         "padding_bottom": 36

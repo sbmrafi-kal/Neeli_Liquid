@@ -46,13 +46,8 @@
       <div class="theme-site-header__breadcrumb">
         <a href="{{ routes.root_url }}">Home</a> <span class="theme-site-header__breadcrumb-separator">›</span>
         <span class="theme-site-header__breadcrumb-current">
-          {%- if product != blank -%}
-            {{ product.title }}
-          {%- elsif page != blank -%}
-            {{ page.title }}
-          {%- else -%}
-            {{ shop.name }}
-          {%- endif -%}
+          {%- assign breadcrumb_title = product.title | default: page.title | default: all_products['neelibhringadi-keram'].title | default: shop.name -%}
+          {{ breadcrumb_title }}
         </span>
       </div>
 

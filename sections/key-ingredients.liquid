@@ -176,15 +176,15 @@
     </div>
 
     <div class="theme-steps-section">
-      <div class="theme-section-heading theme-section-heading--center">
+      <div class="theme-section-heading theme-section-heading--center" style="margin-bottom: 2.5rem;">
         {%- if section.settings.steps_kicker != blank -%}
-          <span class="theme-section-heading__kicker theme-steps-section__kicker">{{ section.settings.steps_kicker }}</span>
+          <span class="theme-section-heading__kicker theme-steps-section__kicker" style="display: block; margin-bottom: 0.5rem;">{{ section.settings.steps_kicker }}</span>
         {%- endif -%}
         {%- if section.settings.steps_heading != blank -%}
           <h2 class="theme-section-heading__title theme-steps-section__heading">{{ section.settings.steps_heading }}</h2>
         {%- endif -%}
         {%- if section.settings.steps_text != blank -%}
-          <div class="theme-section-heading__text theme-steps-section__text">{{ section.settings.steps_text }}</div>
+          <div class="theme-section-heading__text" style="margin-top: 0.75rem; color: rgba(23, 55, 45, 0.76);">{{ section.settings.steps_text }}</div>
         {%- endif -%}
       </div>
 

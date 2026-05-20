@@ -24,23 +24,42 @@
       heading_tag: 'h2'
     %}
 
+    {%- capture faq_content -%}
+      <div class="theme-faq-nested-list">
+        {%- assign faq_index = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'faq' -%}
+            {%- assign faq_index = faq_index | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign current_faq = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'faq' -%}
+            {%- assign current_faq = current_faq | plus: 1 -%}
+            <div class="theme-faq-nested-item {% if current_faq < faq_index %}theme-faq-nested-item--border{% endif %}">
+              <div class="theme-faq-nested-question">{{ block.settings.question }}</div>
+              <p class="theme-faq-nested-answer">{{ block.settings.answer }}</p>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endcapture -%}
+
     <div class="theme-accordion-container theme-info-panel theme-info-panel--wide" style="margin: 3.5rem auto 0;">
       <div class="theme-accordion">
         {%- for block in section.blocks -%}
           {%- if block.type == 'info' -%}
+            {%- assign title_handle = block.settings.title | handleize -%}
+            {%- if title_handle contains 'frequently' or title_handle contains 'faq' -%}
+              {%- assign block_content = faq_content -%}
+            {%- else -%}
+              {%- assign block_content = block.settings.text -%}
+            {%- endif -%}
             {% render 'accordion-item',
               item_id: 'Info-' | append: block.id,
               title: block.settings.title,
-              content: block.settings.text,
+              content: block_content,
               icon: block.settings.icon,
-              open: false
-            %}
-          {%- elsif block.type == 'faq' -%}
-            {% render 'accordion-item',
-              item_id: 'Faq-' | append: block.id,
-              title: block.settings.question,
-              content: block.settings.answer,
-              icon: 'none',
               open: false
             %}
           {%- endif -%}

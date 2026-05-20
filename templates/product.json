@@ -53,6 +53,34 @@
             "text": "Bringarajasava - fermented herbal brew for hair growth from within.",
             "button_label": "+ ₹225"
           }
+        },
+        "stat_1": {
+          "type": "hero_stat",
+          "settings": {
+            "value": "4.64★",
+            "label": "Ratings"
+          }
+        },
+        "stat_2": {
+          "type": "hero_stat",
+          "settings": {
+            "value": "312",
+            "label": "Reviews"
+          }
+        },
+        "stat_3": {
+          "type": "hero_stat",
+          "settings": {
+            "value": "30",
+            "label": "Uses"
+          }
+        },
+        "stat_4": {
+          "type": "hero_stat",
+          "settings": {
+            "value": "300+",
+            "label": "Happy Customers"
+          }
         }
       },
       "block_order": [
@@ -62,7 +90,11 @@
         "feature_1",
         "quote",
         "hero_note",
-        "upsell"
+        "upsell",
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
       ],
       "settings": {
         "color_scheme": "scheme-1",
@@ -412,7 +444,7 @@
         "soft_background": true,
         "kicker": "Information",
         "heading": "Go deeper.",
-        "text": "<p>Clear answers for the most common questions.</p>",
+        "text": "",
         "info_kicker": "Full ingredient list",
         "info_heading": "What is inside",
         "faq_kicker": "Frequently asked",
@@ -470,10 +502,10 @@
         "soft_background": false,
         "kicker": "Feedback",
         "heading": "Customer Reviews",
-        "text": "<p>Real customer language, carried into the Shopify theme.</p>",
+        "text": "",
         "button_label": "Read all 86 reviews",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "footer": {

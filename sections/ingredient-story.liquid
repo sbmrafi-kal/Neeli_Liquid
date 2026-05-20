@@ -69,13 +69,14 @@
   </div>
 
   <!-- Sub-section 2: Kerala Ayurveda Difference -->
-  <div class="theme-ingredient-story__difference" style="background-color: #ffffff; padding-top: 3.5rem; padding-bottom: 0;">
+  <div class="theme-ingredient-story__difference" style="background-color: #17372d; padding-top: 3.5rem; padding-bottom: 0;">
     <div class="theme-product-page__wrap">
       <div class="theme-difference-heading" style="margin-top: 0; padding-top: 0;">
         {% render 'section-heading',
           title: section.settings.accordion_kicker,
           align: 'center',
-          heading_tag: 'h2'
+          heading_tag: 'h2',
+          inverse: true
         %}
       </div>
 
@@ -97,25 +98,25 @@
   </div>
 
   <!-- Sub-section 3: Reviews -->
-  <div class="theme-difference-reviews-wrap" style="background-color: #17372d; margin-top: 2.5rem; padding-top: 2.5rem; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <div class="theme-difference-reviews-wrap" style="background-color: #17372d; margin-top: 0; padding-top: 2.5rem; padding-bottom: {{ section.settings.padding_bottom }}px;">
     <div class="theme-product-page__wrap">
       <div class="theme-review-grid theme-review-grid--story">
         {%- for block in section.blocks -%}
           {%- if block.type == 'story_review' -%}
-            <div class="theme-story-review-item" {{ block.shopify_attributes }}>
-              <div class="theme-story-review-top">
+            <div class="theme-review-card" {{ block.shopify_attributes }}>
+              <div class="theme-review-card__top">
                 <div>
-                  <div class="theme-story-review-name">{{ block.settings.name }}</div>
-                  <div class="theme-story-review-meta">{{ block.settings.meta }}</div>
+                  <div class="theme-review-card__name">{{ block.settings.name }}</div>
+                  <div class="theme-review-card__meta">{{ block.settings.meta }}</div>
                 </div>
-                <div class="theme-story-review-stars">
+                <div class="theme-review-card__stars">
                   <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                 </div>
               </div>
               {%- if block.settings.badge != blank -%}
-                <div class="theme-story-review-badge">{{ block.settings.badge }}</div>
+                <div class="theme-review-card__badge">{{ block.settings.badge }}</div>
               {%- endif -%}
-              <p class="theme-story-review-quote">"{{ block.settings.quote }}"</p>
+              <p class="theme-review-card__quote">"{{ block.settings.quote }}"</p>
             </div>
           {%- endif -%}
         {%- endfor -%}

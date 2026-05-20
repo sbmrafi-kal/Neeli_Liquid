@@ -32,6 +32,17 @@
   }
 {%- endstyle -%}
 
+{%- assign product_override = all_products[section.settings.product] -%}
+{%- if product_override != blank -%}
+  {%- assign product = product_override -%}
+{%- endif -%}
+{%- if product == blank -%}
+  {%- assign product = collections.all.products.first -%}
+{%- endif -%}
+{%- if product == blank -%}
+  {%- assign product = all_products['neelibhringadi-keram'] -%}
+{%- endif -%}
+
 <section
   id="NeeliProduct-{{ section.id }}"
   class="theme-product-page theme-reveal section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -525,6 +536,11 @@
   "tag": "section",
   "class": "section theme-product-hero",
   "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product override"
+    },
     {
       "type": "checkbox",
       "id": "enable_sticky_info",

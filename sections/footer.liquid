@@ -25,38 +25,74 @@
         <img src="{{ 'logo-kerala.png' | asset_url }}" class="theme-footer-brand__logo" loading="lazy" width="4167" height="4167" alt="{{ shop.name | escape }}">
       </div>
 
-      {%- if quick_links_menu.links.size > 0 -%}
-        <div class="theme-footer-column">
+      <!-- Quick Links Column -->
+      <div class="theme-footer-column">
+        {%- if section.settings.quick_links_menu != blank and section.settings.quick_links_menu != 'footer' and quick_links_menu.links.size > 0 -%}
           <h2 class="theme-footer-column__title">{{ quick_links_menu.title }}</h2>
           <ul class="theme-footer-list">
             {%- for link in quick_links_menu.links -%}
               <li><a href="{{ link.url }}">{{ link.title }}</a></li>
             {%- endfor -%}
           </ul>
-        </div>
-      {%- endif -%}
+        {%- else -%}
+          <h2 class="theme-footer-column__title">Quick Links</h2>
+          <ul class="theme-footer-list">
+            <li><a href="#">About Kerala Ayurveda</a></li>
+            <li><a href="#">Clinics</a></li>
+            <li><a href="#">Ayurveda Academy</a></li>
+            <li><a href="#">Investors</a></li>
+            <li><a href="#">Research & Development</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blogs</a></li>
+            <li><a href="#">Our Editorial Team</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        {%- endif -%}
+      </div>
 
-      {%- if policies_menu.links.size > 0 -%}
-        <div class="theme-footer-column">
+      <!-- Policies Column -->
+      <div class="theme-footer-column">
+        {%- if section.settings.policies_menu != blank and section.settings.policies_menu != 'footer' and policies_menu.links.size > 0 -%}
           <h2 class="theme-footer-column__title">{{ policies_menu.title }}</h2>
           <ul class="theme-footer-list">
             {%- for link in policies_menu.links -%}
               <li><a href="{{ link.url }}">{{ link.title }}</a></li>
             {%- endfor -%}
           </ul>
-        </div>
-      {%- endif -%}
+        {%- else -%}
+          <h2 class="theme-footer-column__title">Policies</h2>
+          <ul class="theme-footer-list">
+            <li><a href="#">Terms Of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Shipping And Delivery Policy</a></li>
+            <li><a href="#">Return/Cancellation Policy</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        {%- endif -%}
+      </div>
 
-      {%- if network_menu.links.size > 0 -%}
-        <div class="theme-footer-column">
+      <!-- Our Network Column -->
+      <div class="theme-footer-column">
+        {%- if section.settings.network_menu != blank and section.settings.network_menu != 'footer' and network_menu.links.size > 0 -%}
           <h2 class="theme-footer-column__title">{{ network_menu.title }}</h2>
           <ul class="theme-footer-list">
             {%- for link in network_menu.links -%}
               <li><a href="{{ link.url }}">{{ link.title }}</a></li>
             {%- endfor -%}
           </ul>
-        </div>
-      {%- endif -%}
+        {%- else -%}
+          <h2 class="theme-footer-column__title">Our Network</h2>
+          <ul class="theme-footer-list">
+            <li><a href="#">Ayurvedagram Bengaluru</a></li>
+            <li><a href="#">Ayurvedagram Bali</a></li>
+            <li><a href="#">The Health Village</a></li>
+            <li><a href="#">Kerala Ayurveda India - Academy</a></li>
+            <li><a href="#">Kerala Ayurveda USA - Store</a></li>
+            <li><a href="#">Kerala Ayurveda USA - Wellness</a></li>
+            <li><a href="#">Kerala Ayurveda USA - Academy</a></li>
+          </ul>
+        {%- endif -%}
+      </div>
     </div>
 
     <div class="theme-footer-social-wrapper">
@@ -66,22 +102,28 @@
           <div class="theme-footer-social__label">{{ section.settings.social_label }}</div>
         {%- endif -%}
         <div class="theme-footer-social__icons">
-          {%- if settings.social_facebook_link != blank -%}
-            <a href="{{ settings.social_facebook_link }}" aria-label="Facebook" class="theme-footer-social__icon" target="_blank" rel="noopener">
+          {%- assign facebook_link = settings.social_facebook_link | default: 'https://www.facebook.com/KeralaAyurvedaUSA/' -%}
+          {%- assign twitter_link = settings.social_twitter_link | default: 'https://twitter.com/keralaayurveda' -%}
+          {%- assign instagram_link = settings.social_instagram_link | default: 'https://www.instagram.com/keralaayurveda/' -%}
+          {%- assign youtube_link = settings.social_youtube_link | default: 'https://www.youtube.com/user/KeralaAyurveda' -%}
+          {%- assign linkedin_link = settings.social_linkedin_link | default: 'https://www.linkedin.com/company/kerala-ayurveda-ltd' -%}
+
+          {%- if facebook_link != blank -%}
+            <a href="{{ facebook_link }}" aria-label="Facebook" class="theme-footer-social__icon" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                 <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </a>
           {%- endif -%}
-          {%- if settings.social_twitter_link != blank -%}
-            <a href="{{ settings.social_twitter_link }}" aria-label="X" class="theme-footer-social__icon" target="_blank" rel="noopener">
+          {%- if twitter_link != blank -%}
+            <a href="{{ twitter_link }}" aria-label="X" class="theme-footer-social__icon" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                 <path d="M5 4l14 16M19 4 5 20" stroke-width="1.5" stroke-linecap="round" />
               </svg>
             </a>
           {%- endif -%}
-          {%- if settings.social_instagram_link != blank -%}
-            <a href="{{ settings.social_instagram_link }}" aria-label="Instagram" class="theme-footer-social__icon" target="_blank" rel="noopener">
+          {%- if instagram_link != blank -%}
+            <a href="{{ instagram_link }}" aria-label="Instagram" class="theme-footer-social__icon" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                 <rect x="4" y="4" width="16" height="16" rx="4" stroke-width="1.5" />
                 <circle cx="12" cy="12" r="3.5" stroke-width="1.5" />
@@ -89,16 +131,16 @@
               </svg>
             </a>
           {%- endif -%}
-          {%- if settings.social_youtube_link != blank -%}
-            <a href="{{ settings.social_youtube_link }}" aria-label="YouTube" class="theme-footer-social__icon" target="_blank" rel="noopener">
+          {%- if youtube_link != blank -%}
+            <a href="{{ youtube_link }}" aria-label="YouTube" class="theme-footer-social__icon" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                 <rect x="3.5" y="6.5" width="17" height="11" rx="3" stroke-width="1.5" />
                 <path d="M10 9.5 15 12l-5 2.5v-5Z" fill="currentColor" stroke="none" />
               </svg>
             </a>
           {%- endif -%}
-          {%- if settings.social_linkedin_link != blank -%}
-            <a href="{{ settings.social_linkedin_link }}" aria-label="LinkedIn" class="theme-footer-social__icon" target="_blank" rel="noopener">
+          {%- if linkedin_link != blank -%}
+            <a href="{{ linkedin_link }}" aria-label="LinkedIn" class="theme-footer-social__icon" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                 <path d="M6.5 9.5v8M6.5 6.5h.01M11 17.5v-5.2c0-1.4 1.1-2.5 2.5-2.5S16 10.9 16 12.3v5.2M11 11V9.5M6 9.5h1M16 17.5h1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 <rect x="4" y="4" width="16" height="16" rx="2.5" stroke-width="1.5" />
@@ -114,7 +156,7 @@
         <div class="theme-footer-tagline-empty"></div>
         <div class="theme-footer-tagline-content">
           <p class="theme-footer-tagline-p">
-            {{ section.settings.tagline }}
+            {{ section.settings.tagline | newline_to_br }}
           </p>
         </div>
       </div>
