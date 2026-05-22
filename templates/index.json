@@ -109,6 +109,8 @@
         "delivery_1_text": "2-4 day delivery",
         "delivery_2_text": "COD available",
         "delivery_3_text": "7-day returns",
+        "category_label": "HAIR CARE",
+        "review_count": "86",
         "cta_meta": "",
         "description_block": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil."
       }
@@ -278,8 +280,8 @@
         "milk_heading": "Three milks. One complete formula.",
         "milk_text": "<p>Three nourishing milks work together for a healthier scalp and stronger, smoother hair.</p>",
         "steps_kicker": "",
-        "steps_heading": "Your Easy Massage Ritual",
-        "steps_text": "",
+        "steps_heading": "Massage Ritual",
+        "steps_text": "<p>Gently massage warm oil into the scalp and through the lengths. Leave it on long enough for the botanicals to do their work.</p>",
         "padding_top": 36,
         "padding_bottom": 36
       }

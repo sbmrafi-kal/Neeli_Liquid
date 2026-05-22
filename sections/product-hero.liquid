@@ -134,8 +134,22 @@
             </div>
           {%- endif -%}
 
+          <div class="theme-product-page__category">
+            {{ section.settings.category_label }}
+          </div>
+
           <div class="theme-product-page__title-wrap">
             <h1 class="theme-product-page__title">{{ product_title | escape }}</h1>
+          </div>
+
+          <div class="theme-product-page__rating-row" aria-label="Product rating">
+            <div class="theme-product-page__price-inline">
+              {{ product_price | money }}
+            </div>
+            <div class="theme-product-page__rating-inline">
+              <span class="theme-product-page__rating-stars" aria-hidden="true">★★★★☆</span>
+              <span class="theme-product-page__rating-count">{{ section.settings.review_count }}</span>
+            </div>
           </div>
 
           {%- assign subtitle_block = section.blocks | where: "type", "caption" | first -%}
@@ -673,6 +687,18 @@
       "id": "delivery_3_text",
       "label": "Delivery row 3 text",
       "default": "7-day returns"
+    },
+    {
+      "type": "text",
+      "id": "category_label",
+      "label": "Category label",
+      "default": "HAIR CARE"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review count",
+      "default": "86"
     },
     {
       "type": "text",
