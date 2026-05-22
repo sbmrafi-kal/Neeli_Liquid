@@ -4,21 +4,21 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: 48px;
+    padding-bottom: 32px;
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: 48px;
+      padding-bottom: 32px;
     }
   }
 
   .theme-product-info-desktop {
     display: none;
   }
-  
+
   .theme-product-info-mobile {
     display: block;
     margin-top: 1.5rem;
@@ -31,6 +31,69 @@
     .theme-product-info-mobile {
       display: none;
     }
+  }
+
+  /* Carousel control alignment */
+  .theme-hero-carousel__control {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Thumbnail size and active shadow */
+  .theme-hero-carousel__thumb-image {
+    width: 90px;
+    height: 120px;
+  }
+  .theme-hero-carousel__thumb.is-active {
+    box-shadow: 0 0 6px var(--brand-gold);
+  }
+
+  /* Badge styling */
+  .micro-fade-delayed.mt-4.inline-flex {
+    background: var(--brand-gold-gradient);
+    font-size: 13px;
+    border-color: #d8cba1;
+  }
+
+  /* Title typography */
+  .theme-product-page__title {
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* Quote block */
+  .theme-product-page__quote-wrap {
+    background: rgba(248,241,223,0.9);
+    color: #17372d;
+  }
+  .theme-product-page__quote-meta {
+    text-decoration: underline;
+  }
+
+  /* Stamp grid layout */
+  .theme-stamp-card__stamp {
+    flex: 1 0 20%;
+    gap: 12px;
+    mix-blend-mode: multiply;
+  }
+
+  /* Delivery rows */
+  .theme-delivery-row__item svg {
+    stroke: #17372d;
+  }
+  .theme-delivery-row__item {
+    font-size: 10px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  /* Buttons */
+  .cta-sheen, .premium-button {
+    background: var(--brand-gold-gradient, linear-gradient(45deg, #f4bb28, #ffd700));
+    transition: transform var(--duration-short) ease;
+  }
+  .cta-sheen:hover, .premium-button:hover {
+    transform: translateY(-2px);
   }
 {%- endstyle -%}
 
