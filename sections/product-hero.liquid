@@ -37,9 +37,6 @@
   {%- assign product = product_override -%}
 {%- endif -%}
 {%- if product == blank -%}
-  {%- assign product = collections.all.products.first -%}
-{%- endif -%}
-{%- if product == blank -%}
   {%- assign product = all_products['neelibhringadi-keram'] -%}
 {%- endif -%}
 {%- assign product_title = product.title | default: 'Neelibhringadi Keram' -%}
@@ -79,10 +76,10 @@
             {%- endfor -%}
 
             <button class="theme-hero-carousel__control theme-hero-carousel__control--prev" type="button" aria-label="Previous image" data-theme-carousel-prev>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left" style="width: 24px; height: 24px;"><path d="m15 18-6-6 6-6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
             </button>
             <button class="theme-hero-carousel__control theme-hero-carousel__control--next" type="button" aria-label="Next image" data-theme-carousel-next>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right" style="width: 24px; height: 24px;"><path d="m9 18 6-6-6-6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
             </button>
           </div>
 
@@ -152,7 +149,7 @@
         </div>
 
         {%- assign hero_note_block = section.blocks | where: "type", "hero_note" | first -%}
-        <p class="theme-product-page__body theme-product-page__intro" style="margin-top: 1rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.44; color: rgba(23, 55, 45, 0.72);">
+        <p class="theme-product-page__body theme-product-page__intro">
           {%- if hero_note_block -%}
             {{ hero_note_block.settings.text }}
           {%- else -%}
@@ -161,7 +158,7 @@
         </p>
 
         {%- assign quote_block = section.blocks | where: "type", "hero_quote" | first -%}
-        <div class="theme-product-page__quote-wrap motion-panel" style="margin-top: 1.25rem; margin-bottom: 1.25rem;">
+        <div class="theme-product-page__quote-wrap motion-panel">
           <div class="theme-product-page__quote">
             {%- if quote_block -%}
               {{ quote_block.settings.quote }}
@@ -179,7 +176,7 @@
         </div>
 
         {%- assign feature_block = section.blocks | where: "type", "hero_feature" | first -%}
-        <p class="theme-product-page__body theme-product-page__cert-note" style="margin-top: 1rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.46; color: rgba(23, 55, 45, 0.72);">
+        <p class="theme-product-page__body theme-product-page__cert-note">
           {%- if feature_block -%}
             {{ feature_block.settings.title }} {{ feature_block.settings.text }}
           {%- else -%}
@@ -187,7 +184,7 @@
           {%- endif -%}
         </p>
 
-        <div class="theme-stamp-card motion-panel" style="margin-top: 1rem; margin-bottom: 1rem;">
+        <div class="theme-stamp-card motion-panel">
           <div class="theme-stamp-card__top">
             {%- assign stamp_images = 'stamp_01.png|stamp_02.png|stamp_03.png|stamp_04.png|stamp_05.png' | split: '|' -%}
             {%- for stamp in stamp_images -%}
@@ -214,20 +211,20 @@
         </div>
 
         {%- if section.settings.description_block != blank -%}
-          <p class="theme-product-page__description-block" style="margin-top: 1rem; margin-bottom: 1rem;">
+          <p class="theme-product-page__description-block">
             {{ section.settings.description_block }}
           </p>
         {%- endif -%}
 
-        <div class="theme-product-page__form-card" style="margin-top: 1.5rem; background: transparent; padding: 0; box-shadow: none; border: 0;">
+        <div class="theme-product-page__form-card">
           <!-- Dynamic Shopify Form -->
           {%- if product != blank and product.selected_or_first_available_variant != blank -%}
           {%- form 'product', product, id: "theme-product-form", class: "theme-product-form" -%}
             <!-- Variant Select -->
             {%- if product.variants.size > 1 -%}
-              <div class="theme-variant-picker" style="margin-bottom: 1.25rem;">
-                <label for="ProductSelect-{{ section.id }}" style="display: block; font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; color: rgba(23, 55, 45, 0.62); margin-bottom: 0.5rem; letter-spacing: 0.05em;">Select Option</label>
-                <select name="id" id="ProductSelect-{{ section.id }}" class="theme-variant-select" style="width: 100%; border: 1px solid rgba(23, 55, 45, 0.2); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.9375rem; background: #fff; color: var(--theme-forest); outline: none;">
+              <div class="theme-variant-picker theme-variant-picker--desktop">
+                <label for="ProductSelect-{{ section.id }}" class="theme-variant-picker__label">Select Option</label>
+                <select name="id" id="ProductSelect-{{ section.id }}" class="theme-variant-select theme-variant-select--desktop">
                   {%- for variant in product.variants -%}
                     <option value="{{ variant.id }}" 
                       data-price="{{ variant.price | money }}"
@@ -246,14 +243,14 @@
             <input type="hidden" name="quantity" value="1">
 
             <!-- Unified CTA Sheen Submit Button -->
-            <button type="submit" name="add" class="cta-sheen hover-rise mt-4 overflow-hidden rounded-[14px] bg-[#8f4f36] text-white shadow-sm border-0 w-full cursor-pointer flex flex-col items-stretch text-left sm:flex-row" style="padding: 0; outline: none; text-decoration: none;" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
+            <button type="submit" name="add" class="theme-reorder-card__button theme-reorder-card__button--desktop cta-sheen hover-rise" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
               <div class="flex flex-1 items-center gap-4 px-5 py-3">
-                <svg class="h-6 w-6 shrink-0" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; color: white;">
+                <svg class="theme-reorder-card__icon" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <div>
-                  <div class="theme-reorder-btn-text text-[18px] font-bold uppercase leading-none tracking-[0.03em] lg:text-[19px]" style="color: white;">
+                  <div class="theme-reorder-btn-text theme-reorder-btn-text--desktop">
                     {%- if product.selected_or_first_available_variant.available -%}
                       Reorder now
                     {%- else -%}
@@ -266,10 +263,10 @@
                 </div>
               </div>
               <div class="flex items-center justify-end gap-3 border-t border-white/12 px-5 py-3 sm:min-w-[188px] sm:border-l sm:border-t-0">
-                <span class="theme-reorder-card__price-old text-[16px] text-white/40 line-through" {% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}style="display:none;"{% endunless %}>
+                <span class="theme-reorder-card__price-old{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %} is-hidden{% endunless %}">
                   {{ product_variant.compare_at_price | money }}
                 </span>
-                <span class="theme-reorder-card__price-new text-[30px] font-bold leading-none lg:text-[32px]" style="color: white;">
+                <span class="theme-reorder-card__price-new">
                   {{ product_price | money }}
                 </span>
               </div>
@@ -278,7 +275,7 @@
           {%- endif -%}
         </div>
 
-        <div class="theme-delivery-row" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+        <div class="theme-delivery-row">
           <div class="theme-delivery-row__item">
             <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M3 7h11v10H3z" stroke="currentColor" stroke-width="1.7" />
@@ -306,7 +303,7 @@
 
         {%- assign upsell_block = section.blocks | where: "type", "hero_upsell" | first -%}
         {%- if upsell_block -%}
-          <div class="theme-upsell-card hover-rise" style="margin-top: 1rem;">
+          <div class="theme-upsell-card hover-rise">
             <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-card__image" loading="lazy" width="1000" height="1000" alt="{{ upsell_block.settings.title | escape }}">
             <div class="theme-upsell-card__copy">
               <div class="theme-upsell-card__title">{{ upsell_block.settings.title }}</div>
@@ -348,11 +345,11 @@
 
       <!-- Mobile Checkout Forms -->
       {%- if product != blank and product.selected_or_first_available_variant != blank -%}
-      {%- form 'product', product, id: "theme-product-form-mobile", class: "theme-product-form theme-product-form--mobile", style: "margin-top: 1rem;" -%}
+      {%- form 'product', product, id: "theme-product-form-mobile", class: "theme-product-form theme-product-form--mobile" -%}
         <!-- Variant Selector -->
         {%- if product.variants.size > 1 -%}
-          <div class="theme-variant-picker" style="margin-bottom: 1rem;">
-            <select name="id" id="ProductSelect-Mobile-{{ section.id }}" class="theme-variant-select" style="width: 100%; border: 1px solid rgba(23, 55, 45, 0.2); border-radius: 8px; padding: 0.65rem 0.85rem; font-size: 0.875rem; background: #fff; color: var(--theme-forest); outline: none;">
+          <div class="theme-variant-picker theme-variant-picker--mobile">
+            <select name="id" id="ProductSelect-Mobile-{{ section.id }}" class="theme-variant-select theme-variant-select--mobile">
               {%- for variant in product.variants -%}
                 <option value="{{ variant.id }}" 
                   data-price="{{ variant.price | money }}"
@@ -371,14 +368,14 @@
         <input type="hidden" name="quantity" value="1">
 
         <!-- Mobile Unified Reorder / Checkout CTA -->
-        <button type="submit" name="add" class="cta-sheen mt-3 overflow-hidden rounded-[8px] bg-[#8f4f36] text-white shadow-sm border-0 w-full cursor-pointer flex items-center justify-between px-4 py-3 text-left" style="padding: 0; outline: none; text-decoration: none;" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
+        <button type="submit" name="add" class="theme-reorder-card__button theme-reorder-card__button--mobile cta-sheen" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
           <div class="flex items-center gap-3">
-            <svg class="h-5 w-5 shrink-0" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; color: white;">
+            <svg class="theme-reorder-card__icon theme-reorder-card__icon--mobile" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
               <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
             <div>
-              <div class="theme-reorder-btn-text text-[14px] font-bold uppercase leading-none tracking-[0.04em]" style="color: white;">
+              <div class="theme-reorder-btn-text theme-reorder-btn-text--mobile">
                 {%- if product.selected_or_first_available_variant.available -%}
                   Reorder now
                 {%- else -%}
@@ -391,10 +388,10 @@
             </div>
           </div>
           <div class="flex items-center gap-2 border-l border-white/14 pl-4">
-                <span class="theme-reorder-card__price-old text-[12px] text-white/38 line-through" {% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}style="display:none;"{% endunless %}>
+                <span class="theme-reorder-card__price-old{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %} is-hidden{% endunless %}">
               {{ product_variant.compare_at_price | money }}
             </span>
-            <span class="theme-reorder-card__price-new text-[18px] font-bold leading-none" style="color: white;">
+            <span class="theme-reorder-card__price-new theme-reorder-card__price-new--mobile">
               {{ product_price | money }}
             </span>
           </div>
@@ -455,7 +452,7 @@
             <div class="mt-1 text-[12px] leading-tight text-white/74">{{ upsell_block.settings.text }}</div>
           </div>
           {%- if upsell_block.settings.button_link != blank -%}
-            <a href="{{ upsell_block.settings.button_link }}" class="premium-button rounded-[12px] bg-[#f4bb28] px-3 py-2 text-[13px] font-bold leading-none text-[#1c2018] border-0 cursor-pointer text-decoration-none" style="display: inline-block;">
+            <a href="{{ upsell_block.settings.button_link }}" class="premium-button rounded-[12px] bg-[#f4bb28] px-3 py-2 text-[13px] font-bold leading-none text-[#1c2018] border-0 cursor-pointer text-decoration-none">
               {{ upsell_block.settings.button_label }}
             </a>
           {%- else -%}
@@ -520,7 +517,7 @@
       </div>
 
       {%- if section.settings.description_block != blank -%}
-        <p class="theme-product-page__description-block" style="margin-top: 1rem; margin-bottom: 1rem;">
+        <p class="theme-product-page__description-block">
           {{ section.settings.description_block }}
         </p>
       {%- endif -%}

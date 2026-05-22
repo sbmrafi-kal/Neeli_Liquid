@@ -129,9 +129,9 @@
           if (oldPriceEl) {
             if (comparePrice && comparePrice.trim() !== '') {
               oldPriceEl.textContent = comparePrice;
-              oldPriceEl.style.display = '';
+              oldPriceEl.classList.remove('is-hidden');
             } else {
-              oldPriceEl.style.display = 'none';
+              oldPriceEl.classList.add('is-hidden');
             }
           }
 
