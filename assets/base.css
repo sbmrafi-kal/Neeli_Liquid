@@ -157,7 +157,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   /* Quote block */
   .theme-product-page__quote-wrap {
     background: rgba(248,241,223,0.9);
-    color: #17372d;
+    color: #1f4d3d;
   }
   .theme-product-page__quote-meta {
     text-decoration: underline;
@@ -172,7 +172,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
   /* Delivery rows */
   .theme-delivery-row__item svg {
-    stroke: #17372d;
+    stroke: #1f4d3d;
   }
   .theme-delivery-row__item {
     font-size: 10px;

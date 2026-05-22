@@ -71,7 +71,7 @@
 .theme-hero-carousel__stats {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr) !important;
-  background: #123c2f !important;
+  background: #1f4d3d !important;
   color: #faf8f4 !important;
   padding: 12px 0 !important;
   gap: 0 !important;
