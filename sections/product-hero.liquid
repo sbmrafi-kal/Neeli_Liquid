@@ -116,7 +116,7 @@
 >
   <script src="{{ 'theme-product-page.js' | asset_url }}" defer="defer"></script>
 
-{%- assign hero_images = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' -%}
+{%- assign hero_images = 'Product_carosul_02.png|Product_carosul_01.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' -%}
 
   <div class="theme-product-page__wrap">
     <div class="theme-product-page__hero">
@@ -254,6 +254,15 @@
           {%- endif -%}
         </p>
 
+        <div class="theme-trust-icons mt-6 mb-5 flex items-center flex-wrap gap-2.5">
+          <img src="{{ 'stamp_01.png' | asset_url }}" width="44" height="44" alt="1945" class="rounded-full" loading="lazy">
+          <img src="{{ 'stamp_02.png' | asset_url }}" width="44" height="44" alt="AYUSH" class="rounded-full" loading="lazy">
+          <img src="{{ 'stamp_03.png' | asset_url }}" width="44" height="44" alt="FDA" class="rounded-full" loading="lazy">
+          <img src="{{ 'stamp_04.png' | asset_url }}" width="44" height="44" alt="ISO" class="rounded-full" loading="lazy">
+          <img src="{{ 'stamp_05.png' | asset_url }}" width="44" height="44" alt="GMP" class="rounded-full" loading="lazy">
+          <span class="text-[11px] font-bold uppercase tracking-[0.06em] text-[#1f4d3d] ml-1">Clinics & Academy</span>
+        </div>
+
         {%- if section.settings.description_block != blank -%}
           <p class="theme-product-page__description-block">
             {{ section.settings.description_block }}
@@ -302,16 +311,18 @@
                     {%- endif -%}
                   </div>
                   {%- if section.settings.cta_meta != blank -%}
-                    <div class="mt-1 text-[12px] text-white/72">{{ section.settings.cta_meta }}</div>
+                    <div class="mt-1 text-[12px] text-white/72 font-normal normal-case tracking-normal">{{ section.settings.cta_meta }}</div>
+                  {%- else -%}
+                    <div class="mt-1 text-[12px] text-white/72 font-normal normal-case tracking-normal">Last ordered 28 Mar</div>
                   {%- endif -%}
                 </div>
               </div>
               <div class="flex items-center justify-end gap-3 border-t border-white/12 px-5 py-3 sm:min-w-[188px] sm:border-l sm:border-t-0">
-                <span class="theme-reorder-card__price-old{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %} is-hidden{% endunless %}">
-                  {{ product_variant.compare_at_price | money }}
+                <span class="theme-reorder-card__price-old" style="text-decoration: line-through; opacity: 0.6; font-size: 14px;">
+                  ₹350
                 </span>
-                <span class="theme-reorder-card__price-new">
-                  {{ product_price | money }}
+                <span class="theme-reorder-card__price-new font-bold text-[18px]">
+                  ₹315
                 </span>
               </div>
             </button>
@@ -329,14 +340,18 @@
                     Reorder now
                   </div>
                   {%- if section.settings.cta_meta != blank -%}
-                    <div class="mt-1 text-[12px] text-white/72">{{ section.settings.cta_meta }}</div>
+                    <div class="mt-1 text-[12px] text-white/72 font-normal normal-case tracking-normal">{{ section.settings.cta_meta }}</div>
+                  {%- else -%}
+                    <div class="mt-1 text-[12px] text-white/72 font-normal normal-case tracking-normal">Last ordered 28 Mar</div>
                   {%- endif -%}
                 </div>
               </div>
               <div class="flex items-center justify-end gap-3 border-t border-white/12 px-5 py-3 sm:min-w-[188px] sm:border-l sm:border-t-0">
-                <span class="theme-reorder-card__price-old is-hidden"></span>
-                <span class="theme-reorder-card__price-new">
-                  {{ product_price | money }}
+                <span class="theme-reorder-card__price-old" style="text-decoration: line-through; opacity: 0.6; font-size: 14px;">
+                  ₹350
+                </span>
+                <span class="theme-reorder-card__price-new font-bold text-[18px]">
+                  ₹315
                 </span>
               </div>
             </button>
@@ -451,16 +466,18 @@
                 {%- endif -%}
               </div>
               {%- if section.settings.cta_meta != blank -%}
-                <div class="mt-1 text-[11px] text-white/72">{{ section.settings.cta_meta }}</div>
+                <div class="mt-1 text-[11px] text-white/72 font-normal normal-case tracking-normal">{{ section.settings.cta_meta }}</div>
+              {%- else -%}
+                <div class="mt-1 text-[11px] text-white/72 font-normal normal-case tracking-normal">Last ordered 28 Mar</div>
               {%- endif -%}
             </div>
           </div>
           <div class="flex items-center gap-2 border-l border-white/14 pl-4">
-                <span class="theme-reorder-card__price-old{% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %} is-hidden{% endunless %}">
-              {{ product_variant.compare_at_price | money }}
+            <span class="theme-reorder-card__price-old" style="text-decoration: line-through; opacity: 0.6; font-size: 13px;">
+              ₹350
             </span>
-            <span class="theme-reorder-card__price-new theme-reorder-card__price-new--mobile">
-              {{ product_price | money }}
+            <span class="theme-reorder-card__price-new theme-reorder-card__price-new--mobile font-bold text-[16px]">
+              ₹315
             </span>
           </div>
         </button>
@@ -478,14 +495,18 @@
                 Reorder now
               </div>
               {%- if section.settings.cta_meta != blank -%}
-                <div class="mt-1 text-[11px] text-white/72">{{ section.settings.cta_meta }}</div>
+                <div class="mt-1 text-[11px] text-white/72 font-normal normal-case tracking-normal">{{ section.settings.cta_meta }}</div>
+              {%- else -%}
+                <div class="mt-1 text-[11px] text-white/72 font-normal normal-case tracking-normal">Last ordered 28 Mar</div>
               {%- endif -%}
             </div>
           </div>
           <div class="flex items-center gap-2 border-l border-white/14 pl-4">
-            <span class="theme-reorder-card__price-old is-hidden"></span>
-            <span class="theme-reorder-card__price-new theme-reorder-card__price-new--mobile">
-              {{ product_price | money }}
+            <span class="theme-reorder-card__price-old" style="text-decoration: line-through; opacity: 0.6; font-size: 13px;">
+              ₹350
+            </span>
+            <span class="theme-reorder-card__price-new theme-reorder-card__price-new--mobile font-bold text-[16px]">
+              ₹315
             </span>
           </div>
         </button>
@@ -606,6 +627,15 @@
             </div>
           {%- endfor -%}
         </div>
+      </div>
+
+      <div class="theme-trust-icons mt-6 mb-5 flex items-center flex-wrap gap-2.5 px-4 sm:px-5">
+        <img src="{{ 'stamp_01.png' | asset_url }}" width="44" height="44" alt="1945" class="rounded-full" loading="lazy">
+        <img src="{{ 'stamp_02.png' | asset_url }}" width="44" height="44" alt="AYUSH" class="rounded-full" loading="lazy">
+        <img src="{{ 'stamp_03.png' | asset_url }}" width="44" height="44" alt="FDA" class="rounded-full" loading="lazy">
+        <img src="{{ 'stamp_04.png' | asset_url }}" width="44" height="44" alt="ISO" class="rounded-full" loading="lazy">
+        <img src="{{ 'stamp_05.png' | asset_url }}" width="44" height="44" alt="GMP" class="rounded-full" loading="lazy">
+        <span class="text-[11px] font-bold uppercase tracking-[0.06em] text-[#1f4d3d] ml-1">Clinics & Academy</span>
       </div>
 
       {%- if section.settings.description_block != blank -%}
