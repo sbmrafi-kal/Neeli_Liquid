@@ -7013,3 +7013,120 @@ body {
     display: none !important;
   }
 }
+
+/* ==========================================================
+   FINAL PARITY LOCK V7: Header Visibility + Full Spectrum
+   ========================================================== */
+
+.theme-site-header__left,
+.theme-site-header__actions {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.theme-site-header__actions,
+.theme-site-header__icon-button,
+.theme-site-header__icon-button svg {
+  color: #f4f0e8 !important;
+}
+
+.theme-site-header__brand {
+  display: flex !important;
+}
+
+.theme-site-header__brand-image {
+  filter: brightness(0) invert(1) !important;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-site-header__nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: 2.4rem !important;
+  }
+
+  .theme-site-header__subnav,
+  .theme-site-header.is-scrolled .theme-site-header__subnav {
+    display: block !important;
+  }
+
+  .theme-site-header__search {
+    display: block !important;
+  }
+
+  .theme-site-header__inner {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+}
+
+.theme-brand-trust .theme-product-page__wrap {
+  max-width: 1570px !important;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-brand-trust .theme-product-page__section {
+    padding-top: 10px !important;
+  }
+
+  .theme-trust-band {
+    grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.16fr) minmax(235px, 0.54fr) !important;
+  }
+
+  .theme-trust-band__image-wrap,
+  .theme-trust-band__image {
+    min-height: 395px !important;
+  }
+
+  .theme-trust-band__content {
+    padding: 28px 40px 20px !important;
+  }
+
+  .theme-trust-band__title--full-spectrum {
+    font-size: 30px !important;
+    line-height: 1.04 !important;
+    letter-spacing: 0.01em !important;
+    margin-bottom: 12px !important;
+  }
+
+  .theme-trust-band__content > .theme-trust-band__text {
+    max-width: 480px !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .theme-trust-band__divider {
+    margin: 12px 0 18px !important;
+  }
+
+  .theme-trust-band__title--secondary {
+    font-size: 26px !important;
+    line-height: 1.05 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .theme-trust-band__patents {
+    gap: 18px !important;
+    margin-top: 8px !important;
+  }
+
+  .theme-trust-band__patent-card {
+    min-width: 180px !important;
+    min-height: 88px !important;
+    padding: 10px 12px !important;
+  }
+
+  .theme-trust-band__patent-title {
+    font-size: 11px !important;
+  }
+
+  .theme-trust-band__mark-image {
+    height: 136px !important;
+  }
+
+  .theme-trust-band__mark-desktop-text {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+  }
+}
