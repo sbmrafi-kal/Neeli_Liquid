@@ -166,6 +166,7 @@
   }
 
   function boot() {
+    document.documentElement.classList.add('theme-js-ready');
     document.querySelectorAll('[data-theme-carousel]').forEach(initCarousel);
     initReveal();
     initHeaderScroll();
