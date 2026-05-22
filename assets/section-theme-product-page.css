@@ -468,6 +468,18 @@
   }
 }
 
+/* Search: reduce width and increase icon size per request */
+.theme-site-header__search-input {
+  width: 260px !important;
+  padding-left: 2.5rem !important;
+}
+
+.theme-site-header__search-icon {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  left: 1.15rem !important;
+}
+
 .theme-product-page__hero-media,
 .theme-product-page__hero-info,
 .theme-panel {
@@ -524,6 +536,14 @@
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* Make badge narrower and slightly larger text to match org */
+.theme-product-page__badge {
+  font-size: 0.95rem !important;
+  padding: 0.6rem 1rem !important;
+  max-width: 520px !important;
+  white-space: nowrap;
 }
 
 .theme-hero-carousel {
@@ -586,9 +606,9 @@
   place-items: center;
   border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.86);
-  color: var(--theme-forest);
-  box-shadow: 0 2px 12px rgba(17, 48, 39, 0.14);
+  background: transparent !important;
+  color: var(--theme-forest) !important;
+  box-shadow: none !important;
   transform: translateY(-50%);
   cursor: pointer;
   z-index: 2;
@@ -601,6 +621,11 @@
 .theme-hero-carousel__control--next {
   right: 1rem;
 }
+
+/* Ensure controls sit inside the carousel image area */
+.theme-hero-carousel__control--prev { left: 18px !important; }
+.theme-hero-carousel__control--next { right: 18px !important; }
+.theme-hero-carousel__control svg { width: 18px !important; height: 18px !important; }
 
 .theme-hero-carousel__control--prev svg {
   transform: none !important;
@@ -981,6 +1006,33 @@
   font-size: 1.875rem;
   line-height: 1;
   font-weight: 700;
+}
+
+/* Pricing bar visual adjustments to match org: larger height, stronger rounding, separated price area */
+.theme-reorder-card {
+  border-radius: 1.125rem !important;
+  height: 76px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.theme-reorder-card__price {
+  background: rgba(0,0,0,0.06) !important;
+  min-width: 220px !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  border-left: 0 !important;
+  border-radius: 0 1.125rem 1.125rem 0 !important;
+  justify-content: center !important;
+}
+
+.theme-reorder-card__button {
+  padding-left: 1.6rem !important;
+  padding-right: 1.6rem !important;
+}
+
+.theme-reorder-card__price-new {
+  font-size: 1.875rem !important;
 }
 
 .theme-delivery-row {
