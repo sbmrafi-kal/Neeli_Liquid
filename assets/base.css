@@ -597,6 +597,25 @@ details > * {
   --animation-fade-in: fadeIn var(--duration-extra-long) var(--ease-out-slow);
 }
 
+/* Custom design tokens */
+:root {
+  --brand-forest: hsl(140, 30%, 25%);
+  --brand-gold: hsl(45, 90%, 55%);
+  --brand-cream: hsl(45, 70%, 90%);
+  --font-heading-family: 'Amstir', serif;
+  --font-body-family: 'Avenir', sans-serif;
+  --font-heading-scale: 1;
+  --font-body-scale: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-forest: hsl(140, 30%, 15%);
+    --brand-gold: hsl(45, 90%, 45%);
+    --brand-cream: hsl(45, 70%, 80%);
+  }
+}
+
 .underlined-link,
 .customer a,
 .inline-richtext a {

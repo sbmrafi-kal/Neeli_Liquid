@@ -24,7 +24,7 @@
       </div>
 
       <a class="theme-site-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
-        <img src="{{ 'logo-kerala.png' | asset_url }}" class="theme-site-header__brand-image" width="4167" height="4167" alt="{{ shop.name | escape }}" loading="eager">
+  <img src="{{ 'logo-kerala.png' | asset_url }}" class="theme-site-header__brand-image lg:brightness-0 lg:invert" width="4167" height="4167" alt="{{ shop.name | escape }}" loading="eager">
       </a>
 
       <div class="theme-site-header__actions">
@@ -47,10 +47,10 @@
 
   <div class="theme-site-header__subnav">
     <div class="theme-site-header__subnav-inner">
-      <div class="theme-site-header__breadcrumb">
-        <a href="{{ routes.root_url }}">Home</a><span class="theme-site-header__breadcrumb-separator">›</span>
-        <span class="theme-site-header__breadcrumb-current">Neelibhringadi Keram</span>
-      </div>
+        <div class="theme-site-header__breadcrumb uppercase" style="letter-spacing:0.08em;">
+          <a href="{{ routes.root_url }}">Home</a><span class="theme-site-header__breadcrumb-separator">›</span>
+          <span class="theme-site-header__breadcrumb-current">Neelibhringadi Keram</span>
+        </div>
 
       <label class="theme-site-header__search">
         <svg class="theme-site-header__search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
