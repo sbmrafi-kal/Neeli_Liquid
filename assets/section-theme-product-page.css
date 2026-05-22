@@ -5473,18 +5473,18 @@ body {
 
 /* Final UI mismatch corrections */
 .theme-footer .theme-product-page__section {
-  padding-top: 16px !important;
-  padding-bottom: 16px !important;
+  padding-top: 98px !important;
+  padding-bottom: 118px !important;
 }
 
 .theme-footer-grid {
-  row-gap: 0.5rem !important;
+  row-gap: 1.8rem !important;
 }
 
 .theme-footer-column__title {
-  margin-bottom: 0.5rem !important;
-  font-weight: 700 !important;
-  font-size: 22px !important;
+  margin-bottom: 0.85rem !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
   line-height: 1.1 !important;
   letter-spacing: 0 !important;
 }
@@ -5494,8 +5494,8 @@ body {
 }
 
 .theme-footer-social__icon svg {
-  width: 36px !important;
-  height: 36px !important;
+  width: 32px !important;
+  height: 32px !important;
 }
 
 .theme-customer-reviews .theme-section-heading__kicker {
@@ -5512,7 +5512,7 @@ body {
 .theme-review-card__verified {
   color: rgba(23, 55, 45, 0.42) !important;
   font-size: 14px !important;
-  text-transform: none !important;
+  text-transform: capitalize !important;
 }
 
 .theme-review-card__quote {
@@ -5521,31 +5521,51 @@ body {
 }
 
 .theme-information .theme-section-heading__kicker {
-  font-size: 16px !important;
-  letter-spacing: 0.06em !important;
+  font-size: 14px !important;
+  letter-spacing: 0.2em !important;
 }
 
 .theme-information .theme-section-heading__title {
-  font-size: 52px !important;
+  font-size: 62px !important;
   line-height: 1 !important;
+  color: #184034 !important;
 }
 
 .theme-info-panel--wide {
-  margin-top: 2.25rem !important;
+  margin-top: 2.75rem !important;
 }
 
 .theme-info-panel--wide .theme-accordion__summary {
-  min-height: 70px !important;
-  padding: 1.2rem 1.4rem !important;
+  min-height: 58px !important;
+  padding: 0.9rem 1.4rem !important;
 }
 
 .theme-info-panel--wide .theme-accordion__title {
-  font-size: 24px !important;
-  line-height: 1.05 !important;
+  font-size: 42px !important;
+  line-height: 1.08 !important;
+  color: rgba(23, 55, 45, 0.86) !important;
 }
 
 .theme-info-panel--wide .theme-accordion__content {
-  font-size: 15px !important;
-  line-height: 1.45 !important;
-  color: rgba(23, 55, 45, 0.74) !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: rgba(23, 55, 45, 0.72) !important;
+}
+
+/* Customer Reviews parity against original screenshot */
+.theme-brand-trust .theme-product-page__section {
+  padding-bottom: 0 !important;
+}
+
+.theme-customer-reviews .theme-product-page__section {
+  padding-top: 56px !important;
+  padding-bottom: 72px !important;
+}
+
+.theme-customer-reviews .theme-product-page__wrap {
+  max-width: 1392px !important;
+}
+
+.theme-review-grid {
+  margin-top: 2.25rem !important;
 }
