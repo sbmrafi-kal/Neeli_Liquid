@@ -1,6 +1,6 @@
 {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
 {{ 'section-header.css' | asset_url | stylesheet_tag }}
-{{ 'header.js' | asset_url | script_tag }}
+<script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
 
 {%- assign main_menu = linklists[section.settings.menu_handle] -%}
 {%- assign nav_links = main_menu.links -%}

@@ -149,7 +149,11 @@
           }
         }
       },
-      "block_order": ["stage_1", "stage_2", "stage_3"],
+      "block_order": [
+        "stage_1",
+        "stage_2",
+        "stage_3"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "kicker": "What to expect",
@@ -380,7 +384,7 @@
           "settings": {
             "icon": "none",
             "title": "Full ingredient list",
-            "text": "<p><strong>Oil base</strong><br>Sesame oil (Sesamum indicum), Coconut oil (Cocos nucifera)</p><p><strong>Primary herbs</strong><br>Neeli (Indigofera tinctoria), Bhringaraja (Eclipta alba), Amla (Emblica officinalis)</p><p><strong>Triple-milk base</strong><br>Coconut milk, Goat milk, Cow milk - a genuine differentiator in Ayurvedic hair oil formulation</p><p><strong>Supporting herbs</strong><br>Manjishtha, Yashtimadhu, Haritaki, Vibhitaki, Jatamansi, Padmaka, Sariva, Nilotpala, Durva, Gunjamoola, Priyangu, Anjana, and Lauha bhasma.</p><p>Processed over 7 days using traditional Taila Paka Vidhi.</p>"
+            "text": "<p><strong>Oil base</strong><br>Sesame oil (Sesamum indicum), Coconut oil (Cocos nucifera)</p><p><strong>Primary herbs</strong><br>Neeli (Indigofera tinctoria), Bhringaraja (Eclipta alba), Amla (Emblica officinalis)</p><p><strong>Triple-milk base</strong><br>Coconut milk, Goat milk, Cow milk - a genuine differentiator in Ayurvedic hair oil formulation</p><p><strong>Supporting herbs</strong><br>Manjishtha (Rubia cordifolia), Yashtimadhu (Glycyrrhiza glabra), Haritaki (Terminalia chebula), Vibhitaki (Terminalia bellirica), Jatamansi (Nardostachys jatamansi), Padmaka (Prunus cerasoides), Sariva (Hemidesmus indicus), Nilotpala, Durva, Gunjamoola, Priyangu, Anjana, and Lauha bhasma.</p><p>Processed over 7 days using traditional Taila Paka Vidhi (classical oil preparation method).</p>"
           }
         },
         "info_2": {
@@ -388,7 +392,7 @@
           "settings": {
             "icon": "truck",
             "title": "Preparation - 7 days",
-            "text": "<p><strong>Preparation</strong></p><p>Each batch follows the Sahasrayogam's Taila Paka Vidhi - a classical method requiring 7 days of slow-heat extraction. Herbs are first made into a kashaya, then combined with the sesame oil base and kalka. The mixture is heated on low flame until the water content fully evaporates and the herbal essence binds to the oil.</p>"
+            "text": "<p><strong>Preparation</strong></p><p>Each batch follows the Sahasrayogam's Taila Paka Vidhi - a classical method requiring 7 days of slow-heat extraction. Herbs are first made into a kashaya (decoction), then combined with the sesame oil base and kalka (paste). The mixture is heated on low flame, monitored by hand, until the water content fully evaporates and the herbal essence binds to the oil. This process cannot be rushed or mechanized.</p>"
           }
         },
         "info_3": {
@@ -396,7 +400,7 @@
           "settings": {
             "icon": "heart",
             "title": "Safety & Interactions",
-            "text": "<p><strong>Safety & interactions</strong></p><p>External use only. Always patch test before first full application. Pregnant or nursing? Talk to your doctor before starting a new topical regimen.</p>"
+            "text": "<p><strong>Safety &amp; interactions</strong></p><p>External use only. Always patch test before first full application. Pregnant or nursing? Talk to your doctor before starting a new topical regimen - the formula is not tested for this cohort.</p>"
           }
         },
         "info_4": {
@@ -404,7 +408,7 @@
           "settings": {
             "icon": "ruler",
             "title": "Frequently asked",
-            "text": "<p><strong>When will I see results?</strong><br>Reduced hair fall is typically noticed within 2-3 weeks. Visible improvement requires consistent use.</p><p><strong>Does it help with greying?</strong><br>Neeli and Bhringaraja are traditionally used to support natural hair colour.</p><p><strong>Can I use it on coloured hair?</strong><br>Yes. The formula is gentle, but extended use may slightly darken hair over time.</p><p><strong>Is it safe during pregnancy?</strong><br>Consult your doctor before starting any new topical regimen.</p>"
+            "text": "<p><strong>When Will I See Results?</strong><br>Reduced hair fall is typically noticed within 2–3 weeks. Visible improvement in growth and texture requires 2+ months of consistent use. Recovery is a process, not a single event.</p><p><strong>Does It Help With Greying?</strong><br>Yes. Neeli and Bhringaraja are traditionally used to help minimise premature greying and support natural hair colour.</p><p><strong>Can I Use It On Coloured Hair?</strong><br>Yes. The formula is gentle. It may slightly darken hair over extended use due to the Bhringaraja and Neeli content.</p><p><strong>Is It Safe During Pregnancy?</strong><br>This is an external-use oil with no known contraindicated ingredients for topical application. However, as with any product during pregnancy or nursing, we recommend consulting your doctor before starting a new regimen.</p>"
           }
         },
         "faq_1": {
@@ -463,14 +467,14 @@
         "kicker": "",
         "heading": "FULL SPECTRUM",
         "text": "<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>",
-        "patents_kicker": "",
+        "patents_kicker": "Internationally Recognized",
         "patents_heading": "Patented formulations",
         "patents_text": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
         "us_title": "US PATENT",
         "us_text": "<p>Protected formulation details and process knowledge.</p>",
         "japan_title": "JAPAN PATENT",
         "japan_text": "<p>Recognition of the proprietary process and method.</p>",
-        "mark_kicker": "Rooted in authenticity",
+        "mark_kicker": "Rooted in",
         "mark_heading": "Authentic Ayurveda.",
         "mark_text": "<p>Bring the same trust cues from the Neeli landing page into Shopify.</p>",
         "padding_top": 80,
@@ -499,7 +503,10 @@
           }
         }
       },
-      "block_order": ["review_1", "review_2"],
+      "block_order": [
+        "review_1",
+        "review_2"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "soft_background": true,

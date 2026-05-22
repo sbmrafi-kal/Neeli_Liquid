@@ -1,6 +1,6 @@
   {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
   {{ 'section-brand-trust.css' | asset_url | stylesheet_tag }}
-  {{ 'brand-trust.js' | asset_url | script_tag }}
+  <script src="{{ 'brand-trust.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   .section-{{ section.id }}-padding {

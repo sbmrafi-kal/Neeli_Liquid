@@ -156,6 +156,15 @@
               One oil for complete hair recovery
             {%- endif -%}
           </p>
+
+          {%- assign hero_note_block = section.blocks | where: "type", "hero_note" | first -%}
+          <p class="theme-product-page__body theme-product-page__intro">
+            {%- if hero_note_block -%}
+              {{ hero_note_block.settings.text }}
+            {%- else -%}
+              Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
+            {%- endif -%}
+          </p>
         </div>
 
         {%- assign quote_block = section.blocks | where: "type", "hero_quote" | first -%}
@@ -182,15 +191,6 @@
             {{ feature_block.settings.title }} {{ feature_block.settings.text }}
           {%- else -%}
             Made by BAMS doctors in our GMP & ISO - certified facility. FDA compliant and AYUSH licensed.
-          {%- endif -%}
-        </p>
-
-        {%- assign hero_note_block = section.blocks | where: "type", "hero_note" | first -%}
-        <p class="theme-product-page__body theme-product-page__intro">
-          {%- if hero_note_block -%}
-            {{ hero_note_block.settings.text }}
-          {%- else -%}
-            Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
           {%- endif -%}
         </p>
 
