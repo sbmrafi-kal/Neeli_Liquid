@@ -683,10 +683,12 @@
   grid-template-columns: repeat(4, 1fr) !important;
   background: #123c2f !important;
   color: #faf8f4 !important;
-  padding: 8px 0 !important;
+  padding: 12px 0 !important;
   gap: 0 !important;
   border-top: 0 !important;
   overflow: hidden !important;
+  border-bottom-left-radius: 24px !important;
+  border-bottom-right-radius: 24px !important;
 }
 
 .theme-hero-carousel__stat {
@@ -710,7 +712,7 @@
 
 .theme-hero-carousel__stat-value {
   font-family: var(--font-heading-family) !important;
-  font-size: 16px !important;
+  font-size: 20px !important;
   line-height: 1 !important;
   color: #faf8f4 !important;
   font-weight: 400 !important;

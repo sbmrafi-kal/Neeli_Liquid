@@ -46,11 +46,8 @@
   <div class="theme-site-header__subnav">
     <div class="theme-site-header__subnav-inner">
       <div class="theme-site-header__breadcrumb">
-        <a href="{{ routes.root_url }}">Home</a> <span class="theme-site-header__breadcrumb-separator">›</span>
-        <span class="theme-site-header__breadcrumb-current">
-          {%- assign breadcrumb_title = product.title | default: page.title | default: all_products['neelibhringadi-keram'].title | default: shop.name -%}
-          {{ breadcrumb_title }}
-        </span>
+        <a href="{{ routes.root_url }}">Home</a><span class="theme-site-header__breadcrumb-separator">›</span>
+        <span class="theme-site-header__breadcrumb-current">Neelibhringadi Keram</span>
       </div>
 
       <label class="theme-site-header__search">
