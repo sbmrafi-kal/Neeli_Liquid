@@ -28,72 +28,10 @@
     .theme-product-info-desktop {
       display: block;
     }
+
     .theme-product-info-mobile {
       display: none;
     }
-  }
-
-  /* Carousel control alignment */
-  .theme-hero-carousel__control {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  /* Thumbnail size and active shadow */
-  .theme-hero-carousel__thumb-image {
-    width: 90px;
-    height: 120px;
-  }
-  .theme-hero-carousel__thumb.is-active {
-    box-shadow: 0 0 6px var(--brand-gold);
-  }
-
-  /* Badge styling */
-  .micro-fade-delayed.mt-4.inline-flex {
-    background: var(--brand-gold-gradient);
-    font-size: 13px;
-    border-color: #d8cba1;
-  }
-
-  /* Title typography */
-  .theme-product-page__title {
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
-
-  /* Quote block */
-  .theme-product-page__quote-wrap {
-    background: rgba(248,241,223,0.9);
-    color: #1f4d3d;
-  }
-  .theme-product-page__quote-meta {
-    text-decoration: underline;
-  }
-
-  /* Stamp grid layout */
-  .theme-stamp-card__stamp {
-    flex: 1 0 20%;
-    gap: 12px;
-    mix-blend-mode: multiply;
-  }
-
-  /* Delivery rows */
-  .theme-delivery-row__item svg {
-    stroke: #1f4d3d;
-  }
-  .theme-delivery-row__item {
-    font-size: 10px;
-    border-bottom: 1px solid #e0e0e0;
-  }
-
-  /* Buttons */
-  .cta-sheen, .premium-button {
-    background: var(--brand-gold-gradient, linear-gradient(45deg, #f4bb28, #ffd700));
-    transition: transform var(--duration-short) ease;
-  }
-  .cta-sheen:hover, .premium-button:hover {
-    transform: translateY(-2px);
   }
 {%- endstyle -%}
 
@@ -116,7 +54,7 @@
 >
   <script src="{{ 'theme-product-page.js' | asset_url }}" defer="defer"></script>
 
-{%- assign hero_images = 'Product_carosul_02.png|Product_carosul_01.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' -%}
+{%- assign hero_images = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' -%}
 
   <div class="theme-product-page__wrap">
     <div class="theme-product-page__hero">

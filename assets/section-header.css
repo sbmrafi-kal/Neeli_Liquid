@@ -1,6 +1,12 @@
 /* Section-specific CSS: header
-   Search input width, breadcrumb underline removal and header-specific tweaks. */
+   Keep this file narrowly scoped so it does not fight shared parity rules. */
 
-.theme-site-header__search-input { width: 480px !important; max-width: 480px; }
-.theme-site-header__search-icon { width: 22px !important; height: 22px !important; }
-.theme-site-header__breadcrumb a { text-decoration: none !important; }
+.theme-site-header__breadcrumb a {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-site-header__search-input {
+    width: 284px !important;
+  }
+}

@@ -1,8 +1,6 @@
 /* Section-specific CSS: customer-reviews
-   Narrow review widths, tighten star spacing and reduce CTA gap. */
+   Keep this layer lightweight; main parity rules live in shared stylesheet. */
 
-/* Section-specific CSS: customer-reviews */
-
-.theme-reviews-rating { gap: 0.375rem; display: inline-flex; align-items: center; }
-.theme-review-card__quote { max-width: 420px; }
-.theme-reviews-footer { margin-top: 0.75rem; }
+.theme-reviews-footer {
+  margin-top: 0.75rem;
+}
