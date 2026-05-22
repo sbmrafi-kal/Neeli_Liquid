@@ -4,3 +4,9 @@
 .theme-footer-list li {
   margin-bottom: 0.5rem;
 }
+
+/* Request lock: reduce footer padding artifacts from support rules. */
+.theme-footer-list li { margin-bottom: 0 !important; }
+.theme-footer-column__title { font-weight: 700 !important; }
+.theme-footer-social__icon,
+.theme-footer-social__icon svg { width: 36px !important; height: 36px !important; }

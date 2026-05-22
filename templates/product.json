@@ -234,7 +234,7 @@
             "name": "Priya M.",
             "meta": "BENGALURU • 6 WEEKS",
             "badge": "LESS FALL - WEEK 3",
-            "quote": "Less hair in the shower drain by week three. That was the first sign it was working. The routine is simple enough to actually stick with."
+            "quote": "Less hair in the shower drain by week three. That was the first sign it was working. The routine is simple enough<br>to actually stick with."
           }
         },
         "review_2": {
@@ -243,7 +243,7 @@
             "name": "Arjun V.",
             "meta": "KOCHI • 3 MONTHS",
             "badge": "DENSITY IMPROVED",
-            "quote": "New growth visible at the temples after three months. Consistent use was the key. It's a recovery system, not a quick fix."
+            "quote": "New growth visible at the temples after three months. Consistent use was the key. It's a recovery system, not a<br>quick fix."
           }
         }
       },
@@ -509,7 +509,7 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "soft_background": true,
+        "soft_background": false,
         "kicker": "Feedback",
         "heading": "Customer Reviews",
         "text": "",

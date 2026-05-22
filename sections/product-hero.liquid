@@ -159,11 +159,14 @@
 
           {%- assign hero_note_block = section.blocks | where: "type", "hero_note" | first -%}
           <p class="theme-product-page__body theme-product-page__intro">
-            {%- if hero_note_block -%}
-              {{ hero_note_block.settings.text }}
-            {%- else -%}
-              Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
-            {%- endif -%}
+            {%- capture hero_note_text -%}
+              {%- if hero_note_block -%}
+                {{ hero_note_block.settings.text }}
+              {%- else -%}
+                Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
+              {%- endif -%}
+            {%- endcapture -%}
+            {{ hero_note_text | strip | replace: 'Neelibhringadi works', 'Neelibhringadi<br class="theme-hero-note-break">works' }}
           </p>
         </div>
 
@@ -317,24 +320,26 @@
         <div class="theme-delivery-row">
           <div class="theme-delivery-row__item">
             <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M3 7h11v10H3z" stroke="currentColor" stroke-width="1.7" />
-              <path d="M14 10h3l2 2v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
-              <circle cx="7" cy="18" r="1.4" fill="currentColor" />
-              <circle cx="17" cy="18" r="1.4" fill="currentColor" />
+              <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M15 18H9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="17" cy="18" r="2" stroke="currentColor" stroke-width="1.9" />
+              <circle cx="7" cy="18" r="2" stroke="currentColor" stroke-width="1.9" />
             </svg>
             <span>{{ section.settings.delivery_1_text }}</span>
           </div>
           <div class="theme-delivery-row__item">
             <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="1.7" />
-              <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 18V6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" />
             </svg>
             <span>{{ section.settings.delivery_2_text }}</span>
           </div>
           <div class="theme-delivery-row__item">
             <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 8h12l-1 11H7L6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-              <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              <path d="M9 14 4 9l5-5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
             <span>{{ section.settings.delivery_3_text }}</span>
           </div>
@@ -478,35 +483,40 @@
       <div class="mt-3 h-px w-full bg-[#1f4d3d]/10" />
 
       <p class="mt-4 text-[14px] leading-[1.42] text-[#1f4d3d]/72">
-        {%- if hero_note_block -%}
-          {{ hero_note_block.settings.text }}
-        {%- else -%}
-          Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
-        {%- endif -%}
+        {%- capture hero_note_text_mobile -%}
+          {%- if hero_note_block -%}
+            {{ hero_note_block.settings.text }}
+          {%- else -%}
+            Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
+          {%- endif -%}
+        {%- endcapture -%}
+        {{ hero_note_text_mobile | strip | replace: 'Neelibhringadi works', 'Neelibhringadi<br class="theme-hero-note-break">works' }}
       </p>
 
       <!-- Delivery columns -->
       <div class="mt-5 grid grid-cols-3 overflow-hidden rounded-[2px] bg-[#f6f2e8] text-[#1f4d3d]">
         <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
           <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
-            <path d="M3 7h11v10H3z" />
-            <path d="M14 10h3l2 2v5h-5" stroke-linecap="round" stroke-linejoin="round" />
-            <circle cx="7" cy="18" r="1.4" fill="currentColor" />
-            <circle cx="17" cy="18" r="1.4" fill="currentColor" />
+            <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M15 18H9" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="17" cy="18" r="2" />
+            <circle cx="7" cy="18" r="2" />
           </svg>
           <span>{{ section.settings.delivery_1_text }}</span>
         </div>
         <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
           <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
-            <path d="M3 7h18v10H3z" />
-            <path d="M8 12h8" stroke-linecap="round" />
+            <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M12 18V6" stroke-linecap="round" />
           </svg>
           <span>{{ section.settings.delivery_2_text }}</span>
         </div>
         <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
           <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
-            <path d="M6 8h12l-1 11H7L6 8Z" stroke-linejoin="round" />
-            <path d="M9 8a3 3 0 0 1 6 0" stroke-linecap="round" />
+            <path d="M9 14 4 9l5-5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
           <span>{{ section.settings.delivery_3_text }}</span>
         </div>

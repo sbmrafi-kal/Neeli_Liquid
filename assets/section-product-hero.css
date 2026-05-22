@@ -86,3 +86,16 @@
 /* Pricing / reorder bar adjustments */
 .theme-reorder-card { border-radius: 1.125rem !important; height: 76px !important; display: flex !important; align-items: center !important; }
 .theme-reorder-card__price { background: rgba(0,0,0,0.06) !important; min-width: 220px !important; padding-left: 1.5rem !important; padding-right: 1.5rem !important; border-radius: 0 1.125rem 1.125rem 0 !important; justify-content: center !important; }
+
+/* Request lock: keep carousel controls and CTA layout aligned to the preview. */
+.theme-hero-carousel { border-radius: 0 !important; }
+.theme-hero-carousel__stage { margin-bottom: 0 !important; }
+.theme-hero-carousel__control { top: 50% !important; z-index: 8 !important; background: rgba(255, 255, 255, 0.82) !important; box-shadow: 0 1px 3px rgba(17, 48, 39, 0.08) !important; }
+.theme-hero-carousel__control--prev { left: 14px !important; }
+.theme-hero-carousel__control--next { right: 14px !important; }
+.theme-hero-carousel__thumbs { bottom: 58px !important; z-index: 7 !important; }
+.theme-reorder-card__button { min-height: 0 !important; display: flex !important; }
+.theme-reorder-card__button > .flex:first-child { padding-top: 10px !important; padding-bottom: 10px !important; }
+.theme-reorder-card__button > .flex:last-child { margin-left: auto !important; min-width: 188px !important; padding: 10px 20px 10px 26px !important; justify-content: flex-end !important; }
+.theme-reorder-card__price-new { margin-left: auto !important; color: #ffffff !important; text-align: right !important; }
+.theme-delivery-row__icon { width: 14px !important; height: 14px !important; }
