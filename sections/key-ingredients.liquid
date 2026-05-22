@@ -165,12 +165,12 @@
 
       <!-- Patch Test Pills -->
       <div class="theme-patch-test--desktop hidden lg:flex">
-        <svg class="theme-patch-test__icon-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <svg class="theme-patch-test__icon-svg" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         <span>Always patch test first</span>
       </div>
 
       <div class="theme-patch-test--mobile lg:hidden">
-        <svg class="theme-patch-test__icon-svg" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <svg class="theme-patch-test__icon-svg" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         <span>Always patch test first</span>
       </div>
     </div>
@@ -217,7 +217,7 @@
             {%- endcase -%}
             <div class="theme-step-row-mobile {% if current_step < step_count %}theme-step-row-mobile--border-b{% endif %}" {{ block.shopify_attributes }}>
               <div class="theme-step-row-mobile__left">
-                <div class="theme-step-row-mobile__image-wrap">
+                <div class="theme-step-row-mobile__image-wrap" style="display: none;">
                   {%- if block.settings.image != blank -%}
                     {{ block.settings.image | image_url: width: 140 | image_tag: class: 'theme-step-row-mobile__image', loading: 'lazy', alt: block.settings.title }}
                   {%- else -%}
@@ -259,7 +259,7 @@
                 {%- assign default_step_image = 'expect-3.jpg' -%}
             {%- endcase -%}
             <div class="theme-step-cell-desktop {% if current_step < 3 %}theme-step-cell-desktop--border-r{% endif %}" {{ block.shopify_attributes }}>
-              <div class="theme-step-cell-desktop__image-wrap">
+              <div class="theme-step-cell-desktop__image-wrap" style="display: none;">
                 {%- if block.settings.image != blank -%}
                   {{ block.settings.image | image_url: width: 180 | image_tag: class: 'theme-step-cell-desktop__image', loading: 'lazy', alt: block.settings.title }}
                 {%- else -%}
