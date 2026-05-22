@@ -99,3 +99,16 @@
 .theme-reorder-card__button > .flex:last-child { margin-left: auto !important; min-width: 188px !important; padding: 10px 20px 10px 26px !important; justify-content: flex-end !important; }
 .theme-reorder-card__price-new { margin-left: auto !important; color: #ffffff !important; text-align: right !important; }
 .theme-delivery-row__icon { width: 14px !important; height: 14px !important; }
+
+/* Request lock: hero desktop measurements. */
+.theme-product-page__badge { font-size: 14px !important; }
+.theme-product-page__quote-wrap { margin: 20px 0 0 !important; padding: 12px 20px !important; background: #f8f1df !important; }
+.theme-product-page__cert-note { margin: 16px 0 0 !important; color: #1f4d3d !important; font-size: 15px !important; }
+.theme-delivery-row__icon, .theme-delivery-row__item svg { color: #000000 !important; stroke: #000000 !important; }
+.theme-reorder-btn-text--desktop { color: #ffffff !important; font-family: var(--theme-body-font) !important; font-size: 19px !important; }
+@media screen and (min-width: 990px) {
+  .theme-product-page__badge { width: 429.58px !important; height: 39px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
+  .theme-product-page__intro { width: 771.42px !important; max-width: 100% !important; min-height: 43.19px !important; }
+  .theme-product-page__quote-wrap { width: 771.42px !important; max-width: 100% !important; height: 66.4px !important; min-height: 66.4px !important; }
+  .theme-stamp-card { width: 745.42px !important; max-width: 100% !important; height: 86px !important; min-height: 86px !important; grid-template-columns: 1.42fr 0.88fr !important; }
+}

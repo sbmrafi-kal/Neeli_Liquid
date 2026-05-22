@@ -27,3 +27,10 @@
   .theme-site-header__subnav { display: none !important; }
   .theme-site-header__nav-link { color: #1f4d3d !important; }
 }
+
+/* Request lock: sticky header and breadcrumb typography. */
+.theme-site-header { position: sticky !important; top: 0 !important; z-index: 9999 !important; }
+.theme-site-header__breadcrumb,
+.theme-site-header__breadcrumb a,
+.theme-site-header__breadcrumb-current { color: #1f4d3d !important; font-family: var(--theme-body-font) !important; font-size: 13px !important; line-height: 1 !important; }
+@media screen and (max-width: 989px) { .theme-site-header__subnav { display: none !important; } }

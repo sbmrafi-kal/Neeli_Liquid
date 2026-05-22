@@ -10227,3 +10227,204 @@ body {
   .theme-footer-social-wrapper { margin-top: 40px !important; }
   .theme-footer-tagline-wrapper { margin-top: 24px !important; }
 }
+
+/* ==========================================================
+   PRODUCT PAGE FINAL CASCADE LOCK - HERO/DIFFERENCE PASS
+   ========================================================== */
+
+.theme-site-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+}
+
+.theme-site-header__breadcrumb,
+.theme-site-header__breadcrumb a,
+.theme-site-header__breadcrumb-current {
+  color: #1f4d3d !important;
+  font-family: var(--theme-body-font) !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
+}
+
+.theme-ingredient-story__difference,
+.theme-product-page__section--story .theme-ingredient-story__difference {
+  background: #ffffff !important;
+}
+
+.theme-product-page__badge {
+  box-sizing: border-box !important;
+  font-family: var(--theme-body-font) !important;
+  font-size: 14px !important;
+  line-height: 1 !important;
+}
+
+.theme-product-page__intro {
+  box-sizing: border-box !important;
+}
+
+.theme-product-page__quote-wrap {
+  box-sizing: border-box !important;
+  margin: 20px 0 0 !important;
+  padding: 12px 20px !important;
+  background: #f8f1df !important;
+}
+
+.theme-product-page__cert-note {
+  margin: 16px 0 0 !important;
+  color: #1f4d3d !important;
+  font-size: 15px !important;
+  line-height: 1.46 !important;
+}
+
+.theme-stamp-card {
+  box-sizing: border-box !important;
+  display: grid !important;
+  grid-template-columns: 1.42fr 0.88fr !important;
+  align-items: center !important;
+  overflow: hidden !important;
+}
+
+.theme-stamp-card__stamps,
+.theme-stamp-card__stats {
+  min-height: 100% !important;
+  align-items: center !important;
+}
+
+.theme-delivery-row__icon,
+.theme-delivery-row__item svg,
+.theme-product-info-mobile .grid svg {
+  color: #000000 !important;
+  stroke: #000000 !important;
+}
+
+.theme-reorder-btn-text--desktop {
+  color: #ffffff !important;
+  font-family: var(--theme-body-font) !important;
+  font-size: 19px !important;
+  line-height: 1 !important;
+}
+
+.theme-hero-ritual-guide {
+  background: #faf8f4 !important;
+  padding: 14px 0 8px !important;
+}
+
+.theme-hero-ritual-guide__card {
+  box-sizing: border-box !important;
+  width: min(460px, calc(100% - 40px)) !important;
+  margin: 0 auto !important;
+  border: 1px solid #f0d084 !important;
+  border-radius: 12px !important;
+  background: #fbf2da !important;
+  padding: 12px 16px !important;
+  color: #a86d13 !important;
+}
+
+.theme-hero-ritual-guide__content {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+}
+
+.theme-hero-ritual-guide__icon {
+  width: 18px !important;
+  height: 18px !important;
+  margin-top: 2px !important;
+  color: #e29a12 !important;
+  flex: 0 0 18px !important;
+}
+
+.theme-hero-ritual-guide__title {
+  font-size: 13px !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+}
+
+.theme-hero-ritual-guide__text {
+  margin: 4px 0 0 !important;
+  color: #8f5f17 !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+}
+
+.theme-timeline > .theme-ritual-guide {
+  display: none !important;
+}
+
+.theme-timeline__heading-band .theme-section-heading__kicker {
+  display: block !important;
+  width: 100% !important;
+  max-width: 1632px !important;
+  min-height: 21px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  color: #faf8f58c !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+}
+
+.theme-timeline__heading-band .theme-section-heading__title {
+  color: #faf8f5 !important;
+}
+
+.theme-timeline__heading-band .theme-section-heading__text,
+.theme-timeline__heading-band .theme-section-heading__text p {
+  color: #faf8f5 !important;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-product-page__badge {
+    width: 429.58px !important;
+    height: 39px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 0 16px !important;
+    margin-top: 16px !important;
+  }
+
+  .theme-product-page__intro {
+    width: 771.42px !important;
+    max-width: 100% !important;
+    min-height: 43.19px !important;
+    margin-top: 10px !important;
+    font-size: 15px !important;
+    line-height: 1.44 !important;
+  }
+
+  .theme-product-page__quote-wrap {
+    width: 771.42px !important;
+    max-width: 100% !important;
+    height: 66.4px !important;
+    min-height: 66.4px !important;
+  }
+
+  .theme-stamp-card {
+    width: 745.42px !important;
+    max-width: 100% !important;
+    height: 86px !important;
+    min-height: 86px !important;
+    padding: 4px 12px !important;
+  }
+
+  .theme-hero-ritual-guide {
+    padding-top: 14px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .theme-hero-ritual-guide__card {
+    width: 640px !important;
+    margin-left: auto !important;
+    margin-right: calc((100vw - min(1392px, 100vw)) / 2 + 40px) !important;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .theme-site-header__subnav {
+    display: none !important;
+  }
+}
