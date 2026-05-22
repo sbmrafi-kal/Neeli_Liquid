@@ -6727,15 +6727,7 @@ body {
   padding-left: 26px !important;
 }
 
-.theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__top {
-  display: block !important;
-}
 
-.theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__stars {
-  margin-top: 10px !important;
-  font-size: 12px !important;
-  letter-spacing: 0.02em !important;
-}
 
 .theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__badge {
   margin-top: 14px !important;
@@ -7007,68 +6999,6 @@ body {
   gap: 22px !important;
 }
 
-.theme-timeline__desktop-col {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 14px !important;
-}
-
-.theme-timeline__desktop-top {
-  position: relative !important;
-}
-
-.theme-timeline__desktop-phase {
-  position: absolute !important;
-  left: 14px !important;
-  bottom: 14px !important;
-  z-index: 2 !important;
-  display: inline-flex !important;
-  padding: 8px 12px !important;
-  border-radius: 10px !important;
-  background: #2f9440 !important;
-  color: #fff !important;
-  font-size: 11px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.06em !important;
-  text-transform: uppercase !important;
-}
-
-.theme-timeline__desktop-img-wrap {
-  overflow: hidden !important;
-  border-radius: 22px !important;
-}
-
-.theme-timeline__desktop-img {
-  width: 100% !important;
-  height: 280px !important;
-  border-radius: 22px !important;
-  object-fit: cover !important;
-}
-
-.theme-timeline__desktop-bottom {
-  padding: 0 4px !important;
-  text-align: center !important;
-}
-
-.theme-timeline__desktop-label {
-  color: rgba(24, 61, 44, 0.6) !important;
-  font-size: 11px !important;
-  letter-spacing: 0.12em !important;
-}
-
-.theme-timeline__desktop-title {
-  font-family: var(--theme-heading-font) !important;
-  font-size: 22px !important;
-  font-weight: 400 !important;
-  line-height: 1.08 !important;
-  color: #17372d !important;
-}
-
-.theme-timeline__desktop-body {
-  font-size: 13px !important;
-  line-height: 1.42 !important;
-  color: rgba(24, 61, 44, 0.72) !important;
-}
 
 @media screen and (min-width: 990px) {
   .theme-product-page__title {
@@ -7504,6 +7434,21 @@ body {
   display: none !important;
 }
 
+@media screen and (min-width: 750px) {
+  .md\:hidden {
+    display: none !important;
+  }
+  .md\:grid {
+    display: grid !important;
+  }
+  .md\:block {
+    display: block !important;
+  }
+  .md\:flex {
+    display: flex !important;
+  }
+}
+
 @media screen and (min-width: 990px) {
   .lg\:hidden {
     display: none !important;
@@ -7535,8 +7480,7 @@ body {
 .theme-product-page__body,
 .theme-product-page__hero-note,
 .theme-timeline__mobile-body,
-.theme-timeline__desktop-body,
-.theme-trust-band__text {
+.theme-timeline__desktop-body {
   color: rgba(23, 55, 45, 0.72) !important;
 }
 

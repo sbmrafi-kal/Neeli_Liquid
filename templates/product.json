@@ -366,8 +366,8 @@
         "milk_heading": "Three milks. One complete formula.",
         "milk_text": "<p>Three nourishing milks work together for a healthier scalp and stronger, smoother hair.</p>",
         "steps_kicker": "",
-        "steps_heading": "Massage Ritual",
-        "steps_text": "<p>Gently massage warm oil into the scalp and through the lengths. Leave it on long enough for the botanicals to do their work.</p>",
+        "steps_heading": "",
+        "steps_text": "",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -460,10 +460,10 @@
       "type": "brand-trust",
       "settings": {
         "color_scheme": "scheme-3",
-        "kicker": "Full spectrum",
-        "heading": "Classical and Proprietary Ayurvedic Products (350+ SKUs)",
-        "text": "<p>Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>",
-        "patents_kicker": "Internationally recognized",
+        "kicker": "",
+        "heading": "FULL SPECTRUM",
+        "text": "<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>",
+        "patents_kicker": "",
         "patents_heading": "Patented formulations",
         "patents_text": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
         "us_title": "US PATENT",
@@ -502,7 +502,7 @@
       "block_order": ["review_1", "review_2"],
       "settings": {
         "color_scheme": "scheme-1",
-        "soft_background": false,
+        "soft_background": true,
         "kicker": "Feedback",
         "heading": "Customer Reviews",
         "text": "",

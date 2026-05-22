@@ -4,7 +4,3 @@
 .theme-site-header__search-input { width: 260px !important; max-width: 260px; }
 .theme-site-header__search-icon { width: 22px !important; height: 22px !important; }
 .theme-site-header__breadcrumb a { text-decoration: none !important; }
-.theme-site-header__bar {
-  padding-top: 48px;
-  padding-bottom: 32px;
-}
