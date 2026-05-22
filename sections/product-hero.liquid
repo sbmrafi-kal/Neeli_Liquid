@@ -207,15 +207,6 @@
             <h1 class="theme-product-page__title">{{ product_title | escape }}</h1>
           </div>
 
-          <div class="theme-product-page__rating-row" aria-label="Product rating">
-            <div class="theme-product-page__price-inline">
-              {{ product_price | money }}
-            </div>
-            <div class="theme-product-page__rating-inline">
-              <span class="theme-product-page__rating-stars" aria-hidden="true">★★★★☆</span>
-              <span class="theme-product-page__rating-count">{{ section.settings.review_count }}</span>
-            </div>
-          </div>
 
           {%- assign subtitle_block = section.blocks | where: "type", "caption" | first -%}
           <p class="theme-product-page__subtitle subtitle">
@@ -226,15 +217,6 @@
             {%- endif -%}
           </p>
         </div>
-
-        {%- assign hero_note_block = section.blocks | where: "type", "hero_note" | first -%}
-        <p class="theme-product-page__body theme-product-page__intro">
-          {%- if hero_note_block -%}
-            {{ hero_note_block.settings.text }}
-          {%- else -%}
-            Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
-          {%- endif -%}
-        </p>
 
         {%- assign quote_block = section.blocks | where: "type", "hero_quote" | first -%}
         <div class="theme-product-page__quote-wrap motion-panel">
@@ -263,31 +245,14 @@
           {%- endif -%}
         </p>
 
-        <div class="theme-stamp-card motion-panel">
-          <div class="theme-stamp-card__top">
-            {%- assign stamp_images = 'stamp_01.png|stamp_02.png|stamp_03.png|stamp_04.png|stamp_05.png' | split: '|' -%}
-            {%- for stamp in stamp_images -%}
-              <div class="theme-stamp-card__stamp">
-                {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
-                <img src="{{ stamp | asset_url }}" class="theme-stamp-card__stamp-image" loading="lazy" width="1920" height="1080" alt="{{ stamp_alt | escape }}">
-              </div>
-            {%- endfor -%}
-          </div>
-          <div class="theme-stamp-card__stats">
-            <div class="theme-stamp-card__stat">
-              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_1_value }}</div>
-              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_1_label }}</div>
-            </div>
-            <div class="theme-stamp-card__stat">
-              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_2_value }}</div>
-              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_2_label }}</div>
-            </div>
-            <div class="theme-stamp-card__stat">
-              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_3_value }}</div>
-              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_3_label }}</div>
-            </div>
-          </div>
-        </div>
+        {%- assign hero_note_block = section.blocks | where: "type", "hero_note" | first -%}
+        <p class="theme-product-page__body theme-product-page__intro">
+          {%- if hero_note_block -%}
+            {{ hero_note_block.settings.text }}
+          {%- else -%}
+            Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
+          {%- endif -%}
+        </p>
 
         {%- if section.settings.description_block != blank -%}
           <p class="theme-product-page__description-block">
@@ -296,7 +261,7 @@
         {%- endif -%}
 
         <div class="theme-product-page__form-card">
-          <!-- Dynamic Shopify Form -->
+          <!-- Dynamic Shopify Form or Dummy Button for Preview -->
           {%- if product != blank and product.selected_or_first_available_variant != blank -%}
           {%- form 'product', product, id: "theme-product-form", class: "theme-product-form" -%}
             <!-- Variant Select -->
@@ -351,6 +316,30 @@
               </div>
             </button>
           {%- endform -%}
+          {%- else -%}
+            <!-- Dummy Button for preview when product is missing -->
+            <button type="button" class="theme-reorder-card__button theme-reorder-card__button--desktop cta-sheen hover-rise">
+              <div class="flex flex-1 items-center gap-4 px-5 py-3">
+                <svg class="theme-reorder-card__icon" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <div>
+                  <div class="theme-reorder-btn-text theme-reorder-btn-text--desktop">
+                    Reorder now
+                  </div>
+                  {%- if section.settings.cta_meta != blank -%}
+                    <div class="mt-1 text-[12px] text-white/72">{{ section.settings.cta_meta }}</div>
+                  {%- endif -%}
+                </div>
+              </div>
+              <div class="flex items-center justify-end gap-3 border-t border-white/12 px-5 py-3 sm:min-w-[188px] sm:border-l sm:border-t-0">
+                <span class="theme-reorder-card__price-old is-hidden"></span>
+                <span class="theme-reorder-card__price-new">
+                  {{ product_price | money }}
+                </span>
+              </div>
+            </button>
           {%- endif -%}
         </div>
 
@@ -476,6 +465,30 @@
           </div>
         </button>
       {%- endform -%}
+      {%- else -%}
+        <!-- Dummy Mobile Button -->
+        <button type="button" class="theme-reorder-card__button theme-reorder-card__button--mobile cta-sheen">
+          <div class="flex items-center gap-3">
+            <svg class="theme-reorder-card__icon theme-reorder-card__icon--mobile" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div>
+              <div class="theme-reorder-btn-text theme-reorder-btn-text--mobile">
+                Reorder now
+              </div>
+              {%- if section.settings.cta_meta != blank -%}
+                <div class="mt-1 text-[11px] text-white/72">{{ section.settings.cta_meta }}</div>
+              {%- endif -%}
+            </div>
+          </div>
+          <div class="flex items-center gap-2 border-l border-white/14 pl-4">
+            <span class="theme-reorder-card__price-old is-hidden"></span>
+            <span class="theme-reorder-card__price-new theme-reorder-card__price-new--mobile">
+              {{ product_price | money }}
+            </span>
+          </div>
+        </button>
       {%- endif -%}
 
       <h2 class="mt-4 font-serif text-[15px] font-normal leading-none text-[#17372d]/84">

@@ -5511,33 +5511,13 @@ body {
   }
 }
 
-.theme-product-page__section--story .theme-ingredient-story__whats-in-it {
-  background: #f7f3e9 !important;
-}
-
-.theme-product-page__section--story .theme-ingredient-story__difference {
-  background: #17372d !important;
-  margin-top: 0 !important;
-}
-
 .theme-product-page__section--story .theme-difference-heading .theme-section-heading__title {
-  color: #faf8f4 !important;
+  color: #184034 !important;
 }
 
 .theme-product-page__section--story .theme-difference-panel {
-  background: #17372d !important;
+  background: #1f5a46 !important;
 }
-
-.theme-product-page__section--story .theme-difference-reviews-wrap {
-  margin-top: 0 !important;
-  background: #17372d !important;
-}
-
-.theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
 .theme-product-page__hero {
   gap: 48px !important;
 }
@@ -6438,26 +6418,6 @@ body {
   margin: 0 auto !important;
 }
 
-.theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card {
-  width: 100% !important;
-  border-left: 1px solid rgba(245, 244, 236, 0.16) !important;
-  padding-left: 28px !important;
-}
-
-.theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__name {
-  font-family: var(--theme-heading-font) !important;
-  font-size: 26px !important;
-  line-height: 1 !important;
-}
-
-.theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__meta {
-  font-size: 14px !important;
-  letter-spacing: 0.04em !important;
-}
-
-.theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__badge {
-  align-self: flex-start !important;
-}
 
 .theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__quote {
   max-width: 760px !important;
@@ -6714,30 +6674,6 @@ body {
   background: #17372d !important;
 }
 
-.theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 40px !important;
-  max-width: 900px !important;
-  margin: 0 auto !important;
-}
-
-.theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card {
-  border-left: 1px solid rgba(245, 244, 236, 0.16) !important;
-  padding-left: 26px !important;
-}
-
-
-
-.theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__badge {
-  margin-top: 14px !important;
-}
-
-.theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__quote {
-  margin-top: 16px !important;
-  font-size: 18px !important;
-  line-height: 1.34 !important;
-}
 
 .theme-steps-intro {
   max-width: 1120px;
