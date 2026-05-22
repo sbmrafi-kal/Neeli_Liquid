@@ -1,4 +1,6 @@
-{{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
+  {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
+  {{ 'section-brand-trust.css' | asset_url | stylesheet_tag }}
+  {{ 'brand-trust.js' | asset_url | script_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -27,11 +29,9 @@
 
         <div class="theme-trust-band__divider"></div>
 
-        {%- if section.settings.patents_kicker != blank -%}
-          <p class="theme-trust-band__patents-eyebrow">{{ section.settings.patents_kicker }}</p>
-        {%- endif -%}
-        <h2 class="theme-trust-band__title theme-trust-band__title--secondary">{{ section.settings.patents_heading }}</h2>
-        <div class="theme-trust-band__text rte">{{ section.settings.patents_text }}</div>
+        <p class="theme-trust-band__patents-eyebrow">{{ section.settings.patents_kicker | default: 'Internationally recognized' }}</p>
+        <h2 class="theme-trust-band__title theme-trust-band__title--secondary">{{ section.settings.patents_heading | default: 'Patented formulations' }}</h2>
+        <div class="theme-trust-band__text rte">{{ section.settings.patents_text | default: '<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>' }}</div>
 
         <div class="theme-trust-band__patents">
           <div class="theme-trust-band__patent-card motion-panel">

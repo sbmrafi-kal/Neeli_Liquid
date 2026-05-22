@@ -1,0 +1,12 @@
+/* Section-specific CSS: footer
+   Focused footer rules for layout and social icons. */
+
+.theme-footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+.theme-footer-column__title { font-weight: 600; margin-bottom: 0.75rem; }
+.theme-footer-list li { margin-bottom: 0.5rem; }
+.theme-footer-social__icons { display: flex; gap: 0.75rem; align-items: center; }
+.theme-footer-tagline-p { margin: 0; }
+
+@media screen and (max-width: 749px) {
+  .theme-footer-grid { grid-template-columns: 1fr; }
+}

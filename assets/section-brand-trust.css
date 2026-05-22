@@ -1,0 +1,6 @@
+/* Section-specific CSS: brand-trust
+   Patents / trust band styles placed here for focused debugging. */
+
+.theme-trust-band__patents { text-align: left; }
+.theme-trust-band__patent-card { display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; min-width: 160px; }
+.theme-trust-band__patent-card .patent-title { font-weight: 600; }

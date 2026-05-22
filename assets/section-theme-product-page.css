@@ -5072,6 +5072,9 @@ body {
   color: var(--ka-text) !important;
 }
 
+/* Remove underline for breadcrumb Home link */
+.theme-site-header__breadcrumb a { text-decoration: none !important; }
+
 .theme-site-header__breadcrumb-current {
   white-space: normal !important;
   overflow: visible !important;
@@ -5914,6 +5917,7 @@ body {
     grid-column: 2 !important;
     text-align: left !important;
     justify-self: start !important;
+    padding-left: 24px !important;
   }
 
   .theme-reviews-rating-header {
@@ -5928,17 +5932,32 @@ body {
   }
 }
 
+/* Tighten star/score spacing and compact the rating block */
+.theme-reviews-rating {
+  gap: 0.2rem !important;
+}
+.theme-reviews-rating__stars { line-height: 1 !important; }
+.theme-reviews-rating__score { margin-top: 0 !important; line-height: 1 !important; }
+
 .theme-review-grid {
   margin-top: 1.9rem !important;
   gap: 2.25rem !important;
 }
 
 .theme-review-card__quote {
-  max-width: 468px !important;
+  max-width: 420px !important;
 }
 
 .theme-reviews-footer {
-  margin-top: 1.2rem !important;
+  margin-top: 0.5rem !important;
+}
+
+@media screen and (min-width: 990px) {
+  /* Increase lateral padding of review cards so paragraphs wrap narrower like the original */
+  .theme-customer-reviews-legacy .theme-review-card {
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
 }
 
 /* 4) Footer spacing/alignment */

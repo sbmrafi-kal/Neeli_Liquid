@@ -1,0 +1,11 @@
+/* Section-specific CSS: home-hero
+   Focused overrides for the homepage hero that duplicate a small set of rules
+   for fast iteration. */
+
+.theme-product-page__hero { padding: 0; }
+.theme-product-page__hero-media { position: relative; }
+
+.theme-hero-carousel__thumb-image { width: 74px !important; height: 98px !important; object-fit: cover !important; }
+.theme-hero-carousel__thumb { border-radius: 8px; overflow: hidden; }
+
+.theme-product-info-desktop .theme-product-page__hero-header { max-width: 560px; }

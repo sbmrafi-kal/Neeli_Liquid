@@ -1,4 +1,6 @@
-{{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
+  {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
+  {{ 'section-customer-reviews.css' | asset_url | stylesheet_tag }}
+  {{ 'customer-reviews.js' | asset_url | script_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
