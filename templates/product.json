@@ -479,9 +479,6 @@
     },
     "reviews": {
       "type": "customer-reviews",
-      "settings": {
-        "button_label": "READ ALL 86 REVIEWS"
-      },
       "blocks": {
         "review_1": {
           "type": "review",

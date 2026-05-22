@@ -1,6 +1,6 @@
   {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
   {{ 'section-product-hero.css' | asset_url | stylesheet_tag }}
-  {{ 'product-hero.js' | asset_url | script_tag }}
+  <script src="{{ 'product-hero.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -43,8 +43,6 @@
   {%- assign product = all_products['neelibhringadi-keram'] -%}
 {%- endif -%}
 {%- assign product_title = product.title | default: 'Neelibhringadi Keram' -%}
-{%- assign product_variant = product.selected_or_first_available_variant -%}
-{%- assign product_price = product_variant.price | default: 38500 -%}
 
 <section
   id="NeeliProduct-{{ section.id }}"
@@ -114,6 +112,10 @@
               </div>
             {%- endfor -%}
           </div>
+        </div>
+
+        <div class="theme-hero-below-product" aria-hidden="true">
+          <img src="{{ 'Below_the_product.png' | asset_url }}" class="theme-hero-below-product__image" loading="lazy" width="2000" height="2000" alt="">
         </div>
       </div>
 
@@ -192,13 +194,29 @@
           {%- endif -%}
         </p>
 
-        <div class="theme-trust-icons mt-6 mb-5 flex items-center flex-wrap gap-2.5">
-          <img src="{{ 'stamp_01.png' | asset_url }}" width="44" height="44" alt="1945" class="rounded-full" loading="lazy">
-          <img src="{{ 'stamp_02.png' | asset_url }}" width="44" height="44" alt="AYUSH" class="rounded-full" loading="lazy">
-          <img src="{{ 'stamp_03.png' | asset_url }}" width="44" height="44" alt="FDA" class="rounded-full" loading="lazy">
-          <img src="{{ 'stamp_04.png' | asset_url }}" width="44" height="44" alt="ISO" class="rounded-full" loading="lazy">
-          <img src="{{ 'stamp_05.png' | asset_url }}" width="44" height="44" alt="GMP" class="rounded-full" loading="lazy">
-          <span class="text-[11px] font-bold uppercase tracking-[0.06em] text-[#1f4d3d] ml-1">Clinics & Academy</span>
+        <div class="theme-stamp-card motion-panel">
+          <div class="theme-stamp-card__stamps">
+            <img src="{{ 'stamp_01.png' | asset_url }}" width="86" height="86" alt="Established 1945" class="theme-stamp-card__stamp-image" loading="lazy">
+            <img src="{{ 'stamp_02.png' | asset_url }}" width="86" height="86" alt="AYUSH certified" class="theme-stamp-card__stamp-image" loading="lazy">
+            <img src="{{ 'stamp_03.png' | asset_url }}" width="86" height="86" alt="FDA compliant" class="theme-stamp-card__stamp-image" loading="lazy">
+            <img src="{{ 'stamp_04.png' | asset_url }}" width="86" height="86" alt="ISO certified" class="theme-stamp-card__stamp-image" loading="lazy">
+            <img src="{{ 'stamp_05.png' | asset_url }}" width="86" height="86" alt="GMP certified" class="theme-stamp-card__stamp-image" loading="lazy">
+          </div>
+
+          <div class="theme-stamp-card__stats">
+            <div class="theme-stamp-card__stat">
+              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_1_value }}</div>
+              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_1_label }}</div>
+            </div>
+            <div class="theme-stamp-card__stat">
+              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_2_value }}</div>
+              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_2_label }}</div>
+            </div>
+            <div class="theme-stamp-card__stat">
+              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_3_value }}</div>
+              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_3_label }}</div>
+            </div>
+          </div>
         </div>
 
         {%- if section.settings.description_block != blank -%}
@@ -565,15 +583,6 @@
             </div>
           {%- endfor -%}
         </div>
-      </div>
-
-      <div class="theme-trust-icons mt-6 mb-5 flex items-center flex-wrap gap-2.5 px-4 sm:px-5">
-        <img src="{{ 'stamp_01.png' | asset_url }}" width="44" height="44" alt="1945" class="rounded-full" loading="lazy">
-        <img src="{{ 'stamp_02.png' | asset_url }}" width="44" height="44" alt="AYUSH" class="rounded-full" loading="lazy">
-        <img src="{{ 'stamp_03.png' | asset_url }}" width="44" height="44" alt="FDA" class="rounded-full" loading="lazy">
-        <img src="{{ 'stamp_04.png' | asset_url }}" width="44" height="44" alt="ISO" class="rounded-full" loading="lazy">
-        <img src="{{ 'stamp_05.png' | asset_url }}" width="44" height="44" alt="GMP" class="rounded-full" loading="lazy">
-        <span class="text-[11px] font-bold uppercase tracking-[0.06em] text-[#1f4d3d] ml-1">Clinics & Academy</span>
       </div>
 
       {%- if section.settings.description_block != blank -%}

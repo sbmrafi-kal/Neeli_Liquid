@@ -43,7 +43,7 @@
         "hero_note": {
           "type": "hero_note",
           "settings": {
-            "text": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil."
+            "text": "Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides."
           }
         },
         "upsell": {
@@ -156,8 +156,9 @@
         "heading": "The honest sequence.",
         "text": "<p>Root strength comes before visible density.</p>",
         "footnote": "Based on consistent use as directed. Individual results may vary.",
-        "padding_top": 36,
-        "padding_bottom": 28
+        "inverse_text": true,
+        "padding_top": 80,
+        "padding_bottom": 60
       }
     },
     "story": {
@@ -181,14 +182,14 @@
           "type": "exclusion",
           "settings": {
             "title": "NO PARABENS",
-            "text": "Natural antioxidants help preserve the formula."
+            "text": "We use natural antioxidants to preserve the formula."
           }
         },
         "exclusion_2": {
           "type": "exclusion",
           "settings": {
             "title": "NO ARTIFICIAL FRAGRANCE",
-            "text": "The scent comes from herbs and carrier oils."
+            "text": "The scent is purely from herbs and the carrier oil."
           }
         },
         "difference_1": {
@@ -227,8 +228,8 @@
           "type": "story_review",
           "settings": {
             "name": "Priya M.",
-            "meta": "Bengaluru - 6 weeks",
-            "badge": "Less fall - week 3",
+            "meta": "BENGALURU • 6 WEEKS",
+            "badge": "LESS FALL - WEEK 3",
             "quote": "Less hair in the shower drain by week three. That was the first sign it was working. The routine is simple enough to actually stick with."
           }
         },
@@ -236,69 +237,211 @@
           "type": "story_review",
           "settings": {
             "name": "Arjun V.",
-            "meta": "Kochi - 3 months",
-            "badge": "Density improved",
+            "meta": "KOCHI • 3 MONTHS",
+            "badge": "DENSITY IMPROVED",
             "quote": "New growth visible at the temples after three months. Consistent use was the key. It's a recovery system, not a quick fix."
           }
         }
       },
-      "block_order": ["inclusion_1", "inclusion_2", "exclusion_1", "exclusion_2", "difference_1", "difference_2", "difference_3", "difference_4", "review_1", "review_2"],
+      "block_order": [
+        "inclusion_1",
+        "inclusion_2",
+        "exclusion_1",
+        "exclusion_2",
+        "difference_1",
+        "difference_2",
+        "difference_3",
+        "difference_4",
+        "review_1",
+        "review_2"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "soft_background": true,
-        "kicker": "What's in it. What is not.",
+        "kicker": "",
         "heading": "What's in it. What is not.",
-        "text": "<p>Two clear columns make the formula easier to scan and trust.</p>",
+        "text": "",
         "accordion_kicker": "Kerala Ayurveda Difference",
-        "accordion_heading": "Why the process matters",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "accordion_heading": "",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "ingredients": {
       "type": "key-ingredients",
       "blocks": {
-        "ingredient_1": { "type": "ingredient", "settings": { "title": "Bringaraj", "text": "Supports hair growth. Activates follicles and increases scalp circulation." } },
-        "ingredient_2": { "type": "ingredient", "settings": { "title": "Amla", "text": "Minimizes hair fall. Strengthens the hair shaft with natural Vitamin C." } },
-        "ingredient_3": { "type": "ingredient", "settings": { "title": "Neeli", "text": "Cools and recovers. Reduces scalp inflammation and promotes regrowth." } },
-        "ingredient_4": { "type": "ingredient", "settings": { "title": "Coconut oil", "text": "Deep nourishment. Traditional carrier that mimics natural scalp lipids." } },
-        "milk_1": { "type": "milk", "settings": { "title": "Coconut milk", "text": "Nourishes and moisturizes the scalp." } },
-        "milk_2": { "type": "milk", "settings": { "title": "Goat milk", "text": "Addresses dandruff and improves hair texture." } },
-        "milk_3": { "type": "milk", "settings": { "title": "Cow milk", "text": "Controls hair fall and promotes hair growth." } },
-        "step_1": { "type": "step", "settings": { "number": "1", "title": "WARM", "text": "Warm oil penetrates - cold oil sits on the surface." } },
-        "step_2": { "type": "step", "settings": { "number": "2", "title": "APPLY", "text": "Apply adequate amount gently onto the scalp and hair" } },
-        "step_3": { "type": "step", "settings": { "number": "3", "title": "MASSAGE", "text": "Circular motion, 5 minutes. Fingertips, not nails." } }
+        "ingredient_1": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Bringaraj",
+            "text": "Supports hair growth. Activates follicles and increases scalp circulation."
+          }
+        },
+        "ingredient_2": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Amla",
+            "text": "Minimizes hair fall. Strengthens the hair shaft with natural Vitamin C."
+          }
+        },
+        "ingredient_3": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Neeli",
+            "text": "Cools and recovers. Reduces scalp inflammation and promotes regrowth."
+          }
+        },
+        "ingredient_4": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Coconut oil",
+            "text": "Deep nourishment. Traditional carrier that mimics natural scalp lipids."
+          }
+        },
+        "milk_1": {
+          "type": "milk",
+          "settings": {
+            "title": "Coconut milk",
+            "text": "Nourishes and moisturizes the scalp."
+          }
+        },
+        "milk_2": {
+          "type": "milk",
+          "settings": {
+            "title": "Goat milk",
+            "text": "Addresses dandruff and improves hair texture."
+          }
+        },
+        "milk_3": {
+          "type": "milk",
+          "settings": {
+            "title": "Cow milk",
+            "text": "Controls hair fall and promotes hair growth."
+          }
+        },
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "number": "1",
+            "title": "WARM",
+            "text": "Warm oil penetrates - cold oil sits on the surface."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "number": "2",
+            "title": "APPLY",
+            "text": "Apply adequate amount gently onto the scalp and hair"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "number": "3",
+            "title": "MASSAGE",
+            "text": "Circular motion, 5 minutes. Fingertips, not nails."
+          }
+        }
       },
-      "block_order": ["ingredient_1", "ingredient_2", "ingredient_3", "ingredient_4", "milk_1", "milk_2", "milk_3", "step_1", "step_2", "step_3"],
+      "block_order": [
+        "ingredient_1",
+        "ingredient_2",
+        "ingredient_3",
+        "ingredient_4",
+        "milk_1",
+        "milk_2",
+        "milk_3",
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "soft_background": true,
-        "kicker": "Key Ingredients",
+        "kicker": "",
         "heading": "KEY INGREDIENTS",
-        "text": "<p>Four ingredients to explain the core formula.</p>",
+        "text": "",
         "milk_kicker": "The secret base",
         "milk_heading": "Three milks. One complete formula.",
         "milk_text": "<p>Three nourishing milks work together for a healthier scalp and stronger, smoother hair.</p>",
         "steps_kicker": "",
         "steps_heading": "",
         "steps_text": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "information": {
       "type": "information",
       "blocks": {
-        "info_1": { "type": "info", "settings": { "icon": "none", "title": "Full ingredient list", "text": "Neeli, Bringaraj, Amla, sesame oil, coconut milk, goat milk, cow milk, and traditionally processed Ayurvedic botanicals." } },
-        "info_2": { "type": "info", "settings": { "icon": "truck", "title": "Preparation - 7 days", "text": "The formulation is processed patiently so the actives infuse into the oil instead of separating into layers." } },
-        "info_3": { "type": "info", "settings": { "icon": "heart", "title": "Safety & interactions", "text": "Patch test first. Stop use if irritation occurs, and consult your doctor if you are pregnant or managing a scalp condition." } },
-        "info_4": { "type": "info", "settings": { "icon": "ruler", "title": "Frequently asked", "text": "Use two to three times a week, massage gently, and give the routine enough time to move from reduced fall into visible density." } },
-        "faq_1": { "type": "faq", "settings": { "question": "When will I see results?", "answer": "Reduced hair fall is typically noticed within 2 to 3 weeks." } },
-        "faq_2": { "type": "faq", "settings": { "question": "Does it help with greying?", "answer": "Neeli and Bhringaraja are traditionally used to support natural hair colour." } },
-        "faq_3": { "type": "faq", "settings": { "question": "Can I use it on coloured hair?", "answer": "Yes. The formula is gentle, but extended use may slightly darken hair over time." } },
-        "faq_4": { "type": "faq", "settings": { "question": "Is it safe during pregnancy?", "answer": "As with any new topical regimen during pregnancy or nursing, consult your doctor first." } }
+        "info_1": {
+          "type": "info",
+          "settings": {
+            "icon": "none",
+            "title": "Full ingredient list",
+            "text": "<p><strong>Oil base</strong><br>Sesame oil (Sesamum indicum), Coconut oil (Cocos nucifera)</p><p><strong>Primary herbs</strong><br>Neeli (Indigofera tinctoria), Bhringaraja (Eclipta alba), Amla (Emblica officinalis)</p><p><strong>Triple-milk base</strong><br>Coconut milk, Goat milk, Cow milk - a genuine differentiator in Ayurvedic hair oil formulation</p><p><strong>Supporting herbs</strong><br>Manjishtha, Yashtimadhu, Haritaki, Vibhitaki, Jatamansi, Padmaka, Sariva, Nilotpala, Durva, Gunjamoola, Priyangu, Anjana, and Lauha bhasma.</p><p>Processed over 7 days using traditional Taila Paka Vidhi.</p>"
+          }
+        },
+        "info_2": {
+          "type": "info",
+          "settings": {
+            "icon": "truck",
+            "title": "Preparation - 7 days",
+            "text": "<p><strong>Preparation</strong></p><p>Each batch follows the Sahasrayogam's Taila Paka Vidhi - a classical method requiring 7 days of slow-heat extraction. Herbs are first made into a kashaya, then combined with the sesame oil base and kalka. The mixture is heated on low flame until the water content fully evaporates and the herbal essence binds to the oil.</p>"
+          }
+        },
+        "info_3": {
+          "type": "info",
+          "settings": {
+            "icon": "heart",
+            "title": "Safety & Interactions",
+            "text": "<p><strong>Safety & interactions</strong></p><p>External use only. Always patch test before first full application. Pregnant or nursing? Talk to your doctor before starting a new topical regimen.</p>"
+          }
+        },
+        "info_4": {
+          "type": "info",
+          "settings": {
+            "icon": "ruler",
+            "title": "Frequently asked",
+            "text": "<p><strong>When will I see results?</strong><br>Reduced hair fall is typically noticed within 2-3 weeks. Visible improvement requires consistent use.</p><p><strong>Does it help with greying?</strong><br>Neeli and Bhringaraja are traditionally used to support natural hair colour.</p><p><strong>Can I use it on coloured hair?</strong><br>Yes. The formula is gentle, but extended use may slightly darken hair over time.</p><p><strong>Is it safe during pregnancy?</strong><br>Consult your doctor before starting any new topical regimen.</p>"
+          }
+        },
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "When will I see results?",
+            "answer": "Reduced hair fall is typically noticed within 2 to 3 weeks."
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "Does it help with greying?",
+            "answer": "Neeli and Bhringaraja are traditionally used to support natural hair colour."
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I use it on coloured hair?",
+            "answer": "Yes. The formula is gentle, but extended use may slightly darken hair over time."
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "Is it safe during pregnancy?",
+            "answer": "As with any new topical regimen during pregnancy or nursing, consult your doctor first."
+          }
+        }
       },
-      "block_order": ["info_1", "info_2", "info_3", "info_4", "faq_1", "faq_2", "faq_3", "faq_4"],
+      "block_order": [
+        "info_1",
+        "info_2",
+        "info_3",
+        "info_4"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "soft_background": true,
@@ -309,57 +452,83 @@
         "info_heading": "What is inside",
         "faq_kicker": "Frequently asked",
         "faq_heading": "Questions we hear often",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "brand_trust": {
       "type": "brand-trust",
       "settings": {
         "color_scheme": "scheme-3",
-        "kicker": "Full spectrum",
-        "heading": "Full Spectrum",
-        "text": "<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&D</p>",
-        "patents_kicker": "Internationally recognized",
+        "kicker": "",
+        "heading": "FULL SPECTRUM",
+        "text": "<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>",
+        "patents_kicker": "",
         "patents_heading": "Patented formulations",
         "patents_text": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
         "us_title": "US PATENT",
-        "us_text": "",
+        "us_text": "<p>Protected formulation details and process knowledge.</p>",
         "japan_title": "JAPAN PATENT",
-        "japan_text": "",
-        "mark_kicker": "Rooted in",
+        "japan_text": "<p>Recognition of the proprietary process and method.</p>",
+        "mark_kicker": "Rooted in authenticity",
         "mark_heading": "Authentic Ayurveda.",
-        "mark_text": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "mark_text": "<p>Bring the same trust cues from the Neeli landing page into Shopify.</p>",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "reviews": {
       "type": "customer-reviews",
       "blocks": {
-        "review_1": { "type": "review", "settings": { "name": "ANJALI K.", "meta": "Verified purchase", "badge": "Postpartum hair fall", "body": "Excellent for postpartum hair fall. Within a month, the amount of hair on my brush was noticeably less. The routine is easy to keep up." } },
-        "review_2": { "type": "review", "settings": { "name": "ROHAN S.", "meta": "Verified purchase", "badge": "Early greying", "body": "Started using it for early greying. Two months in, the texture has improved and the earthy smell has grown on me. No heaviness." } }
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "ANJALI K.",
+            "meta": "Verified purchase",
+            "badge": "Postpartum hair fall",
+            "body": "Excellent for postpartum hair fall. Within a month, the amount of hair on my brush was noticeably less. The routine is easy to keep up."
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "ROHAN S.",
+            "meta": "Verified purchase",
+            "badge": "Early greying",
+            "body": "Started using it for early greying. Two months in, the texture has improved and the earthy smell has grown on me. No heaviness."
+          }
+        }
       },
       "block_order": ["review_1", "review_2"],
       "settings": {
         "color_scheme": "scheme-1",
-        "soft_background": false,
+        "soft_background": true,
         "kicker": "Feedback",
         "heading": "Customer Reviews",
         "text": "",
         "button_label": "Read all 86 reviews",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "footer": {
       "type": "footer",
       "settings": {
         "color_scheme": "scheme-1",
-        "padding_top": 40,
-        "padding_bottom": 40
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
-  "order": ["header", "main", "timeline", "story", "ingredients", "information", "brand_trust", "reviews", "footer"]
+  "order": [
+    "header",
+    "main",
+    "timeline",
+    "story",
+    "ingredients",
+    "information",
+    "brand_trust",
+    "reviews",
+    "footer"
+  ]
 }
