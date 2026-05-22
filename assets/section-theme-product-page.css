@@ -5422,3 +5422,129 @@ body {
   width: 24px !important;
   height: 24px !important;
 }
+
+/* Final parity lock: header + Kerala Ayurveda Difference section */
+@media screen and (min-width: 990px) {
+  .theme-site-header__search {
+    max-width: 284px !important;
+  }
+
+  .theme-site-header__search-input {
+    width: 284px !important;
+  }
+}
+
+.theme-product-page__section--story .theme-ingredient-story__whats-in-it {
+  background: #f7f3e9 !important;
+}
+
+.theme-product-page__section--story .theme-ingredient-story__difference {
+  background: #17372d !important;
+  margin-top: 0 !important;
+}
+
+.theme-product-page__section--story .theme-difference-heading .theme-section-heading__title {
+  color: #faf8f4 !important;
+}
+
+.theme-product-page__section--story .theme-difference-panel {
+  background: #17372d !important;
+}
+
+.theme-product-page__section--story .theme-difference-reviews-wrap {
+  margin-top: 0 !important;
+  background: #17372d !important;
+}
+
+.theme-product-page__section--story .theme-difference-reviews-wrap .theme-review-grid--story {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.theme-product-page__hero {
+  gap: 48px !important;
+}
+
+@media screen and (max-width: 989px) {
+  .theme-product-page__hero {
+    gap: 1rem !important;
+  }
+}
+
+/* Final UI mismatch corrections */
+.theme-footer .theme-product-page__section {
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
+}
+
+.theme-footer-grid {
+  row-gap: 1rem !important;
+}
+
+.theme-footer-column__title {
+  margin-bottom: 0.5rem !important;
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0 !important;
+}
+
+.theme-footer-list {
+  margin-top: 0 !important;
+}
+
+.theme-footer-social__icon svg {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.theme-customer-reviews .theme-section-heading__kicker {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em !important;
+}
+
+.theme-customer-reviews .theme-section-heading__title {
+  font-size: 52px !important;
+  line-height: 1 !important;
+}
+
+.theme-review-card__verified {
+  color: rgba(23, 55, 45, 0.52) !important;
+  font-size: 14px !important;
+}
+
+.theme-review-card__quote {
+  font-size: 20px !important;
+  line-height: 1.35 !important;
+}
+
+.theme-information .theme-section-heading__kicker {
+  font-size: 16px !important;
+  letter-spacing: 0.06em !important;
+}
+
+.theme-information .theme-section-heading__title {
+  font-size: 52px !important;
+  line-height: 1 !important;
+}
+
+.theme-info-panel--wide {
+  margin-top: 2.25rem !important;
+}
+
+.theme-info-panel--wide .theme-accordion__summary {
+  min-height: 70px !important;
+  padding: 1.2rem 1.4rem !important;
+}
+
+.theme-info-panel--wide .theme-accordion__title {
+  font-size: 24px !important;
+  line-height: 1.05 !important;
+}
+
+.theme-info-panel--wide .theme-accordion__content {
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  color: rgba(23, 55, 45, 0.74) !important;
+}
