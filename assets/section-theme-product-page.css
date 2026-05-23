@@ -10428,3 +10428,339 @@ body {
     display: none !important;
   }
 }
+
+/* ==========================================================
+   TARGETED POST-REVERT FIXES
+   Keep this narrow: no broad layout rewrites.
+   ========================================================== */
+
+.shopify-section.theme-header,
+.theme-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+}
+
+.theme-site-header {
+  position: relative !important;
+  top: auto !important;
+  z-index: auto !important;
+}
+
+.theme-delivery-row__icon,
+.theme-delivery-row__item svg,
+.theme-product-info-mobile .grid svg {
+  color: #000000 !important;
+  stroke: #000000 !important;
+}
+
+.theme-timeline__desktop-phase,
+.theme-timeline__desktop-label,
+.theme-timeline__desktop-title,
+.theme-timeline__desktop-body {
+  color: #1f4d3d !important;
+}
+
+.theme-timeline__footnote {
+  margin-bottom: 0 !important;
+}
+
+.theme-ingredient-story__whats-in-it {
+  padding-top: 56px !important;
+}
+
+.theme-difference-panel .theme-accordion__summary {
+  align-items: center !important;
+  padding: 20px 0 !important;
+}
+
+.theme-difference-panel .theme-accordion__title {
+  color: #ffffff !important;
+  font-family: var(--theme-heading-font) !important;
+  font-size: 21px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+}
+
+.theme-difference-panel .theme-accordion__caret svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.theme-difference-panel .theme-accordion__content {
+  padding: 0 0 20px !important;
+  color: #ffffffcc !important;
+  font-family: var(--theme-body-font) !important;
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+}
+
+.theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__meta {
+  color: #faf8f5 !important;
+}
+
+.theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__badge {
+  margin: 16px 0 0 !important;
+}
+
+.theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__quote {
+  margin: 20px 0 0 !important;
+  color: #faf8f5 !important;
+  font-size: 22px !important;
+  line-height: 1.35 !important;
+}
+
+.theme-brand-trust .theme-product-page__section,
+.theme-brand-trust .theme-product-page__section--forest,
+.theme-trust-band {
+  background: #1f4d3d !important;
+}
+
+.theme-trust-band__mark-mobile-copy,
+.theme-trust-band__mark-desktop-copy {
+  display: none !important;
+}
+
+.theme-footer,
+.theme-footer .theme-product-page__section {
+  background: #f9f8f3 !important;
+}
+
+.theme-footer-column__title,
+.theme-footer-social__label {
+  color: #1f4d3d !important;
+  font-weight: 700 !important;
+}
+
+.theme-footer-list a {
+  color: rgba(31, 77, 61, 0.72) !important;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-timeline__desktop-only {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    background: #f5f1e9 !important;
+  }
+
+  .theme-timeline__desktop-col {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .theme-timeline__desktop-top {
+    min-height: 126px !important;
+    margin: 0 !important;
+    padding: 20px 24px !important;
+    background: transparent !important;
+  }
+
+  .theme-timeline__desktop-bottom {
+    background: #ffffff !important;
+  }
+
+  .theme-timeline__desktop-col:nth-child(3) .theme-timeline__desktop-title {
+    max-width: 360px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  .theme-timeline__footnote {
+    margin-top: 36px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .theme-ingredient-story__whats-in-it {
+    padding-top: 48px !important;
+  }
+
+  .theme-difference-panel .theme-accordion__item {
+    border-bottom-color: rgba(255, 255, 255, 0.24) !important;
+  }
+
+  .theme-difference-panel .theme-accordion__summary {
+    padding: 20px 0 !important;
+  }
+
+  .theme-difference-panel .theme-accordion__title {
+    font-size: 21px !important;
+  }
+
+  .theme-difference-panel .theme-accordion__content {
+    padding: 0 0 20px !important;
+    font-size: 15px !important;
+  }
+
+  .theme-difference-reviews-wrap .theme-review-grid--story {
+    max-width: 1100px !important;
+    padding: 0 !important;
+  }
+
+  .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card {
+    width: 1100px !important;
+    min-height: 190.39px !important;
+    padding: 0 0 0 24px !important;
+  }
+
+  .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__quote {
+    width: 1075px !important;
+    max-width: 100% !important;
+    min-height: 59.39px !important;
+    margin: 20px 0 0 !important;
+    font-size: 22px !important;
+  }
+
+  .theme-key-ingredients .theme-product-page__section,
+  .theme-key-ingredients .theme-product-page__section--soft {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .theme-key-ingredients--desktop {
+    max-width: 1830px !important;
+    min-height: auto !important;
+    gap: 24px !important;
+  }
+
+  .theme-ingredient-desktop {
+    min-height: 380px !important;
+  }
+
+  .theme-ingredient-desktop__media {
+    height: 176px !important;
+  }
+
+  .theme-ingredient-desktop__body {
+    min-height: 204px !important;
+    padding: 32px 28px !important;
+  }
+
+  .theme-ingredient-desktop__title {
+    font-size: 32px !important;
+    line-height: 1 !important;
+  }
+
+  .theme-ingredient-desktop__text {
+    margin-top: 18px !important;
+    font-size: 18px !important;
+    line-height: 1.32 !important;
+  }
+
+  .theme-brand-trust .theme-product-page__wrap {
+    max-width: 1600px !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .theme-trust-band {
+    grid-template-columns: 0.92fr 1.25fr 0.48fr !important;
+    min-height: 580px !important;
+    max-width: 1600px !important;
+    margin: 0 auto !important;
+  }
+
+  .theme-trust-band__image-wrap {
+    min-height: 580px !important;
+  }
+
+  .theme-trust-band__content {
+    justify-content: flex-start !important;
+    padding: 40px 44px !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.55) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.55) !important;
+  }
+
+  .theme-trust-band__title,
+  .theme-trust-band__title--full-spectrum,
+  .theme-trust-band__title--secondary {
+    font-size: 32px !important;
+    line-height: 1.05 !important;
+    text-transform: uppercase !important;
+  }
+
+  .theme-trust-band__text,
+  .theme-trust-band__text p {
+    max-width: 650px !important;
+    font-size: 17px !important;
+    line-height: 1.45 !important;
+  }
+
+  .theme-trust-band__divider {
+    margin: 34px 0 !important;
+  }
+
+  .theme-trust-band__patents {
+    gap: 20px !important;
+  }
+
+  .theme-trust-band__patent-card {
+    min-width: 160px !important;
+    min-height: 103px !important;
+  }
+
+  .theme-trust-band__mark {
+    padding: 40px 24px !important;
+    border-left: 0 !important;
+  }
+
+  .theme-trust-band__mark-image {
+    width: auto !important;
+    height: 110px !important;
+  }
+
+  .theme-trust-band__mark-desktop {
+    gap: 20px !important;
+  }
+
+  .theme-trust-band__mark-desktop-text {
+    max-width: 160px !important;
+    color: rgba(249, 248, 245, 0.9) !important;
+    font-family: var(--theme-body-font) !important;
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    text-align: center !important;
+    transform: none !important;
+    writing-mode: horizontal-tb !important;
+  }
+
+  .theme-footer {
+    min-height: 614.8px !important;
+    padding-top: 48px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .theme-footer .theme-product-page__wrap {
+    max-width: 1392px !important;
+    padding-right: 40px !important;
+    padding-left: 40px !important;
+  }
+
+  .theme-footer-grid {
+    grid-template-columns: 0.74fr 0.98fr 0.9fr 1.06fr !important;
+    gap: 42px !important;
+  }
+
+  .theme-footer-social-wrapper,
+  .theme-footer-tagline-wrapper {
+    grid-template-columns: 0.74fr minmax(0, 1fr) !important;
+    margin-top: 38px !important;
+  }
+
+  .theme-footer-social-content,
+  .theme-footer-tagline-content {
+    grid-column: 2 !important;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .theme-ingredient-story__whats-in-it {
+    padding-top: 42px !important;
+  }
+
+  .theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card {
+    padding-left: 24px !important;
+  }
+}

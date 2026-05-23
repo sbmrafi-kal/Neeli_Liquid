@@ -34,3 +34,23 @@
 .theme-site-header__breadcrumb a,
 .theme-site-header__breadcrumb-current { color: #1f4d3d !important; font-family: var(--theme-body-font) !important; font-size: 13px !important; line-height: 1 !important; }
 @media screen and (max-width: 989px) { .theme-site-header__subnav { display: none !important; } }
+
+/* Targeted sticky lock: desktop keeps nav + breadcrumb fixed; mobile keeps header fixed. */
+.shopify-section.theme-header,
+.theme-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+}
+
+.theme-site-header {
+  position: relative !important;
+  top: auto !important;
+  z-index: auto !important;
+}
+
+@media screen and (max-width: 989px) {
+  .theme-site-header__subnav {
+    display: none !important;
+  }
+}
