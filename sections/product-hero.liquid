@@ -126,16 +126,22 @@
           {%- if badges.size > 0 -%}
             <div class="theme-product-page__badge micro-fade-delayed">
               {%- for block in badges -%}
-                {%- unless forloop.first -%}<span class="theme-badge-bullet">•</span>{%- endunless -%}
-                <span {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+                {%- assign badge_parts = block.settings.text | split: '•' -%}
+                {%- for badge_text in badge_parts -%}
+                  {%- assign clean_badge = badge_text | strip -%}
+                  {%- if clean_badge != blank -%}
+                    <span class="theme-product-page__badge-line" {{ block.shopify_attributes }}>
+                      <span class="theme-badge-bullet">•</span>
+                      <span>{{ clean_badge }}</span>
+                    </span>
+                  {%- endif -%}
+                {%- endfor -%}
               {%- endfor -%}
             </div>
           {%- else -%}
             <div class="theme-product-page__badge micro-fade-delayed">
-              <span class="theme-badge-bullet">•</span>
-              <span>Minimizes hair fall</span>
-              <span class="theme-badge-bullet">•</span>
-              <span>Supports hair growth</span>
+              <span class="theme-product-page__badge-line"><span class="theme-badge-bullet">•</span><span>Minimizes hair fall</span></span>
+              <span class="theme-product-page__badge-line"><span class="theme-badge-bullet">•</span><span>Supports hair growth</span></span>
             </div>
           {%- endif -%}
 
@@ -372,18 +378,24 @@
     <!-- MOBILE HERO INFO CONTAINER (Spans full narrow width) -->
     <div class="theme-product-info-mobile">
       {%- if badges.size > 0 -%}
-        <div class="inline-flex flex-wrap items-center gap-2 rounded-full border border-[#e4cf8f] bg-[#fbf4de] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.08em] text-[#1f4d3d]">
+        <div class="theme-product-page__badge theme-product-page__badge--mobile">
           {%- for block in badges -%}
-            {%- unless forloop.first -%}<span class="text-[11px] leading-none">•</span>{%- endunless -%}
-            <span>{{ block.settings.text }}</span>
+            {%- assign badge_parts = block.settings.text | split: '•' -%}
+            {%- for badge_text in badge_parts -%}
+              {%- assign clean_badge = badge_text | strip -%}
+              {%- if clean_badge != blank -%}
+                <span class="theme-product-page__badge-line">
+                  <span class="theme-badge-bullet">•</span>
+                  <span>{{ clean_badge }}</span>
+                </span>
+              {%- endif -%}
+            {%- endfor -%}
           {%- endfor -%}
         </div>
       {%- else -%}
-        <div class="inline-flex flex-wrap items-center gap-2 rounded-full border border-[#e4cf8f] bg-[#fbf4de] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.08em] text-[#1f4d3d]">
-          <span class="text-[11px] leading-none">•</span>
-          <span>Minimizes hair fall</span>
-          <span class="text-[11px] leading-none">•</span>
-          <span>Supports hair growth</span>
+        <div class="theme-product-page__badge theme-product-page__badge--mobile">
+          <span class="theme-product-page__badge-line"><span class="theme-badge-bullet">•</span><span>Minimizes hair fall</span></span>
+          <span class="theme-product-page__badge-line"><span class="theme-badge-bullet">•</span><span>Supports hair growth</span></span>
         </div>
       {%- endif -%}
 

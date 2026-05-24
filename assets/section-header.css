@@ -54,3 +54,31 @@
     display: none !important;
   }
 }
+
+/* Next parity: soft underline reveal on desktop nav links. */
+.nav-link-soft {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+}
+
+.nav-link-soft::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -7px !important;
+  height: 1px !important;
+  background: currentColor !important;
+  opacity: 0 !important;
+  transform: scaleX(0) !important;
+  transform-origin: center !important;
+  transition: transform 180ms ease, opacity 180ms ease !important;
+}
+
+.nav-link-soft:hover::after,
+.nav-link-soft:focus-visible::after {
+  opacity: 0.75 !important;
+  transform: scaleX(1) !important;
+}

@@ -7,8 +7,17 @@
   assign faq_blocks = faq_blocks | default: blank
 -%}
 
-<details class="theme-accordion__item" id="{{ item_id }}"{% if open %} open{% endif %}>
-  <summary class="theme-accordion__summary">
+{%- assign content_id = item_id | append: '-content' -%}
+
+<div class="theme-accordion__item" id="{{ item_id }}" data-theme-accordion-item data-state="{% if open %}open{% else %}closed{% endif %}">
+  <button
+    type="button"
+    class="theme-accordion__summary"
+    aria-expanded="{% if open %}true{% else %}false{% endif %}"
+    aria-controls="{{ content_id }}"
+    data-theme-accordion-trigger
+    data-state="{% if open %}open{% else %}closed{% endif %}"
+  >
     <span class="summary__title">
       {% render 'icon-accordion', icon: icon %}
       <span class="theme-accordion__title">{{ title }}</span>
@@ -16,8 +25,14 @@
     <span class="theme-accordion__caret" aria-hidden="true">
       {{- 'icon-caret.svg' | inline_asset_content -}}
     </span>
-  </summary>
-  <div class="theme-accordion__content rte">
+  </button>
+  <div
+    class="theme-accordion__content rte"
+    id="{{ content_id }}"
+    data-theme-accordion-content
+    data-state="{% if open %}open{% else %}closed{% endif %}"
+    {% unless open %}hidden{% endunless %}
+  >
     {%- if content != blank -%}
       {{ content }}
     {%- elsif faq_blocks != blank -%}
@@ -41,4 +56,4 @@
       </div>
     {%- endif -%}
   </div>
-</details>
+</div>

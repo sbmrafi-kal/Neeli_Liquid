@@ -15,3 +15,82 @@
 .theme-customer-reviews .theme-review-card__quote { font-size: 16px !important; }
 .theme-reviews-rating-header__star-svg,
 .theme-review-card__star-svg { width: 14px !important; height: 14px !important; }
+
+/* Targeted parity: customer review header and cards. */
+.theme-customer-reviews .theme-product-page__section,
+.theme-customer-reviews .theme-product-page__section--soft {
+  background: #ffffff !important;
+}
+
+.theme-reviews-header-wrap {
+  position: relative !important;
+  max-width: 1392px !important;
+  margin: 0 auto 54px !important;
+  text-align: center !important;
+}
+
+.theme-reviews-header-wrap .theme-section-heading,
+.theme-customer-reviews .theme-section-heading {
+  text-align: center !important;
+}
+
+.theme-reviews-section__kicker,
+.theme-reviews-section__heading {
+  text-align: center !important;
+}
+
+.theme-review-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 84px !important;
+  max-width: 1520px !important;
+  margin: 0 auto !important;
+}
+
+.theme-review-card {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.theme-review-card__header {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 24px !important;
+}
+
+.theme-review-card__quote {
+  max-width: 680px !important;
+  margin-top: 20px !important;
+  color: rgba(31, 77, 61, 0.72) !important;
+  font-size: 16px !important;
+  line-height: 1.45 !important;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-customer-reviews .theme-product-page__section {
+    padding-top: 56px !important;
+    padding-bottom: 58px !important;
+  }
+
+  .theme-reviews-rating-header {
+    position: absolute !important;
+    top: 12px !important;
+    right: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+
+  .theme-reviews-footer {
+    margin-top: 48px !important;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .theme-review-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}

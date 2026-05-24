@@ -10,3 +10,15 @@
 .theme-footer-column__title { font-weight: 700 !important; }
 .theme-footer-social__icon,
 .theme-footer-social__icon svg { width: 36px !important; height: 36px !important; }
+
+/* Next parity: social icons lift softly on hover/focus. */
+.footer-social {
+  transition: transform 180ms ease, opacity 180ms ease !important;
+  will-change: transform !important;
+}
+
+.footer-social:hover,
+.footer-social:focus-visible {
+  opacity: 0.82 !important;
+  transform: translateY(-2px) !important;
+}

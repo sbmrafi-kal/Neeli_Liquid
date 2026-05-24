@@ -3,6 +3,18 @@
   --alpha-button-border: 1;
   --alpha-link: 0.85;
   --alpha-badge-border: 0.1;
+  --radius: 1rem;
+  --font-sans: "Avenir", sans-serif;
+  --font-serif: "Amstir", "Avenir", serif;
+  --brand-forest: #1f4d3d;
+  --brand-gold: #d8a546;
+  --brand-cream: #faf8f5;
+  --brand-gold-gradient: linear-gradient(45deg, #d8a546, #e6bd62);
+  --theme-forest: #1f4d3d;
+  --theme-gold: #d8a546;
+  --theme-cream: #faf8f5;
+  --theme-heading-font: var(--font-serif);
+  --theme-body-font: var(--font-sans);
   --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
@@ -235,10 +247,24 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 
 .theme-product-page__wrap {
-  max-width: 1460px;
+  max-width: 1392px;
   margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 640px) {
+  .theme-product-page__wrap {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .theme-product-page__wrap {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
 
 .isolate {
@@ -692,18 +718,18 @@ details > * {
 
 /* Custom design tokens */
 :root {
-  --brand-forest: #274e13; /* deep forest */
-  --brand-gold: #f4bb28;   /* premium gold */
-  --brand-cream: hsl(45, 70%, 90%);
-  --font-heading-family: 'Inter', sans-serif;
-  --font-body-family: 'Inter', sans-serif;
+  --brand-forest: #1f4d3d; /* deep forest */
+  --brand-gold: #d8a546;   /* premium gold */
+  --brand-cream: #faf8f5;
+  --font-heading-family: var(--font-serif);
+  --font-body-family: var(--font-sans);
   --font-heading-scale: 1;
   --font-body-scale: 1;
 }
 
 /* Gold gradient variable */
 :root {
-  --brand-gold-gradient: linear-gradient(45deg, #f4bb28, #ffd700);
+  --brand-gold-gradient: linear-gradient(45deg, #d8a546, #e6bd62);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -3717,5 +3743,40 @@ details-disclosure > details {
   }
   100% {
     transform: translateX(100%) scaleX(0);
+  }
+}
+
+/* Product page parity tokens shared with the Next.js reference. */
+:root {
+  --font-serif: "Amstir", "Avenir", serif;
+  --font-sans: "Avenir", sans-serif;
+  --radius: 1rem;
+  --brand-forest: #1f4d3d;
+  --brand-gold: #d8a546;
+  --brand-cream: #faf8f5;
+  --theme-forest: #1f4d3d;
+  --theme-gold: #d8a546;
+  --theme-cream: #faf8f5;
+  --theme-body-font: var(--font-sans);
+  --theme-heading-font: var(--font-serif);
+}
+
+.theme-product-page__wrap {
+  max-width: 1392px !important;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+}
+
+@media screen and (min-width: 640px) {
+  .theme-product-page__wrap {
+    padding-right: 24px !important;
+    padding-left: 24px !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .theme-product-page__wrap {
+    padding-right: 40px !important;
+    padding-left: 40px !important;
   }
 }
