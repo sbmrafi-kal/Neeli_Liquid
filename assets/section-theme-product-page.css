@@ -241,25 +241,25 @@
 .theme-site-header__inner {
   position: relative;
   display: flex;
-  min-height: 64px;
+  min-height: 76px;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 1.5rem;
   max-width: 1460px;
 }
 
 @media screen and (min-width: 750px) {
   .theme-site-header__inner {
-    min-height: 68px;
+    min-height: 76px;
     padding: 0 3rem;
   }
 }
 
 @media screen and (min-width: 990px) {
   .theme-site-header__inner {
-    min-height: 88px;
-    height: 88px;
+    min-height: 86px;
+    height: 86px;
   }
 }
 
@@ -467,9 +467,9 @@
   align-items: start;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1024px) {
   .theme-product-page__hero {
-    grid-template-columns: 48% 52%;
+    grid-template-columns: 0.68fr 1fr;
     gap: 48px;
   }
 }
@@ -11230,5 +11230,241 @@ body {
   .theme-trust-band__title--secondary,
   .theme-key-ingredients__heading .theme-section-heading__title {
     text-transform: none !important;
+  }
+}
+
+/* --------------------------------------------------------
+   Global Sub-Section Padding Override
+   Matches Next.js reference py-10 (40px) & lg:py-12 (48px)
+   -------------------------------------------------------- */
+.theme-product-page__section,
+.theme-information .theme-product-page__section,
+.theme-brand-trust .theme-product-page__section,
+.theme-customer-reviews .theme-product-page__section,
+.theme-key-ingredients .theme-product-page__section,
+.theme-footer .theme-product-page__section,
+.theme-ingredient-story__difference {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .theme-product-page__section,
+  .theme-information .theme-product-page__section,
+  .theme-brand-trust .theme-product-page__section,
+  .theme-customer-reviews .theme-product-page__section,
+  .theme-key-ingredients .theme-product-page__section,
+  .theme-footer .theme-product-page__section,
+  .theme-ingredient-story__difference {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+}
+
+/* --------------------------------------------------------
+   Global Sub-Section Heading Typography
+   Matches Next.js reference 36px mobile, 42px desktop
+   -------------------------------------------------------- */
+.theme-section-heading__title,
+.theme-difference-heading .theme-section-heading__title {
+  font-size: 36px !important;
+  line-height: 1.1 !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .theme-section-heading__title,
+  .theme-difference-heading .theme-section-heading__title {
+    font-size: 42px !important;
+  }
+}
+
+/* --------------------------------------------------------
+   Phase 3: Component Re-Styling (Upsell, Quotes, Timeline)
+   Matches precise Next.js reference aesthetics.
+   -------------------------------------------------------- */
+
+/* 1. Upsell Card */
+.theme-upsell-card {
+  background: #8f4f36 !important;
+  border-radius: 16px !important;
+  padding: 12px !important;
+  color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.theme-upsell-card__button {
+  background: #f4bb28 !important;
+  color: #1c2018 !important;
+  border-radius: 12px !important;
+  padding: 10px 16px !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  cursor: pointer !important;
+}
+
+@media screen and (min-width: 640px) {
+  .theme-upsell-card__button {
+    padding: 10px 20px !important;
+    font-size: 17px !important;
+  }
+}
+
+/* 2. Quote Block */
+.theme-product-page__quote-wrap,
+.theme-review-card__quote-container,
+div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
+  background: #f8f1df !important;
+  border-left: 4px solid #f3b324 !important;
+  padding: 12px 16px !important;
+  border-radius: 0 12px 12px 0 !important;
+}
+
+/* 3. Timeline / What To Expect */
+.theme-timeline__desktop-col .theme-timeline__desktop-top {
+  background: #f5f1e9 !important;
+  padding: 16px 20px !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 16px !important;
+}
+
+@media screen and (min-width: 640px) {
+  .theme-timeline__desktop-col .theme-timeline__desktop-top {
+    grid-template-columns: 122px 1fr !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .theme-timeline__desktop-col .theme-timeline__desktop-top {
+    grid-template-columns: 116px 1fr !important;
+  }
+}
+
+.theme-timeline__desktop-img-wrap,
+.theme-timeline__mobile-img-wrap {
+  border: 1px solid #e9b443 !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+}
+
+.theme-timeline__desktop-img {
+  height: 88px !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .theme-timeline__desktop-img {
+    height: 94px !important;
+  }
+}
+
+/* --------------------------------------------------------
+   Phase 4: Sub-Section Architecture Overhaul
+   Match exact grids and hardcoded hex colors from Next.js
+   -------------------------------------------------------- */
+
+/* Ingredient Story */
+.theme-panel--soft {
+  background: #fff !important;
+  border-radius: 24px !important;
+  box-shadow: 0 10px 35px rgba(17, 48, 39, 0.06) !important;
+}
+.theme-list__marker--ok {
+  background: #ecf8ee !important;
+  color: #38a55b !important;
+}
+.theme-panel--dark {
+  background: #8f4f36 !important;
+  border-radius: 24px !important;
+  color: #fff !important;
+  box-shadow: 0 10px 35px rgba(102, 57, 39, 0.12) !important;
+}
+.theme-list__marker--no {
+  background: #fff !important;
+  color: #f44336 !important;
+}
+
+.theme-difference-panel {
+  max-width: 980px !important;
+  margin: 0 auto !important;
+  border-radius: 18px !important;
+  background: var(--brand-forest) !important;
+}
+
+.theme-review-grid--story .theme-review-card {
+  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding-left: 24px !important;
+}
+.theme-review-grid--story .theme-review-card__star-svg {
+  color: #d8a33f !important;
+}
+.theme-review-grid--story .theme-review-card__badge {
+  background: #2a8e3b !important;
+}
+
+/* Timeline */
+.theme-timeline__mobile-row {
+  display: grid !important;
+  grid-template-columns: 92px 1fr !important;
+  align-items: stretch !important;
+}
+
+/* Key Ingredients */
+@media screen and (max-width: 1023px) {
+  .theme-key-ingredients .theme-grid__item,
+  .theme-card--ingredient {
+    display: grid !important;
+    grid-template-columns: 126px 1fr !important;
+  }
+}
+.theme-key-ingredients .theme-card__image-wrapper img,
+.theme-card--ingredient img {
+  height: 142px !important;
+  object-fit: cover !important;
+}
+.theme-milk-card__image-wrapper,
+.theme-card--milk .theme-card__image-wrapper {
+  border: 1px solid #17372d !important;
+  background: #17372d !important;
+  padding: 2px !important;
+}
+
+/* Brand Trust */
+@media screen and (min-width: 1024px) {
+  .theme-trust-band,
+  .theme-trust-band__inner {
+    display: grid !important;
+    grid-template-columns: 1.08fr 1.48fr 0.48fr !important;
+  }
+}
+.theme-trust-band__patent-card {
+  border: 1px solid #6f8e43 !important;
+}
+.theme-trust-band__patent-title,
+.theme-trust-band__patent-card .text-\[\#d2a13f\] {
+  color: #d2a13f !important;
+}
+
+/* Information & Footer */
+.theme-information .theme-accordion-wrap,
+.theme-accordion-panel {
+  box-shadow: 0 8px 28px rgba(17,48,39,0.05) !important;
+}
+
+.theme-footer {
+  background: #F9F8F3 !important;
+}
+@media screen and (min-width: 1024px) {
+  .theme-footer__blocks {
+    display: grid !important;
+    grid-template-columns: 0.74fr 0.98fr 0.9fr 1.06fr !important;
+    gap: 2rem !important;
   }
 }

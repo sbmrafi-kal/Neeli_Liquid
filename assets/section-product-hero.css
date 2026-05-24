@@ -94,9 +94,10 @@
 .theme-hero-carousel__control--prev { left: 14px !important; }
 .theme-hero-carousel__control--next { right: 14px !important; }
 .theme-hero-carousel__thumbs { bottom: 58px !important; z-index: 7 !important; }
-.theme-reorder-card__button { min-height: 0 !important; display: flex !important; }
+.theme-reorder-card__button { min-height: 0 !important; display: flex !important; background: #8f4f36 !important; border: 0 !important; padding: 0 !important; color: #fff !important; cursor: pointer; transition: transform 0.2s ease; overflow: hidden; }
+.theme-reorder-card__button:hover { transform: translateY(-2px); }
 .theme-reorder-card__button > .flex:first-child { padding-top: 10px !important; padding-bottom: 10px !important; }
-.theme-reorder-card__button > .flex:last-child { margin-left: auto !important; min-width: 188px !important; padding: 10px 20px 10px 26px !important; justify-content: flex-end !important; }
+.theme-reorder-card__button > .flex:last-child { margin-left: auto !important; min-width: 188px !important; padding: 10px 20px 10px 26px !important; justify-content: flex-end !important; background: rgba(0,0,0,0.06) !important; }
 .theme-reorder-card__price-new { margin-left: auto !important; color: #ffffff !important; text-align: right !important; }
 .theme-delivery-row__icon { width: 14px !important; height: 14px !important; }
 
