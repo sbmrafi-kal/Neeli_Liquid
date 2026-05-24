@@ -331,5 +331,26 @@
         cart_url: '{{ routes.cart_url }}',
       };
     </script>
+    <script>
+      (function () {
+        function removeShopifyPreviewBar() {
+          document
+            .querySelectorAll('iframe[src*="shopifycloud/preview-bar"], iframe[src*="/preview-bar/"], iframe[src*="preview-bar/index.html"]')
+            .forEach(function (iframe) {
+              iframe.remove();
+            });
+        }
+
+        removeShopifyPreviewBar();
+        window.addEventListener('load', removeShopifyPreviewBar, { once: true });
+
+        if ('MutationObserver' in window) {
+          new MutationObserver(removeShopifyPreviewBar).observe(document.documentElement, {
+            childList: true,
+            subtree: true
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

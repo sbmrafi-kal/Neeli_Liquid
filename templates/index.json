@@ -364,7 +364,7 @@
         "color_scheme": "scheme-1",
         "soft_background": true,
         "kicker": "",
-        "heading": "KEY INGREDIENTS",
+        "heading": "Key Ingredients",
         "text": "",
         "milk_kicker": "The secret base",
         "milk_heading": "Three milks. One complete formula.",
@@ -465,10 +465,10 @@
       "settings": {
         "color_scheme": "scheme-3",
         "kicker": "",
-        "heading": "FULL SPECTRUM",
+        "heading": "Full Spectrum",
         "text": "<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>",
         "patents_kicker": "Internationally Recognized",
-        "patents_heading": "Patented formulations",
+        "patents_heading": "Patented Formulations",
         "patents_text": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
         "us_title": "US PATENT",
         "us_text": "<p>Protected formulation details and process knowledge.</p>",
@@ -488,7 +488,7 @@
           "type": "review",
           "settings": {
             "name": "ANJALI K.",
-            "meta": "Verified purchase",
+            "meta": "Verified Purchase",
             "badge": "Postpartum hair fall",
             "body": "Excellent for postpartum hair fall. Within a month, the amount of hair on my brush was noticeably less. The routine is easy to keep up."
           }
@@ -497,7 +497,7 @@
           "type": "review",
           "settings": {
             "name": "ROHAN S.",
-            "meta": "Verified purchase",
+            "meta": "Verified Purchase",
             "badge": "Early greying",
             "body": "Started using it for early greying. Two months in, the texture has improved and the earthy smell has grown on me. No heaviness."
           }
