@@ -26,7 +26,7 @@
 /* Final parity lock: footer spacing and rhythm */
 .theme-footer {
   margin: 0 !important;
-  padding-top: 40px !important;
+  padding-top: 28px !important;
   padding-bottom: 0 !important;
 }
 
@@ -40,30 +40,31 @@
 }
 
 .theme-footer-social-wrapper {
-  margin-top: 40px !important;
+  margin-top: 24px !important;
 }
 
 .theme-footer-tagline-wrapper {
-  margin-top: 24px !important;
+  margin-top: 12px !important;
   padding-bottom: 0 !important;
 }
 
 .theme-footer-tagline-p {
   margin: 0 !important;
+  line-height: 1.3 !important;
 }
 
 @media screen and (max-width: 989px) {
   .theme-footer {
-    padding-top: 32px !important;
+    padding-top: 22px !important;
     padding-bottom: 0 !important;
   }
 
   .theme-footer-social-wrapper {
-    margin-top: 24px !important;
+    margin-top: 16px !important;
   }
 
   .theme-footer-tagline-wrapper {
-    margin-top: 16px !important;
+    margin-top: 8px !important;
     padding-bottom: 0 !important;
   }
 }

@@ -300,3 +300,33 @@
   text-transform: none !important;
   letter-spacing: 0 !important;
 }
+
+/* Final request lock: full spectrum borders and patent icon scale */
+.theme-brand-trust-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+.theme-brand-trust__desktop-content {
+  border-left: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+.theme-brand-trust__desktop-divider,
+.theme-brand-trust__mobile-divider {
+  height: 1px !important;
+  background: rgba(255, 255, 255, 0.55) !important;
+}
+
+.theme-brand-trust__desktop-patent-card,
+.theme-brand-trust__mobile-patent-card {
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+
+.theme-brand-trust__desktop-flag {
+  height: 46px !important;
+}
+
+.theme-brand-trust__mobile-flag {
+  height: 34px !important;
+}

@@ -1300,3 +1300,55 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
   font-family: "Avenir", var(--theme-body-font), sans-serif !important;
   color: #1f4d3d !important;
 }
+
+/* Final request lock: hero delivery strip + ritual guide */
+.theme-delivery-row {
+  margin-top: 12px !important;
+  margin-bottom: 10px !important;
+  border-radius: 2px !important;
+  border: 0 !important;
+  background: #f6f2e8 !important;
+  min-height: 46px !important;
+}
+
+.theme-delivery-row__item {
+  font-family: "Avenir", var(--theme-body-font), sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  color: #1f4d3d !important;
+  gap: 8px !important;
+}
+
+.theme-delivery-row__item:not(:last-child) {
+  border-right: 1px solid rgba(31, 77, 61, 0.08) !important;
+}
+
+.theme-delivery-row__icon,
+.theme-delivery-row__item svg {
+  width: 14px !important;
+  height: 14px !important;
+  color: #1f4d3d !important;
+  stroke: #1f4d3d !important;
+}
+
+.theme-hero-ritual-guide {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  margin-top: 0 !important;
+}
+
+.theme-hero-ritual-guide__card {
+  border: 1px solid #f0d084 !important;
+  border-radius: 12px !important;
+  background: #fbf2da !important;
+  padding: 12px 16px !important;
+}
+
+.theme-hero-ritual-guide__title {
+  font-family: "Avenir", var(--theme-body-font), sans-serif !important;
+}
+
+.theme-hero-ritual-guide__text {
+  font-family: "Avenir", var(--theme-body-font), sans-serif !important;
+}
