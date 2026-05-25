@@ -440,3 +440,691 @@
     white-space: normal !important;
   }
 }
+
+/* ==========================================================================
+   PINPOINT HERO ALIGNMENT OVERRIDES (PARITY WITH VERCEL REFERENCED DESIGN)
+   ========================================================================== */
+
+/* 1. Global Hero Background */
+.theme-product-page {
+  background: #faf8f5 !important;
+}
+
+/* 2. Hero Grid Layout & Gap Adjustments */
+@media screen and (min-width: 990px) {
+  .theme-product-page__hero {
+    grid-template-columns: 458px minmax(0, 1fr) !important;
+    gap: 48px !important;
+    padding-top: 0px !important;
+    margin-top: -8px !important; /* pull hero section upward closer to breadcrumbs */
+  }
+
+  .theme-product-page__hero-media {
+    width: 458px !important;
+    max-width: 458px !important;
+    flex: 0 0 458px !important;
+    margin-left: 0 !important; /* align perfectly with left container edge */
+  }
+
+  .theme-product-page__hero-info {
+    padding-top: 0 !important;
+    margin-top: -4px !important; /* move details block upward */
+  }
+}
+
+/* 3. Breadcrumbs & Subnav Spacing */
+.theme-site-header__subnav {
+  background: #FCFAF4 !important;
+}
+.theme-site-header__subnav-inner {
+  min-height: 42px !important;
+  height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 16px !important;
+  max-width: 1392px !important;
+  margin: 0 auto !important;
+}
+.theme-site-header__breadcrumb,
+.theme-site-header__breadcrumb a,
+.theme-site-header__breadcrumb-current {
+  color: #1f4d3d !important;
+  font-family: 'Avenir', sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
+  font-weight: 500 !important;
+}
+
+/* 4. Search Bar Alignment & Centering */
+.theme-site-header__search {
+  height: 30px !important;
+  min-height: 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+}
+.theme-site-header__search-input {
+  height: 30px !important;
+  min-height: 30px !important;
+  border: 1px solid rgba(31, 77, 61, 0.15) !important;
+  background: #ffffff !important;
+  border-radius: 999px !important;
+  padding: 0 16px 0 40px !important;
+  font-size: 13px !important;
+  color: #1f4d3d !important;
+}
+
+/* 5. Carousel Image, Arrows & Thumbnails */
+.theme-hero-carousel {
+  width: 100% !important;
+  max-width: 458px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  position: relative !important;
+  overflow: visible !important; /* allow indicators or elements to lay out cleanly */
+}
+.theme-hero-carousel__stage {
+  width: 100% !important;
+  max-width: 458px !important;
+  aspect-ratio: 458 / 482 !important;
+  overflow: hidden !important;
+  position: relative !important;
+  margin-bottom: 0 !important;
+}
+.theme-hero-carousel__image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Position carousel arrows inside the image stage container */
+.theme-hero-carousel__control {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 40px !important;
+  height: 40px !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  color: #1f4d3d !important;
+  box-shadow: 0 2px 8px rgba(31, 77, 61, 0.08) !important;
+  z-index: 10 !important;
+  border-radius: 999px !important;
+}
+.theme-hero-carousel__control--prev {
+  left: 16px !important; /* overlay absolutely inside the image */
+}
+.theme-hero-carousel__control--next {
+  right: 16px !important; /* overlay absolutely inside the image */
+}
+.theme-hero-carousel__control svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* Thumbnails Strip Spacing */
+.theme-hero-carousel__thumbs {
+  bottom: 24px !important; /* integrated in the lower portion of image area */
+  background: rgba(255, 255, 255, 0.45) !important; /* micro-aesthetic transparent white */
+  padding: 4px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  backdrop-filter: blur(8px) !important;
+  gap: 4px !important;
+}
+.theme-hero-carousel__thumb {
+  width: 44px !important;
+  height: 34px !important;
+  border-radius: 6px !important;
+  border: 1px solid transparent !important;
+  opacity: 0.35 !important; /* soft default opacity */
+  transition: all 0.2s ease !important;
+  background: transparent !important;
+}
+.theme-hero-carousel__thumb.is-active {
+  border: 1px solid #1f4d3d !important; /* subtle active green border */
+  opacity: 0.95 !important;
+  transform: none !important;
+}
+.theme-hero-carousel__thumb:hover {
+  opacity: 0.95 !important;
+  transform: none !important;
+}
+
+/* 6. Stats Bar & Typography */
+.theme-hero-carousel__stats {
+  width: 100% !important;
+  max-width: 458px !important;
+  margin-top: 0 !important; /* flush flush immediately under the image */
+  border-bottom-left-radius: 24px !important;
+  border-bottom-right-radius: 24px !important;
+  padding: 6px 0 !important;
+}
+.theme-hero-carousel__stat {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.theme-hero-carousel__stat-value {
+  font-family: var(--theme-heading-font), serif !important;
+  font-size: 16px !important; /* refined size */
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  color: #faf8f4 !important;
+}
+.theme-hero-carousel__stat-label {
+  font-family: var(--theme-body-font) !important;
+  font-size: 9px !important; /* compact label spacing */
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  color: rgba(250, 248, 244, 0.65) !important;
+  letter-spacing: 0.04em !important;
+  margin-top: 1px !important;
+}
+
+/* 7. Decorative Herbal Background Image */
+@media screen and (min-width: 990px) {
+  .theme-hero-below-product {
+    display: flex !important;
+    justify-content: center !important;
+    position: relative !important;
+    height: auto !important;
+    margin-top: 28px !important; /* center and shift lower */
+  }
+  .theme-hero-below-product__image {
+    width: 280px !important; /* refined scale */
+    opacity: 0.07 !important; /* highly subtle aesthetic blend */
+    transform: translateY(16px) !important;
+  }
+}
+
+/* 8. Single-Line Pill Badge & Alignment */
+.theme-product-page__badge {
+  box-sizing: border-box !important;
+  border-radius: 999px !important;
+  background: #fdfaf3 !important;
+  border: 1px solid rgba(31, 77, 61, 0.12) !important;
+  padding: 6px 18px !important;
+  min-height: auto !important;
+  height: 32px !important;
+  overflow: visible !important; /* prevent top badge clipping */
+  margin-top: 0 !important;
+}
+@media screen and (min-width: 990px) {
+  .theme-product-page__badge {
+    display: inline-flex !important;
+    flex-direction: row !important; /* single line */
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    margin: 0 auto 12px !important; /* center above product title */
+    justify-self: center !important;
+  }
+}
+@media screen and (max-width: 989px) {
+  .theme-product-page__badge {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    margin: 0 auto 12px !important;
+    justify-self: center !important;
+    gap: 12px !important;
+  }
+}
+.theme-product-page__badge-line {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-family: var(--theme-body-font) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #1f4d3d !important;
+}
+.theme-badge-bullet {
+  display: inline !important;
+  color: #1f4d3d !important;
+  opacity: 0.4 !important;
+}
+
+/* 9. Product Title & Subtitle Styling */
+.theme-product-page__title {
+  font-family: var(--theme-heading-font), serif !important;
+  font-size: clamp(30px, 3.2vw, 40px) !important;
+  font-weight: 400 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.01em !important;
+  color: #1f4d3d !important;
+  text-align: left !important;
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+}
+.theme-product-page__subtitle {
+  text-align: left !important;
+  margin-top: 4px !important;
+  margin-bottom: 12px !important;
+  font-family: var(--theme-body-font) !important;
+  font-size: clamp(14px, 1.8vw, 17px) !important;
+  line-height: 1.35 !important;
+  font-weight: 500 !important;
+  color: #1f4d3d !important;
+  opacity: 0.9 !important;
+}
+
+/* 10. Product Description Text & Opacity */
+.theme-product-page__intro {
+  max-width: 772px !important;
+  width: 100% !important;
+  font-family: var(--theme-body-font) !important;
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  letter-spacing: -0.01em !important;
+  color: rgba(31, 77, 61, 0.78) !important; /* darker green-gray contrast */
+  text-align: left !important;
+  margin-top: 12px !important;
+  margin-bottom: 16px !important;
+}
+
+/* 11. Soft Quote Card (Width, Padding, Colors) */
+.theme-product-page__quote-wrap,
+div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
+  border-left: 0 !important; /* remove the extra orange vertical accent line */
+  border-left-width: 0 !important;
+  background: #fbf9f4 !important; /* soft cream background */
+  border-radius: 12px !important; /* soft balanced border radius */
+  padding: 16px 20px !important;
+  box-shadow: none !important;
+  max-width: 772px !important;
+  width: 100% !important;
+  margin-top: 14px !important;
+  margin-bottom: 14px !important;
+  box-sizing: border-box !important;
+}
+.theme-product-page__quote {
+  font-family: var(--theme-body-font) !important;
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  color: rgba(31, 77, 61, 0.78) !important;
+  font-style: italic !important;
+}
+.theme-product-page__quote-meta {
+  margin-top: 6px !important;
+  font-family: var(--theme-body-font) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  color: rgba(31, 77, 61, 0.55) !important;
+}
+
+/* 12. Certification Sentence Spacing & Colors */
+.theme-product-page__cert-note {
+  margin-top: 12px !important; /* sits closer to quote card */
+  margin-bottom: 12px !important;
+  color: rgba(31, 77, 61, 0.78) !important;
+  font-family: var(--theme-body-font) !important;
+  font-size: 14px !important;
+  line-height: 1.35 !important;
+  font-weight: 500 !important;
+}
+
+/* 13. Certification Icon Card Size & Alignment */
+.theme-stamp-card {
+  box-sizing: border-box !important;
+  border: 1px solid rgba(31, 77, 61, 0.1) !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  padding: 6px 12px !important; /* tight height */
+  min-height: auto !important;
+  height: 52px !important; /* compact profile */
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.42fr) minmax(0, 0.88fr) !important;
+  align-items: center !important;
+  max-width: 746px !important;
+  width: 100% !important;
+  margin-top: 10px !important;
+  margin-bottom: 16px !important;
+}
+.theme-stamp-card__stamps {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  padding-right: 12px !important;
+  border-right: 1px solid rgba(31, 77, 61, 0.1) !important;
+}
+.theme-stamp-card__stamp-image {
+  width: 32px !important; /* compact icon size */
+  height: 32px !important;
+  object-fit: contain !important;
+}
+.theme-stamp-card__stats {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  padding-left: 12px !important;
+  height: 100% !important;
+}
+.theme-stamp-card__stat-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.theme-stamp-card__stat-number {
+  font-family: var(--theme-heading-font), serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  color: #1f4d3d !important;
+}
+.theme-stamp-card__stat-number--clinics {
+  font-family: var(--theme-heading-font), serif !important;
+  font-size: 11px !important;
+  white-space: nowrap !important;
+}
+.theme-stamp-card__stat-label {
+  font-family: var(--theme-body-font) !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  color: rgba(31, 77, 61, 0.5) !important;
+  margin-top: 2px !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+@media screen and (max-width: 989px) {
+  .theme-stamp-card {
+    grid-template-columns: 1.4fr 1fr !important;
+    height: auto !important;
+    min-height: 48px !important;
+    padding: 6px 8px !important;
+  }
+  .theme-stamp-card__stamp-image {
+    width: 24px !important;
+    height: 24px !important;
+  }
+}
+
+/* 14. Long Botanical Paragraph Spacing & Color */
+.theme-product-page__description-block {
+  max-width: 772px !important;
+  width: 100% !important;
+  font-family: var(--theme-body-font) !important;
+  font-size: 14px !important; /* compact */
+  line-height: 1.45 !important;
+  letter-spacing: -0.01em !important;
+  color: rgba(31, 77, 61, 0.76) !important; /* solid readable color */
+  text-align: left !important;
+  margin-top: 14px !important;
+  margin-bottom: 18px !important;
+}
+
+/* 15. CTA Button Sheen, Color, and Sizes */
+.theme-reorder-card__button {
+  background: #8f4f36 !important; /* exact sampled Vercel CTA reddish-brown background */
+  border-radius: 14px !important;
+  height: 52px !important; /* lock height to match Vercel exactly */
+  min-height: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 !important;
+  border: 0 !important;
+  margin-top: 14px !important;
+  margin-bottom: 8px !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.theme-reorder-card__button::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.14) 48%, transparent 62%) !important;
+  transform: translateX(-130%) !important;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  pointer-events: none !important;
+}
+.theme-reorder-card__button:hover::after {
+  transform: translateX(130%) !important;
+}
+.theme-reorder-card__button > .flex:first-child {
+  padding: 0 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex: 1 !important;
+}
+.theme-reorder-card__button > .flex:last-child {
+  margin-left: auto !important;
+  min-width: 140px !important; /* match divider x-position */
+  height: 100% !important;
+  padding: 0 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-top: 0 !important;
+  background: transparent !important;
+}
+.theme-reorder-card__icon {
+  width: 18px !important;
+  height: 18px !important;
+  color: #ffffff !important;
+}
+.theme-reorder-btn-text--desktop,
+.theme-reorder-btn-text {
+  font-family: var(--theme-body-font) !important;
+  font-size: 16px !important; /* compact refined typography */
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1.1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+.theme-reorder-card__price-old {
+  font-size: 13px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-decoration: line-through !important;
+  margin-right: 8px !important;
+}
+.theme-reorder-card__price-new {
+  font-family: var(--theme-body-font) !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1 !important;
+}
+.theme-reorder-card__button .text-white\/72,
+.theme-reorder-card__button div[class*="text-white/72"] {
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 10px !important;
+  line-height: 1.1 !important;
+  margin-top: 2px !important;
+}
+
+/* 16. Delivery/COD/returns Strip Spacing & Color */
+.theme-delivery-row {
+  margin-top: 8px !important; /* sit flush under CTA */
+  margin-bottom: 8px !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  background: #FCFAF4 !important; /* soft cream background */
+  border: 1px solid rgba(31, 77, 61, 0.05) !important;
+  height: 38px !important; /* compact height */
+  align-items: center !important;
+  max-width: 772px !important;
+  width: 100% !important;
+}
+.theme-delivery-row__item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  height: 100% !important;
+  padding: 0 !important;
+  font-family: var(--theme-body-font) !important;
+  font-size: 11px !important; /* smaller refined text */
+  font-weight: 500 !important;
+  color: rgba(31, 77, 61, 0.72) !important;
+  border: 0 !important;
+}
+.theme-delivery-row__icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: rgba(31, 77, 61, 0.72) !important;
+  stroke: rgba(31, 77, 61, 0.72) !important;
+}
+
+/* 17. Add Internal Support Card Spacing & Style */
+.theme-upsell-card {
+  margin-top: 10px !important;
+  margin-bottom: 12px !important;
+  background: #8f4f36 !important;
+  border-radius: 14px !important;
+  padding: 8px 12px !important;
+  height: 52px !important; /* specific compact height */
+  min-height: 52px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  max-width: 772px !important;
+  width: 100% !important;
+}
+.theme-upsell-card__image {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 6px !important;
+  object-fit: cover !important;
+  flex-shrink: 0 !important;
+}
+.theme-upsell-card__copy {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  flex: 1 !important;
+}
+.theme-upsell-card__title {
+  font-family: var(--theme-body-font) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1.1 !important;
+}
+.theme-upsell-card__text {
+  font-family: var(--theme-body-font) !important;
+  font-size: 11px !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  line-height: 1.1 !important;
+  margin-top: 2px !important;
+}
+.theme-upsell-card__button {
+  background: #f4bb28 !important;
+  color: #1c2018 !important;
+  border-radius: 999px !important;
+  padding: 6px 16px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  height: auto !important;
+  min-height: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  cursor: pointer !important;
+}
+
+/* 18. Ritual Guide Layout & Perfect Spacing */
+@media screen and (min-width: 990px) {
+  .theme-hero-ritual-guide {
+    background: transparent !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    margin-top: 0 !important;
+  }
+  .theme-hero-ritual-guide__card {
+    max-width: calc(100% - 506px) !important; /* perfectly aligned dynamically with right column */
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    border: 1px solid #f0d084 !important; /* thin gold border */
+    border-radius: 12px !important;
+    background: #fbf2da !important; /* pale warm cream/yellow card background */
+    padding: 12px 16px !important;
+    color: #a86d13 !important;
+  }
+  .theme-hero-ritual-guide__content {
+    display: flex !important;
+    align-items: center !important; /* align items horizontally */
+    gap: 16px !important;
+  }
+  .theme-hero-ritual-guide__icon {
+    width: 18px !important;
+    height: 18px !important;
+    margin-top: 0 !important;
+    color: #e29a12 !important;
+    flex: 0 0 18px !important;
+  }
+  .theme-hero-ritual-guide__title {
+    font-family: var(--theme-body-font) !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    display: inline-block !important;
+    margin-right: 12px !important;
+  }
+  .theme-hero-ritual-guide__text {
+    font-family: var(--theme-body-font) !important;
+    display: inline !important;
+    margin: 0 !important;
+    color: #8f5f17 !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+  }
+}
+@media screen and (max-width: 989px) {
+  .theme-hero-ritual-guide {
+    background: transparent !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-top: 0 !important;
+  }
+  .theme-hero-ritual-guide__card {
+    width: calc(100% - 32px) !important;
+    margin: 0 auto !important;
+    border: 1px solid #f0d084 !important;
+    border-radius: 12px !important;
+    background: #fbf2da !important;
+    padding: 10px 14px !important;
+    color: #a86d13 !important;
+  }
+  .theme-hero-ritual-guide__icon {
+    width: 16px !important;
+    height: 16px !important;
+    color: #e29a12 !important;
+  }
+  .theme-hero-ritual-guide__title {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+  }
+  .theme-hero-ritual-guide__text {
+    font-size: 11px !important;
+    margin-top: 2px !important;
+    color: #8f5f17 !important;
+    line-height: 1.3 !important;
+  }
+}
