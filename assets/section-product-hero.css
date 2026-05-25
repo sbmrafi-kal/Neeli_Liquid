@@ -453,16 +453,16 @@
 /* 2. Hero Grid Layout & Gap Adjustments */
 @media screen and (min-width: 990px) {
   .theme-product-page__hero {
-    grid-template-columns: 458px minmax(0, 1fr) !important;
-    gap: 48px !important;
+    grid-template-columns: clamp(320px, 32vw, 458px) minmax(0, 1fr) !important;
+    gap: clamp(24px, 3.5vw, 48px) !important;
     padding-top: 0px !important;
     margin-top: -8px !important; /* pull hero section upward closer to breadcrumbs */
   }
 
   .theme-product-page__hero-media {
-    width: 458px !important;
-    max-width: 458px !important;
-    flex: 0 0 458px !important;
+    width: 100% !important;
+    max-width: clamp(320px, 32vw, 458px) !important;
+    flex: 0 1 clamp(320px, 32vw, 458px) !important;
     margin-left: 0 !important; /* align perfectly with left container edge */
   }
 
@@ -477,8 +477,8 @@
   background: #FCFAF4 !important;
 }
 .theme-site-header__subnav-inner {
-  min-height: 42px !important;
-  height: 42px !important;
+  min-height: clamp(2.25rem, 5vh, 2.625rem) !important;
+  height: auto !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -498,15 +498,15 @@
 
 /* 4. Search Bar Alignment & Centering */
 .theme-site-header__search {
-  height: 30px !important;
-  min-height: 30px !important;
+  height: clamp(1.6rem, 3.5vh, 1.875rem) !important;
+  min-height: clamp(1.6rem, 3.5vh, 1.875rem) !important;
   display: flex !important;
   align-items: center !important;
   margin: 0 !important;
 }
 .theme-site-header__search-input {
-  height: 30px !important;
-  min-height: 30px !important;
+  height: clamp(1.6rem, 3.5vh, 1.875rem) !important;
+  min-height: clamp(1.6rem, 3.5vh, 1.875rem) !important;
   border: 1px solid rgba(31, 77, 61, 0.15) !important;
   background: #ffffff !important;
   border-radius: 999px !important;
@@ -518,7 +518,7 @@
 /* 5. Carousel Image, Arrows & Thumbnails */
 .theme-hero-carousel {
   width: 100% !important;
-  max-width: 458px !important;
+  max-width: clamp(320px, 32vw, 458px) !important;
   margin-left: auto !important;
   margin-right: auto !important;
   position: relative !important;
@@ -526,7 +526,7 @@
 }
 .theme-hero-carousel__stage {
   width: 100% !important;
-  max-width: 458px !important;
+  max-width: clamp(320px, 32vw, 458px) !important;
   aspect-ratio: 458 / 482 !important;
   overflow: hidden !important;
   position: relative !important;
@@ -544,8 +544,8 @@
   position: absolute !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
-  width: 40px !important;
-  height: 40px !important;
+  width: clamp(2rem, 3.5vw, 2.5rem) !important;
+  height: clamp(2rem, 3.5vw, 2.5rem) !important;
   background: rgba(255, 255, 255, 0.88) !important;
   color: #1f4d3d !important;
   box-shadow: 0 2px 8px rgba(31, 77, 61, 0.08) !important;
@@ -565,7 +565,7 @@
 
 /* Thumbnails Strip Spacing */
 .theme-hero-carousel__thumbs {
-  bottom: 24px !important; /* integrated in the lower portion of image area */
+  bottom: clamp(16px, 2.5vw, 24px) !important; /* integrated in the lower portion of image area */
   background: rgba(255, 255, 255, 0.45) !important; /* micro-aesthetic transparent white */
   padding: 4px !important;
   border-radius: 10px !important;
@@ -574,8 +574,8 @@
   gap: 4px !important;
 }
 .theme-hero-carousel__thumb {
-  width: 44px !important;
-  height: 34px !important;
+  width: clamp(32px, 3.5vw, 44px) !important;
+  height: clamp(24px, 2.7vw, 34px) !important;
   border-radius: 6px !important;
   border: 1px solid transparent !important;
   opacity: 0.35 !important; /* soft default opacity */
@@ -595,7 +595,7 @@
 /* 6. Stats Bar & Typography */
 .theme-hero-carousel__stats {
   width: 100% !important;
-  max-width: 458px !important;
+  max-width: clamp(320px, 32vw, 458px) !important;
   margin-top: 0 !important; /* flush flush immediately under the image */
   border-bottom-left-radius: 24px !important;
   border-bottom-right-radius: 24px !important;
@@ -634,7 +634,7 @@
     margin-top: 28px !important; /* center and shift lower */
   }
   .theme-hero-below-product__image {
-    width: 280px !important; /* refined scale */
+    width: clamp(200px, 20vw, 280px) !important; /* refined scale */
     opacity: 0.07 !important; /* highly subtle aesthetic blend */
     transform: translateY(16px) !important;
   }
@@ -647,8 +647,8 @@
   background: #fdfaf3 !important;
   border: 1px solid rgba(31, 77, 61, 0.12) !important;
   padding: 6px 18px !important;
-  min-height: auto !important;
-  height: 32px !important;
+  min-height: 2rem !important;
+  height: auto !important;
   overflow: visible !important; /* prevent top badge clipping */
   margin-top: 0 !important;
 }
@@ -717,7 +717,7 @@
 
 /* 10. Product Description Text & Opacity */
 .theme-product-page__intro {
-  max-width: 772px !important;
+  max-width: clamp(480px, 54vw, 772px) !important;
   width: 100% !important;
   font-family: var(--theme-body-font) !important;
   font-size: 15px !important;
@@ -738,7 +738,7 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
   border-radius: 12px !important; /* soft balanced border radius */
   padding: 16px 20px !important;
   box-shadow: none !important;
-  max-width: 772px !important;
+  max-width: clamp(480px, 54vw, 772px) !important;
   width: 100% !important;
   margin-top: 14px !important;
   margin-bottom: 14px !important;
@@ -778,12 +778,12 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
   border-radius: 16px !important;
   background: #ffffff !important;
   padding: 6px 12px !important; /* tight height */
-  min-height: auto !important;
-  height: 52px !important; /* compact profile */
+  min-height: clamp(2.8rem, 6vh, 3.25rem) !important;
+  height: auto !important;
   display: grid !important;
   grid-template-columns: minmax(0, 1.42fr) minmax(0, 0.88fr) !important;
   align-items: center !important;
-  max-width: 746px !important;
+  max-width: clamp(480px, 52vw, 746px) !important;
   width: 100% !important;
   margin-top: 10px !important;
   margin-bottom: 16px !important;
@@ -797,8 +797,9 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
   border-right: 1px solid rgba(31, 77, 61, 0.1) !important;
 }
 .theme-stamp-card__stamp-image {
-  width: 32px !important; /* compact icon size */
-  height: 32px !important;
+  width: clamp(24px, 2.5vw, 32px) !important;
+  height: auto !important;
+  aspect-ratio: 1 !important;
   object-fit: contain !important;
 }
 .theme-stamp-card__stats {
@@ -841,18 +842,19 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
   .theme-stamp-card {
     grid-template-columns: 1.4fr 1fr !important;
     height: auto !important;
-    min-height: 48px !important;
+    min-height: clamp(2.5rem, 5vh, 3rem) !important;
     padding: 6px 8px !important;
   }
   .theme-stamp-card__stamp-image {
-    width: 24px !important;
-    height: 24px !important;
+    width: clamp(20px, 2.2vw, 24px) !important;
+    height: auto !important;
+    aspect-ratio: 1 !important;
   }
 }
 
 /* 14. Long Botanical Paragraph Spacing & Color */
 .theme-product-page__description-block {
-  max-width: 772px !important;
+  max-width: clamp(480px, 54vw, 772px) !important;
   width: 100% !important;
   font-family: var(--theme-body-font) !important;
   font-size: 14px !important; /* compact */
@@ -868,8 +870,8 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
 .theme-reorder-card__button {
   background: #8f4f36 !important; /* exact sampled Vercel CTA reddish-brown background */
   border-radius: 14px !important;
-  height: 52px !important; /* lock height to match Vercel exactly */
-  min-height: 52px !important;
+  min-height: clamp(2.8rem, 6vh, 3.25rem) !important;
+  height: auto !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -902,7 +904,7 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
 }
 .theme-reorder-card__button > .flex:last-child {
   margin-left: auto !important;
-  min-width: 140px !important; /* match divider x-position */
+  min-width: clamp(100px, 12vw, 140px) !important; /* match divider x-position */
   height: 100% !important;
   padding: 0 20px !important;
   display: flex !important;
@@ -913,8 +915,8 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
   background: transparent !important;
 }
 .theme-reorder-card__icon {
-  width: 18px !important;
-  height: 18px !important;
+  width: 1.125rem !important;
+  height: 1.125rem !important;
   color: #ffffff !important;
 }
 .theme-reorder-btn-text--desktop,
@@ -958,9 +960,10 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
   border-radius: 8px !important;
   background: #FCFAF4 !important; /* soft cream background */
   border: 1px solid rgba(31, 77, 61, 0.05) !important;
-  height: 38px !important; /* compact height */
+  min-height: clamp(2rem, 4vh, 2.375rem) !important;
+  height: auto !important;
   align-items: center !important;
-  max-width: 772px !important;
+  max-width: clamp(480px, 54vw, 772px) !important;
   width: 100% !important;
 }
 .theme-delivery-row__item {
@@ -977,8 +980,8 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
   border: 0 !important;
 }
 .theme-delivery-row__icon {
-  width: 14px !important;
-  height: 14px !important;
+  width: 0.875rem !important;
+  height: 0.875rem !important;
   color: rgba(31, 77, 61, 0.72) !important;
   stroke: rgba(31, 77, 61, 0.72) !important;
 }
@@ -988,20 +991,20 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
   margin-top: 10px !important;
   margin-bottom: 12px !important;
   background: #8f4f36 !important;
-  border-radius: 14px !important;
-  padding: 8px 12px !important;
-  height: 52px !important; /* specific compact height */
-  min-height: 52px !important;
+  border-radius: 12px !important;
+  padding: 10px 12px !important;
+  min-height: clamp(2.8rem, 6vh, 3.25rem) !important;
+  height: auto !important;
   box-sizing: border-box !important;
   display: flex !important;
   align-items: center !important;
   gap: 12px !important;
-  max-width: 772px !important;
+  max-width: clamp(480px, 54vw, 772px) !important;
   width: 100% !important;
 }
 .theme-upsell-card__image {
-  width: 36px !important;
-  height: 36px !important;
+  width: 2.25rem !important;
+  height: 2.25rem !important;
   border-radius: 6px !important;
   object-fit: cover !important;
   flex-shrink: 0 !important;
@@ -1053,7 +1056,7 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
     margin-top: 0 !important;
   }
   .theme-hero-ritual-guide__card {
-    max-width: calc(100% - 506px) !important; /* perfectly aligned dynamically with right column */
+    max-width: calc(100% - clamp(344px, 35.5vw, 506px)) !important; /* perfectly aligned dynamically with right column */
     width: 100% !important;
     margin-left: auto !important;
     margin-right: 0 !important;
@@ -1069,11 +1072,11 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
     gap: 16px !important;
   }
   .theme-hero-ritual-guide__icon {
-    width: 18px !important;
-    height: 18px !important;
+    width: 1.125rem !important;
+    height: 1.125rem !important;
     margin-top: 0 !important;
     color: #e29a12 !important;
-    flex: 0 0 18px !important;
+    flex: 0 0 1.125rem !important;
   }
   .theme-hero-ritual-guide__title {
     font-family: var(--theme-body-font) !important;
@@ -1111,8 +1114,8 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
     color: #a86d13 !important;
   }
   .theme-hero-ritual-guide__icon {
-    width: 16px !important;
-    height: 16px !important;
+    width: 1rem !important;
+    height: 1rem !important;
     color: #e29a12 !important;
   }
   .theme-hero-ritual-guide__title {

@@ -11858,14 +11858,14 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
   background: #8f4f36 !important;
   border-radius: 12px !important;
   padding: 10px 12px !important;
+  min-height: clamp(2.8rem, 6vh, 3.25rem) !important;
   height: auto !important;
-  min-height: 74px !important;
 }
 .theme-upsell-card__button {
   background: #f4bb28 !important;
   color: #1c2018 !important;
   border-radius: 10px !important;
-  padding: 8px 16px !important;
+  padding: clamp(6px, 1.2vw, 8px) clamp(12px, 2vw, 16px) !important;
   font-weight: 700 !important;
   font-size: 13px !important;
 }
@@ -11886,7 +11886,7 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
   overflow: hidden !important;
 }
 .theme-timeline__desktop-top {
-  min-height: 110px !important;
+  min-height: clamp(5.5rem, 10vh, 7rem) !important;
   padding: 12px 16px !important;
 }
 .theme-timeline__desktop-bottom {
@@ -11928,12 +11928,12 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
 }
 .theme-dual-panel {
   margin-top: 24px !important;
-  max-width: 960px !important;
-  gap: 20px !important;
+  max-width: clamp(768px, 78vw, 960px) !important;
+  gap: clamp(16px, 2.5vw, 24px) !important;
 }
 .theme-dual-panel .theme-panel {
   min-height: auto !important;
-  padding: 24px !important;
+  padding: clamp(16px, 2vw, 24px) !important;
 }
 .theme-dual-panel .theme-list {
   gap: 1.5rem !important;
@@ -11971,7 +11971,7 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
 }
 .theme-product-page__section--story .theme-difference-panel .theme-accordion__summary,
 .theme-difference-panel .theme-accordion__summary {
-  min-height: 52px !important;
+  min-height: clamp(2.75rem, 5vh, 3.25rem) !important;
   padding: 6px 0 !important;
   align-items: flex-start !important;
 }
@@ -12011,18 +12011,18 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
   padding-top: 24px !important;
 }
 .theme-key-ingredients--desktop {
-  max-width: 1200px !important;
+  max-width: clamp(960px, 85vw, 1200px) !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  gap: 20px !important;
+  gap: clamp(16px, 2vw, 20px) !important;
 }
 .theme-ingredient-desktop__media {
-  height: 180px !important;
+  height: clamp(140px, 12vw, 180px) !important;
   width: 100% !important;
   object-fit: cover !important;
 }
 .theme-ingredient-desktop__body {
-  padding: 20px 20px !important;
+  padding: clamp(16px, 1.8vw, 20px) !important;
 }
 .theme-ingredient-desktop__title {
   font-family: var(--theme-heading-font) !important;
@@ -12044,8 +12044,8 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
 
 /* 8. Three Milks Section */
 .theme-milk-desktop__image-wrap {
-  width: 90px !important;
-  height: 90px !important;
+  width: clamp(70px, 8vw, 90px) !important;
+  height: clamp(70px, 8vw, 90px) !important;
   border: 1px solid rgba(31, 77, 61, 0.12) !important;
   padding: 4px !important;
 }
@@ -12056,11 +12056,11 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
   object-fit: cover !important;
 }
 .theme-milk-grid--desktop {
-  max-width: 960px !important;
-  gap: 20px !important;
+  max-width: clamp(768px, 78vw, 960px) !important;
+  gap: clamp(16px, 2vw, 20px) !important;
 }
 .theme-milk-desktop {
-  padding: 20px 20px !important;
+  padding: clamp(16px, 2vw, 20px) !important;
   background-color: #fcfbf7 !important;
   border: 1px solid #1f4d3d0f !important;
 }
@@ -12068,7 +12068,7 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
   .theme-patch-test--desktop {
     margin: 1.5rem auto 0 !important;
     padding: 8px 24px !important;
-    max-width: 320px !important;
+    max-width: clamp(240px, 25vw, 320px) !important;
     height: auto !important;
     font-size: 11px !important;
   }
@@ -12080,16 +12080,16 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
   padding-top: 0 !important;
 }
 .theme-step-hero {
-  max-height: 380px !important;
+  max-height: clamp(280px, 28vh, 380px) !important;
 }
 .theme-step-hero img {
-  height: 380px !important;
+  height: clamp(280px, 28vh, 380px) !important;
   object-fit: cover !important;
   object-position: center 25% !important;
 }
 .theme-step-cell-desktop {
-  min-height: 130px !important;
-  padding: 16px 20px 16px !important;
+  min-height: clamp(6.5rem, 12vh, 8.125rem) !important;
+  padding: 16px clamp(12px, 1.8vw, 20px) 16px !important;
 }
 .theme-step-cell-desktop__title {
   margin-top: 6px !important;
@@ -12108,8 +12108,8 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
 
 /* 10. Go Deeper Accordion */
 .theme-info-panel--wide .theme-accordion__summary {
-  min-height: 54px !important;
-  padding: 12px 24px !important;
+  min-height: clamp(2.75rem, 5vh, 3.375rem) !important;
+  padding: 12px clamp(16px, 2vw, 24px) !important;
 }
 .theme-info-panel--wide .theme-accordion__title {
   font-size: 16px !important;
@@ -12119,10 +12119,10 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
   color: #1f4d3d !important;
 }
 .theme-info-panel--wide .theme-accordion__content {
-  padding: 12px 24px 20px !important;
+  padding: 12px clamp(16px, 2vw, 24px) 20px !important;
 }
 .theme-info-panel--wide {
-  max-width: 960px !important;
+  max-width: clamp(768px, 78vw, 960px) !important;
   margin-left: auto !important;
   margin-right: auto !important;
   border: 1px solid #1f4d3d0f !important;
@@ -12161,14 +12161,14 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
   min-height: 100% !important;
 }
 .theme-brand-trust__desktop-patent-card {
-  padding: 10px 16px !important;
+  padding: 10px clamp(12px, 1.5vw, 16px) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   border-radius: 8px !important;
   min-width: auto !important;
   flex: 1 1 calc(50% - 12px) !important;
 }
 .theme-brand-trust__desktop-flag {
-  height: 24px !important;
+  height: 1.5rem !important;
 }
 .theme-brand-trust__desktop-patent-title {
   font-size: 13px !important;
@@ -12188,7 +12188,7 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
 }
 .theme-reviews-rating-header {
   position: absolute !important;
-  right: 24px !important;
+  right: clamp(16px, 2.5vw, 24px) !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
   display: flex !important;
@@ -12205,13 +12205,13 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
   margin-top: 4px !important;
 }
 .theme-review-grid {
-  gap: 40px 64px !important;
+  gap: clamp(24px, 3.5vw, 40px) clamp(32px, 5vw, 64px) !important;
 }
 .theme-reviews-footer {
   margin-top: 24px !important;
 }
 .theme-reviews-footer .theme-reviews-button {
-  padding: 10px 24px !important;
+  padding: 10px clamp(16px, 2vw, 24px) !important;
   border-radius: 14px !important;
   height: auto !important;
   font-size: 14px !important;
@@ -12260,8 +12260,8 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
 }
 .theme-footer-social__icon,
 .theme-footer-social__icon svg {
-  width: 28px !important;
-  height: 28px !important;
+  width: clamp(1.5rem, 2vw, 1.75rem) !important;
+  height: clamp(1.5rem, 2vw, 1.75rem) !important;
 }
 .theme-footer-list a {
   font-size: 13px !important;
