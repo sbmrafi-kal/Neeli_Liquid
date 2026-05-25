@@ -1,2 +1,267 @@
-/* Section-specific CSS: brand-trust
-   Intentionally minimal. Shared stylesheet controls final visual parity. */
+/* Section-specific CSS: brand-trust */
+
+.theme-brand-trust-section {
+  background: #17372d !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+/* Mobile View Styles */
+.theme-brand-trust__mobile {
+  background: #17372d !important;
+}
+
+.theme-brand-trust__mobile-img-wrap {
+  min-height: 14rem !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.theme-brand-trust__mobile-img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.theme-brand-trust__mobile-content {
+  padding: 2rem 1.75rem !important;
+  text-align: center !important;
+  color: #faf8f4 !important;
+}
+
+.theme-brand-trust__mobile-title {
+  font-family: var(--font-heading-family) !important;
+  font-size: 28px !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  letter-spacing: 0.08em !important;
+}
+
+.theme-brand-trust__mobile-desc {
+  margin-top: 1rem !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+  color: rgba(250,248,244,0.84) !important;
+  font-family: var(--theme-body-font) !important;
+}
+
+.theme-brand-trust__mobile-divider {
+  margin: 1.75rem 0 !important;
+  height: 1px !important;
+  background: rgba(255,255,255,0.18) !important;
+}
+
+.theme-brand-trust__mobile-kicker {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #d7c870 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+}
+
+.theme-brand-trust__mobile-patents-title {
+  margin-top: 0.75rem !important;
+  line-height: 0.92 !important;
+}
+
+.theme-brand-trust__mobile-patent-container {
+  margin-top: 1.75rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+}
+
+.theme-brand-trust__mobile-patent-card {
+  display: flex !important;
+  min-width: 8.625rem !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  border: 1px solid #6f8e43 !important;
+  padding: 12px 16px !important;
+  border-radius: 10px !important;
+  background: rgba(255,255,255,0.03) !important;
+}
+
+.theme-brand-trust__mobile-flag {
+  height: 1.75rem !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+.theme-brand-trust__mobile-patent-title {
+  margin-top: 12px !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+  color: #d2a13f !important;
+  font-weight: 700 !important;
+}
+
+.theme-brand-trust__mobile-seal-container {
+  margin-top: 1.75rem !important;
+  display: grid !important;
+  grid-template-columns: 1fr clamp(80px, 15vw, 94px) !important;
+  border-top: 1px solid rgba(255,255,255,0.18) !important;
+}
+
+.theme-brand-trust__mobile-seal-img-wrap {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1.75rem 0 !important;
+}
+
+.theme-brand-trust__mobile-seal-img {
+  height: clamp(80px, 18vw, 120px) !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+.theme-brand-trust__mobile-seal-text-wrap {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-left: 1px solid rgba(255,255,255,0.18) !important;
+  padding: 0 8px !important;
+}
+
+.theme-brand-trust__mobile-seal-text {
+  text-align: center !important;
+  font-size: 14px !important;
+  line-height: 1.45 !important;
+  color: rgba(250,248,244,0.88) !important;
+  writing-mode: vertical-rl !important;
+  font-family: var(--theme-body-font) !important;
+  margin: 0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+}
+
+
+/* Desktop View Styles */
+.theme-brand-trust__desktop {
+  background: #17372d !important;
+  color: #faf8f4 !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .theme-brand-trust__desktop {
+    display: grid !important;
+    grid-template-columns: 1.08fr 1.48fr 0.48fr !important;
+  }
+  .theme-brand-trust__mobile {
+    display: none !important;
+  }
+}
+
+.theme-brand-trust__desktop-img-wrap {
+  min-height: 25rem !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.theme-brand-trust__desktop-img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.7s ease !important;
+}
+
+.theme-brand-trust__desktop-img:hover {
+  transform: scale(1.025) !important;
+}
+
+.theme-brand-trust__desktop-content {
+  padding: 2rem 2.25rem !important;
+  border-left: 1px solid rgba(255,255,255,0.18) !important;
+  border-right: 1px solid rgba(255,255,255,0.18) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.theme-brand-trust__desktop-title {
+  font-family: var(--font-heading-family) !important;
+  font-size: 32px !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  letter-spacing: 0.08em !important;
+}
+
+.theme-brand-trust__desktop-desc {
+  margin-top: 1.25rem !important;
+  max-width: 520px !important;
+  font-size: 16px !important;
+  line-height: 1.45 !important;
+  color: rgba(250,248,244,0.84) !important;
+  font-family: var(--theme-body-font) !important;
+}
+
+.theme-brand-trust__desktop-divider {
+  margin: 1.75rem 0 !important;
+  height: 1px !important;
+  background: rgba(255,255,255,0.18) !important;
+}
+
+.theme-brand-trust__desktop-patent-container {
+  margin-top: 1.75rem !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1.25rem !important;
+}
+
+.theme-brand-trust__desktop-patent-card {
+  display: flex !important;
+  min-width: 10rem !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  border: 1px solid #6f8e43 !important;
+  padding: 14px 24px !important;
+  border-radius: 12px !important;
+  background: rgba(255,255,255,0.03) !important;
+}
+
+.theme-brand-trust__desktop-flag {
+  height: 2.375rem !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+.theme-brand-trust__desktop-patent-title {
+  margin-top: 12px !important;
+  font-size: 16px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+  color: #d2a13f !important;
+  font-weight: 700 !important;
+}
+
+.theme-brand-trust__desktop-seal-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 2.5rem 1.5rem !important;
+  text-align: center !important;
+}
+
+.theme-brand-trust__desktop-seal-img {
+  height: clamp(80px, 10vw, 110px) !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+.theme-brand-trust__desktop-seal-text {
+  margin-top: 1.25rem !important;
+  max-width: 152px !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+  color: rgba(250,248,244,0.88) !important;
+  font-family: var(--theme-body-font) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  font-weight: 500 !important;
+}

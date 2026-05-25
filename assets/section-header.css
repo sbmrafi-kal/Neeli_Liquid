@@ -7,20 +7,28 @@
 
 @media screen and (min-width: 990px) {
   .theme-site-header__search-input {
-    width: 284px !important;
+    width: 340px !important;
   }
 }
 
 /* Request lock: match the Next.js navbar dimensions and desktop/mobile behavior. */
 .theme-site-header__nav-link { color: #faf8f5 !important; }
-.theme-site-header__subnav { height: 42px !important; min-height: 42px !important; background: #fcfaf4 !important; }
-.theme-site-header__subnav-inner { height: 42px !important; min-height: 42px !important; padding-top: 6px !important; padding-bottom: 6px !important; }
-.theme-site-header__search { width: 284px !important; max-width: 284px !important; min-width: 284px !important; height: 30px !important; }
-.theme-site-header__search-input { width: 284px !important; height: 30px !important; min-height: 30px !important; padding: 0 16px 0 40px !important; }
+.theme-site-header__subnav { min-height: 42px !important; height: auto !important; background: #FCFAF4 !important; }
+.theme-site-header__subnav-inner { min-height: 42px !important; height: auto !important; padding-top: 6px !important; padding-bottom: 6px !important; }
+.theme-site-header__search { width: min(284px, 100%) !important; max-width: 284px !important; min-height: 30px !important; height: auto !important; }
+.theme-site-header__search-input { width: 100% !important; min-height: 30px !important; height: auto !important; padding: 0 16px 0 40px !important; }
 .theme-site-header__search-icon { left: 16px !important; width: 16px !important; height: 16px !important; }
 
 @media screen and (min-width: 990px) {
   .theme-site-header__icon-button--menu { display: none !important; }
+  .theme-site-header__subnav {
+    width: 100% !important;
+    max-width: 1680px !important;
+    min-height: 42px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    background: #FCFAF4 !important;
+  }
 }
 
 @media screen and (max-width: 989px) {
@@ -29,10 +37,10 @@
 }
 
 /* Request lock: sticky header and breadcrumb typography. */
-.theme-site-header { position: sticky !important; top: 0 !important; z-index: 9999 !important; }
+.theme-site-header { position: sticky !important; top: 0 !important; z-index: 9999 !important; background: #fdfcf8 !important; }
 .theme-site-header__breadcrumb,
 .theme-site-header__breadcrumb a,
-.theme-site-header__breadcrumb-current { color: #1f4d3d !important; font-family: var(--theme-body-font) !important; font-size: 13px !important; line-height: 1 !important; }
+.theme-site-header__breadcrumb-current { color: #1F4D3D !important; font-family: 'Avenir', 'Avenir Next', sans-serif !important; font-size: 13px !important; line-height: 1 !important; font-weight: 700 !important; }
 @media screen and (max-width: 989px) { .theme-site-header__subnav { display: none !important; } }
 
 /* Targeted sticky lock: desktop keeps nav + breadcrumb fixed; mobile keeps header fixed. */
@@ -43,16 +51,21 @@
   z-index: 9999 !important;
 }
 
-.theme-site-header {
-  position: relative !important;
-  top: auto !important;
-  z-index: auto !important;
-}
-
 @media screen and (max-width: 989px) {
   .theme-site-header__subnav {
     display: none !important;
   }
+  .theme-site-header__brand-image {
+    max-width: 130px !important;
+    height: auto !important;
+  }
+  .theme-site-header__brand {
+    max-width: 130px !important;
+  }
+}
+
+.theme-site-header__nav {
+  gap: 2.5rem !important;
 }
 
 /* Next parity: soft underline reveal on desktop nav links. */

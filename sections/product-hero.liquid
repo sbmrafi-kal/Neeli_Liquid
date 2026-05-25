@@ -4,13 +4,13 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: 48px;
+    padding-top: 0px !important;
     padding-bottom: 32px;
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: 48px;
+      padding-top: 0px !important;
       padding-bottom: 32px;
     }
   }
@@ -145,9 +145,6 @@
             </div>
           {%- endif -%}
 
-          <div class="theme-product-page__category">
-            {{ section.settings.category_label }}
-          </div>
 
           <div class="theme-product-page__title-wrap">
             <h1 class="theme-product-page__title">{{ product_title | escape }}</h1>

@@ -9,7 +9,7 @@
 .theme-footer-list li { margin-bottom: 0 !important; }
 .theme-footer-column__title { font-weight: 700 !important; }
 .theme-footer-social__icon,
-.theme-footer-social__icon svg { width: 36px !important; height: 36px !important; }
+.theme-footer-social__icon svg { width: 2.25rem !important; height: 2.25rem !important; }
 
 /* Next parity: social icons lift softly on hover/focus. */
 .footer-social {
@@ -21,4 +21,21 @@
 .footer-social:focus-visible {
   opacity: 0.82 !important;
   transform: translateY(-2px) !important;
+}
+
+/* Widescreen visual parity lock: desktop footer sizing */
+@media screen and (min-width: 990px) {
+  .theme-footer {
+    width: 100% !important;
+    max-width: 1680px !important;
+    height: auto !important;
+    margin: 48px auto 0 !important;
+    box-sizing: border-box !important;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+.theme-footer-column__title {
+  font-weight: 700 !important;
 }
