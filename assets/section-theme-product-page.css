@@ -6568,27 +6568,32 @@ body {
 
 @media screen and (min-width: 990px) {
   .theme-reviews-header-wrap {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    align-items: start !important;
+    position: relative !important;
+    display: block !important;
+    text-align: center !important;
   }
 
   .theme-reviews-header-wrap .theme-section-heading {
-    grid-column: 2 !important;
-    text-align: left !important;
-    justify-self: start !important;
-    padding-left: 24px !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    padding-left: 0 !important;
   }
 
   .theme-reviews-rating-header {
-    right: 0 !important;
-    top: 4px !important;
-    gap: 0.2rem !important;
+    position: absolute !important;
+    right: 40px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 8px !important;
   }
 
   .theme-reviews-rating-header__score-desktop {
-    margin-top: 0.2rem !important;
+    margin-top: 0 !important;
     line-height: 1 !important;
+    font-size: 22px !important;
   }
 }
 
@@ -11062,8 +11067,8 @@ body {
 }
 
 .theme-info-panel--wide .theme-accordion__summary {
-  min-height: 118px !important;
-  padding: 0 48px !important;
+  min-height: 58px !important;
+  padding: 18px 24px !important;
 }
 
 .theme-info-panel--wide .theme-accordion__title {
@@ -11077,16 +11082,13 @@ body {
 }
 
 .theme-info-panel--wide .theme-accordion__content {
-  padding: 0 48px 24px !important;
+  padding: 0 24px 22px 56px !important;
   color: #1f4d3d !important;
   font-family: var(--theme-body-font) !important;
   font-size: 14px !important;
   line-height: 1.55 !important;
 }
 
-.theme-key-ingredients__heading .theme-section-heading__title {
-  text-transform: none !important;
-}
 
 @media screen and (min-width: 990px) {
   .theme-brand-trust .theme-product-page__section,
@@ -11178,7 +11180,6 @@ body {
   overflow-x: clip !important;
 }
 
-.theme-key-ingredients__heading .theme-section-heading__title,
 .theme-trust-band__title,
 .theme-trust-band__title--full-spectrum,
 .theme-trust-band__title--secondary {
@@ -11240,8 +11241,7 @@ body {
 
   .theme-trust-band__title,
   .theme-trust-band__title--full-spectrum,
-  .theme-trust-band__title--secondary,
-  .theme-key-ingredients__heading .theme-section-heading__title {
+  .theme-trust-band__title--secondary {
     text-transform: none !important;
   }
 }
@@ -11736,4 +11736,45 @@ summary.theme-accordion__summary::-webkit-details-marker {
   font-size: 14px !important;
   color: #4a5a54 !important;
   line-height: 1.45 !important;
+}
+
+@media print {
+  /* Enforce precise page-by-page section breaks matching original PDF pagination */
+  .theme-hero-ritual-guide {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+  .theme-ingredient-story__whats-in-it {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+  .theme-ingredient-story__difference {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+  .theme-milk-section {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+  .theme-information {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+  .theme-brand-trust {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+  .theme-customer-reviews {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+
+  /* Hide interactive browser headers and carousel controls in clean PDF print */
+  .shopify-section.theme-header,
+  .theme-site-header,
+  .theme-site-header__subnav,
+  .theme-hero-carousel__control,
+  .theme-hero-carousel__thumbs {
+    display: none !important;
+  }
 }
