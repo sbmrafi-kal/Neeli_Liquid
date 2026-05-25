@@ -23,19 +23,47 @@
   transform: translateY(-2px) !important;
 }
 
-/* Widescreen visual parity lock: desktop footer sizing */
-@media screen and (min-width: 990px) {
-  .theme-footer {
-    width: 100% !important;
-    max-width: 1680px !important;
-    height: auto !important;
-    margin: 48px auto 0 !important;
-    box-sizing: border-box !important;
-    padding-top: 60px !important;
-    padding-bottom: 60px !important;
-  }
+/* Final parity lock: footer spacing and rhythm */
+.theme-footer {
+  margin: 0 !important;
+  padding-top: 40px !important;
+  padding-bottom: 0 !important;
 }
 
-.theme-footer-column__title {
-  font-weight: 700 !important;
+.theme-footer .theme-product-page__wrap {
+  max-width: 1392px !important;
+}
+
+.theme-footer-grid {
+  gap: 32px !important;
+  align-items: start !important;
+}
+
+.theme-footer-social-wrapper {
+  margin-top: 40px !important;
+}
+
+.theme-footer-tagline-wrapper {
+  margin-top: 24px !important;
+  padding-bottom: 0 !important;
+}
+
+.theme-footer-tagline-p {
+  margin: 0 !important;
+}
+
+@media screen and (max-width: 989px) {
+  .theme-footer {
+    padding-top: 32px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .theme-footer-social-wrapper {
+    margin-top: 24px !important;
+  }
+
+  .theme-footer-tagline-wrapper {
+    margin-top: 16px !important;
+    padding-bottom: 0 !important;
+  }
 }

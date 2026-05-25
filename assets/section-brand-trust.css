@@ -265,3 +265,38 @@
   letter-spacing: 0.06em !important;
   font-weight: 500 !important;
 }
+
+/* Final parity lock: full spectrum section */
+.theme-brand-trust-section,
+.theme-brand-trust__mobile,
+.theme-brand-trust__desktop {
+  background: #1f4d3d !important;
+}
+
+.theme-brand-trust__mobile-title,
+.theme-brand-trust__desktop-title {
+  font-family: var(--font-heading-family) !important;
+  letter-spacing: 0 !important;
+  line-height: 1 !important;
+}
+
+.theme-brand-trust__mobile-desc {
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+}
+
+.theme-brand-trust__desktop-desc {
+  font-size: 17px !important;
+  line-height: 1.45 !important;
+}
+
+.theme-brand-trust__mobile-divider,
+.theme-brand-trust__desktop-divider {
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+
+.theme-brand-trust__mobile-seal-text,
+.theme-brand-trust__desktop-seal-text {
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
