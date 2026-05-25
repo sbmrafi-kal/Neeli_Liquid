@@ -11779,502 +11779,116 @@ summary.theme-accordion__summary::-webkit-details-marker {
   }
 }
 
-/* ==========================================================================
-   HIGH-FIDELITY RECONCILIATION OVERRIDES: org(4).pdf AUDIT
-   ========================================================================== */
-
-/* 1. Hero & Product Top Section */
-.theme-hero-carousel__stage {
-  position: relative !important;
-  overflow: hidden !important;
-}
-.theme-hero-carousel__control {
-  position: absolute !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  background: rgba(255, 255, 255, 0.88) !important;
-}
-.theme-hero-carousel__control--prev {
-  left: 24px !important;
-}
-.theme-hero-carousel__control--next {
-  right: 24px !important;
-}
-.theme-hero-carousel__thumb {
-  opacity: 0.3 !important;
-  transition: opacity 0.3s ease !important;
-}
-.theme-hero-carousel__thumb.is-active,
-.theme-hero-carousel__thumb:hover {
-  opacity: 0.9 !important;
-}
-.theme-product-page__badge {
-  margin-left: 0 !important;
-  padding-left: 14px !important;
-  padding-right: 14px !important;
-  background: #f8f0d6 !important;
-  border: 1px solid #d8cba1 !important;
-  border-radius: 18px !important;
-}
-@media screen and (min-width: 990px) {
-  .theme-product-page__badge {
-    max-width: 430px !important;
-    width: auto !important;
-    min-height: 39px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    margin: 18px 0 8px 0 !important;
-  }
-  .theme-product-page__intro {
-    max-width: 772px !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    text-align: left !important;
-  }
-}
-.theme-product-page__intro,
-.theme-product-page__cert-note,
-.theme-product-page__description-block,
-.theme-delivery-row__item span {
-  color: rgba(31, 77, 61, 0.72) !important;
-}
-.theme-product-page__quote-wrap,
-div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
-  background: #fbf9f4 !important;
-  border-left: 3px solid #d8a546 !important;
-  padding: 14px 20px !important;
-  border-radius: 4px !important;
-}
-.theme-product-page__quote-wrap p,
-.theme-product-page__quote,
-div[class*="border-l-[4px]"][class*="border-[#f3b324]"] p {
-  color: rgba(31, 77, 61, 0.78) !important;
-  line-height: 1.45 !important;
-}
-
-/* 2. Add-on Support Card */
-.theme-upsell-card {
-  margin-top: 10px !important;
-  background: #8f4f36 !important;
-  border-radius: 12px !important;
-  padding: 10px 12px !important;
-  min-height: clamp(2.8rem, 6vh, 3.25rem) !important;
-  height: auto !important;
-}
-.theme-upsell-card__button {
-  background: #f4bb28 !important;
-  color: #1c2018 !important;
-  border-radius: 10px !important;
-  padding: clamp(6px, 1.2vw, 8px) clamp(12px, 2vw, 16px) !important;
-  font-weight: 700 !important;
-  font-size: 13px !important;
-}
-
-/* 3. What to Expect & Timeline */
-.theme-timeline__desktop-bottom,
-.theme-timeline__desktop-only {
-  background: #ffffff !important;
-}
+/* Next.js parity reset: desktop timeline layout (remove boxed cards) */
 .theme-timeline__heading-band {
   background: #1f4d3d !important;
   color: #faf8f5 !important;
-  padding: 20px 24px 20px !important;
-}
-.theme-timeline__desktop-col {
-  border: 1px solid #1f4d3d0f !important;
-  border-radius: 8px !important;
-  overflow: hidden !important;
-}
-.theme-timeline__desktop-top {
-  min-height: clamp(5.5rem, 10vh, 7rem) !important;
-  padding: 12px 16px !important;
-}
-.theme-timeline__desktop-bottom {
-  padding: 16px 16px 20px !important;
-}
-.theme-timeline__desktop-label {
-  font-size: 11px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.12em !important;
-  color: #946c1c !important;
-  text-align: center !important;
-}
-.theme-timeline__desktop-title {
-  font-size: 21px !important;
-  line-height: 1.15 !important;
-  margin-top: 6px !important;
-  text-align: center !important;
-  color: #1f4d3d !important;
-}
-.theme-timeline__desktop-body {
-  font-size: 13px !important;
-  line-height: 1.4 !important;
-  color: rgba(31, 77, 61, 0.72) !important;
-  text-align: center !important;
-  margin-top: 8px !important;
-}
-.theme-timeline__footnote {
-  margin-top: 18px !important;
-  margin-bottom: 0 !important;
-}
-.theme-timeline-section {
-  padding-bottom: 24px !important;
 }
 
-/* 4. "What's in it. What is not." Section */
-.theme-ingredient-story__whats-in-it {
-  padding-top: 28px !important;
-  padding-bottom: 28px !important;
-}
-.theme-dual-panel {
-  margin-top: 24px !important;
-  max-width: clamp(768px, 78vw, 960px) !important;
-  gap: clamp(16px, 2.5vw, 24px) !important;
-}
-.theme-dual-panel .theme-panel {
-  min-height: auto !important;
-  padding: clamp(16px, 2vw, 24px) !important;
-}
-.theme-dual-panel .theme-list {
-  gap: 1.5rem !important;
-}
-.theme-dual-panel .theme-list__title {
-  font-family: var(--theme-body-font) !important;
-  font-weight: 700 !important;
-  font-size: 13px !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  color: #1f4d3d !important;
-}
-.theme-dual-panel .theme-panel--dark .theme-list__title {
-  color: #ffffff !important;
-}
-.theme-dual-panel .theme-list__text {
-  font-family: var(--theme-body-font) !important;
-  font-size: 13px !important;
-  line-height: 1.4 !important;
-  color: rgba(31, 77, 61, 0.72) !important;
-  margin-top: 4px !important;
-}
-.theme-dual-panel .theme-panel--dark .theme-list__text {
-  color: rgba(255, 255, 255, 0.85) !important;
+.theme-timeline__heading-band .theme-section-heading__kicker {
+  color: rgba(247, 243, 233, 0.55) !important;
 }
 
-/* 5. Kerala Ayurveda Difference Accordion */
-.theme-product-page__section--story .theme-difference-panel .theme-accordion__title,
-.theme-difference-panel .theme-accordion__title {
-  font-family: 'Amstir', 'Avenir', serif !important;
-  text-transform: uppercase !important;
-  font-size: 21px !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.05em !important;
-}
-.theme-product-page__section--story .theme-difference-panel .theme-accordion__summary,
-.theme-difference-panel .theme-accordion__summary {
-  min-height: clamp(2.75rem, 5vh, 3.25rem) !important;
-  padding: 6px 0 !important;
-  align-items: flex-start !important;
-}
-.theme-difference-panel .theme-accordion__title,
-.theme-product-page__section--story .theme-difference-panel .theme-accordion__title {
-  margin-top: 0 !important;
-  line-height: 1.2 !important;
-}
-.theme-product-page__section--story .theme-difference-panel .theme-accordion__item,
-.theme-difference-panel .theme-accordion__item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
-}
-
-/* 6. Review Strip after Kerala Ayurveda Difference */
-.theme-difference-reviews-wrap {
-  margin-top: 0 !important;
-  padding-top: 24px !important;
-  padding-bottom: 16px !important;
-}
-.theme-difference-reviews-wrap .theme-review-grid--story .theme-review-card__quote {
+.theme-timeline__heading-band .theme-section-heading__title {
   color: #faf8f5 !important;
-  opacity: 0.95 !important;
-  font-weight: 400 !important;
-  line-height: 1.4 !important;
-}
-.theme-review-card__top {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: flex-end !important;
-}
-.theme-review-card__stars {
-  margin-bottom: 2px !important;
-}
-
-/* 7. Key Ingredients Section */
-.theme-key-ingredients {
-  padding-top: 24px !important;
-}
-.theme-key-ingredients--desktop {
-  max-width: clamp(960px, 85vw, 1200px) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  gap: clamp(16px, 2vw, 20px) !important;
-}
-.theme-ingredient-desktop__media {
-  height: clamp(140px, 12vw, 180px) !important;
-  width: 100% !important;
-  object-fit: cover !important;
-}
-.theme-ingredient-desktop__body {
-  padding: clamp(16px, 1.8vw, 20px) !important;
-}
-.theme-ingredient-desktop__title {
-  font-family: var(--theme-heading-font) !important;
-  font-size: 24px !important;
   line-height: 1 !important;
-  color: #1f4d3d !important;
-}
-.theme-ingredient-desktop__text {
-  font-family: var(--theme-body-font) !important;
-  font-size: 13px !important;
-  line-height: 1.4 !important;
-  color: rgba(31, 77, 61, 0.72) !important;
-  margin-top: 8px !important;
-}
-.theme-key-ingredients .theme-product-page__section,
-.theme-key-ingredients .theme-product-page__section--soft {
-  padding-bottom: 24px !important;
 }
 
-/* 8. Three Milks Section */
-.theme-milk-desktop__image-wrap {
-  width: clamp(70px, 8vw, 90px) !important;
-  height: clamp(70px, 8vw, 90px) !important;
-  border: 1px solid rgba(31, 77, 61, 0.12) !important;
-  padding: 4px !important;
+.theme-timeline__heading-band .theme-section-heading__text,
+.theme-timeline__heading-band .theme-section-heading__text p {
+  color: rgba(247, 243, 233, 0.78) !important;
 }
-.theme-milk-desktop__media {
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 9999px !important;
-  object-fit: cover !important;
-}
-.theme-milk-grid--desktop {
-  max-width: clamp(768px, 78vw, 960px) !important;
-  gap: clamp(16px, 2vw, 20px) !important;
-}
-.theme-milk-desktop {
-  padding: clamp(16px, 2vw, 20px) !important;
-  background-color: #fcfbf7 !important;
-  border: 1px solid #1f4d3d0f !important;
-}
+
 @media screen and (min-width: 990px) {
-  .theme-patch-test--desktop {
-    margin: 1.5rem auto 0 !important;
-    padding: 8px 24px !important;
-    max-width: clamp(240px, 25vw, 320px) !important;
-    height: auto !important;
-    font-size: 11px !important;
+  .theme-timeline__desktop-only {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    background: #ffffff !important;
   }
-}
 
-/* 9. Your Easy Massage Ritual Section */
-.theme-steps-section {
-  margin-top: 24px !important;
-  padding-top: 0 !important;
-}
-.theme-step-hero {
-  max-height: clamp(280px, 28vh, 380px) !important;
-}
-.theme-step-hero img {
-  height: clamp(280px, 28vh, 380px) !important;
-  object-fit: cover !important;
-  object-position: center 25% !important;
-}
-.theme-step-cell-desktop {
-  min-height: clamp(6.5rem, 12vh, 8.125rem) !important;
-  padding: 16px clamp(12px, 1.8vw, 20px) 16px !important;
-}
-.theme-step-cell-desktop__title {
-  margin-top: 6px !important;
-  font-size: 13px !important;
-  letter-spacing: 0.16em !important;
-}
-.theme-step-cell-desktop__text {
-  margin-top: 12px !important;
-  font-size: 13px !important;
-  line-height: 1.4 !important;
-  color: rgba(31, 77, 61, 0.72) !important;
-}
-.theme-step-cell-desktop__number {
-  font-size: 24px !important;
-}
-
-/* 10. Go Deeper Accordion */
-.theme-info-panel--wide .theme-accordion__summary {
-  min-height: clamp(2.75rem, 5vh, 3.375rem) !important;
-  padding: 12px clamp(16px, 2vw, 24px) !important;
-}
-.theme-info-panel--wide .theme-accordion__title {
-  font-size: 16px !important;
-  font-weight: 500 !important;
-  font-family: var(--theme-body-font) !important;
-  letter-spacing: 0.05em !important;
-  color: #1f4d3d !important;
-}
-.theme-info-panel--wide .theme-accordion__content {
-  padding: 12px clamp(16px, 2vw, 24px) 20px !important;
-}
-.theme-info-panel--wide {
-  max-width: clamp(768px, 78vw, 960px) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  border: 1px solid #1f4d3d0f !important;
-}
-.theme-information {
-  padding-bottom: 24px !important;
-}
-
-/* 11. Full Spectrum / Patented Formulations Section */
-.theme-brand-trust__desktop,
-.theme-brand-trust-section,
-.theme-brand-trust {
-  background: #1f4d3d !important;
-}
-.theme-brand-trust__desktop-content {
-  padding-top: 1.5rem !important;
-  padding-bottom: 1.5rem !important;
-}
-.theme-brand-trust__desktop-title {
-  margin-top: 0 !important;
-  font-family: 'Amstir', 'Avenir', serif !important;
-  font-size: 32px !important;
-}
-.theme-brand-trust__desktop-divider {
-  margin: 1.25rem 0 !important;
-}
-.theme-brand-trust__desktop-patent-container {
-  margin-top: 1.25rem !important;
-}
-.theme-brand-trust__desktop-seal-container {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 1.5rem !important;
-  min-height: 100% !important;
-}
-.theme-brand-trust__desktop-patent-card {
-  padding: 10px clamp(12px, 1.5vw, 16px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  border-radius: 8px !important;
-  min-width: auto !important;
-  flex: 1 1 calc(50% - 12px) !important;
-}
-.theme-brand-trust__desktop-flag {
-  height: 1.5rem !important;
-}
-.theme-brand-trust__desktop-patent-title {
-  font-size: 13px !important;
-  margin-top: 6px !important;
-}
-
-/* 12. Customer Reviews Section */
-.theme-customer-reviews .theme-product-page__section {
-  padding-top: 32px !important;
-}
-.theme-reviews-header-wrap {
-  width: 100% !important;
-  max-width: 100% !important;
-  display: block !important;
-  text-align: center !important;
-  margin-bottom: 24px !important;
-}
-.theme-reviews-rating-header {
-  position: absolute !important;
-  right: clamp(16px, 2.5vw, 24px) !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-}
-.theme-reviews-rating-header__value {
-  font-size: 24px !important;
-  line-height: 1 !important;
-  font-weight: 700 !important;
-  color: #1f4d3d !important;
-}
-.theme-reviews-rating-header__stars {
-  margin-top: 4px !important;
-}
-.theme-review-grid {
-  gap: clamp(24px, 3.5vw, 40px) clamp(32px, 5vw, 64px) !important;
-}
-.theme-reviews-footer {
-  margin-top: 24px !important;
-}
-.theme-reviews-footer .theme-reviews-button {
-  padding: 10px clamp(16px, 2vw, 24px) !important;
-  border-radius: 14px !important;
-  height: auto !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-}
-
-/* 13. Footer Section */
-.theme-footer {
-  padding-top: 36px !important;
-  padding-bottom: 36px !important;
-}
-.theme-footer-social-wrapper {
-  margin-top: 18px !important;
-  border-top: 0 !important;
-  padding-top: 0 !important;
-}
-@media screen and (min-width: 1024px) {
-  .theme-footer-social-wrapper {
-    margin-top: 18px !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+  .theme-timeline__desktop-col {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    overflow: visible !important;
+    text-align: center !important;
   }
-  .theme-footer-social-content {
-    border-top: 1px solid rgba(31, 77, 61, 0.12) !important;
-    padding-top: 18px !important;
-    margin-top: 0 !important;
+
+  .theme-timeline__desktop-col:not(:last-child) {
+    border-right: 1px solid rgba(23, 55, 45, 0.06) !important;
   }
-  .theme-footer-tagline-content {
-    padding-top: 1.5rem !important;
-    padding-bottom: 2rem !important;
+
+  .theme-timeline__desktop-top {
+    display: grid !important;
+    grid-template-columns: 116px 1fr !important;
+    align-items: center !important;
+    gap: 20px !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 16px 20px !important;
+    border-radius: 0 !important;
+    background: #f5f1e9 !important;
+  }
+
+  .theme-timeline__desktop-phase {
     text-align: left !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.02em !important;
+    text-transform: uppercase !important;
+    color: rgba(23, 55, 45, 0.38) !important;
   }
-  .theme-footer-tagline-p {
+
+  .theme-timeline__desktop-img-wrap {
+    width: 100% !important;
+    height: 94px !important;
+    overflow: hidden !important;
+    border: 1px solid #e9b443 !important;
+    border-radius: 18px !important;
+  }
+
+  .theme-timeline__desktop-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .theme-timeline__desktop-bottom {
+    margin: 0 !important;
+    padding: 16px 20px 24px !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .theme-timeline__desktop-label {
     font-size: 16px !important;
-    color: rgba(31, 77, 61, 0.44) !important;
-    letter-spacing: 0.05em !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    color: #946c1c !important;
   }
-  .theme-footer-brand {
-    padding-top: 0 !important;
-    margin-top: -6px !important;
+
+  .theme-timeline__desktop-title {
+    margin-top: 8px !important;
+    font-size: 28px !important;
+    line-height: 1.02 !important;
+    color: #1f4d3d !important;
   }
-}
-.theme-footer-social__icons {
-  margin-top: 10px !important;
-  gap: 12px !important;
-}
-.theme-footer-social__icon,
-.theme-footer-social__icon svg {
-  width: clamp(1.5rem, 2vw, 1.75rem) !important;
-  height: clamp(1.5rem, 2vw, 1.75rem) !important;
-}
-.theme-footer-list a {
-  font-size: 13px !important;
-  line-height: 1.5 !important;
-  color: rgba(31, 77, 61, 0.72) !important;
-  font-weight: 400 !important;
-}
-.theme-footer-column__title {
-  font-size: 13px !important;
-  line-height: 1.2 !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.1em !important;
-  color: #1f4d3d !important;
-  margin-bottom: 12px !important;
+
+  .theme-timeline__desktop-body {
+    max-width: 330px !important;
+    margin: 16px auto 0 !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    color: rgba(23, 55, 45, 0.72) !important;
+  }
+
+  .theme-timeline__footnote {
+    margin-top: 32px !important;
+    margin-bottom: 0 !important;
+  }
 }
