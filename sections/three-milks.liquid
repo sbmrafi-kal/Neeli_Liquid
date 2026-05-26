@@ -1,87 +1,107 @@
+{{ 'three-milks.css' | asset_url | stylesheet_tag }}
+
+
+
 <section class="theme-three-milks">
   <div class="container-narrow theme-three-milks__container">
     <div class="theme-section-heading theme-section-heading--center">
-      <div class="theme-section-heading__kicker theme-three-milks__kicker">The secret base</div>
-      <h2 class="theme-section-heading__title theme-three-milks__title">Three milks. One complete formula.</h2>
-      <p class="theme-section-heading__text theme-three-milks__text">Three nourishing milks work together for a healthier scalp and stronger, smoother hair.</p>
+      <div class="theme-section-heading__kicker theme-three-milks__kicker">{{ section.settings.kicker }}</div>
+      <h2 class="theme-section-heading__title theme-three-milks__title">{{ section.settings.heading }}</h2>
+      <p class="theme-section-heading__text theme-three-milks__text">{{ section.settings.text }}</p>
     </div>
 
-    <!-- Mobile View -->
-    <div class="theme-three-milks__mobile-grid">
-      <article class="theme-three-milks__mobile-card motion-panel">
-        <div class="theme-three-milks__mobile-image-wrap">
-          <img src="{{ 'Coconut_milk.png' | asset_url }}" alt="Coconut milk" class="theme-three-milks__mobile-image" width="62" height="62" />
-        </div>
-        <div class="theme-three-milks__mobile-content">
-          <h3 class="theme-three-milks__mobile-title">Coconut milk</h3>
-          <p class="theme-three-milks__mobile-desc">Nourishes and moisturizes the scalp.</p>
-        </div>
-      </article>
-      <article class="theme-three-milks__mobile-card motion-panel">
-        <div class="theme-three-milks__mobile-image-wrap">
-          <img src="{{ 'Goat_milk.png' | asset_url }}" alt="Goat milk" class="theme-three-milks__mobile-image" width="62" height="62" />
-        </div>
-        <div class="theme-three-milks__mobile-content">
-          <h3 class="theme-three-milks__mobile-title">Goat milk</h3>
-          <p class="theme-three-milks__mobile-desc">Addresses dandruff and improves hair texture.</p>
-        </div>
-      </article>
-      <article class="theme-three-milks__mobile-card motion-panel">
-        <div class="theme-three-milks__mobile-image-wrap">
-          <img src="{{ 'Cow_milk.png' | asset_url }}" alt="Cow milk" class="theme-three-milks__mobile-image" width="62" height="62" />
-        </div>
-        <div class="theme-three-milks__mobile-content">
-          <h3 class="theme-three-milks__mobile-title">Cow milk</h3>
-          <p class="theme-three-milks__mobile-desc">Controls hair fall and promotes hair growth.</p>
-        </div>
-      </article>
+    <!-- Mobile View (Stacked with arrows) -->
+    <div class="theme-three-milks__mobile-grid lg:hidden">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'milk' -%}
+          <article class="theme-three-milks__mobile-card motion-panel" {{ block.shopify_attributes }}>
+            <div class="theme-three-milks__mobile-image-wrap">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 124 | image_tag: class: 'theme-three-milks__mobile-image', loading: 'lazy' }}
+              {%- else -%}
+                <img src="{{ 'coconut_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__mobile-image" width="62" height="62" loading="lazy" />
+              {%- endif -%}
+            </div>
+            <div class="theme-three-milks__mobile-content">
+              <h3 class="theme-three-milks__mobile-title">{{ block.settings.title }}</h3>
+              <p class="theme-three-milks__mobile-desc">{{ block.settings.text }}</p>
+            </div>
+          </article>
+          
+          {%- if forloop.last == false -%}
+          <div class="theme-three-milks__mobile-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          </div>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
     </div>
 
-    <!-- Desktop View -->
-    <div class="theme-three-milks__desktop-grid">
-      <article class="theme-three-milks__card motion-panel">
-        <div class="theme-three-milks__image-wrap">
-          <img src="{{ 'Coconut_milk.png' | asset_url }}" alt="Coconut milk" class="theme-three-milks__image" width="94" height="94" />
-        </div>
-        <h3 class="theme-three-milks__card-title">Coconut milk</h3>
-        <p class="theme-three-milks__card-desc">Nourishes and moisturizes the scalp.</p>
-      </article>
-      <article class="theme-three-milks__card motion-panel">
-        <div class="theme-three-milks__image-wrap">
-          <img src="{{ 'Goat_milk.png' | asset_url }}" alt="Goat milk" class="theme-three-milks__image" width="94" height="94" />
-        </div>
-        <h3 class="theme-three-milks__card-title">Goat milk</h3>
-        <p class="theme-three-milks__card-desc">Addresses dandruff and improves hair texture.</p>
-      </article>
-      <article class="theme-three-milks__card motion-panel">
-        <div class="theme-three-milks__image-wrap">
-          <img src="{{ 'Cow_milk.png' | asset_url }}" alt="Cow milk" class="theme-three-milks__image" width="94" height="94" />
-        </div>
-        <h3 class="theme-three-milks__card-title">Cow milk</h3>
-        <p class="theme-three-milks__card-desc">Controls hair fall and promotes hair growth.</p>
-      </article>
+    <!-- Desktop View (Side by side cards) -->
+    <div class="theme-three-milks__desktop-grid hidden lg:grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'milk' -%}
+          <article class="theme-three-milks__card motion-panel" {{ block.shopify_attributes }}>
+            <div class="theme-three-milks__image-wrap">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 188 | image_tag: class: 'theme-three-milks__image', loading: 'lazy' }}
+              {%- else -%}
+                <img src="{{ 'coconut_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__image" width="94" height="94" loading="lazy" />
+              {%- endif -%}
+            </div>
+            <h3 class="theme-three-milks__card-title">{{ block.settings.title }}</h3>
+            <p class="theme-three-milks__card-desc">{{ block.settings.text }}</p>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
     </div>
 
-    <!-- Alert Pill -->
-    <div class="theme-three-milks__alert theme-three-milks__alert--desktop">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="theme-three-milks__alert-icon">
-        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-      <span>Always patch test first</span>
+    <div class="theme-patch-test-wrap">
+      <button type="button" class="theme-patch-test-btn" onclick="this.parentElement.classList.toggle('is-active')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <span>Always patch test first</span>
+      </button>
+      <div class="theme-patch-test-tooltip">
+        Apply a small amount behind the ear or on the inner elbow. Wait 24–48 hours. If no redness or irritation appears, proceed with regular use
+      </div>
     </div>
-    <div class="theme-three-milks__alert theme-three-milks__alert--mobile">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="theme-three-milks__alert-icon">
-        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-      <span>Always patch test first</span>
-    </div>
+
   </div>
 </section>
+
+<script>
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.theme-patch-test-wrap')) {
+      document.querySelectorAll('.theme-patch-test-wrap.is-active').forEach(function(el) {
+        el.classList.remove('is-active');
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {
   "name": "Three milks base",
-  "settings": [],
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Why the three milks?" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "A unique Ayurvedic extraction process." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Three nourishing milks work together for a healthier scalp and stronger, smoother hair." },
+    { "type": "text", "id": "tooltip_text", "label": "Tooltip text", "default": "Note: Patch test recommended. Some oils may cause fungal acne." }
+  ],
+  "blocks": [
+    {
+      "type": "milk",
+      "name": "Milk",
+      "limit": 3,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "text", "label": "Description" }
+      ]
+    }
+  ],
   "presets": [{ "name": "Three milks base" }]
 }
 {% endschema %}

@@ -1,0 +1,209 @@
+  .theme-timeline-header-banner {
+    background-color: #244b3c;
+    color: #fbf9f4;
+    text-align: center;
+    padding: 32px 16px;
+    margin-bottom: 40px;
+  }
+  .theme-timeline-header-banner__kicker {
+    font-family: var(--theme-body-font);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(251, 249, 244, 0.7);
+    margin-bottom: 8px;
+  }
+  .theme-timeline-header-banner__title {
+    font-family: var(--theme-heading-font), serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #fbf9f4;
+    margin: 0 0 4px;
+  }
+  .theme-timeline-header-banner__text {
+    font-family: var(--theme-body-font);
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(251, 249, 244, 0.9);
+  }
+  
+  .theme-timeline-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  
+  @media screen and (min-width: 990px) {
+    .theme-timeline-grid {
+      flex-direction: row;
+      gap: 24px;
+    }
+  }
+  
+  .theme-timeline-stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .theme-timeline-stage__top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .theme-timeline-stage__phase {
+    font-family: var(--theme-body-font);
+    font-size: 14px;
+    font-weight: 700;
+    color: #a3b1a9;
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: 90px;
+    text-align: right;
+  }
+  
+  .theme-timeline-stage__img-wrap {
+    flex: 1;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.1);
+    height: 80px;
+  }
+  
+  .theme-timeline-stage__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .theme-timeline-stage__bottom {
+    text-align: center;
+    padding: 0 12px;
+  }
+  
+  .theme-timeline-stage__label {
+    font-family: var(--theme-body-font);
+    font-size: 11px;
+    font-weight: 700;
+    color: #8f4f36;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  
+  .theme-timeline-stage__title {
+    font-family: var(--theme-heading-font), serif;
+    font-size: 20px;
+    color: #1f4d3d;
+    font-weight: 400;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  
+  .theme-timeline-stage__body {
+    font-family: var(--theme-body-font);
+    font-size: 14px;
+    color: rgba(31, 77, 61, 0.8);
+    line-height: 1.4;
+  }
+  
+  .theme-timeline__footer-text {
+    text-align: center;
+    margin-top: 48px;
+  }
+  
+  .theme-timeline__footnote {
+    font-family: var(--theme-body-font);
+    font-size: 11px;
+    font-style: italic;
+    color: rgba(31, 77, 61, 0.6);
+    margin-bottom: 8px;
+  }
+  
+  .theme-timeline__disclaimer {
+    font-family: var(--theme-body-font);
+    font-size: 14px;
+    color: #1f4d3d;
+  }
+  
+  .theme-upsell-cross-sell {
+    background: #fbf9f4;
+    padding: 32px 16px;
+    margin-top: 48px;
+  }
+  .theme-upsell-cross-sell__inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .theme-upsell-cross-sell__label {
+    font-family: var(--theme-body-font);
+    font-size: 13px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 12px;
+  }
+  .theme-upsell-cross-sell__card {
+    background: #8f4f36;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .theme-upsell-cross-sell__img {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #fff;
+  }
+  .theme-upsell-cross-sell__content {
+    flex: 1;
+    color: #fff;
+  }
+  .theme-upsell-cross-sell__title {
+    font-family: var(--theme-body-font);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .theme-upsell-cross-sell__text {
+    font-family: var(--theme-body-font);
+    font-size: 12px;
+    opacity: 0.8;
+  }
+  .theme-upsell-cross-sell__btn {
+    background: #fff;
+    color: #000;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  /* Mobile specific adjustments */
+  @media screen and (max-width: 989px) {
+    .theme-timeline-stage__top {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .theme-timeline-stage__img-wrap {
+      width: 100%;
+      height: 120px;
+    }
+    .theme-timeline-stage__phase {
+      width: auto;
+      text-align: center;
+    }
+  }

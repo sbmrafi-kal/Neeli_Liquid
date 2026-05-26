@@ -13,7 +13,7 @@
         "badge": {
           "type": "text",
           "settings": {
-            "text": "• Minimizes hair fall • Supports hair growth"
+            "text": "\u2022 Minimizes hair fall \u2022 Supports hair growth"
           }
         },
         "title": {
@@ -51,35 +51,28 @@
           "settings": {
             "title": "Add internal support",
             "text": "Bringarajasava - fermented herbal brew for hair growth from within.",
-            "button_label": "+ ₹225"
+            "button_label": "+ \u20b9225"
           }
         },
         "stat_1": {
           "type": "hero_stat",
           "settings": {
-            "value": "4.64★",
-            "label": "Ratings"
+            "value": "1945",
+            "label": "Established"
           }
         },
         "stat_2": {
           "type": "hero_stat",
           "settings": {
-            "value": "312",
-            "label": "Reviews"
+            "value": "350+",
+            "label": "Products"
           }
         },
         "stat_3": {
           "type": "hero_stat",
           "settings": {
-            "value": "30",
-            "label": "Uses"
-          }
-        },
-        "stat_4": {
-          "type": "hero_stat",
-          "settings": {
-            "value": "300+",
-            "label": "Happy Customers"
+            "value": "Clinics & Academy",
+            "label": "Expert led"
           }
         }
       },
@@ -93,8 +86,7 @@
         "upsell",
         "stat_1",
         "stat_2",
-        "stat_3",
-        "stat_4"
+        "stat_3"
       ],
       "settings": {
         "color_scheme": "scheme-1",
@@ -232,7 +224,7 @@
           "type": "story_review",
           "settings": {
             "name": "Priya M.",
-            "meta": "BENGALURU • 6 WEEKS",
+            "meta": "BENGALURU \u2022 6 WEEKS",
             "badge": "LESS FALL - WEEK 3",
             "quote": "Less hair in the shower drain by week three. That was the first sign it was working. The routine is simple enough<br>to actually stick with."
           }
@@ -241,7 +233,7 @@
           "type": "story_review",
           "settings": {
             "name": "Arjun V.",
-            "meta": "KOCHI • 3 MONTHS",
+            "meta": "KOCHI \u2022 3 MONTHS",
             "badge": "DENSITY IMPROVED",
             "quote": "New growth visible at the temples after three months. Consistent use was the key. It's a recovery system, not a<br>quick fix."
           }
@@ -357,7 +349,7 @@
           "settings": {
             "icon": "ruler",
             "title": "Frequently asked",
-            "text": "<p><strong>When Will I See Results?</strong><br>Reduced hair fall is typically noticed within 2–3 weeks. Visible improvement in growth and texture requires 2+ months of consistent use. Recovery is a process, not a single event.</p><p><strong>Does It Help With Greying?</strong><br>Yes. Neeli and Bhringaraja are traditionally used to help minimise premature greying and support natural hair colour.</p><p><strong>Can I Use It On Coloured Hair?</strong><br>Yes. The formula is gentle. It may slightly darken hair over extended use due to the Bhringaraja and Neeli content.</p><p><strong>Is It Safe During Pregnancy?</strong><br>This is an external-use oil with no known contraindicated ingredients for topical application. However, as with any product during pregnancy or nursing, we recommend consulting your doctor before starting a new regimen.</p>"
+            "text": "<p><strong>When Will I See Results?</strong><br>Reduced hair fall is typically noticed within 2\u20133 weeks. Visible improvement in growth and texture requires 2+ months of consistent use. Recovery is a process, not a single event.</p><p><strong>Does It Help With Greying?</strong><br>Yes. Neeli and Bhringaraja are traditionally used to help minimise premature greying and support natural hair colour.</p><p><strong>Can I Use It On Coloured Hair?</strong><br>Yes. The formula is gentle. It may slightly darken hair over extended use due to the Bhringaraja and Neeli content.</p><p><strong>Is It Safe During Pregnancy?</strong><br>This is an external-use oil with no known contraindicated ingredients for topical application. However, as with any product during pregnancy or nursing, we recommend consulting your doctor before starting a new regimen.</p>"
           }
         },
         "faq_1": {
@@ -469,7 +461,35 @@
     },
     "three_milks": {
       "type": "three-milks",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "milk_1": {
+          "type": "milk",
+          "settings": {
+            "title": "Coconut milk",
+            "text": "Rich in lauric acid, nourishes and moisturizes the scalp."
+          }
+        },
+        "milk_2": {
+          "type": "milk",
+          "settings": {
+            "title": "Cow milk",
+            "text": "Carries the herbal extract deep into the follicles."
+          }
+        },
+        "milk_3": {
+          "type": "milk",
+          "settings": {
+            "title": "Goat milk",
+            "text": "The most easily absorbed milk, addresses dandruff."
+          }
+        }
+      },
+      "block_order": [
+        "milk_1",
+        "milk_2",
+        "milk_3"
+      ]
     },
     "massage_ritual": {
       "type": "massage-ritual",

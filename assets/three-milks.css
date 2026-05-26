@@ -1,0 +1,190 @@
+.theme-three-milks {
+    background: #ffffff;
+    padding: 48px 0;
+  }
+  .theme-three-milks__kicker {
+    font-family: var(--theme-body-font);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8f4f36;
+    margin-bottom: 8px;
+  }
+  .theme-three-milks__title {
+    font-family: var(--theme-heading-font), serif;
+    font-size: 32px;
+    color: #1f4d3d;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+  .theme-three-milks__text {
+    font-family: var(--theme-body-font);
+    font-size: 16px;
+    color: rgba(31, 77, 61, 0.8);
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+  .theme-three-milks__mobile-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 0 16px;
+  }
+  .theme-three-milks__mobile-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 400px;
+  }
+  .theme-three-milks__mobile-image-wrap {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .theme-three-milks__mobile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .theme-three-milks__mobile-content {
+    flex: 1;
+  }
+  .theme-three-milks__mobile-title {
+    font-family: var(--theme-body-font);
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f4d3d;
+    margin-bottom: 4px;
+  }
+  .theme-three-milks__mobile-desc {
+    font-family: var(--theme-body-font);
+    font-size: 14px;
+    color: rgba(31, 77, 61, 0.8);
+  }
+  .theme-three-milks__mobile-arrow {
+    display: flex;
+    justify-content: center;
+    color: #8f4f36;
+    margin: 8px 0;
+  }
+  
+  .theme-three-milks__desktop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  .theme-three-milks__card {
+    background: #fbf9f4;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .theme-three-milks__image-wrap {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .theme-three-milks__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .theme-three-milks__card-title {
+    font-family: var(--theme-body-font);
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f4d3d;
+    margin-bottom: 8px;
+  }
+  .theme-three-milks__card-desc {
+    font-family: var(--theme-body-font);
+    font-size: 15px;
+    color: rgba(31, 77, 61, 0.8);
+    line-height: 1.4;
+  }
+  
+  @media screen and (max-width: 989px) {
+    .lg\:hidden { display: flex !important; }
+    .hidden.lg\:grid { display: none !important; }
+  }
+  @media screen and (min-width: 990px) {
+    .lg\:hidden { display: none !important; }
+    .hidden.lg\:grid { display: grid !important; }
+  }
+
+  .theme-patch-test-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: var(--theme-body-font);
+    font-size: 14px;
+    font-weight: 700;
+    color: #1f4d3d;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 32px;
+    transition: opacity 0.2s;
+  }
+  .theme-patch-test-btn:hover {
+    opacity: 0.8;
+  }
+  
+  .theme-patch-test-tooltip {
+    position: absolute;
+    background: #8f4f36;
+    color: #ffffff;
+    font-family: var(--theme-body-font);
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 16px;
+    border-radius: 8px;
+    max-width: 320px;
+    text-align: center;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .theme-patch-test-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: #8f4f36 transparent transparent transparent;
+  }
+  
+  .theme-patch-test-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .theme-patch-test-wrap.is-active .theme-patch-test-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-12px);
+  }

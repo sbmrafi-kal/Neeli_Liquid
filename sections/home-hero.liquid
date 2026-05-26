@@ -2,37 +2,7 @@
   {{ 'section-home-hero.css' | asset_url | stylesheet_tag }}
   {{ 'home-hero.js' | asset_url | script_tag }}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-
-  .theme-product-info-desktop {
-    display: none;
-  }
-  
-  .theme-product-info-mobile {
-    display: block;
-    margin-top: 1.5rem;
-  }
-
-  @media screen and (min-width: 990px) {
-    .theme-product-info-desktop {
-      display: block;
-    }
-    .theme-product-info-mobile {
-      display: none;
-    }
-  }
-{%- endstyle -%}
 
 {%- assign hero_images = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' -%}
 {%- assign hero_thumbs = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' -%}
@@ -40,7 +10,7 @@
 
 <section
   id="NeeliHomeHero-{{ section.id }}"
-  class="theme-product-page theme-reveal section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="theme-product-page theme-reveal  gradient color-{{ section.settings.color_scheme }}" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;"
   data-section="{{ section.id }}"
 >
   <script src="{{ 'theme-product-page.js' | asset_url }}" defer="defer"></script>

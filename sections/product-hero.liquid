@@ -1,39 +1,9 @@
   {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
   {{ 'section-product-hero.css' | asset_url | stylesheet_tag }}
+  {{ 'sticky-cart-bar.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'product-hero.js' | asset_url }}" defer="defer"></script>
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: 0px !important;
-    padding-bottom: 32px;
-  }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: 0px !important;
-      padding-bottom: 32px;
-    }
-  }
-
-  .theme-product-info-desktop {
-    display: none;
-  }
-
-  .theme-product-info-mobile {
-    display: block;
-    margin-top: 1.5rem;
-  }
-
-  @media screen and (min-width: 990px) {
-    .theme-product-info-desktop {
-      display: block;
-    }
-
-    .theme-product-info-mobile {
-      display: none;
-    }
-  }
-{%- endstyle -%}
 
 {%- assign product_override = all_products[section.settings.product] -%}
 {%- if product_override != blank -%}
@@ -46,7 +16,7 @@
 
 <section
   id="NeeliProduct-{{ section.id }}"
-  class="theme-product-page theme-reveal section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="theme-product-page theme-reveal  gradient color-{{ section.settings.color_scheme }}" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
 >
@@ -173,6 +143,41 @@
           </p>
         </div>
 
+        <div class="theme-product-page__form-card">
+          {%- if product != blank and product.selected_or_first_available_variant != blank -%}
+          {%- form 'product', product, id: "theme-product-form", class: "theme-product-form" -%}
+            {%- if product.variants.size > 1 -%}
+              <div class="theme-variant-boxes theme-variant-boxes--desktop">
+                {%- for variant in product.variants -%}
+                  <label class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}" for="Variant-{{ section.id }}-{{ forloop.index }}">
+                    <input type="radio" class="theme-variant-box__input" name="id" value="{{ variant.id }}" id="Variant-{{ section.id }}-{{ forloop.index }}"
+                      data-price="{{ variant.price | money }}"
+                      data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
+                      data-available="{{ variant.available }}"
+                      {% if variant == product.selected_or_first_available_variant %}checked{% endif %}>
+                    <div class="theme-variant-box__title">{{ variant.title }}</div>
+                    <div class="theme-variant-box__price-row">
+                      <span class="theme-variant-box__mrp">M.R.P.</span>
+                      <span class="theme-variant-box__price-new">{{ variant.price | money }}</span>
+                      {%- if variant.compare_at_price > variant.price -%}
+                        <span class="theme-variant-box__price-old">{{ variant.compare_at_price | money }}</span>
+                      {%- endif -%}
+                    </div>
+                  </label>
+                {%- endfor -%}
+              </div>
+            {%- else -%}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            {%- endif -%}
+            <input type="hidden" name="quantity" value="1">
+          {%- endform -%}
+          {%- endif -%}
+        </div>
+
+        <div class="theme-delivery-banner">
+          {{ section.settings.delivery_banner_text }}
+        </div>
+
         {%- assign quote_block = section.blocks | where: "type", "hero_quote" | first -%}
         <div class="theme-product-page__quote-wrap motion-panel">
           <div class="theme-product-page__quote">
@@ -191,182 +196,44 @@
           </div>
         </div>
 
-        {%- assign feature_block = section.blocks | where: "type", "hero_feature" | first -%}
-        <p class="theme-product-page__body theme-product-page__cert-note">
-          {%- if feature_block -%}
-            {{ feature_block.settings.title }} {{ feature_block.settings.text }}
-          {%- else -%}
-            Made by BAMS doctors in our GMP & ISO - certified facility. FDA compliant and AYUSH licensed.
-          {%- endif -%}
-        </p>
-
-        <div class="theme-stamp-card motion-panel">
-          <div class="theme-stamp-card__stamps">
-            <img src="{{ 'stamp_01_old.png' | asset_url }}" width="86" height="86" alt="Established 1945" class="theme-stamp-card__stamp-image" loading="lazy">
-            <img src="{{ 'stamp_02_old.png' | asset_url }}" width="86" height="86" alt="AYUSH certified" class="theme-stamp-card__stamp-image" loading="lazy">
-            <img src="{{ 'stamp_03_old.png' | asset_url }}" width="86" height="86" alt="FDA compliant" class="theme-stamp-card__stamp-image" loading="lazy">
-            <img src="{{ 'stamp_04_old.png' | asset_url }}" width="86" height="86" alt="ISO certified" class="theme-stamp-card__stamp-image" loading="lazy">
-            <img src="{{ 'stamp_05.png' | asset_url }}" width="86" height="86" alt="GMP certified" class="theme-stamp-card__stamp-image" loading="lazy">
-          </div>
-
-          <div class="theme-stamp-card__stats">
-            <div class="theme-stamp-card__stat">
-              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_1_value }}</div>
-              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_1_label }}</div>
-            </div>
-            <div class="theme-stamp-card__stat">
-              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_2_value }}</div>
-              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_2_label }}</div>
-            </div>
-            <div class="theme-stamp-card__stat">
-              <div class="theme-stamp-card__stat-value">{{ section.settings.stat_3_value }}</div>
-              <div class="theme-stamp-card__stat-label">{{ section.settings.stat_3_label }}</div>
-            </div>
-          </div>
-        </div>
-
         {%- if section.settings.description_block != blank -%}
+          <div class="theme-product-page__desc-title">{{ section.settings.description_title }}</div>
           <p class="theme-product-page__description-block">
             {{ section.settings.description_block }}
           </p>
         {%- endif -%}
 
-        <div class="theme-product-page__form-card">
-          <!-- Dynamic Shopify Form or Dummy Button for Preview -->
-          {%- if product != blank and product.selected_or_first_available_variant != blank -%}
-          {%- form 'product', product, id: "theme-product-form", class: "theme-product-form" -%}
-            <!-- Variant Select -->
-            {%- if product.variants.size > 1 -%}
-              <div class="theme-variant-picker theme-variant-picker--desktop">
-                <label for="ProductSelect-{{ section.id }}" class="theme-variant-picker__label">Select Option</label>
-                <select name="id" id="ProductSelect-{{ section.id }}" class="theme-variant-select theme-variant-select--desktop">
-                  {%- for variant in product.variants -%}
-                    <option value="{{ variant.id }}" 
-                      data-price="{{ variant.price | money }}"
-                      data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
-                      data-available="{{ variant.available }}"
-                      {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}>
-                      {{ variant.title }}
-                    </option>
-                  {%- endfor -%}
-                </select>
+        <div class="theme-new-cert-block motion-panel">
+          <div class="theme-new-cert-block__stats">
+            {%- assign stat_blocks = section.blocks | where: "type", "hero_stat" -%}
+            {%- for block in stat_blocks limit: 3 -%}
+              <div class="theme-new-cert-block__stat" {{ block.shopify_attributes }}>
+                <div class="theme-new-cert-block__stat-val">{{ block.settings.value }}</div>
+                <div class="theme-new-cert-block__stat-lbl">{{ block.settings.label }}</div>
               </div>
-            {%- else -%}
-              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-            {%- endif -%}
-
-            <input type="hidden" name="quantity" value="1">
-
-            <!-- Unified CTA Sheen Submit Button -->
-            <button type="submit" name="add" class="theme-reorder-btn theme-reorder-btn--desktop cta-sheen hover-rise" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
-              <div class="theme-reorder-btn__left">
-                <svg class="theme-reorder-btn__icon" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <div class="theme-reorder-btn__content">
-                  <div class="theme-reorder-btn__title">
-                    {%- if product.selected_or_first_available_variant.available -%}
-                      Reorder now
-                    {%- else -%}
-                      Sold Out
-                    {%- endif -%}
-                  </div>
-                  <div class="theme-reorder-btn__meta">
-                    {%- if section.settings.cta_meta != blank -%}
-                      {{ section.settings.cta_meta }}
-                    {%- else -%}
-                      Last ordered 28 Mar
-                    {%- endif -%}
-                  </div>
-                </div>
-              </div>
-              <div class="theme-reorder-btn__right">
-                <span class="theme-reorder-btn__price-old">₹350</span>
-                <span class="theme-reorder-btn__price-new">₹315</span>
-              </div>
-            </button>
-          {%- endform -%}
-          {%- else -%}
-            <!-- Dummy Button for preview when product is missing -->
-            <button type="button" class="theme-reorder-btn theme-reorder-btn--desktop cta-sheen hover-rise">
-              <div class="theme-reorder-btn__left">
-                <svg class="theme-reorder-btn__icon" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <div class="theme-reorder-btn__content">
-                  <div class="theme-reorder-btn__title">Reorder now</div>
-                  <div class="theme-reorder-btn__meta">
-                    {%- if section.settings.cta_meta != blank -%}
-                      {{ section.settings.cta_meta }}
-                    {%- else -%}
-                      Last ordered 28 Mar
-                    {%- endif -%}
-                  </div>
-                </div>
-              </div>
-              <div class="theme-reorder-btn__right">
-                <span class="theme-reorder-btn__price-old">₹350</span>
-                <span class="theme-reorder-btn__price-new">₹315</span>
-              </div>
-            </button>
-          {%- endif -%}
-        </div>
-
-        <div class="theme-delivery-row">
-          <div class="theme-delivery-row__item">
-            <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M15 18H9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
-              <circle cx="17" cy="18" r="2" stroke="currentColor" stroke-width="1.9" />
-              <circle cx="7" cy="18" r="2" stroke="currentColor" stroke-width="1.9" />
-            </svg>
-            <span>{{ section.settings.delivery_1_text }}</span>
+            {%- endfor -%}
           </div>
-          <div class="theme-delivery-row__item">
-            <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M12 18V6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" />
-            </svg>
-            <span>{{ section.settings.delivery_2_text }}</span>
-          </div>
-          <div class="theme-delivery-row__item">
-            <svg class="theme-delivery-row__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 14 4 9l5-5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <span>{{ section.settings.delivery_3_text }}</span>
+          <div class="theme-new-cert-block__stamps">
+            <img src="{{ 'stamp_02_old.png' | asset_url }}" width="86" height="86" alt="AYUSH certified" loading="lazy">
+            <img src="{{ 'stamp_04_old.png' | asset_url }}" width="86" height="86" alt="ISO certified" loading="lazy">
+            <img src="{{ 'stamp_05.png' | asset_url }}" width="86" height="86" alt="GMP certified" loading="lazy">
+            <img src="{{ 'stamp_03_old.png' | asset_url }}" width="86" height="86" alt="FDA compliant" loading="lazy">
           </div>
         </div>
 
-        {%- assign upsell_block = section.blocks | where: "type", "hero_upsell" | first -%}
-        {%- if upsell_block -%}
-          <div class="theme-upsell-card hover-rise">
-            <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-card__image" loading="lazy" width="1000" height="1000" alt="{{ upsell_block.settings.title | escape }}">
-            <div class="theme-upsell-card__copy">
-              <div class="theme-upsell-card__title">{{ upsell_block.settings.title }}</div>
-              <p class="theme-upsell-card__text">{{ upsell_block.settings.text }}</p>
-            </div>
-            {%- if upsell_block.settings.button_label != blank -%}
-              {%- if upsell_block.settings.button_link != blank -%}
-                <a class="theme-upsell-card__button premium-button" href="{{ upsell_block.settings.button_link }}">
-                  {{ upsell_block.settings.button_label }}
-                </a>
-              {%- else -%}
-                <span class="theme-upsell-card__button premium-button" role="presentation">
-                  {{ upsell_block.settings.button_label }}
-                </span>
-              {%- endif -%}
-            {%- endif -%}
+        <div class="theme-hero-ritual-guide">
+          <svg class="theme-hero-ritual-guide__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+            <path d="M12 3v1M12 20v1M3 12h1M20 12h1M18.36 5.64l-.7.7M6.34 17.66l-.7.7M5.64 5.64l.7.7M17.66 17.66l.7.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <div>
+            <div class="theme-hero-ritual-guide__title">{{ section.settings.ritual_title }}</div>
+            <p class="theme-hero-ritual-guide__text">{{ section.settings.ritual_text }}</p>
           </div>
-        {%- endif -%}
+        </div>
       </div>
-    </div>
-
-    <!-- MOBILE HERO INFO CONTAINER (Spans full narrow width) -->
+      
+      <!-- MOBILE HERO INFO CONTAINER (Spans full narrow width) -->
     <div class="theme-product-info-mobile">
       {%- if badges.size > 0 -%}
         <div class="theme-product-page__badge theme-product-page__badge--mobile">
@@ -390,230 +257,146 @@
         </div>
       {%- endif -%}
 
-      <!-- Mobile Checkout Forms -->
-      {%- if product != blank and product.selected_or_first_available_variant != blank -%}
-      {%- form 'product', product, id: "theme-product-form-mobile", class: "theme-product-form theme-product-form--mobile" -%}
-        <!-- Variant Selector -->
-        {%- if product.variants.size > 1 -%}
-          <div class="theme-variant-picker theme-variant-picker--mobile">
-            <select name="id" id="ProductSelect-Mobile-{{ section.id }}" class="theme-variant-select theme-variant-select--mobile">
-              {%- for variant in product.variants -%}
-                <option value="{{ variant.id }}" 
-                  data-price="{{ variant.price | money }}"
-                  data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
-                  data-available="{{ variant.available }}"
-                  {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}>
-                  {{ variant.title }}
-                </option>
-              {%- endfor -%}
-            </select>
-          </div>
-        {%- else -%}
-          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-        {%- endif -%}
+      <div class="theme-product-page__title-wrap">
+        <h1 class="theme-product-page__title">{{ product_title | escape }}</h1>
+      </div>
 
-        <input type="hidden" name="quantity" value="1">
-
-        <!-- Mobile Unified Reorder / Checkout CTA -->
-        <button type="submit" name="add" class="theme-reorder-btn theme-reorder-btn--mobile cta-sheen" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
-          <div class="theme-reorder-btn__left">
-            <svg class="theme-reorder-btn__icon theme-reorder-btn__icon--mobile" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <div class="theme-reorder-btn__content">
-              <div class="theme-reorder-btn__title theme-reorder-btn__title--mobile">
-                {%- if product.selected_or_first_available_variant.available -%}
-                  Reorder now
-                {%- else -%}
-                  Sold Out
-                {%- endif -%}
-              </div>
-              <div class="theme-reorder-btn__meta theme-reorder-btn__meta--mobile">
-                {%- if section.settings.cta_meta != blank -%}
-                  {{ section.settings.cta_meta }}
-                {%- else -%}
-                  Last ordered 28 Mar
-                {%- endif -%}
-              </div>
-            </div>
-          </div>
-          <div class="theme-reorder-btn__right theme-reorder-btn__right--mobile">
-            <span class="theme-reorder-btn__price-old">₹350</span>
-            <span class="theme-reorder-btn__price-new theme-reorder-btn__price-new--mobile">₹315</span>
-          </div>
-        </button>
-      {%- endform -%}
-      {%- else -%}
-        <!-- Dummy Mobile Button -->
-        <button type="button" class="theme-reorder-btn theme-reorder-btn--mobile cta-sheen">
-          <div class="theme-reorder-btn__left">
-            <svg class="theme-reorder-btn__icon theme-reorder-btn__icon--mobile" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <div class="theme-reorder-btn__content">
-              <div class="theme-reorder-btn__title theme-reorder-btn__title--mobile">Reorder now</div>
-              <div class="theme-reorder-btn__meta theme-reorder-btn__meta--mobile">
-                {%- if section.settings.cta_meta != blank -%}
-                  {{ section.settings.cta_meta }}
-                {%- else -%}
-                  Last ordered 28 Mar
-                {%- endif -%}
-              </div>
-            </div>
-          </div>
-          <div class="theme-reorder-btn__right theme-reorder-btn__right--mobile">
-            <span class="theme-reorder-btn__price-old">₹350</span>
-            <span class="theme-reorder-btn__price-new theme-reorder-btn__price-new--mobile">₹315</span>
-          </div>
-        </button>
-      {%- endif -%}
-
-      <h2 class="theme-hero-mobile-subtitle">
+      <p class="theme-product-page__subtitle subtitle">
         {%- if subtitle_block -%}
           {{ subtitle_block.settings.text }}
         {%- else -%}
           One oil for complete hair recovery
         {%- endif -%}
-      </h2>
-      <div class="theme-hero-divider"></div>
+      </p>
 
-      <p class="theme-hero-intro-mobile">
-        {%- capture hero_note_text_mobile -%}
+      <p class="theme-product-page__body theme-product-page__intro">
+        {%- capture hero_note_text -%}
           {%- if hero_note_block -%}
             {{ hero_note_block.settings.text }}
           {%- else -%}
             Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
           {%- endif -%}
         {%- endcapture -%}
-        {{ hero_note_text_mobile | strip | replace: 'Neelibhringadi works', 'Neelibhringadi<br class="theme-hero-note-break">works' }}
+        {{ hero_note_text | strip | replace: 'Neelibhringadi works', 'Neelibhringadi<br class="theme-hero-note-break">works' }}
       </p>
 
-      <!-- Delivery columns -->
-      <div class="theme-delivery-row--mobile">
-        <div class="theme-delivery-row__item--mobile">
-          <svg class="theme-delivery-row__icon--mobile" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
-            <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M15 18H9" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14" stroke-linecap="round" stroke-linejoin="round" />
-            <circle cx="17" cy="18" r="2" />
-            <circle cx="7" cy="18" r="2" />
-          </svg>
-          <span>{{ section.settings.delivery_1_text }}</span>
-        </div>
-        <div class="theme-delivery-row__item--mobile">
-          <svg class="theme-delivery-row__icon--mobile" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
-            <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M12 18V6" stroke-linecap="round" />
-          </svg>
-          <span>{{ section.settings.delivery_2_text }}</span>
-        </div>
-        <div class="theme-delivery-row__item--mobile">
-          <svg class="theme-delivery-row__icon--mobile" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
-            <path d="M9 14 4 9l5-5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          <span>{{ section.settings.delivery_3_text }}</span>
-        </div>
-      </div>
-
-      <!-- Upsell container -->
-      {%- if upsell_block -%}
-        <div class="theme-upsell-banner--mobile">
-            <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-banner__img" width="66" height="58" alt="Upsell Product">
-          <div class="theme-upsell-banner__content">
-            <div class="theme-upsell-banner__title">{{ upsell_block.settings.title }}</div>
-            <div class="theme-upsell-banner__text">{{ upsell_block.settings.text }}</div>
-          </div>
-          {%- if upsell_block.settings.button_link != blank -%}
-            <a href="{{ upsell_block.settings.button_link }}" class="theme-upsell-banner__button">
-              {{ upsell_block.settings.button_label }}
-            </a>
-          {%- else -%}
-            <button type="submit" name="add" onclick="document.getElementById('theme-product-form-mobile').submit();" class="theme-upsell-banner__button">
-              {{ upsell_block.settings.button_label }}
-            </button>
-          {%- endif -%}
-        </div>
-      {%- endif -%}
-
-      <!-- Review Quote -->
-      <div class="theme-review-quote--mobile">
-        <p class="theme-review-quote__text">
+      <div class="theme-product-page__quote-wrap motion-panel">
+        <div class="theme-product-page__quote">
           {%- if quote_block -%}
             {{ quote_block.settings.quote }}
           {%- else -%}
             "Hair fall reduced noticeably, and I can already see tiny baby hairs coming"
           {%- endif -%}
-        </p>
-        <p class="theme-review-quote__author">
+        </div>
+        <div class="theme-product-page__quote-meta">
           {%- if quote_block -%}
             {{ quote_block.settings.author }}
           {%- else -%}
             - ANU R., CHENNAI
           {%- endif -%}
-        </p>
+        </div>
       </div>
 
-      <p class="theme-hero-cert-note--mobile">
-        {%- if feature_block -%}
-          {{ feature_block.settings.title }} {{ feature_block.settings.text }}
-        {%- else -%}
-          Made by BAMS doctors in our GMP & ISO - certified facility. FDA compliant and AYUSH licensed.
-        {%- endif -%}
-      </p>
-
-      <!-- Mobile certifications panel -->
-      <div class="theme-cert-panel--mobile motion-panel">
-        <div class="theme-cert-panel__stats">
-          <div class="theme-cert-panel__stat theme-cert-panel__stat--bordered">
-            <div class="theme-cert-panel__stat-value">{{ section.settings.stat_1_value }}</div>
-            <div class="theme-cert-panel__stat-label">{{ section.settings.stat_1_label }}</div>
-          </div>
-          <div class="theme-cert-panel__stat theme-cert-panel__stat--bordered">
-            <div class="theme-cert-panel__stat-value">{{ section.settings.stat_2_value }}</div>
-            <div class="theme-cert-panel__stat-label">{{ section.settings.stat_2_label }}</div>
-          </div>
-          <div class="theme-cert-panel__stat">
-            <div class="theme-cert-panel__stat-value">{{ section.settings.stat_3_value }}</div>
-            <div class="theme-cert-panel__stat-label">{{ section.settings.stat_3_label }}</div>
-          </div>
-        </div>
-
-        <div class="theme-cert-panel__stamps">
-          {%- assign mobile_stamp_images = 'stamp_01_old.png|stamp_02_old.png|stamp_03_old.png|stamp_04_old.png|stamp_05.png' | split: '|' -%}
-          {%- for stamp in mobile_stamp_images offset: 1 limit: 4 -%}
-            <div class="theme-cert-panel__stamp">
-              <img src="{{ stamp | asset_url }}" class="theme-cert-panel__stamp-img" loading="lazy" width="58" height="58" alt="Certification">
+      <div class="theme-product-page__form-card">
+        {%- if product != blank and product.selected_or_first_available_variant != blank -%}
+        {%- form 'product', product, id: "theme-product-form-mobile", class: "theme-product-form" -%}
+          <button type="submit" name="add" class="theme-reorder-btn theme-reorder-btn--mobile cta-sheen" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
+            <div class="theme-reorder-btn__left">
+              <svg class="theme-reorder-btn__icon theme-reorder-btn__icon--mobile" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <div class="theme-reorder-btn__content">
+                <div class="theme-reorder-btn__title theme-reorder-btn__title--mobile">
+                  {%- if product.selected_or_first_available_variant.available -%}
+                    Add to Cart
+                  {%- else -%}
+                    Sold Out
+                  {%- endif -%}
+                </div>
+              </div>
             </div>
-          {%- endfor -%}
-        </div>
+            <div class="theme-reorder-btn__right theme-reorder-btn__right--mobile">
+              <span class="theme-reorder-btn__price-old">₹350</span>
+              <span class="theme-reorder-btn__price-new theme-reorder-btn__price-new--mobile">₹315</span>
+            </div>
+          </button>
+
+          <div class="theme-delivery-banner">
+            Free delivery on orders over ₹299 | <span class="theme-delivery-banner__truck">🚚</span> 2-4 days delivery
+          </div>
+
+          {%- if product.variants.size > 1 -%}
+            <div class="theme-variant-boxes theme-variant-boxes--mobile">
+              {%- for variant in product.variants -%}
+                <label class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}" for="Variant-Mobile-{{ section.id }}-{{ forloop.index }}">
+                  <input type="radio" class="theme-variant-box__input" name="id" value="{{ variant.id }}" id="Variant-Mobile-{{ section.id }}-{{ forloop.index }}"
+                    data-price="{{ variant.price | money }}"
+                    data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
+                    data-available="{{ variant.available }}"
+                    {% if variant == product.selected_or_first_available_variant %}checked{% endif %}>
+                  <div class="theme-variant-box__title">{{ variant.title }}</div>
+                  <div class="theme-variant-box__price-row">
+                    <span class="theme-variant-box__mrp">M.R.P.</span>
+                    <span class="theme-variant-box__price-new">{{ variant.price | money }}</span>
+                    {%- if variant.compare_at_price > variant.price -%}
+                      <span class="theme-variant-box__price-old">{{ variant.compare_at_price | money }}</span>
+                    {%- endif -%}
+                  </div>
+                </label>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          {%- endif -%}
+          <input type="hidden" name="quantity" value="1">
+        {%- endform -%}
+        {%- endif -%}
       </div>
 
       {%- if section.settings.description_block != blank -%}
+        <div class="theme-product-page__desc-title">How Neelibringadi Keram works</div>
         <p class="theme-product-page__description-block">
           {{ section.settings.description_block }}
         </p>
       {%- endif -%}
-    </div>
 
-    <div class="theme-hero-ritual-guide">
-      <div class="theme-hero-ritual-guide__card motion-panel">
-        <div class="theme-hero-ritual-guide__content">
-          <svg class="theme-hero-ritual-guide__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
-            <path d="M12 3v1M12 20v1M3 12h1M20 12h1M18.36 5.64l-.7.7M6.34 17.66l-.7.7M5.64 5.64l.7.7M17.66 17.66l.7.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-          </svg>
-          <div>
-            <div class="theme-hero-ritual-guide__title">The Ritual Guide</div>
-            <p class="theme-hero-ritual-guide__text">Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.</p>
+      <div class="theme-new-cert-block motion-panel">
+        <div class="theme-new-cert-block__stats">
+          <div class="theme-new-cert-block__stat">
+            <div class="theme-new-cert-block__stat-val">1945</div>
+            <div class="theme-new-cert-block__stat-lbl">Established</div>
           </div>
+          <div class="theme-new-cert-block__stat">
+            <div class="theme-new-cert-block__stat-val">350+</div>
+            <div class="theme-new-cert-block__stat-lbl">Products</div>
+          </div>
+          <div class="theme-new-cert-block__stat">
+            <div class="theme-new-cert-block__stat-val">Clinics & Academy</div>
+            <div class="theme-new-cert-block__stat-lbl">Expert led</div>
+          </div>
+        </div>
+        <div class="theme-new-cert-block__stamps">
+          <img src="{{ 'stamp_02_old.png' | asset_url }}" width="86" height="86" alt="AYUSH certified" loading="lazy">
+          <img src="{{ 'stamp_04_old.png' | asset_url }}" width="86" height="86" alt="ISO certified" loading="lazy">
+          <img src="{{ 'stamp_05.png' | asset_url }}" width="86" height="86" alt="GMP certified" loading="lazy">
+          <img src="{{ 'stamp_03_old.png' | asset_url }}" width="86" height="86" alt="FDA compliant" loading="lazy">
+        </div>
+      </div>
+
+      <div class="theme-hero-ritual-guide">
+        <svg class="theme-hero-ritual-guide__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+          <path d="M12 3v1M12 20v1M3 12h1M20 12h1M18.36 5.64l-.7.7M6.34 17.66l-.7.7M5.64 5.64l.7.7M17.66 17.66l.7.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <div>
+          <div class="theme-hero-ritual-guide__title">The Ritual Guide</div>
+          <p class="theme-hero-ritual-guide__text">Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.</p>
         </div>
       </div>
     </div>
   </div>
+  {% render 'sticky-cart-bar' %}
 </section>
 
 {% schema %}
@@ -798,15 +581,11 @@
       "default": 36,
       "label": "Top padding"
     },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 120,
-      "step": 4,
-      "default": 16,
-      "label": "Bottom padding"
-    }
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 0, "label": "Bottom padding" },
+    { "type": "html", "id": "delivery_banner_text", "label": "Delivery Banner Text", "default": "Free delivery on orders over ₹299 | <span class=\"theme-delivery-banner__truck\">🚚</span> 2-4 days delivery" },
+    { "type": "text", "id": "description_title", "label": "Description Title", "default": "How Neelibringadi Keram works" },
+    { "type": "text", "id": "ritual_title", "label": "Ritual Guide Title", "default": "The Ritual Guide" },
+    { "type": "textarea", "id": "ritual_text", "label": "Ritual Guide Text", "default": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week." }
   ],
   "blocks": [
     {

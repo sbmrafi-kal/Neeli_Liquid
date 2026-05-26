@@ -1,0 +1,26 @@
+/* Global dynamic padding styles based on inline CSS variables */
+.theme-product-page__section[style*="--pt"] {
+  padding-top: calc(var(--pt) * 0.75);
+  padding-bottom: calc(var(--pb) * 0.75);
+}
+
+@media screen and (min-width: 750px) {
+  .theme-product-page__section[style*="--pt"] {
+    padding-top: var(--pt);
+    padding-bottom: var(--pb);
+  }
+}
+
+.theme-timeline[style*="--pt"],
+.theme-key-ingredients[style*="--pt"] {
+  padding-top: calc(var(--pt) * 0.75);
+  padding-bottom: calc(var(--pb) * 0.75);
+}
+
+@media screen and (min-width: 750px) {
+  .theme-timeline[style*="--pt"],
+  .theme-key-ingredients[style*="--pt"] {
+    padding-top: var(--pt);
+    padding-bottom: var(--pb);
+  }
+}

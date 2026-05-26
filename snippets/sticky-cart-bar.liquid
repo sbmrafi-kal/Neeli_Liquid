@@ -1,0 +1,41 @@
+{%- assign current_in_cart = false -%}
+{%- for item in cart.items -%}
+  {%- if item.product_id == product.id -%}
+    {%- assign current_in_cart = true -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<div class="theme-sticky-cart-bar">
+  <div class="theme-sticky-cart-bar__inner">
+    <div class="theme-sticky-cart-bar__qty">
+      <button type="button" class="theme-sticky-cart-bar__qty-btn" aria-label="Decrease quantity">-</button>
+      <input type="number" class="theme-sticky-cart-bar__qty-input" value="1" min="1">
+      <button type="button" class="theme-sticky-cart-bar__qty-btn" aria-label="Increase quantity">+</button>
+    </div>
+
+    {%- if current_in_cart -%}
+      <a href="/cart" class="theme-sticky-cart-bar__btn theme-sticky-cart-bar__btn--view">
+        <div class="theme-sticky-cart-bar__btn-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM20 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="theme-sticky-cart-bar__badge">{{ cart.item_count }}</span>
+        </div>
+        <span class="theme-sticky-cart-bar__btn-text">View cart</span>
+        <svg class="theme-sticky-cart-bar__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    {%- else -%}
+      <button type="button" class="theme-sticky-cart-bar__btn theme-sticky-cart-bar__btn--add" onclick="document.getElementById('theme-product-form').submit();">
+        <div class="theme-sticky-cart-bar__btn-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM20 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          {%- if cart.item_count > 0 -%}
+            <span class="theme-sticky-cart-bar__badge">{{ cart.item_count }}</span>
+          {%- endif -%}
+        </div>
+        <span class="theme-sticky-cart-bar__btn-text">Add to cart</span>
+        <div class="theme-sticky-cart-bar__price-col">
+          <span class="theme-sticky-cart-bar__price">{{ product.selected_or_first_available_variant.price | money }}</span>
+          <span class="theme-sticky-cart-bar__tax-note">Inclusive of all taxes</span>
+        </div>
+      </button>
+    {%- endif -%}
+  </div>
+</div>

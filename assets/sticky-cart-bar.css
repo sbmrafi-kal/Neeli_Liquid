@@ -1,0 +1,132 @@
+.theme-sticky-cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 100;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: center;
+}
+.theme-sticky-cart-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+.theme-sticky-cart-bar__qty {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(31, 77, 61, 0.2);
+  border-radius: 8px;
+  height: 48px;
+  background: #ffffff;
+}
+.theme-sticky-cart-bar__qty-btn {
+  width: 36px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #1f4d3d;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.theme-sticky-cart-bar__qty-input {
+  width: 40px;
+  height: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-family: var(--theme-body-font);
+  font-weight: 700;
+  color: #1f4d3d;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+.theme-sticky-cart-bar__btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  border-radius: 8px;
+  padding: 0 16px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+.theme-sticky-cart-bar__btn--add {
+  background: #8f4f36;
+  color: #ffffff;
+}
+.theme-sticky-cart-bar__btn--view {
+  background: #8f4f36;
+  color: #ffffff;
+}
+.theme-sticky-cart-bar__btn-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.theme-sticky-cart-bar__btn-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.theme-sticky-cart-bar__badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: #f4bb28;
+  color: #1f4d3d;
+  font-size: 10px;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-sticky-cart-bar__btn-text {
+  font-family: var(--theme-body-font);
+  font-size: 15px;
+  font-weight: 700;
+  flex: 1;
+  text-align: left;
+  padding-left: 12px;
+}
+.theme-sticky-cart-bar__price-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.theme-sticky-cart-bar__price {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+.theme-sticky-cart-bar__tax-note {
+  font-size: 9px;
+  opacity: 0.8;
+  line-height: 1;
+  margin-top: 2px;
+}
+.theme-sticky-cart-bar__arrow {
+  width: 16px;
+  height: 16px;
+}
+@media screen and (max-width: 989px) {
+  /* Hide the sticky bar on mobile since it uses a regular button?
+     Wait, Mobile/img_02.png does not show a sticky bar, but it is not clear.
+     I will show it on desktop only for now or if we need it on mobile we can keep it. */
+  .theme-sticky-cart-bar {
+    display: none;
+  }
+}
