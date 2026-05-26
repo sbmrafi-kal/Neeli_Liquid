@@ -518,6 +518,14 @@
         "padding_bottom": 48
       }
     },
+    "three_milks": {
+      "type": "three-milks",
+      "settings": {}
+    },
+    "massage_ritual": {
+      "type": "massage-ritual",
+      "settings": {}
+    },
     "footer": {
       "type": "footer",
       "settings": {
@@ -533,6 +541,8 @@
     "timeline",
     "story",
     "ingredients",
+    "three_milks",
+    "massage_ritual",
     "information",
     "brand_trust",
     "reviews",

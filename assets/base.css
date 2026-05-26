@@ -6,15 +6,26 @@
   --radius: 1rem;
   --font-sans: "Avenir", sans-serif;
   --font-serif: "Amstir", "Avenir", serif;
-  --brand-forest: #113027;
-  --brand-gold: #d8a546;
+
+  /* Brand Luxury Ayurvedic Design System Tokens */
+  --brand-forest: #1f4d3d;
+  --brand-forest-light: #2e5b4a;
   --brand-cream: #fdfcf8;
-  --brand-gold-gradient: linear-gradient(45deg, #d8a546, #e6bd62);
-  --theme-forest: #113027;
-  --theme-gold: #d8a546;
-  --theme-cream: #fdfcf8;
+  --brand-cream-deep: #f6f2e8;
+  --brand-cta: #8f4f36;
+  --brand-cta-foreground: #fdfcf8;
+  --brand-gold: #e29a12;
+  --brand-gold-gradient: linear-gradient(45deg, #e29a12, #f5bc51);
+
+  --theme-forest: var(--brand-forest);
+  --theme-forest-light: var(--brand-forest-light);
+  --theme-cream: var(--brand-cream);
+  --theme-cream-deep: var(--brand-cream-deep);
+  --theme-gold: var(--brand-gold);
+  --theme-cta: var(--brand-cta);
   --theme-heading-font: var(--font-serif);
   --theme-body-font: var(--font-sans);
+
   --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);

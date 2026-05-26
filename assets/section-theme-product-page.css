@@ -16,14 +16,15 @@
 
 :root {
   --theme-forest: #1f4d3d;
+  --theme-forest-light: #2e5b4a;
   --theme-forest-soft: #5f5a54;
-  --theme-forest-faint: rgba(18, 60, 47, 0.1);
-  --theme-cream: #faf8f5;
-  --theme-cream-deep: #f5efe6;
-  --theme-sand: #f5efe6;
-  --theme-gold: #d8a546;
-  --theme-copper: #8f4f33;
-  --theme-rust: #8f4f33;
+  --theme-forest-faint: rgba(31, 77, 61, 0.1);
+  --theme-cream: #fdfcf8;
+  --theme-cream-deep: #f6f2e8;
+  --theme-sand: #f6f2e8;
+  --theme-gold: #e29a12;
+  --theme-copper: #8f4f36;
+  --theme-rust: #8f4f36;
   --theme-red: #f44336;
   --theme-body-text: #5f5a54;
   --theme-heading-font: "Amstir", "Avenir", sans-serif;
@@ -32,22 +33,23 @@
   --font-sans: var(--theme-body-font);
   --radius: 1rem;
   --brand-forest: #1f4d3d;
-  --brand-gold: #d8a546;
-  --brand-cream: #faf8f5;
+  --brand-gold: #e29a12;
+  --brand-cream: #fdfcf8;
 }
 
 .theme-product-page,
 .theme-product-page__section,
 .theme-site-header {
   --theme-forest: #1f4d3d;
+  --theme-forest-light: #2e5b4a;
   --theme-forest-soft: #5f5a54;
-  --theme-forest-faint: rgba(18, 60, 47, 0.1);
-  --theme-cream: #faf8f5;
-  --theme-cream-deep: #f5efe6;
-  --theme-sand: #f5efe6;
-  --theme-gold: #d8a546;
-  --theme-copper: #8f4f33;
-  --theme-rust: #8f4f33;
+  --theme-forest-faint: rgba(31, 77, 61, 0.1);
+  --theme-cream: #fdfcf8;
+  --theme-cream-deep: #f6f2e8;
+  --theme-sand: #f6f2e8;
+  --theme-gold: #e29a12;
+  --theme-copper: #8f4f36;
+  --theme-rust: #8f4f36;
   --theme-red: #f44336;
   --theme-body-text: #5f5a54;
   --font-heading-family: var(--theme-heading-font);
@@ -138,7 +140,6 @@
 .subtle-zoom {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 .subtle-zoom:hover {
   transform: scale(1.03);
 }
@@ -149,8 +150,9 @@
 }
 
 .motion-panel:hover .image-zoom,
-.subtle-zoom:hover .image-zoom {
-  transform: scale(1.04);
+.subtle-zoom:hover .image-zoom,
+.image-zoom-shell:hover .image-zoom {
+  transform: scale(1.06);
 }
 
 .float-soft {
@@ -166,14 +168,14 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
-  transform: translateX(-120%);
-  transition: transform 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.14) 48%, transparent 62%);
+  transform: translateX(-130%);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
 }
 
 .cta-sheen:hover::after {
-  transform: translateX(120%);
+  transform: translateX(130%);
 }
 
 .premium-button {
