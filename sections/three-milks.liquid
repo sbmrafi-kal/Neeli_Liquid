@@ -10,11 +10,11 @@
       <p class="theme-section-heading__text theme-three-milks__text">{{ section.settings.text }}</p>
     </div>
 
-    <!-- Mobile View (Stacked with arrows) -->
+    <!-- Mobile View (Stacked flow) -->
     <div class="theme-three-milks__mobile-grid lg:hidden">
       {%- for block in section.blocks -%}
         {%- if block.type == 'milk' -%}
-          <article class="theme-three-milks__mobile-card motion-panel" {{ block.shopify_attributes }}>
+          <article class="theme-three-milks__mobile-card theme-three-milks__mobile-card--{{ forloop.index }} motion-panel" {{ block.shopify_attributes }}>
             <div class="theme-three-milks__mobile-image-wrap">
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 124 | image_tag: class: 'theme-three-milks__mobile-image', loading: 'lazy' }}
@@ -34,12 +34,6 @@
               <p class="theme-three-milks__mobile-desc">{{ block.settings.text }}</p>
             </div>
           </article>
-
-          {%- if forloop.last == false -%}
-          <div class="theme-three-milks__mobile-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-          </div>
-          {%- endif -%}
         {%- endif -%}
       {%- endfor -%}
     </div>

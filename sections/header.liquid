@@ -17,9 +17,10 @@
 
         <nav class="theme-header__nav" aria-label="Primary">
           <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[0].url | default: routes.root_url }}">Shop All</a>
-          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[1].url | default: routes.root_url }}">Hair Care</a>
-          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[2].url | default: routes.root_url }}">Skin Care</a>
-          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[3].url | default: routes.root_url }}">Wellness</a>
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[1].url | default: routes.root_url }}">Clinics</a>
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[2].url | default: routes.root_url }}">Resorts</a>
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[3].url | default: routes.root_url }}">Hospitals</a>
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[4].url | default: routes.root_url }}">Academy</a>
         </nav>
       </div>
 
@@ -30,6 +31,12 @@
       </div>
 
       <div class="theme-header__right">
+        <button class="theme-header__action-btn" type="button" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
         <button class="theme-header__action-btn" type="button" aria-label="Account">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="8" r="5"/>

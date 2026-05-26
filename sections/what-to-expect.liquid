@@ -1,5 +1,6 @@
 {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
-{{ 'section-what-to-expect.css' | asset_url | stylesheet_tag }}<section class="theme-timeline  color-{{ section.settings.color_scheme }} gradient">
+{{ 'section-what-to-expect.css' | asset_url | stylesheet_tag }}
+<section class="theme-timeline color-{{ section.settings.color_scheme }} gradient">
 
   <div class="theme-timeline-header-banner">
     <div class="theme-timeline-header-banner__kicker">{{ section.settings.kicker }}</div>
@@ -7,7 +8,7 @@
     <div class="theme-timeline-header-banner__text">{{ section.settings.text }}</div>
   </div>
 
-  <div class="theme-timeline-grid">
+  <div class="theme-timeline-grid theme-timeline-grid--mobile lg:hidden">
     {%- assign stage_index = 0 -%}
     {%- for block in section.blocks -%}
       {%- if block.type == 'stage' -%}
@@ -20,8 +21,42 @@
           {%- else -%}
             {%- assign default_stage_image = 'expect-3.jpg' -%}
         {%- endcase -%}
+        {%- assign mobile_phase = block.settings.mobile_phase | default: block.settings.phase -%}
+        <div class="theme-timeline-stage theme-timeline-stage--mobile" {{ block.shopify_attributes }}>
+          <div class="theme-timeline-stage__mobile-left">
+            <div class="theme-timeline-stage__mobile-img-wrap">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 400 | image_tag: class: 'theme-timeline-stage__img', loading: 'lazy', alt: block.settings.title }}
+              {%- else -%}
+                <img src="{{ default_stage_image | asset_url }}" class="theme-timeline-stage__img" loading="lazy" width="200" height="100" alt="{{ block.settings.title | escape }}">
+              {%- endif -%}
+            </div>
+            <div class="theme-timeline-stage__mobile-phase">{{ mobile_phase }}</div>
+          </div>
+          <div class="theme-timeline-stage__mobile-right">
+            <div class="theme-timeline-stage__label">{{ block.settings.label }}</div>
+            <h3 class="theme-timeline-stage__title">{{ block.settings.title }}</h3>
+            <p class="theme-timeline-stage__body">{{ block.settings.body }}</p>
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
 
-        <div class="theme-timeline-stage" {{ block.shopify_attributes }}>
+  <div class="theme-timeline-grid theme-timeline-grid--desktop hidden lg:grid">
+    {%- assign stage_index = 0 -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'stage' -%}
+        {%- assign stage_index = stage_index | plus: 1 -%}
+        {%- case stage_index -%}
+          {%- when 1 -%}
+            {%- assign default_stage_image = 'expect-1.jpg' -%}
+          {%- when 2 -%}
+            {%- assign default_stage_image = 'expect-2.jpg' -%}
+          {%- else -%}
+            {%- assign default_stage_image = 'expect-3.jpg' -%}
+        {%- endcase -%}
+        <div class="theme-timeline-stage theme-timeline-stage--desktop" {{ block.shopify_attributes }}>
           <div class="theme-timeline-stage__top">
             <div class="theme-timeline-stage__phase">{{ block.settings.phase }}</div>
             <div class="theme-timeline-stage__img-wrap">
@@ -32,7 +67,6 @@
               {%- endif -%}
             </div>
           </div>
-
           <div class="theme-timeline-stage__bottom">
             <div class="theme-timeline-stage__label">{{ block.settings.label }}</div>
             <h3 class="theme-timeline-stage__title">{{ block.settings.title }}</h3>
@@ -97,6 +131,7 @@
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Image" },
         { "type": "text", "id": "phase", "label": "Phase", "default": "FIRST TIME" },
+        { "type": "text", "id": "mobile_phase", "label": "Mobile phase", "default": "First Time" },
         { "type": "text", "id": "label", "label": "Label", "default": "FIRST APPLICATION" },
         { "type": "text", "id": "title", "label": "Title", "default": "Scalp cools immediately" },
         { "type": "textarea", "id": "body", "label": "Body", "default": "The Neeli acts immediately. Oil absorbs without heaviness." }

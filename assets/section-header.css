@@ -99,7 +99,7 @@
 
   .theme-header__nav {
     display: flex;
-    gap: 32px;
+    gap: 18px;
   }
 
   .theme-header__nav-link {
@@ -109,6 +109,14 @@
     text-transform: uppercase;
     letter-spacing: 0.17em;
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .theme-header__nav-link:not(:last-child)::after {
+    content: "|";
+    margin-left: 18px;
+    color: rgba(253, 252, 248, 0.65);
   }
 
   .theme-header__brand-image {
@@ -209,9 +217,12 @@
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
+.theme-header__right {
+  gap: 6px;
+}
+
 .theme-header__nav-link--soft:hover::after,
 .theme-header__nav-link--soft:focus-visible::after {
   opacity: 0.75;
   transform: scaleX(1);
 }
-

@@ -1,0 +1,158 @@
+.theme-ingredient-story__whats-in-it {
+  background: #f7f3e9;
+  padding: 28px 0 24px;
+}
+
+.theme-ingredient-story .theme-section-heading__title {
+  color: #1f4d3d;
+  font-family: var(--theme-heading-font), serif;
+  font-size: 56px;
+  line-height: 1;
+  margin-bottom: 32px;
+}
+
+.theme-ingredient-story .theme-dual-panel {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1fr;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.theme-ingredient-story .theme-panel {
+  border-radius: 12px;
+  border: 1px solid rgba(31, 77, 61, 0.2);
+  padding: 28px 30px;
+}
+
+.theme-ingredient-story .theme-panel--soft {
+  background: #dcece2;
+}
+
+.theme-ingredient-story .theme-panel--dark {
+  background: #f7f4ef;
+  border-color: rgba(143, 79, 54, 0.52);
+}
+
+.theme-ingredient-story .theme-list {
+  display: grid;
+  gap: 18px;
+}
+
+.theme-ingredient-story .theme-list__item {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 40px 1fr;
+  align-items: start;
+}
+
+.theme-ingredient-story .theme-list__marker {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.theme-ingredient-story .theme-list__marker--ok {
+  color: #2f6e44;
+  background: #ecf8ee;
+}
+
+.theme-ingredient-story .theme-list__marker--no {
+  color: #f44336;
+  background: #fff2f1;
+}
+
+.theme-ingredient-story .theme-list__title {
+  font-family: var(--theme-body-font), sans-serif;
+  font-size: 38px;
+  line-height: 1.03;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #1f4d3d;
+}
+
+.theme-ingredient-story .theme-list__text {
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(31, 77, 61, 0.82);
+}
+
+.theme-ingredient-story .theme-list__title--inverse {
+  color: #1f4d3d;
+}
+
+.theme-ingredient-story .theme-list__text--inverse {
+  color: rgba(31, 77, 61, 0.82);
+}
+
+@media screen and (min-width: 990px) {
+  .theme-ingredient-story .theme-dual-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .theme-ingredient-story__whats-in-it {
+    padding: 18px 0 12px;
+  }
+
+  .theme-ingredient-story .theme-section-heading__title {
+    font-size: 44px;
+    margin-bottom: 20px;
+  }
+
+  .theme-ingredient-story .theme-dual-panel {
+    gap: 14px;
+    max-width: 360px;
+  }
+
+  .theme-ingredient-story .theme-panel {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .theme-ingredient-story .theme-panel--soft .theme-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .theme-ingredient-story .theme-panel--soft .theme-list__item {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    background: #e4f2e9;
+    border: 1px solid rgba(31, 77, 61, 0.22);
+    border-radius: 12px;
+    padding: 10px 8px;
+    min-height: 120px;
+  }
+
+  .theme-ingredient-story .theme-panel--soft .theme-list__marker {
+    width: 34px;
+    height: 34px;
+  }
+
+  .theme-ingredient-story .theme-panel--soft .theme-list__title {
+    font-size: 14px;
+    line-height: 1.2;
+    text-transform: none;
+    font-family: var(--theme-body-font), sans-serif;
+    font-weight: 600;
+  }
+
+  .theme-ingredient-story .theme-panel--soft .theme-list__text {
+    display: none;
+  }
+
+  .theme-ingredient-story .theme-panel--dark .theme-list__title {
+    font-size: 17px;
+    font-family: var(--theme-body-font), sans-serif;
+    font-weight: 700;
+  }
+
+  .theme-ingredient-story .theme-panel--dark .theme-list__text {
+    font-size: 12px;
+  }
+}
