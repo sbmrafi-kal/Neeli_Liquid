@@ -68,3 +68,119 @@
     padding-bottom: 0 !important;
   }
 }
+
+/* Footer parity lock (Next.js reference) */
+.theme-footer {
+  padding-top: 72px !important;
+  padding-bottom: 64px !important;
+}
+
+.theme-footer .theme-product-page__wrap {
+  max-width: 1392px !important;
+}
+
+.theme-footer-grid {
+  gap: clamp(40px, 5vw, 92px) !important;
+  align-items: start !important;
+}
+
+.theme-footer-brand__logo {
+  width: 160px !important;
+  max-width: none !important;
+  height: auto !important;
+}
+
+.theme-footer-column__title,
+.theme-footer-social__label {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  color: #1f4d3d !important;
+}
+
+.theme-footer-social-wrapper {
+  margin-top: 46px !important;
+  padding-top: 28px !important;
+  border-top: 1px solid rgba(31, 77, 61, 0.12) !important;
+}
+
+.theme-footer-social__icons {
+  gap: 30px !important;
+  margin-top: 18px !important;
+}
+
+.theme-footer-social__icon,
+.theme-footer-social__icon svg {
+  width: 34px !important;
+  height: 34px !important;
+  stroke-width: 1.5 !important;
+}
+
+.theme-footer-tagline-wrapper {
+  margin-top: 30px !important;
+  padding-bottom: 0 !important;
+}
+
+.theme-footer-tagline-p {
+  margin: 0 !important;
+  font-family: "Amstir", var(--theme-heading-font), serif !important;
+  font-size: 40px !important;
+  line-height: 1.08 !important;
+  letter-spacing: 0 !important;
+  color: rgba(31, 77, 61, 0.92) !important;
+  text-align: center !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .theme-footer-social-empty,
+  .theme-footer-tagline-empty {
+    display: none !important;
+  }
+
+  .theme-footer-social-content,
+  .theme-footer-tagline-content {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .theme-footer {
+    padding-top: 52px !important;
+    padding-bottom: 46px !important;
+  }
+
+  .theme-footer-grid {
+    gap: 28px !important;
+  }
+
+  .theme-footer-brand__logo {
+    width: 136px !important;
+  }
+
+  .theme-footer-social-wrapper {
+    margin-top: 30px !important;
+    padding-top: 22px !important;
+  }
+
+  .theme-footer-social__icons {
+    gap: 24px !important;
+  }
+
+  .theme-footer-social__icon,
+  .theme-footer-social__icon svg {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .theme-footer-tagline-wrapper {
+    margin-top: 20px !important;
+  }
+
+  .theme-footer-tagline-p {
+    font-size: 30px !important;
+    line-height: 1.08 !important;
+  }
+}
