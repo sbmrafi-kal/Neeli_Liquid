@@ -1,5 +1,5 @@
 {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
-{{ 'section-information.css' | asset_url | stylesheet_tag }}<section class="theme-product-page__section theme-reveal  color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}theme-product-page__section--soft{% endif %}" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;">
+{{ 'section-information.css' | asset_url | stylesheet_tag }}<section class="theme-product-page__section theme-reveal  color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}theme-product-page__section--soft{% endif %}">
   <div class="theme-product-page__wrap">
     <div class="theme-info-header">
       <div class="theme-info-header__kicker">{{ section.settings.kicker }}</div>

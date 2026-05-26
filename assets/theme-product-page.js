@@ -209,6 +209,63 @@
     }
   }
 
+  function initVariantRadios() {
+    const sections = Array.from(document.querySelectorAll('.theme-product-page'));
+    if (!sections.length) return;
+
+    sections.forEach((section) => {
+      const radios = Array.from(section.querySelectorAll('.theme-variant-box__input'));
+      if (!radios.length) return;
+
+      const priceTargets = Array.from(section.querySelectorAll('.theme-reorder-btn__price-new, .theme-reorder-card__price-new, .theme-sticky-cart-bar__price'));
+      const oldPriceTargets = Array.from(section.querySelectorAll('.theme-reorder-btn__price-old, .theme-reorder-card__price-old'));
+      const actionButtons = Array.from(section.querySelectorAll('.theme-reorder-btn'));
+      const titleTargets = Array.from(section.querySelectorAll('.theme-reorder-btn__title'));
+      const labels = Array.from(section.querySelectorAll('.theme-variant-box'));
+
+      function applyState() {
+        const selected = radios.find((radio) => radio.checked) || radios[0];
+        if (!selected) return;
+
+        const price = selected.getAttribute('data-price') || '';
+        const comparePrice = selected.getAttribute('data-compare-price') || '';
+        const available = selected.getAttribute('data-available') === 'true';
+
+        labels.forEach((label) => {
+          const input = label.querySelector('.theme-variant-box__input');
+          label.classList.toggle('is-selected', Boolean(input && input.checked));
+        });
+
+        priceTargets.forEach((node) => {
+          node.textContent = price;
+        });
+
+        oldPriceTargets.forEach((node) => {
+          if (comparePrice.trim()) {
+            node.textContent = comparePrice;
+            node.hidden = false;
+          } else {
+            node.hidden = true;
+          }
+        });
+
+        actionButtons.forEach((button) => {
+          button.disabled = !available;
+        });
+
+        titleTargets.forEach((node) => {
+          node.textContent = available ? 'Add to Cart' : 'Sold Out';
+        });
+      }
+
+      radios.forEach((radio) => {
+        radio.addEventListener('change', applyState);
+      });
+
+      applyState();
+    });
+  }
+
   function boot() {
     document.documentElement.classList.add('theme-js-ready');
     document.querySelectorAll('[data-theme-carousel]').forEach(initCarousel);
@@ -216,6 +273,7 @@
     initHeaderScroll();
     initThemeAccordions();
     initVariantSync();
+    initVariantRadios();
   }
 
   if (document.readyState === 'loading') {

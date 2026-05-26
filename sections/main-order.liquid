@@ -1,50 +1,50 @@
-<div class="theme-container theme-page-spacing" style="max-width: 800px; margin: 0 auto;">
-  <header style="border-bottom: 1px solid rgba(23, 55, 45, 0.08); padding-bottom: 1.5rem; margin-bottom: 3rem; display: flex; justify-content: space-between; align-items: baseline;">
+<div class="theme-container theme-container--wide theme-page-spacing theme-account-page">
+  <header class="theme-account-page__header">
     <div>
-      <a href="{{ routes.account_url }}" style="color: rgba(23, 55, 45, 0.62); text-decoration: underline; font-size: 0.875rem; display: inline-block; margin-bottom: 0.5rem;">&larr; Back to account</a>
-      <h1 style="font-family: var(--font-heading-family); font-size: 2.5rem; color: var(--theme-forest); margin: 0; font-weight: 400;">Order {{ order.name }}</h1>
-      <p style="font-size: 0.9375rem; color: rgba(23, 55, 45, 0.72); margin: 0.5rem 0 0;">Placed on {{ order.created_at | time_tag: format: 'date' }}</p>
+      <a href="{{ routes.account_url }}" class="theme-link-muted theme-account-page__back">&larr; Back to account</a>
+      <h1 class="theme-page-title theme-page-title--lg">Order {{ order.name }}</h1>
+      <p class="theme-page-subtitle">Placed on {{ order.created_at | time_tag: format: 'date' }}</p>
     </div>
-    <span style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; padding: 0.375rem 0.75rem; border-radius: 4px; {% if order.fulfillment_status_label == 'Fulfilled' %}background: #ecf8ee; color: #38a55b;{% else %}background: #fdf6e2; color: #f2a11b;{% endif %}">
+    <span class="theme-account-page__status">
       {{ order.fulfillment_status_label }}
     </span>
   </header>
 
-  <div style="display: grid; gap: 2rem;">
-    <div style="background: #fff; border: 1px solid rgba(23, 55, 45, 0.08); border-radius: 12px; padding: 1.5rem; display: grid; gap: 1.5rem;">
+  <div class="theme-stack theme-stack--xl">
+    <div class="theme-stack theme-stack--md">
       {%- for line_item in order.line_items -%}
-        <div style="display: grid; grid-template-columns: 64px 1fr; gap: 1rem; border-bottom: 1px solid rgba(23, 55, 45, 0.06); padding-bottom: 1.25rem; last-child: { border-bottom: 0; padding-bottom: 0; }">
-          <div style="border-radius: 8px; overflow: hidden; position: relative; padding-top: 100%;">
+        <div class="theme-card theme-card--surface theme-account-page__card">
+          <div class="theme-media-frame theme-media-frame--square">
             {%- if line_item.image != blank -%}
-              <img src="{{ line_item.image | image_url: width: 160 }}" alt="{{ line_item.title | escape }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+              <img src="{{ line_item.image | image_url: width: 160 }}" alt="{{ line_item.title | escape }}" class="theme-media-fill">
             {%- else -%}
-              <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #fcfaf4;"></div>
+              <div class="theme-media-fill"></div>
             {%- endif -%}
           </div>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div class="theme-stack theme-stack--md">
             <div>
-              <h3 style="font-family: var(--font-heading-family); font-size: 1.125rem; margin: 0; font-weight: 400; color: var(--theme-forest);">{{ line_item.product.title }}</h3>
+              <h3 class="theme-page-title theme-page-title--md">{{ line_item.product.title }}</h3>
               {%- if line_item.variant.title != blank -%}
-                <p style="font-size: 0.8125rem; color: rgba(23, 55, 45, 0.54); margin: 0.25rem 0 0;">{{ line_item.variant.title }}</p>
+                <p class="theme-page-subtitle">{{ line_item.variant.title }}</p>
               {%- endif -%}
-              <span style="font-size: 0.875rem; color: rgba(23, 55, 45, 0.72); display: block; margin-top: 0.25rem;">Qty: {{ line_item.quantity }}</span>
+              <span class="theme-page-subtitle">Qty: {{ line_item.quantity }}</span>
             </div>
-            <span style="font-weight: 600; color: var(--theme-forest);">{{ line_item.final_line_price | money }}</span>
+            <span>{{ line_item.final_line_price | money }}</span>
           </div>
         </div>
       {%- endfor -%}
     </div>
 
-    <div style="background: #fcfaf4; border: 1px solid rgba(23, 55, 45, 0.1); border-radius: 12px; padding: 1.5rem 2rem; display: grid; gap: 0.75rem; font-size: 0.9375rem; color: rgba(23, 55, 45, 0.88);">
-      <div style="display: flex; justify-content: space-between;">
+    <div class="theme-card theme-card--soft theme-account-page__card">
+      <div class="theme-account-page__summary-row">
         <span>Subtotal</span>
         <span>{{ order.line_items_subtotal_price | money }}</span>
       </div>
-      <div style="display: flex; justify-content: space-between;">
+      <div class="theme-account-page__summary-row">
         <span>Shipping</span>
         <span>{{ order.shipping_price | money }}</span>
       </div>
-      <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 1.125rem; border-top: 1px solid rgba(23, 55, 45, 0.1); padding-top: 1rem; margin-top: 0.25rem; color: var(--theme-forest);">
+      <div class="theme-account-page__summary-row">
         <span>Total</span>
         <span>{{ order.total_price | money }}</span>
       </div>

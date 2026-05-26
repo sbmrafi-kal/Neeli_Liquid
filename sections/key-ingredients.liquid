@@ -1,5 +1,5 @@
 {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
-{{ 'section-key-ingredients.css' | asset_url | stylesheet_tag }}<section class="theme-key-ingredients  color-{{ section.settings.color_scheme }} gradient" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;">
+{{ 'section-key-ingredients.css' | asset_url | stylesheet_tag }}<section class="theme-key-ingredients  color-{{ section.settings.color_scheme }} gradient">
   <div class="theme-product-page__wrap">
     <div class="theme-ki-header">
       {%- if section.settings.heading != blank -%}
@@ -25,7 +25,7 @@
             {%- else -%}
               {%- assign default_image = 'ing-coconut.jpg' -%}
           {%- endcase -%}
-          
+
           <div class="theme-ki-card motion-panel" {{ block.shopify_attributes }}>
             <div class="theme-ki-card__img-wrap">
               {%- if block.settings.image != blank -%}
@@ -34,13 +34,13 @@
                 <img src="{{ default_image | asset_url }}" class="theme-ki-card__img image-zoom" loading="lazy" width="120" height="120" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
             </div>
-            
+
             <h3 class="theme-ki-card__title">{{ block.settings.title }}</h3>
-            
+
             {%- if block.settings.subtitle != blank -%}
               <div class="theme-ki-card__subtitle">{{ block.settings.subtitle }}</div>
             {%- endif -%}
-            
+
             <p class="theme-ki-card__text">{{ block.settings.text }}</p>
           </div>
         {%- endif -%}

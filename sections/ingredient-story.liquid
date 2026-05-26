@@ -4,7 +4,7 @@
 
 <section class="theme-product-page__section theme-product-page__section--story theme-reveal color-{{ section.settings.color_scheme }} gradient">
   <!-- Sub-section 1: What's in it. What is not. -->
-  <div class="theme-ingredient-story__whats-in-it" style="padding-top: {{ section.settings.padding_top }}px;">
+  <div class="theme-ingredient-story__whats-in-it">
     <div class="theme-product-page__wrap">
       <div class="theme-section-heading theme-section-heading--center theme-section-heading--flush">
         {%- if section.settings.heading != blank -%}
@@ -86,7 +86,7 @@
   </div>
 
   <!-- Sub-section 3: Reviews -->
-  <div class="theme-difference-reviews-wrap" style="padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <div class="theme-difference-reviews-wrap">
     <div class="theme-product-page__wrap">
       <div class="theme-review-grid theme-review-grid--story">
         {%- for block in section.blocks -%}

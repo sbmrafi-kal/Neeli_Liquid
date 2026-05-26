@@ -1,6 +1,6 @@
 {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
-{{ 'section-what-to-expect.css' | asset_url | stylesheet_tag }}<section class="theme-timeline  color-{{ section.settings.color_scheme }} gradient" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;">
-  
+{{ 'section-what-to-expect.css' | asset_url | stylesheet_tag }}<section class="theme-timeline  color-{{ section.settings.color_scheme }} gradient">
+
   <div class="theme-timeline-header-banner">
     <div class="theme-timeline-header-banner__kicker">{{ section.settings.kicker }}</div>
     <h2 class="theme-timeline-header-banner__title">{{ section.settings.heading }}</h2>
@@ -20,7 +20,7 @@
           {%- else -%}
             {%- assign default_stage_image = 'expect-3.jpg' -%}
         {%- endcase -%}
-        
+
         <div class="theme-timeline-stage" {{ block.shopify_attributes }}>
           <div class="theme-timeline-stage__top">
             <div class="theme-timeline-stage__phase">{{ block.settings.phase }}</div>
@@ -32,7 +32,7 @@
               {%- endif -%}
             </div>
           </div>
-          
+
           <div class="theme-timeline-stage__bottom">
             <div class="theme-timeline-stage__label">{{ block.settings.label }}</div>
             <h3 class="theme-timeline-stage__title">{{ block.settings.title }}</h3>

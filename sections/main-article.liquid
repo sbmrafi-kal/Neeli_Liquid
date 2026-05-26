@@ -1,28 +1,28 @@
-<article class="theme-container theme-container--narrow theme-page-spacing" style="max-width: 720px; margin: 0 auto;">
-  <header class="article-header text-center" style="margin-bottom: 3rem;">
-    <span style="font-size: 0.8125rem; text-transform: uppercase; color: #8f4f36; letter-spacing: 0.08em; font-weight: 500;">
+<article class="theme-container theme-container--medium theme-page-spacing theme-article-page">
+  <header class="article-header theme-text-center">
+    <span class="theme-page-kicker">
       {{ article.published_at | time_tag: format: 'date' }}
     </span>
-    <h1 class="theme-page-title" style="font-family: var(--font-heading-family); font-size: 2.75rem; color: var(--theme-forest); margin: 0.75rem 0 1rem; line-height: 1.1; font-weight: 400;">
+    <h1 class="theme-page-title theme-page-title--xl">
       {{ article.title | escape }}
     </h1>
     {%- if article.author -%}
-      <span style="font-size: 0.875rem; color: rgba(23, 55, 45, 0.54);">By {{ article.author }}</span>
+      <span class="theme-page-subtitle">By {{ article.author }}</span>
     {%- endif -%}
   </header>
 
   {%- if article.image != blank -%}
-    <div style="border-radius: 12px; overflow: hidden; margin-bottom: 3.5rem; border: 1px solid rgba(23, 55, 45, 0.08);">
+    <div class="theme-card theme-card--surface theme-media-frame theme-media-frame--wide">
       <img
         src="{{ article.image | image_url: width: 1100 }}"
         alt="{{ article.image.alt | escape }}"
-        style="width: 100%; height: auto; display: block;"
+        class="theme-media-fill"
         loading="lazy"
       >
     </div>
   {%- endif -%}
 
-  <div class="theme-page-content rte" style="font-size: 1.0625rem; color: rgba(23, 55, 45, 0.82); line-height: 1.6; display: grid; gap: 1.5rem;">
+  <div class="theme-page-content rte">
     {{ article.content }}
   </div>
 </article>

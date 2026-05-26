@@ -1,57 +1,59 @@
-<div class="theme-container theme-page-spacing">
-  <header class="search-header text-center" style="margin-bottom: 3.5rem;">
-    <h1 class="theme-page-title" style="font-family: var(--font-heading-family); font-size: 2.75rem; color: var(--theme-forest);">
+<div class="theme-container theme-page-spacing theme-search-page">
+  <header class="search-header theme-text-center">
+    <h1 class="theme-page-title theme-page-title--xl">
       {%- if search.performed -%}
         Search Results
       {%- else -%}
         Search Our Store
       {%- endif -%}
     </h1>
-    
-    <form action="{{ routes.search_url }}" method="get" role="search" style="max-width: 480px; margin: 1.5rem auto 0; position: relative;">
+
+    <form action="{{ routes.search_url }}" method="get" role="search" class="theme-search-form">
       <input
         type="search"
         name="q"
         value="{{ search.terms | escape }}"
         placeholder="Search for neeli, amla, bringaraj..."
-        style="width: 100%; border: 1px solid rgba(23, 55, 45, 0.24); border-radius: 9999px; padding: 0.875rem 1.5rem; font-size: 1rem; color: var(--theme-forest); outline: none; background: #fff;"
+
       >
-      <button type="submit" style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: #8f4f36; border: none; border-radius: 9999px; padding: 0.5rem 1.25rem; color: #fff; cursor: pointer; font-size: 0.875rem;">
+      <button type="submit">
         Search
       </button>
     </form>
   </header>
 
   {%- if search.performed -%}
-    <p class="text-center" style="font-size: 1.125rem; color: rgba(23, 55, 45, 0.72); margin-bottom: 2.5rem;">
+    <p class="theme-text-center theme-page-subtitle">
       Found {{ search.results_count }} result(s) for "{{ search.terms | escape }}"
     </p>
 
     {%- if search.results.size > 0 -%}
-      <div class="collection-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem;">
+      <div class="collection-grid theme-grid--cards-280">
         {%- for item in search.results -%}
           {%- if item.object_type == 'product' -%}
-            <article class="theme-review-card image-zoom-shell" style="border: 1px solid rgba(23, 55, 45, 0.08); border-radius: 12px; overflow: hidden; background: #fff; display: flex; flex-direction: column;">
-              <a href="{{ item.url }}" style="display: block; overflow: hidden; position: relative; padding-top: 100%;">
+            <article class="theme-card theme-card--surface theme-review-card image-zoom-shell">
+              <a href="{{ item.url }}" class="theme-media-frame theme-media-frame--square">
                 {%- if item.featured_image != blank -%}
                   <img
                     src="{{ item.featured_image | image_url: width: 600 }}"
                     alt="{{ item.featured_image.alt | escape }}"
-                    class="image-zoom"
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);"
+                    class="theme-media-fill image-zoom"
+
                     loading="lazy"
                   >
+                {%- else -%}
+                  <div class="theme-media-fill"></div>
                 {%- endif -%}
               </a>
-              <div style="padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; text-align: center;">
-                <h3 style="font-family: var(--font-heading-family); font-size: 1.375rem; margin: 0; font-weight: 400;">
-                  <a href="{{ item.url }}" style="color: var(--theme-forest); text-decoration: none;">{{ item.title | escape }}</a>
+              <div class="theme-stack theme-stack--md">
+                <h3 class="theme-page-title theme-page-title--md">
+                  <a href="{{ item.url }}">{{ item.title | escape }}</a>
                 </h3>
-                <div style="margin-top: 0.5rem; font-size: 1.125rem; font-weight: 600; color: #8f4f36;">
+                <div class="theme-page-subtitle">
                   {{ item.price | money }}
                 </div>
-                <div style="margin-top: auto; padding-top: 1.25rem;">
-                  <a href="{{ item.url }}" class="theme-review-button" style="display: inline-flex; width: 100%; padding: 0.875rem 1.5rem; font-size: 0.875rem; justify-content: center; box-sizing: border-box; text-decoration: none;">
+                <div>
+                  <a href="{{ item.url }}" class="theme-review-button">
                     View Product
                   </a>
                 </div>

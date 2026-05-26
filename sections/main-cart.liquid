@@ -1,31 +1,31 @@
-<div class="theme-container theme-page-spacing">
-  <header class="cart-header text-center" style="margin-bottom: 3rem;">
-    <h1 class="theme-page-title" style="font-family: var(--font-heading-family); font-size: 2.75rem; color: var(--theme-forest);">Your Hair Recovery Cart</h1>
-    <a href="{{ routes.all_products_collection_url }}" style="color: rgba(23, 55, 45, 0.72); text-decoration: underline; font-size: 0.9375rem; display: inline-block; margin-top: 0.5rem;">Continue Recovering</a>
+<div class="theme-container theme-page-spacing theme-list-page">
+  <header class="cart-header theme-text-center">
+    <h1 class="theme-page-title theme-page-title--xl">Your Hair Recovery Cart</h1>
+    <a href="{{ routes.all_products_collection_url }}" class="theme-link-muted">Continue Recovering</a>
   </header>
 
   {%- if cart.item_count > 0 -%}
-    <form action="{{ routes.cart_url }}" method="post" id="cart" style="display: grid; gap: 2.5rem; grid-template-columns: 1fr; @media screen and (min-width: 990px) { grid-template-columns: 2fr 1fr; }">
-      <div class="cart-items" style="background: #fff; border: 1px solid rgba(23, 55, 45, 0.08); border-radius: 12px; padding: 1.5rem; display: grid; gap: 1.5rem;">
+    <form action="{{ routes.cart_url }}" method="post" id="cart" class="theme-cart-layout">
+      <div class="cart-items theme-card theme-card--surface theme-stack theme-stack--lg">
         {%- for item in cart.items -%}
-          <div class="cart-item" style="display: grid; grid-template-columns: 80px 1fr; gap: 1.25rem; border-bottom: 1px solid rgba(23, 55, 45, 0.06); padding-bottom: 1.5rem; last-child: { border-bottom: 0; padding-bottom: 0; }">
-            <div style="border-radius: 8px; overflow: hidden; position: relative; padding-top: 100%;">
-              <img src="{{ item.image | image_url: width: 240 }}" alt="{{ item.title | escape }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div class="cart-item theme-cart-item">
+            <div class="theme-media-frame theme-media-frame--square">
+              <img src="{{ item.image | image_url: width: 240 }}" alt="{{ item.title | escape }}" class="theme-media-fill">
             </div>
-            <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="theme-stack theme-stack--sm">
               <div>
-                <h3 style="font-family: var(--font-heading-family); font-size: 1.1875rem; margin: 0; font-weight: 400;">
-                  <a href="{{ item.url }}" style="color: var(--theme-forest); text-decoration: none;">{{ item.product.title }}</a>
+                <h3 class="theme-page-title theme-page-title--md">
+                  <a href="{{ item.url }}">{{ item.product.title }}</a>
                 </h3>
                 {%- if item.product.has_only_default_variant == false -%}
-                  <p style="font-size: 0.8125rem; color: rgba(23, 55, 45, 0.54); margin: 0.25rem 0 0;">{{ item.variant.title }}</p>
+                  <p class="theme-page-subtitle">{{ item.variant.title }}</p>
                 {%- endif -%}
               </div>
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 1rem;">
-                <div style="font-weight: 600; color: var(--theme-forest);">
+              <div class="theme-cart-item__meta">
+                <div>
                   {{ item.final_line_price | money }}
                 </div>
-                <div style="font-size: 0.875rem; color: rgba(23, 55, 45, 0.72);">
+                <div>
                   Quantity: {{ item.quantity }}
                 </div>
               </div>
@@ -34,22 +34,22 @@
         {%- endfor -%}
       </div>
 
-      <div class="cart-summary" style="background: #fcfaf4; border: 1px solid rgba(23, 55, 45, 0.1); border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; height: fit-content;">
-        <h2 style="font-family: var(--font-heading-family); font-size: 1.75rem; color: var(--theme-forest); margin: 0;">Summary</h2>
-        <div style="display: flex; justify-content: space-between; font-size: 1.125rem; font-weight: 600; border-top: 1px solid rgba(23, 55, 45, 0.1); padding-top: 1.25rem;">
+      <div class="cart-summary theme-card theme-card--soft theme-stack theme-stack--lg">
+        <h2 class="theme-page-title theme-page-title--md">Summary</h2>
+        <div class="theme-account-page__summary-row">
           <span>Subtotal</span>
           <span>{{ cart.total_price | money }}</span>
         </div>
-        <p style="font-size: 0.8125rem; color: rgba(23, 55, 45, 0.62); margin: 0;">Taxes and shipping calculated at checkout</p>
-        <button type="submit" name="checkout" class="theme-review-button" style="display: inline-flex; width: 100%; justify-content: center; background: #8f4f36; border-color: #8f4f36; color: #fff; cursor: pointer; padding: 1.125rem 2rem;">
+        <p class="theme-page-subtitle">Taxes and shipping calculated at checkout</p>
+        <button type="submit" name="checkout" class="theme-review-button">
           Proceed to Checkout
         </button>
       </div>
     </form>
   {%- else -%}
-    <div class="text-center" style="padding: 5rem 0;">
-      <p style="font-size: 1.25rem; color: rgba(23, 55, 45, 0.72); margin-bottom: 2rem;">Your recovery cart is currently empty.</p>
-      <a href="{{ routes.all_products_collection_url }}" class="theme-review-button" style="display: inline-flex; text-decoration: none;">
+    <div class="theme-text-center theme-stack theme-stack--lg">
+      <p class="theme-page-subtitle">Your recovery cart is currently empty.</p>
+      <a href="{{ routes.all_products_collection_url }}" class="theme-review-button">
         Find Your Solution
       </a>
     </div>

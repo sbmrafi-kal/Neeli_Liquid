@@ -13,10 +13,12 @@
   {%- assign product = all_products['neelibhringadi-keram'] -%}
 {%- endif -%}
 {%- assign product_title = product.title | default: 'Neelibhringadi Keram' -%}
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+{%- assign hero_stat_blocks = section.blocks | where: "type", "hero_stat" -%}
 
 <section
   id="NeeliProduct-{{ section.id }}"
-  class="theme-product-page theme-reveal  gradient color-{{ section.settings.color_scheme }}" style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;"
+  class="theme-product-page theme-reveal  gradient color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
 >
@@ -74,13 +76,19 @@
           </div>
 
           <div class="theme-hero-carousel__stats">
-            {%- assign stat_blocks = section.blocks | where: "type", "hero_stat" -%}
-            {%- for block in stat_blocks -%}
-              <div class="theme-hero-carousel__stat" {{ block.shopify_attributes }}>
-                <div class="theme-hero-carousel__stat-value">{{ block.settings.value }}</div>
-                <div class="theme-hero-carousel__stat-label">{{ block.settings.label }}</div>
-              </div>
-            {%- endfor -%}
+            {%- if hero_stat_blocks.size > 0 -%}
+              {%- for block in hero_stat_blocks -%}
+                <div class="theme-hero-carousel__stat" {{ block.shopify_attributes }}>
+                  <div class="theme-hero-carousel__stat-value">{{ block.settings.value }}</div>
+                  <div class="theme-hero-carousel__stat-label">{{ block.settings.label }}</div>
+                </div>
+              {%- endfor -%}
+            {%- else -%}
+              <div class="theme-hero-carousel__stat"><div class="theme-hero-carousel__stat-value">{{ section.settings.stat_1_value }}</div><div class="theme-hero-carousel__stat-label">{{ section.settings.stat_1_label }}</div></div>
+              <div class="theme-hero-carousel__stat"><div class="theme-hero-carousel__stat-value">{{ section.settings.stat_2_value }}</div><div class="theme-hero-carousel__stat-label">{{ section.settings.stat_2_label }}</div></div>
+              <div class="theme-hero-carousel__stat"><div class="theme-hero-carousel__stat-value">{{ section.settings.stat_3_value }}</div><div class="theme-hero-carousel__stat-label">{{ section.settings.stat_3_label }}</div></div>
+              <div class="theme-hero-carousel__stat"><div class="theme-hero-carousel__stat-value">{{ section.settings.review_count }}</div><div class="theme-hero-carousel__stat-label">Reviews</div></div>
+            {%- endif -%}
           </div>
         </div>
 
@@ -144,8 +152,8 @@
         </div>
 
         <div class="theme-product-page__form-card">
-          {%- if product != blank and product.selected_or_first_available_variant != blank -%}
-          {%- form 'product', product, id: "theme-product-form", class: "theme-product-form" -%}
+        {%- if product != blank and selected_variant != blank -%}
+        {%- form 'product', product, id: "theme-product-form", class: "theme-product-form" -%}
             {%- if product.variants.size > 1 -%}
               <div class="theme-variant-boxes theme-variant-boxes--desktop">
                 {%- for variant in product.variants -%}
@@ -205,13 +213,27 @@
 
         <div class="theme-new-cert-block motion-panel">
           <div class="theme-new-cert-block__stats">
-            {%- assign stat_blocks = section.blocks | where: "type", "hero_stat" -%}
-            {%- for block in stat_blocks limit: 3 -%}
-              <div class="theme-new-cert-block__stat" {{ block.shopify_attributes }}>
-                <div class="theme-new-cert-block__stat-val">{{ block.settings.value }}</div>
-                <div class="theme-new-cert-block__stat-lbl">{{ block.settings.label }}</div>
+            {%- if hero_stat_blocks.size > 0 -%}
+              {%- for block in hero_stat_blocks limit: 3 -%}
+                <div class="theme-new-cert-block__stat" {{ block.shopify_attributes }}>
+                  <div class="theme-new-cert-block__stat-val">{{ block.settings.value }}</div>
+                  <div class="theme-new-cert-block__stat-lbl">{{ block.settings.label }}</div>
+                </div>
+              {%- endfor -%}
+            {%- else -%}
+              <div class="theme-new-cert-block__stat">
+                <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_1_value }}</div>
+                <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_1_label }}</div>
               </div>
-            {%- endfor -%}
+              <div class="theme-new-cert-block__stat">
+                <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_2_value }}</div>
+                <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_2_label }}</div>
+              </div>
+              <div class="theme-new-cert-block__stat">
+                <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_3_value }}</div>
+                <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_3_label }}</div>
+              </div>
+            {%- endif -%}
           </div>
           <div class="theme-new-cert-block__stamps">
             <img src="{{ 'stamp_02_old.png' | asset_url }}" width="86" height="86" alt="AYUSH certified" loading="lazy">
@@ -232,7 +254,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- MOBILE HERO INFO CONTAINER (Spans full narrow width) -->
     <div class="theme-product-info-mobile">
       {%- if badges.size > 0 -%}
@@ -298,9 +320,9 @@
       </div>
 
       <div class="theme-product-page__form-card">
-        {%- if product != blank and product.selected_or_first_available_variant != blank -%}
+        {%- if product != blank and selected_variant != blank -%}
         {%- form 'product', product, id: "theme-product-form-mobile", class: "theme-product-form" -%}
-          <button type="submit" name="add" class="theme-reorder-btn theme-reorder-btn--mobile cta-sheen" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
+          <button type="submit" name="add" class="theme-reorder-btn theme-reorder-btn--mobile cta-sheen" {% unless selected_variant.available %}disabled="disabled"{% endunless %}>
             <div class="theme-reorder-btn__left">
               <svg class="theme-reorder-btn__icon theme-reorder-btn__icon--mobile" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
@@ -308,7 +330,7 @@
               </svg>
               <div class="theme-reorder-btn__content">
                 <div class="theme-reorder-btn__title theme-reorder-btn__title--mobile">
-                  {%- if product.selected_or_first_available_variant.available -%}
+                  {%- if selected_variant.available -%}
                     Add to Cart
                   {%- else -%}
                     Sold Out
@@ -317,8 +339,12 @@
               </div>
             </div>
             <div class="theme-reorder-btn__right theme-reorder-btn__right--mobile">
-              <span class="theme-reorder-btn__price-old">₹350</span>
-              <span class="theme-reorder-btn__price-new theme-reorder-btn__price-new--mobile">₹315</span>
+              {%- if selected_variant.compare_at_price > selected_variant.price -%}
+                <span class="theme-reorder-btn__price-old">{{ selected_variant.compare_at_price | money }}</span>
+              {%- else -%}
+                <span class="theme-reorder-btn__price-old" hidden></span>
+              {%- endif -%}
+              <span class="theme-reorder-btn__price-new theme-reorder-btn__price-new--mobile">{{ selected_variant.price | money }}</span>
             </div>
           </button>
 
@@ -363,18 +389,27 @@
 
       <div class="theme-new-cert-block motion-panel">
         <div class="theme-new-cert-block__stats">
-          <div class="theme-new-cert-block__stat">
-            <div class="theme-new-cert-block__stat-val">1945</div>
-            <div class="theme-new-cert-block__stat-lbl">Established</div>
-          </div>
-          <div class="theme-new-cert-block__stat">
-            <div class="theme-new-cert-block__stat-val">350+</div>
-            <div class="theme-new-cert-block__stat-lbl">Products</div>
-          </div>
-          <div class="theme-new-cert-block__stat">
-            <div class="theme-new-cert-block__stat-val">Clinics & Academy</div>
-            <div class="theme-new-cert-block__stat-lbl">Expert led</div>
-          </div>
+          {%- if hero_stat_blocks.size > 0 -%}
+            {%- for block in hero_stat_blocks limit: 3 -%}
+              <div class="theme-new-cert-block__stat" {{ block.shopify_attributes }}>
+                <div class="theme-new-cert-block__stat-val">{{ block.settings.value }}</div>
+                <div class="theme-new-cert-block__stat-lbl">{{ block.settings.label }}</div>
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            <div class="theme-new-cert-block__stat">
+              <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_1_value }}</div>
+              <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_1_label }}</div>
+            </div>
+            <div class="theme-new-cert-block__stat">
+              <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_2_value }}</div>
+              <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_2_label }}</div>
+            </div>
+            <div class="theme-new-cert-block__stat">
+              <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_3_value }}</div>
+              <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_3_label }}</div>
+            </div>
+          {%- endif -%}
         </div>
         <div class="theme-new-cert-block__stamps">
           <img src="{{ 'stamp_02_old.png' | asset_url }}" width="86" height="86" alt="AYUSH certified" loading="lazy">

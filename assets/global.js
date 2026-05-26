@@ -1330,3 +1330,77 @@ class CartPerformance {
     );
   }
 }
+
+function initThemeRuntimeHelpers() {
+  if (typeof Shopify !== 'undefined' && Shopify.designMode) {
+    document.documentElement.classList.add('shopify-design-mode');
+  }
+
+  const previewBarSelectors = [
+    'iframe[src*="shopifycloud/preview-bar"]',
+    'iframe[src*="/preview-bar/"]',
+    'iframe[src*="preview-bar/index.html"]',
+  ].join(', ');
+
+  const removePreviewBar = () => {
+    document.querySelectorAll(previewBarSelectors).forEach((iframe) => iframe.remove());
+  };
+
+  removePreviewBar();
+  window.addEventListener('load', removePreviewBar, { once: true });
+
+  if ('MutationObserver' in window) {
+    const observer = new MutationObserver(removePreviewBar);
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  }
+
+  document.querySelectorAll('.theme-sticky-cart-bar__btn--add').forEach((button) => {
+    button.addEventListener('click', () => {
+      const form = document.getElementById('theme-product-form');
+      if (form) form.requestSubmit ? form.requestSubmit() : form.submit();
+    });
+  });
+
+  document.querySelectorAll('[data-theme-recover-toggle]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const showRecover = link.dataset.themeRecoverToggle === 'show';
+      const root = link.closest('.theme-auth-page');
+      if (root) {
+        root.classList.toggle('is-recover-visible', showRecover);
+      }
+    });
+  });
+
+  if (window.location.hash === '#recover') {
+    document.querySelectorAll('.theme-auth-page').forEach((root) => {
+      root.classList.add('is-recover-visible');
+    });
+  }
+
+  document.querySelectorAll('[data-confirm-delete="true"]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      if (!window.confirm('Are you sure you want to delete this address?')) {
+        event.preventDefault();
+      }
+    });
+  });
+
+  document.querySelectorAll('.theme-patch-test-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      const wrap = button.closest('.theme-patch-test-wrap');
+      if (wrap) wrap.classList.toggle('is-active');
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.theme-patch-test-wrap')) return;
+    document.querySelectorAll('.theme-patch-test-wrap.is-active').forEach((wrap) => wrap.classList.remove('is-active'));
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initThemeRuntimeHelpers, { once: true });
+} else {
+  initThemeRuntimeHelpers();
+}
