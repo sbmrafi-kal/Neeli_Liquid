@@ -213,27 +213,18 @@
 
         <div class="theme-new-cert-block motion-panel">
           <div class="theme-new-cert-block__stats">
-            {%- if hero_stat_blocks.size > 0 -%}
-              {%- for block in hero_stat_blocks limit: 3 -%}
-                <div class="theme-new-cert-block__stat" {{ block.shopify_attributes }}>
-                  <div class="theme-new-cert-block__stat-val">{{ block.settings.value }}</div>
-                  <div class="theme-new-cert-block__stat-lbl">{{ block.settings.label }}</div>
-                </div>
-              {%- endfor -%}
-            {%- else -%}
-              <div class="theme-new-cert-block__stat">
-                <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_1_value }}</div>
-                <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_1_label }}</div>
-              </div>
-              <div class="theme-new-cert-block__stat">
-                <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_2_value }}</div>
-                <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_2_label }}</div>
-              </div>
-              <div class="theme-new-cert-block__stat">
-                <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_3_value }}</div>
-                <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_3_label }}</div>
-              </div>
-            {%- endif -%}
+            <div class="theme-new-cert-block__stat">
+              <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_1_value }}</div>
+              <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_1_label }}</div>
+            </div>
+            <div class="theme-new-cert-block__stat">
+              <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_2_value }}</div>
+              <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_2_label }}</div>
+            </div>
+            <div class="theme-new-cert-block__stat">
+              <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_3_value }}</div>
+              <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_3_label }}</div>
+            </div>
           </div>
           <div class="theme-new-cert-block__stamps">
             <img src="{{ 'stamp_02_old.png' | asset_url }}" width="86" height="86" alt="AYUSH certified" loading="lazy">

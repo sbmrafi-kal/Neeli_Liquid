@@ -191,6 +191,16 @@
   letter-spacing: 0.08em !important;
 }
 
+.theme-brand-trust__desktop-kicker {
+  margin-top: 0.25rem !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #d7c870 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  font-family: var(--theme-body-font) !important;
+}
+
 .theme-brand-trust__desktop-desc {
   margin-top: 1.25rem !important;
   max-width: 520px !important;

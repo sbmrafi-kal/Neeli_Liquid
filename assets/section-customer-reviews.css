@@ -69,6 +69,16 @@
   line-height: 1.45 !important;
 }
 
+.theme-customer-reviews .theme-review-card__badge {
+  margin-top: 12px !important;
+  padding: 0.45rem 0.8rem !important;
+  border-radius: 999px !important;
+  background: #2a8e3b !important;
+  color: #fff !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.04em !important;
+}
+
 .theme-review-card__verified {
   color: #1f4d3d !important;
 }

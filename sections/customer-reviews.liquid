@@ -52,6 +52,9 @@
               </div>
               <div class="theme-review-card__verified">{{ block.settings.meta }}</div>
             </div>
+            {%- if block.settings.badge != blank -%}
+              <div class="theme-review-card__badge">{{ block.settings.badge }}</div>
+            {%- endif -%}
             <p class="theme-review-card__quote">&ldquo;{{ block.settings.body }}&rdquo;</p>
           </article>
         {%- endif -%}
@@ -85,7 +88,7 @@
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "Feedback" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Customer Reviews" },
     { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Real customer language, carried into the Shopify theme.</p>" },
-    { "type": "text", "id": "button_label", "label": "Button label", "default": "Read all reviews" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Read all 86 reviews" },
     { "type": "url", "id": "button_link", "label": "Button link" },
     { "type": "text", "id": "rating_score", "label": "Rating score", "default": "4.64 / 5.0" },
     { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Top padding" },
@@ -98,7 +101,7 @@
       "settings": [
         { "type": "text", "id": "name", "label": "Name", "default": "ANJALI K." },
         { "type": "text", "id": "meta", "label": "Meta", "default": "Verified Purchase" },
-        { "type": "text", "id": "badge", "label": "Badge", "default": "Postpartum hair fall" },
+        { "type": "text", "id": "badge", "label": "Badge", "default": "Reduced hair fall" },
         { "type": "textarea", "id": "body", "label": "Body", "default": "Within a month the amount of hair on my brush was noticeably less." }
       ]
     }

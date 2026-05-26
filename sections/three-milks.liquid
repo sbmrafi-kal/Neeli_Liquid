@@ -19,7 +19,14 @@
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 124 | image_tag: class: 'theme-three-milks__mobile-image', loading: 'lazy' }}
               {%- else -%}
-                <img src="{{ 'coconut_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__mobile-image" width="62" height="62" loading="lazy" />
+                {%- case forloop.index -%}
+                  {%- when 1 -%}
+                    <img src="{{ 'Coconut_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__mobile-image" width="62" height="62" loading="lazy" />
+                  {%- when 2 -%}
+                    <img src="{{ 'Goat_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__mobile-image" width="62" height="62" loading="lazy" />
+                  {%- else -%}
+                    <img src="{{ 'Cow_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__mobile-image" width="62" height="62" loading="lazy" />
+                {%- endcase -%}
               {%- endif -%}
             </div>
             <div class="theme-three-milks__mobile-content">
@@ -46,7 +53,14 @@
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 188 | image_tag: class: 'theme-three-milks__image', loading: 'lazy' }}
               {%- else -%}
-                <img src="{{ 'coconut_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__image" width="94" height="94" loading="lazy" />
+                {%- case forloop.index -%}
+                  {%- when 1 -%}
+                    <img src="{{ 'Coconut_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__image" width="94" height="94" loading="lazy" />
+                  {%- when 2 -%}
+                    <img src="{{ 'Goat_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__image" width="94" height="94" loading="lazy" />
+                  {%- else -%}
+                    <img src="{{ 'Cow_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__image" width="94" height="94" loading="lazy" />
+                {%- endcase -%}
               {%- endif -%}
             </div>
             <h3 class="theme-three-milks__card-title">{{ block.settings.title }}</h3>
@@ -75,8 +89,8 @@
 {
   "name": "Three milks base",
   "settings": [
-    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Why the three milks?" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "A unique Ayurvedic extraction process." },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "THE SECRET BASE" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Three milks. One complete formula." },
     { "type": "textarea", "id": "text", "label": "Text", "default": "Three nourishing milks work together for a healthier scalp and stronger, smoother hair." },
     { "type": "text", "id": "tooltip_text", "label": "Tooltip text", "default": "Note: Patch test recommended. Some oils may cause fungal acne." }
   ],
@@ -87,8 +101,8 @@
       "limit": 3,
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "title", "label": "Title" },
-        { "type": "textarea", "id": "text", "label": "Description" }
+        { "type": "text", "id": "title", "label": "Title", "default": "Coconut milk" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Nourishes and moisturizes the scalp." }
       ]
     }
   ],
