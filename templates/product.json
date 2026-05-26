@@ -301,64 +301,13 @@
             "title": "Coconut oil",
             "text": "Deep nourishment. Traditional carrier that mimics natural scalp lipids."
           }
-        },
-        "milk_1": {
-          "type": "milk",
-          "settings": {
-            "title": "Coconut milk",
-            "text": "Nourishes and moisturizes the scalp."
-          }
-        },
-        "milk_2": {
-          "type": "milk",
-          "settings": {
-            "title": "Goat milk",
-            "text": "Addresses dandruff and improves hair texture."
-          }
-        },
-        "milk_3": {
-          "type": "milk",
-          "settings": {
-            "title": "Cow milk",
-            "text": "Controls hair fall and promotes hair growth."
-          }
-        },
-        "step_1": {
-          "type": "step",
-          "settings": {
-            "number": "1",
-            "title": "WARM",
-            "text": "Warm oil penetrates - cold oil sits on the surface."
-          }
-        },
-        "step_2": {
-          "type": "step",
-          "settings": {
-            "number": "2",
-            "title": "APPLY",
-            "text": "Apply adequate amount gently onto the scalp and hair"
-          }
-        },
-        "step_3": {
-          "type": "step",
-          "settings": {
-            "number": "3",
-            "title": "MASSAGE",
-            "text": "Circular motion, 5 minutes. Fingertips, not nails."
-          }
         }
       },
       "block_order": [
         "ingredient_1",
         "ingredient_2",
         "ingredient_3",
-        "ingredient_4",
-        "milk_1",
-        "milk_2",
-        "milk_3",
-        "step_1",
-        "step_2",
-        "step_3"
+        "ingredient_4"
       ],
       "settings": {
         "color_scheme": "scheme-1",
