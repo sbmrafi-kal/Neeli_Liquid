@@ -88,192 +88,7 @@
       {%- endfor -%}
     </div>
 
-    <div class="theme-milk-section">
-      <div class="theme-section-heading theme-section-heading--center">
-        {%- if section.settings.milk_kicker != blank -%}
-          <span class="theme-section-heading__kicker theme-milk-section__kicker">{{ section.settings.milk_kicker }}</span>
-        {%- endif -%}
-        {%- if section.settings.milk_heading != blank -%}
-          <h2 class="theme-section-heading__title theme-milk-section__heading">{{ section.settings.milk_heading }}</h2>
-        {%- endif -%}
-        {%- if section.settings.milk_text != blank -%}
-          <div class="theme-section-heading__text theme-milk-section__text">{{ section.settings.milk_text }}</div>
-        {%- endif -%}
-      </div>
 
-      <!-- Mobile Three Milks Layout -->
-      <div class="theme-milk-grid--mobile lg:hidden">
-        {%- assign milk_index = 0 -%}
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'milk' -%}
-            {%- assign milk_index = milk_index | plus: 1 -%}
-            {%- case milk_index -%}
-              {%- when 1 -%}
-                {%- assign default_milk_image = 'Coconut_milk.png' -%}
-              {%- when 2 -%}
-                {%- assign default_milk_image = 'Goat_milk.png' -%}
-              {%- else -%}
-                {%- assign default_milk_image = 'Cow_milk.png' -%}
-            {%- endcase -%}
-            <article class="theme-milk-mobile motion-panel" {{ block.shopify_attributes }}>
-              <div class="theme-milk-mobile__image-wrap">
-                {%- if block.settings.image != blank -%}
-                  {{ block.settings.image | image_url: width: 200 | image_tag: class: 'theme-milk-mobile__media', loading: 'lazy', alt: block.settings.title }}
-                {%- else -%}
-                  <img src="{{ default_milk_image | asset_url }}" class="theme-milk-mobile__media" loading="lazy" width="62" height="62" alt="{{ block.settings.title | escape }}">
-                {%- endif -%}
-              </div>
-              <div class="theme-milk-mobile__body">
-                <h3 class="theme-milk-mobile__title">{{ block.settings.title }}</h3>
-                <p class="theme-milk-mobile__text">{{ block.settings.text }}</p>
-              </div>
-            </article>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-
-      <!-- Desktop Three Milks Layout -->
-      <div class="theme-milk-grid--desktop hidden lg:grid">
-        {%- assign milk_index = 0 -%}
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'milk' -%}
-            {%- assign milk_index = milk_index | plus: 1 -%}
-            {%- case milk_index -%}
-              {%- when 1 -%}
-                {%- assign default_milk_image = 'Coconut_milk.png' -%}
-              {%- when 2 -%}
-                {%- assign default_milk_image = 'Goat_milk.png' -%}
-              {%- else -%}
-                {%- assign default_milk_image = 'Cow_milk.png' -%}
-            {%- endcase -%}
-            <article class="theme-milk-desktop motion-panel" {{ block.shopify_attributes }}>
-              <div class="theme-milk-desktop__image-wrap">
-                {%- if block.settings.image != blank -%}
-                  {{ block.settings.image | image_url: width: 300 | image_tag: class: 'theme-milk-desktop__media', loading: 'lazy', alt: block.settings.title }}
-                {%- else -%}
-                  <img src="{{ default_milk_image | asset_url }}" class="theme-milk-desktop__media" loading="lazy" width="94" height="94" alt="{{ block.settings.title | escape }}">
-                {%- endif -%}
-              </div>
-              <div class="theme-milk-desktop__body">
-                <h3 class="theme-milk-desktop__title">{{ block.settings.title }}</h3>
-                <p class="theme-milk-desktop__text">{{ block.settings.text }}</p>
-              </div>
-            </article>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-
-      <!-- Patch Test Pills -->
-      <div class="theme-patch-test--desktop hidden lg:flex">
-        <svg class="theme-patch-test__icon-svg" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <span>Always patch test first</span>
-      </div>
-
-      <div class="theme-patch-test--mobile lg:hidden">
-        <svg class="theme-patch-test__icon-svg" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <span>Always patch test first</span>
-      </div>
-    </div>
-
-    <div class="theme-steps-section">
-      <div class="theme-steps-intro">
-        {%- if section.settings.steps_kicker != blank -%}
-          <span class="theme-steps-section__kicker">{{ section.settings.steps_kicker }}</span>
-        {%- endif -%}
-        {%- if section.settings.steps_heading != blank -%}
-          <h2 class="theme-steps-section__heading">{{ section.settings.steps_heading }}</h2>
-        {%- endif -%}
-        {%- if section.settings.steps_text != blank -%}
-          <div class="theme-steps-section__text">{{ section.settings.steps_text }}</div>
-        {%- endif -%}
-      </div>
-
-      <div class="theme-step-hero">
-        <img src="{{ 'massage-ritual.png' | asset_url }}" class="float-soft image-zoom" loading="lazy" width="1206" height="678" alt="{{ section.settings.steps_heading | escape }}">
-      </div>
-
-      <!-- Mobile Steps Layout -->
-      <div class="theme-step-grid--mobile md:hidden">
-        {%- assign step_count = 0 -%}
-        {%- assign step_image_index = 0 -%}
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'step' -%}
-            {%- assign step_count = step_count | plus: 1 -%}
-          {%- endif -%}
-        {%- endfor -%}
-        
-        {%- assign current_step = 0 -%}
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'step' -%}
-            {%- assign current_step = current_step | plus: 1 -%}
-            {%- assign step_image_index = step_image_index | plus: 1 -%}
-            {%- case step_image_index -%}
-              {%- when 1 -%}
-                {%- assign default_step_image = 'expect-1.jpg' -%}
-              {%- when 2 -%}
-                {%- assign default_step_image = 'expect-2.jpg' -%}
-              {%- else -%}
-                {%- assign default_step_image = 'expect-3.jpg' -%}
-            {%- endcase -%}
-            <div class="theme-step-row-mobile {% if current_step < step_count %}theme-step-row-mobile--border-b{% endif %}" {{ block.shopify_attributes }}>
-              <div class="theme-step-row-mobile__left">
-                <div class="theme-step-row-mobile__image-wrap" style="display: none;">
-                  {%- if block.settings.image != blank -%}
-                    {{ block.settings.image | image_url: width: 140 | image_tag: class: 'theme-step-row-mobile__image', loading: 'lazy', alt: block.settings.title }}
-                  {%- else -%}
-                    <img src="{{ default_step_image | asset_url }}" class="theme-step-row-mobile__image" loading="lazy" width="64" height="64" alt="{{ block.settings.title | escape }}">
-                  {%- endif -%}
-                </div>
-                <div class="theme-step-row-mobile__number">{{ block.settings.number }}</div>
-                <div class="theme-step-row-mobile__title">{{ block.settings.title }}</div>
-              </div>
-              <div class="theme-step-row-mobile__right">
-                <p class="theme-step-row-mobile__text">{{ block.settings.text }}</p>
-              </div>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-
-      <!-- Desktop Steps Layout -->
-      <div class="theme-step-grid--desktop hidden md:grid">
-        {%- assign step_count = 0 -%}
-        {%- assign step_image_index = 0 -%}
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'step' -%}
-            {%- assign step_count = step_count | plus: 1 -%}
-          {%- endif -%}
-        {%- endfor -%}
-        
-        {%- assign current_step = 0 -%}
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'step' -%}
-            {%- assign current_step = current_step | plus: 1 -%}
-            {%- assign step_image_index = step_image_index | plus: 1 -%}
-            {%- case step_image_index -%}
-              {%- when 1 -%}
-                {%- assign default_step_image = 'expect-1.jpg' -%}
-              {%- when 2 -%}
-                {%- assign default_step_image = 'expect-2.jpg' -%}
-              {%- else -%}
-                {%- assign default_step_image = 'expect-3.jpg' -%}
-            {%- endcase -%}
-            <div class="theme-step-cell-desktop {% if current_step < 3 %}theme-step-cell-desktop--border-r{% endif %}" {{ block.shopify_attributes }}>
-              <div class="theme-step-cell-desktop__image-wrap" style="display: none;">
-                {%- if block.settings.image != blank -%}
-                  {{ block.settings.image | image_url: width: 180 | image_tag: class: 'theme-step-cell-desktop__image', loading: 'lazy', alt: block.settings.title }}
-                {%- else -%}
-                  <img src="{{ default_step_image | asset_url }}" class="theme-step-cell-desktop__image" loading="lazy" width="78" height="78" alt="{{ block.settings.title | escape }}">
-                {%- endif -%}
-              </div>
-              <div class="theme-step-cell-desktop__number">{{ block.settings.number }}</div>
-              <div class="theme-step-cell-desktop__title">{{ block.settings.title }}</div>
-              <p class="theme-step-cell-desktop__text">{{ block.settings.text }}</p>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
   </div>
 </section>
 
@@ -288,12 +103,7 @@
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "The botanicals" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Key Ingredients" },
     { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Four ingredients to explain the core formula.</p>" },
-    { "type": "text", "id": "milk_kicker", "label": "Milk kicker", "default": "The secret base" },
-    { "type": "text", "id": "milk_heading", "label": "Milk heading", "default": "Three milks. One complete formula." },
-    { "type": "richtext", "id": "milk_text", "label": "Milk text", "default": "<p>Three nourishing milks work together for a healthier scalp and stronger, smoother hair.</p>" },
-    { "type": "text", "id": "steps_kicker", "label": "Steps kicker", "default": "Ritual" },
-    { "type": "text", "id": "steps_heading", "label": "Steps heading" },
-    { "type": "richtext", "id": "steps_text", "label": "Steps text" },
+
     { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Top padding" },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Bottom padding" }
   ],
@@ -306,25 +116,6 @@
         { "type": "text", "id": "title", "label": "Title", "default": "Bringaraj" },
         { "type": "textarea", "id": "text", "label": "Text", "default": "Supports hair growth and scalp circulation." }
       ]
-    },
-    {
-      "type": "milk",
-      "name": "Milk",
-      "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "title", "label": "Title", "default": "Coconut milk" },
-        { "type": "textarea", "id": "text", "label": "Text", "default": "Nourishes and moisturizes the scalp." }
-      ]
-    },
-    {
-      "type": "step",
-      "name": "Step",
-      "settings": [
-        { "type": "image_picker", "id": "image", "label": "Step image" },
-        { "type": "text", "id": "number", "label": "Number", "default": "1" },
-        { "type": "text", "id": "title", "label": "Title", "default": "WARM" },
-        { "type": "textarea", "id": "text", "label": "Text", "default": "Warm oil penetrates - cold oil sits on the surface." }
-      ]
     }
   ],
   "presets": [
@@ -334,13 +125,7 @@
         { "type": "ingredient" },
         { "type": "ingredient" },
         { "type": "ingredient" },
-        { "type": "ingredient" },
-        { "type": "milk" },
-        { "type": "milk" },
-        { "type": "milk" },
-        { "type": "step" },
-        { "type": "step" },
-        { "type": "step" }
+        { "type": "ingredient" }
       ]
     }
   ]

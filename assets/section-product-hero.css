@@ -1352,3 +1352,273 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
 .theme-hero-ritual-guide__text {
   font-family: "Avenir", var(--theme-body-font), sans-serif !important;
 }
+
+/* --- BEM Styles for Refactored Product Hero --- */
+
+.theme-reorder-btn {
+  display: flex;
+  align-items: stretch;
+  background: #8f4f36;
+  border-radius: 14px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.theme-reorder-btn:hover {
+  transform: translateY(-2px);
+}
+
+.theme-reorder-btn__left {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+}
+
+.theme-reorder-btn__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.theme-reorder-btn__content {
+  text-align: left;
+}
+
+.theme-reorder-btn__title {
+  font-family: 'Avenir', 'Avenir Next', sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.theme-reorder-btn__title--mobile {
+  font-size: 18px;
+}
+
+.theme-reorder-btn__meta {
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.2;
+}
+
+.theme-reorder-btn__meta--mobile {
+  font-size: 11px;
+}
+
+.theme-reorder-btn__right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(0,0,0,0.06);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.theme-reorder-btn__price-old {
+  text-decoration: line-through;
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+.theme-reorder-btn__price-new {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Mobile specific blocks */
+.theme-hero-mobile-subtitle {
+  margin-top: 16px;
+  font-family: var(--theme-heading-font), serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(31, 77, 61, 0.84);
+  line-height: 1;
+}
+
+.theme-hero-divider {
+  margin-top: 12px;
+  height: 1px;
+  width: 100%;
+  background: rgba(31, 77, 61, 0.1);
+}
+
+.theme-hero-intro-mobile {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.42;
+  color: rgba(31, 77, 61, 0.72);
+}
+
+.theme-delivery-row--mobile {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 2px;
+  background: #f6f2e8;
+  color: #1f4d3d;
+  overflow: hidden;
+}
+
+.theme-delivery-row__item--mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 4px;
+  font-size: 10px;
+}
+
+.theme-delivery-row__icon--mobile {
+  width: 14px;
+  height: 14px;
+}
+
+.theme-upsell-banner--mobile {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 16px;
+  background: #8f4f36;
+  padding: 12px;
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.theme-upsell-banner__img {
+  width: 66px;
+  height: 58px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.theme-upsell-banner__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.theme-upsell-banner__title {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.theme-upsell-banner__text {
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.2;
+}
+
+.theme-upsell-banner__button {
+  background: #f4bb28;
+  color: #1c2018;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.theme-review-quote--mobile {
+  margin-top: 16px;
+  border-radius: 0 12px 12px 0;
+  border-left: 4px solid #f3b324;
+  background: #f8f1df;
+  padding: 12px 16px;
+}
+
+.theme-review-quote__text {
+  font-size: 13px;
+  line-height: 1.35;
+  color: rgba(31, 77, 61, 0.78);
+  font-style: italic;
+}
+
+.theme-review-quote__author {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(31, 77, 61, 0.58);
+}
+
+.theme-hero-cert-note--mobile {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(31, 77, 61, 0.72);
+}
+
+.theme-cert-panel--mobile {
+  margin-top: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(31, 77, 61, 0.1);
+  background: #fff;
+  padding: 8px 12px;
+  box-shadow: 0 8px 20px rgba(17, 48, 39, 0.04);
+}
+
+.theme-cert-panel__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  color: #1f4d3d;
+}
+
+.theme-cert-panel__stat {
+  padding: 0 8px;
+}
+
+.theme-cert-panel__stat--bordered {
+  border-right: 1px solid rgba(31, 77, 61, 0.08);
+}
+
+.theme-cert-panel__stat-value {
+  font-family: var(--theme-heading-font), serif;
+  font-size: 14px;
+  line-height: 0.98;
+}
+
+.theme-cert-panel__stat-label {
+  margin-top: 2px;
+  font-size: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(31, 77, 61, 0.72);
+}
+
+.theme-cert-panel__stamps {
+  margin-top: 6px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  padding-top: 4px;
+  align-items: center;
+}
+
+.theme-cert-panel__stamp {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.theme-cert-panel__stamp-img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  transform: scale(2.02);
+  filter: opacity(0.95) contrast(1.25) saturate(0);
+}

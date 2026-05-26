@@ -5,38 +5,40 @@
 {%- assign main_menu = linklists[section.settings.menu_handle] -%}
 {%- assign nav_links = main_menu.links -%}
 
-<header class="theme-site-header" role="banner">
-  <div class="theme-site-header__bar">
-    <div class="theme-site-header__inner">
-      <div class="theme-site-header__left">
-        <button class="theme-site-header__icon-button theme-site-header__icon-button--menu" type="button" aria-label="Open menu">
+<header class="theme-header" role="banner">
+  <div class="theme-header__primary-bar">
+    <div class="theme-header__inner">
+      <div class="theme-header__left">
+        <button class="theme-header__menu-btn" type="button" aria-label="Open menu">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
           </svg>
         </button>
 
-        <nav class="theme-site-header__nav" aria-label="Primary">
-          <a class="theme-site-header__nav-link nav-link-soft" href="{{ nav_links[0].url | default: routes.root_url }}">Shop All</a>
-          <a class="theme-site-header__nav-link nav-link-soft" href="{{ nav_links[1].url | default: routes.root_url }}">Hair Care</a>
-          <a class="theme-site-header__nav-link nav-link-soft" href="{{ nav_links[2].url | default: routes.root_url }}">Skin Care</a>
-          <a class="theme-site-header__nav-link nav-link-soft" href="{{ nav_links[3].url | default: routes.root_url }}">Wellness</a>
+        <nav class="theme-header__nav" aria-label="Primary">
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[0].url | default: routes.root_url }}">Shop All</a>
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[1].url | default: routes.root_url }}">Hair Care</a>
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[2].url | default: routes.root_url }}">Skin Care</a>
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[3].url | default: routes.root_url }}">Wellness</a>
         </nav>
       </div>
 
-      <a class="theme-site-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
-  <img src="{{ 'logo-kerala.png' | asset_url }}" class="theme-site-header__brand-image lg:brightness-0 lg:invert" width="4167" height="4167" alt="{{ shop.name | escape }}" loading="eager">
-      </a>
+      <div class="theme-header__center">
+        <a class="theme-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+          <img src="{{ 'logo-kerala.png' | asset_url }}" class="theme-header__brand-image" width="4167" height="4167" alt="{{ shop.name | escape }}" loading="eager">
+        </a>
+      </div>
 
-      <div class="theme-site-header__actions">
-        <button class="theme-site-header__icon-button" type="button" aria-label="Account">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
+      <div class="theme-header__right">
+        <button class="theme-header__action-btn" type="button" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="8" r="5"/>
             <path d="M20 21a8 8 0 0 0-16 0"/>
           </svg>
         </button>
 
-        <a class="theme-site-header__icon-button" href="{{ routes.cart_url }}" aria-label="Cart">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
+        <a class="theme-header__action-btn" href="{{ routes.cart_url }}" aria-label="Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="8" cy="21" r="1"/>
             <circle cx="19" cy="21" r="1"/>
             <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
@@ -46,19 +48,20 @@
     </div>
   </div>
 
-  <div class="theme-site-header__subnav">
-    <div class="theme-site-header__subnav-inner">
-        <div class="theme-site-header__breadcrumb uppercase" style="letter-spacing:0.08em;">
-          <a href="{{ routes.root_url }}">Home</a> <span class="theme-site-header__breadcrumb-separator px-2">›</span>
-          <span class="theme-site-header__breadcrumb-current">Neelibhringadi Keram</span>
-        </div>
+  <div class="theme-header__subnav">
+    <div class="theme-header__subnav-inner">
+      <div class="theme-header__breadcrumbs">
+        <a href="{{ routes.root_url }}">Home</a>
+        <span class="theme-header__breadcrumb-sep">›</span>
+        <span class="theme-header__breadcrumb-current">Neelibhringadi Keram</span>
+      </div>
 
-      <label class="theme-site-header__search">
-        <svg class="theme-site-header__search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <label class="theme-header__search">
+        <svg class="theme-header__search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.7" />
           <path d="M16.2 16.2 20 20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
         </svg>
-        <input class="theme-site-header__search-input" type="text" aria-label="Search" />
+        <input class="theme-header__search-input" type="text" aria-label="Search" placeholder="Search..." />
       </label>
     </div>
   </div>

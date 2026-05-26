@@ -202,10 +202,10 @@
 
         <div class="theme-stamp-card motion-panel">
           <div class="theme-stamp-card__stamps">
-            <img src="{{ 'stamp_01.png' | asset_url }}" width="86" height="86" alt="Established 1945" class="theme-stamp-card__stamp-image" loading="lazy">
-            <img src="{{ 'stamp_02.png' | asset_url }}" width="86" height="86" alt="AYUSH certified" class="theme-stamp-card__stamp-image" loading="lazy">
-            <img src="{{ 'stamp_03.png' | asset_url }}" width="86" height="86" alt="FDA compliant" class="theme-stamp-card__stamp-image" loading="lazy">
-            <img src="{{ 'stamp_04.png' | asset_url }}" width="86" height="86" alt="ISO certified" class="theme-stamp-card__stamp-image" loading="lazy">
+            <img src="{{ 'stamp_01_old.png' | asset_url }}" width="86" height="86" alt="Established 1945" class="theme-stamp-card__stamp-image" loading="lazy">
+            <img src="{{ 'stamp_02_old.png' | asset_url }}" width="86" height="86" alt="AYUSH certified" class="theme-stamp-card__stamp-image" loading="lazy">
+            <img src="{{ 'stamp_03_old.png' | asset_url }}" width="86" height="86" alt="FDA compliant" class="theme-stamp-card__stamp-image" loading="lazy">
+            <img src="{{ 'stamp_04_old.png' | asset_url }}" width="86" height="86" alt="ISO certified" class="theme-stamp-card__stamp-image" loading="lazy">
             <img src="{{ 'stamp_05.png' | asset_url }}" width="86" height="86" alt="GMP certified" class="theme-stamp-card__stamp-image" loading="lazy">
           </div>
 
@@ -258,63 +258,57 @@
             <input type="hidden" name="quantity" value="1">
 
             <!-- Unified CTA Sheen Submit Button -->
-            <button type="submit" name="add" class="theme-reorder-card__button theme-reorder-card__button--desktop cta-sheen hover-rise" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
-              <div class="flex flex-1 items-center gap-4 px-5 py-3">
-                <svg class="theme-reorder-card__icon" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+            <button type="submit" name="add" class="theme-reorder-btn theme-reorder-btn--desktop cta-sheen hover-rise" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
+              <div class="theme-reorder-btn__left">
+                <svg class="theme-reorder-btn__icon" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <div>
-                  <div class="theme-reorder-btn-text theme-reorder-btn-text--desktop">
+                <div class="theme-reorder-btn__content">
+                  <div class="theme-reorder-btn__title">
                     {%- if product.selected_or_first_available_variant.available -%}
                       Reorder now
                     {%- else -%}
                       Sold Out
                     {%- endif -%}
                   </div>
-                  {%- if section.settings.cta_meta != blank -%}
-                    <div class="mt-1 text-[12px] text-white/72 font-normal normal-case tracking-normal">{{ section.settings.cta_meta }}</div>
-                  {%- else -%}
-                    <div class="mt-1 text-[12px] text-white/72 font-normal normal-case tracking-normal">Last ordered 28 Mar</div>
-                  {%- endif -%}
+                  <div class="theme-reorder-btn__meta">
+                    {%- if section.settings.cta_meta != blank -%}
+                      {{ section.settings.cta_meta }}
+                    {%- else -%}
+                      Last ordered 28 Mar
+                    {%- endif -%}
+                  </div>
                 </div>
               </div>
-              <div class="flex items-center justify-end gap-3 border-t border-white/12 px-5 py-3 sm:min-w-[188px] sm:border-l sm:border-t-0">
-                <span class="theme-reorder-card__price-old" style="text-decoration: line-through; opacity: 0.6; font-size: 14px;">
-                  ₹350
-                </span>
-                <span class="theme-reorder-card__price-new font-bold text-[18px]">
-                  ₹315
-                </span>
+              <div class="theme-reorder-btn__right">
+                <span class="theme-reorder-btn__price-old">₹350</span>
+                <span class="theme-reorder-btn__price-new">₹315</span>
               </div>
             </button>
           {%- endform -%}
           {%- else -%}
             <!-- Dummy Button for preview when product is missing -->
-            <button type="button" class="theme-reorder-card__button theme-reorder-card__button--desktop cta-sheen hover-rise">
-              <div class="flex flex-1 items-center gap-4 px-5 py-3">
-                <svg class="theme-reorder-card__icon" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+            <button type="button" class="theme-reorder-btn theme-reorder-btn--desktop cta-sheen hover-rise">
+              <div class="theme-reorder-btn__left">
+                <svg class="theme-reorder-btn__icon" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <div>
-                  <div class="theme-reorder-btn-text theme-reorder-btn-text--desktop">
-                    Reorder now
+                <div class="theme-reorder-btn__content">
+                  <div class="theme-reorder-btn__title">Reorder now</div>
+                  <div class="theme-reorder-btn__meta">
+                    {%- if section.settings.cta_meta != blank -%}
+                      {{ section.settings.cta_meta }}
+                    {%- else -%}
+                      Last ordered 28 Mar
+                    {%- endif -%}
                   </div>
-                  {%- if section.settings.cta_meta != blank -%}
-                    <div class="mt-1 text-[12px] text-white/72 font-normal normal-case tracking-normal">{{ section.settings.cta_meta }}</div>
-                  {%- else -%}
-                    <div class="mt-1 text-[12px] text-white/72 font-normal normal-case tracking-normal">Last ordered 28 Mar</div>
-                  {%- endif -%}
                 </div>
               </div>
-              <div class="flex items-center justify-end gap-3 border-t border-white/12 px-5 py-3 sm:min-w-[188px] sm:border-l sm:border-t-0">
-                <span class="theme-reorder-card__price-old" style="text-decoration: line-through; opacity: 0.6; font-size: 14px;">
-                  ₹350
-                </span>
-                <span class="theme-reorder-card__price-new font-bold text-[18px]">
-                  ₹315
-                </span>
+              <div class="theme-reorder-btn__right">
+                <span class="theme-reorder-btn__price-old">₹350</span>
+                <span class="theme-reorder-btn__price-new">₹315</span>
               </div>
             </button>
           {%- endif -%}
@@ -421,77 +415,71 @@
         <input type="hidden" name="quantity" value="1">
 
         <!-- Mobile Unified Reorder / Checkout CTA -->
-        <button type="submit" name="add" class="theme-reorder-card__button theme-reorder-card__button--mobile cta-sheen" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
-          <div class="flex items-center gap-3">
-            <svg class="theme-reorder-card__icon theme-reorder-card__icon--mobile" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+        <button type="submit" name="add" class="theme-reorder-btn theme-reorder-btn--mobile cta-sheen" {% unless product.selected_or_first_available_variant.available %}disabled="disabled"{% endunless %}>
+          <div class="theme-reorder-btn__left">
+            <svg class="theme-reorder-btn__icon theme-reorder-btn__icon--mobile" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
               <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <div>
-              <div class="theme-reorder-btn-text theme-reorder-btn-text--mobile">
+            <div class="theme-reorder-btn__content">
+              <div class="theme-reorder-btn__title theme-reorder-btn__title--mobile">
                 {%- if product.selected_or_first_available_variant.available -%}
                   Reorder now
                 {%- else -%}
                   Sold Out
                 {%- endif -%}
               </div>
-              {%- if section.settings.cta_meta != blank -%}
-                <div class="mt-1 text-[11px] text-white/72 font-normal normal-case tracking-normal">{{ section.settings.cta_meta }}</div>
-              {%- else -%}
-                <div class="mt-1 text-[11px] text-white/72 font-normal normal-case tracking-normal">Last ordered 28 Mar</div>
-              {%- endif -%}
+              <div class="theme-reorder-btn__meta theme-reorder-btn__meta--mobile">
+                {%- if section.settings.cta_meta != blank -%}
+                  {{ section.settings.cta_meta }}
+                {%- else -%}
+                  Last ordered 28 Mar
+                {%- endif -%}
+              </div>
             </div>
           </div>
-          <div class="flex items-center gap-2 border-l border-white/14 pl-4">
-            <span class="theme-reorder-card__price-old" style="text-decoration: line-through; opacity: 0.6; font-size: 13px;">
-              ₹350
-            </span>
-            <span class="theme-reorder-card__price-new theme-reorder-card__price-new--mobile font-bold text-[16px]">
-              ₹315
-            </span>
+          <div class="theme-reorder-btn__right theme-reorder-btn__right--mobile">
+            <span class="theme-reorder-btn__price-old">₹350</span>
+            <span class="theme-reorder-btn__price-new theme-reorder-btn__price-new--mobile">₹315</span>
           </div>
         </button>
       {%- endform -%}
       {%- else -%}
         <!-- Dummy Mobile Button -->
-        <button type="button" class="theme-reorder-card__button theme-reorder-card__button--mobile cta-sheen">
-          <div class="flex items-center gap-3">
-            <svg class="theme-reorder-card__icon theme-reorder-card__icon--mobile" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+        <button type="button" class="theme-reorder-btn theme-reorder-btn--mobile cta-sheen">
+          <div class="theme-reorder-btn__left">
+            <svg class="theme-reorder-btn__icon theme-reorder-btn__icon--mobile" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
               <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <div>
-              <div class="theme-reorder-btn-text theme-reorder-btn-text--mobile">
-                Reorder now
+            <div class="theme-reorder-btn__content">
+              <div class="theme-reorder-btn__title theme-reorder-btn__title--mobile">Reorder now</div>
+              <div class="theme-reorder-btn__meta theme-reorder-btn__meta--mobile">
+                {%- if section.settings.cta_meta != blank -%}
+                  {{ section.settings.cta_meta }}
+                {%- else -%}
+                  Last ordered 28 Mar
+                {%- endif -%}
               </div>
-              {%- if section.settings.cta_meta != blank -%}
-                <div class="mt-1 text-[11px] text-white/72 font-normal normal-case tracking-normal">{{ section.settings.cta_meta }}</div>
-              {%- else -%}
-                <div class="mt-1 text-[11px] text-white/72 font-normal normal-case tracking-normal">Last ordered 28 Mar</div>
-              {%- endif -%}
             </div>
           </div>
-          <div class="flex items-center gap-2 border-l border-white/14 pl-4">
-            <span class="theme-reorder-card__price-old" style="text-decoration: line-through; opacity: 0.6; font-size: 13px;">
-              ₹350
-            </span>
-            <span class="theme-reorder-card__price-new theme-reorder-card__price-new--mobile font-bold text-[16px]">
-              ₹315
-            </span>
+          <div class="theme-reorder-btn__right theme-reorder-btn__right--mobile">
+            <span class="theme-reorder-btn__price-old">₹350</span>
+            <span class="theme-reorder-btn__price-new theme-reorder-btn__price-new--mobile">₹315</span>
           </div>
         </button>
       {%- endif -%}
 
-      <h2 class="mt-4 font-serif text-[15px] font-normal leading-none text-[#1f4d3d]/84">
+      <h2 class="theme-hero-mobile-subtitle">
         {%- if subtitle_block -%}
           {{ subtitle_block.settings.text }}
         {%- else -%}
           One oil for complete hair recovery
         {%- endif -%}
       </h2>
-      <div class="mt-3 h-px w-full bg-[#1f4d3d]/10" />
+      <div class="theme-hero-divider"></div>
 
-      <p class="mt-4 text-[14px] leading-[1.42] text-[#1f4d3d]/72">
+      <p class="theme-hero-intro-mobile">
         {%- capture hero_note_text_mobile -%}
           {%- if hero_note_block -%}
             {{ hero_note_block.settings.text }}
@@ -503,9 +491,9 @@
       </p>
 
       <!-- Delivery columns -->
-      <div class="mt-5 grid grid-cols-3 overflow-hidden rounded-[2px] bg-[#f6f2e8] text-[#1f4d3d]">
-        <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
-          <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
+      <div class="theme-delivery-row--mobile">
+        <div class="theme-delivery-row__item--mobile">
+          <svg class="theme-delivery-row__icon--mobile" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
             <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M15 18H9" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14" stroke-linecap="round" stroke-linejoin="round" />
@@ -514,16 +502,16 @@
           </svg>
           <span>{{ section.settings.delivery_1_text }}</span>
         </div>
-        <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
-          <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
+        <div class="theme-delivery-row__item--mobile">
+          <svg class="theme-delivery-row__icon--mobile" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
             <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M12 18V6" stroke-linecap="round" />
           </svg>
           <span>{{ section.settings.delivery_2_text }}</span>
         </div>
-        <div class="flex items-center justify-center gap-1.5 px-1 py-2.5 text-[10px]">
-          <svg class="h-3.5 w-3.5" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
+        <div class="theme-delivery-row__item--mobile">
+          <svg class="theme-delivery-row__icon--mobile" stroke="currentColor" stroke-width="1.9" fill="none" viewBox="0 0 24 24">
             <path d="M9 14 4 9l5-5" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
@@ -533,18 +521,18 @@
 
       <!-- Upsell container -->
       {%- if upsell_block -%}
-        <div class="mt-3 flex items-center gap-3 rounded-[16px] bg-[#8f4f36] p-3 text-white shadow-sm">
-            <img src="{{ 'upsell.png' | asset_url }}" class="h-[58px] w-[66px] rounded-[10px] object-cover" width="66" height="58" alt="Upsell Product">
-          <div class="min-w-0 flex-1">
-            <div class="text-[13px] font-medium leading-none">{{ upsell_block.settings.title }}</div>
-            <div class="mt-1 text-[12px] leading-tight text-white/74">{{ upsell_block.settings.text }}</div>
+        <div class="theme-upsell-banner--mobile">
+            <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-banner__img" width="66" height="58" alt="Upsell Product">
+          <div class="theme-upsell-banner__content">
+            <div class="theme-upsell-banner__title">{{ upsell_block.settings.title }}</div>
+            <div class="theme-upsell-banner__text">{{ upsell_block.settings.text }}</div>
           </div>
           {%- if upsell_block.settings.button_link != blank -%}
-            <a href="{{ upsell_block.settings.button_link }}" class="premium-button rounded-[12px] bg-[#f4bb28] px-3 py-2 text-[13px] font-bold leading-none text-[#1c2018] border-0 cursor-pointer text-decoration-none">
+            <a href="{{ upsell_block.settings.button_link }}" class="theme-upsell-banner__button">
               {{ upsell_block.settings.button_label }}
             </a>
           {%- else -%}
-            <button type="submit" name="add" onclick="document.getElementById('theme-product-form-mobile').submit();" class="premium-button rounded-[12px] bg-[#f4bb28] px-3 py-2 text-[13px] font-bold leading-none text-[#1c2018] border-0 cursor-pointer">
+            <button type="submit" name="add" onclick="document.getElementById('theme-product-form-mobile').submit();" class="theme-upsell-banner__button">
               {{ upsell_block.settings.button_label }}
             </button>
           {%- endif -%}
@@ -552,15 +540,15 @@
       {%- endif -%}
 
       <!-- Review Quote -->
-      <div class="mt-4 rounded-r-xl border-l-[4px] border-[#f3b324] bg-[#f8f1df] px-4 py-3">
-        <p class="text-[13px] leading-[1.35] text-[#1f4d3d]/78">
+      <div class="theme-review-quote--mobile">
+        <p class="theme-review-quote__text">
           {%- if quote_block -%}
             {{ quote_block.settings.quote }}
           {%- else -%}
             "Hair fall reduced noticeably, and I can already see tiny baby hairs coming"
           {%- endif -%}
         </p>
-        <p class="mt-1 text-[11px] font-medium uppercase tracking-[0.08em] text-[#1f4d3d]/58">
+        <p class="theme-review-quote__author">
           {%- if quote_block -%}
             {{ quote_block.settings.author }}
           {%- else -%}
@@ -569,7 +557,7 @@
         </p>
       </div>
 
-      <p class="mt-4 text-[14px] leading-[1.45] text-[#1f4d3d]/72">
+      <p class="theme-hero-cert-note--mobile">
         {%- if feature_block -%}
           {{ feature_block.settings.title }} {{ feature_block.settings.text }}
         {%- else -%}
@@ -578,27 +566,27 @@
       </p>
 
       <!-- Mobile certifications panel -->
-      <div class="motion-panel mt-3 rounded-[14px] border border-[#1f4d3d]/10 bg-white px-3 py-2 shadow-[0_8px_20px_rgba(17,48,39,0.04)]">
-        <div class="grid grid-cols-3 gap-2 text-[#1f4d3d]">
-          <div class="border-r border-[#1f4d3d]/8 px-2">
-            <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#1f4d3d]">{{ section.settings.stat_1_value }}</div>
-            <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#1f4d3d]/72">{{ section.settings.stat_1_label }}</div>
+      <div class="theme-cert-panel--mobile motion-panel">
+        <div class="theme-cert-panel__stats">
+          <div class="theme-cert-panel__stat theme-cert-panel__stat--bordered">
+            <div class="theme-cert-panel__stat-value">{{ section.settings.stat_1_value }}</div>
+            <div class="theme-cert-panel__stat-label">{{ section.settings.stat_1_label }}</div>
           </div>
-          <div class="border-r border-[#1f4d3d]/8 px-2">
-            <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#1f4d3d]">{{ section.settings.stat_2_value }}</div>
-            <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#1f4d3d]/72">{{ section.settings.stat_2_label }}</div>
+          <div class="theme-cert-panel__stat theme-cert-panel__stat--bordered">
+            <div class="theme-cert-panel__stat-value">{{ section.settings.stat_2_value }}</div>
+            <div class="theme-cert-panel__stat-label">{{ section.settings.stat_2_label }}</div>
           </div>
-          <div class="px-2">
-            <div class="font-serif text-[14px] font-normal leading-[0.98] tracking-[0.005em] text-[#1f4d3d]">{{ section.settings.stat_3_value }}</div>
-            <div class="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[#1f4d3d]/72">{{ section.settings.stat_3_label }}</div>
+          <div class="theme-cert-panel__stat">
+            <div class="theme-cert-panel__stat-value">{{ section.settings.stat_3_value }}</div>
+            <div class="theme-cert-panel__stat-label">{{ section.settings.stat_3_label }}</div>
           </div>
         </div>
 
-        <div class="mt-1.5 grid grid-cols-4 items-center gap-0.5 pt-1">
-          {%- assign mobile_stamp_images = 'stamp_01.png|stamp_02.png|stamp_03.png|stamp_04.png|stamp_05.png' | split: '|' -%}
+        <div class="theme-cert-panel__stamps">
+          {%- assign mobile_stamp_images = 'stamp_01_old.png|stamp_02_old.png|stamp_03_old.png|stamp_04_old.png|stamp_05.png' | split: '|' -%}
           {%- for stamp in mobile_stamp_images offset: 1 limit: 4 -%}
-            <div class="flex justify-center overflow-hidden">
-              <img src="{{ stamp | asset_url }}" class="h-[58px] w-[58px] scale-[2.02] object-contain opacity-95 contrast-125 saturate-0" loading="lazy" width="58" height="58" alt="Certification">
+            <div class="theme-cert-panel__stamp">
+              <img src="{{ stamp | asset_url }}" class="theme-cert-panel__stamp-img" loading="lazy" width="58" height="58" alt="Certification">
             </div>
           {%- endfor -%}
         </div>

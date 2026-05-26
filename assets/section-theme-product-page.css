@@ -4608,6 +4608,23 @@
 }
 
 /* ==========================================================================
+   #THREE MILKS COMPONENT
+   ========================================================================== */
+
+.theme-three-milks__container {
+  text-align: center;
+}
+
+.theme-massage-ritual__container {
+  padding-bottom: 2.5rem;
+}
+@media (min-width: 1024px) {
+  .theme-massage-ritual__container {
+    padding-bottom: 3rem;
+  }
+}
+
+/* ==========================================================================
    PART 2 & 3 & 4 & 5: PIXEL-PERFECT LAYOUT & SCALING ALIGNMENTS
    ========================================================================== */
 
@@ -12010,4 +12027,340 @@ summary.theme-accordion__summary::-webkit-details-marker {
 .theme-info-panel--wide .theme-accordion__content strong {
   font-family: "Avenir", var(--theme-body-font), sans-serif !important;
   color: rgba(31, 77, 61, 0.8) !important;
+}
+
+/* Three Milks Section */
+.theme-three-milks {
+  background-color: #fff;
+  padding-bottom: 2.5rem;
+}
+@media (min-width: 990px) {
+  .theme-three-milks {
+    padding-bottom: 3rem;
+  }
+}
+
+.theme-three-milks__kicker {
+  color: #8f4f36 !important;
+}
+
+.theme-three-milks__mobile-grid {
+  display: grid;
+  gap: 1rem;
+  max-width: 420px;
+  margin: 1.75rem auto 0;
+  text-align: left;
+}
+@media (min-width: 990px) {
+  .theme-three-milks__mobile-grid {
+    display: none;
+  }
+}
+
+.theme-three-milks__mobile-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 18px;
+  background-color: #f7f3e9;
+  padding: 1rem 1.25rem;
+}
+
+.theme-three-milks__mobile-image-wrap {
+  flex-shrink: 0;
+  border-radius: 9999px;
+  border: 1px solid #17372d;
+  background-color: #17372d;
+  padding: 1px;
+}
+
+.theme-three-milks__mobile-image {
+  height: 62px;
+  width: 62px;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.theme-three-milks__mobile-title {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #1d201d;
+  margin: 0;
+}
+
+.theme-three-milks__mobile-desc {
+  margin-top: 0.5rem;
+  max-width: 220px;
+  font-size: 14px;
+  line-height: 1.35;
+  color: rgba(31, 77, 61, 0.72);
+}
+
+.theme-three-milks__desktop-grid {
+  display: none;
+}
+@media (min-width: 990px) {
+  .theme-three-milks__desktop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 2.5rem auto 0;
+  }
+}
+
+.theme-three-milks__card {
+  border-radius: 20px;
+  background-color: #f7f3e9;
+  padding: 1.75rem 2rem 2rem;
+  text-align: center;
+}
+
+.theme-three-milks__image-wrap {
+  margin: 0 auto;
+  width: fit-content;
+  border-radius: 9999px;
+  border: 1px solid #17372d;
+  background-color: #17372d;
+  padding: 2px;
+}
+
+.theme-three-milks__image {
+  height: 82px;
+  width: 82px;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+@media (min-width: 640px) {
+  .theme-three-milks__image {
+    height: 94px;
+    width: 94px;
+  }
+}
+
+.theme-three-milks__card-title {
+  margin-top: 1rem;
+  font-family: var(--font-heading-family);
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--theme-forest);
+}
+@media (min-width: 640px) {
+  .theme-three-milks__card-title {
+    font-size: 26px;
+  }
+}
+
+.theme-three-milks__card-desc {
+  margin: 0.75rem auto 0;
+  max-width: 270px;
+  font-size: 14px;
+  line-height: 1.25;
+  color: rgba(31, 77, 61, 0.72);
+}
+@media (min-width: 640px) {
+  .theme-three-milks__card-desc {
+    font-size: 15px;
+  }
+}
+
+.theme-three-milks__alert {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  margin: 2rem auto 0;
+  max-width: 900px;
+}
+@media (min-width: 990px) {
+  .theme-three-milks__alert--desktop {
+    display: flex;
+    border: 1px solid #e8cf81;
+    background-color: #f9f1cf;
+    padding: 0.625rem 1.5rem;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #a3704c;
+  }
+}
+
+.theme-three-milks__alert--mobile {
+  display: inline-flex;
+  background-color: #ffffff;
+  padding: 0.25rem 1rem;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: #b08470;
+  box-shadow: 0 4px 18px rgba(17, 48, 39, 0.06);
+  text-transform: uppercase;
+}
+@media (min-width: 990px) {
+  .theme-three-milks__alert--mobile {
+    display: none;
+  }
+}
+
+.theme-three-milks__alert-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+.theme-three-milks__alert--mobile .theme-three-milks__alert-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+
+/* Massage Ritual Section */
+.theme-massage-ritual {
+  background-color: #f7f3e9;
+  padding-top: 0.25rem;
+}
+
+.theme-massage-ritual__hero {
+  overflow: hidden;
+}
+@media (min-width: 990px) {
+  .theme-massage-ritual__hero {
+    max-width: 1392px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+}
+
+.theme-massage-ritual__hero-image {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+.theme-massage-ritual__mobile-grid {
+  border-left: 1px solid rgba(31, 77, 61, 0.1);
+  border-right: 1px solid rgba(31, 77, 61, 0.1);
+  border-bottom: 1px solid rgba(31, 77, 61, 0.1);
+  background-color: #ffffff;
+}
+@media (min-width: 768px) {
+  .theme-massage-ritual__mobile-grid {
+    display: none;
+  }
+}
+
+.theme-massage-ritual__mobile-step {
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  border-bottom: 1px solid rgba(31, 77, 61, 0.1);
+}
+.theme-massage-ritual__mobile-step--last {
+  border-bottom: none;
+}
+
+.theme-massage-ritual__mobile-number-wrap {
+  background-color: #f7f3e9;
+  padding: 1rem 0.75rem;
+  text-align: center;
+}
+
+.theme-massage-ritual__mobile-number {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--theme-forest);
+}
+
+.theme-massage-ritual__mobile-label {
+  margin-top: 0.25rem;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(31, 77, 61, 0.38);
+}
+
+.theme-massage-ritual__mobile-content {
+  padding: 1rem 1.25rem;
+  text-align: left;
+}
+
+.theme-massage-ritual__mobile-desc {
+  max-width: 260px;
+  font-size: 14px;
+  line-height: 1.35;
+  color: rgba(31, 77, 61, 0.76);
+  margin: 0;
+}
+
+.theme-massage-ritual__desktop-grid {
+  display: none;
+}
+@media (min-width: 768px) {
+  .theme-massage-ritual__desktop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-left: 1px solid rgba(31, 77, 61, 0.1);
+    border-right: 1px solid rgba(31, 77, 61, 0.1);
+    border-bottom: 1px solid rgba(31, 77, 61, 0.1);
+    background-color: #ffffff;
+  }
+}
+
+.theme-massage-ritual__desktop-step {
+  min-height: 170px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+}
+@media (min-width: 640px) {
+  .theme-massage-ritual__desktop-step {
+    min-height: 184px;
+    padding: 2rem 2rem;
+  }
+}
+
+.theme-massage-ritual__desktop-step--bordered {
+  border-right: 1px solid rgba(31, 77, 61, 0.1);
+}
+
+.theme-massage-ritual__desktop-number {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--theme-forest);
+}
+@media (min-width: 640px) {
+  .theme-massage-ritual__desktop-number {
+    font-size: 24px;
+  }
+}
+
+.theme-massage-ritual__desktop-label {
+  margin-top: 0.5rem;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(31, 77, 61, 0.38);
+}
+@media (min-width: 640px) {
+  .theme-massage-ritual__desktop-label {
+    font-size: 17px;
+  }
+}
+
+.theme-massage-ritual__desktop-desc {
+  margin: 1.75rem auto 0;
+  max-width: 270px;
+  font-size: 14px;
+  line-height: 1.35;
+  color: rgba(31, 77, 61, 0.76);
+}
+@media (min-width: 640px) {
+  .theme-massage-ritual__desktop-desc {
+    margin-top: 2.25rem;
+    max-width: 290px;
+    font-size: 15px;
+  }
 }
