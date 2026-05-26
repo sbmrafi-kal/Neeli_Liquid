@@ -1770,3 +1770,110 @@ div[class*="border-l-[4px]"][class*="border-[#f3b324]"] {
   font-style: italic;
   margin-top: 2px;
 }
+/* Final Figma parity overrides (desktop + mobile) */
+.theme-product-page .container-narrow {
+  max-width: 1440px !important;
+}
+
+.theme-product-page__hero {
+  gap: 40px !important;
+  padding-top: 20px !important;
+}
+
+.theme-hero-carousel__thumb {
+  border-radius: 8px !important;
+}
+
+.theme-hero-carousel__stats {
+  background: #2d513f !important;
+  padding: 14px 0 !important;
+}
+
+.theme-hero-carousel__stat {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+}
+
+.theme-hero-carousel__stat-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  display: block;
+}
+
+.theme-product-page__title {
+  color: #264a38 !important;
+  font-size: 36px !important;
+  line-height: 1.05 !important;
+  margin-bottom: 6px !important;
+}
+
+.theme-product-page__subtitle {
+  font-size: 20px !important;
+  line-height: 1.15 !important;
+  margin: 0 0 10px !important;
+}
+
+.theme-product-page__intro {
+  color: #5c6962 !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  margin-bottom: 14px !important;
+}
+
+.theme-variant-boxes {
+  gap: 12px !important;
+}
+
+.theme-variant-box {
+  border-radius: 10px !important;
+}
+
+.theme-delivery-banner {
+  margin-top: 10px !important;
+  margin-bottom: 14px !important;
+}
+
+.theme-new-cert-block {
+  margin-top: 16px !important;
+}
+
+.theme-new-cert-block__stamps img {
+  border-radius: 999px;
+}
+
+.theme-hero-ritual-guide {
+  margin-top: 14px !important;
+  padding: 12px 14px !important;
+  background: #fff9e5 !important;
+  border: 1px solid #ecd8a4 !important;
+  border-radius: 12px !important;
+}
+
+@media screen and (max-width: 989px) {
+  .theme-product-page__hero {
+    gap: 0 !important;
+    padding-top: 8px !important;
+  }
+
+  .theme-product-page__title {
+    font-size: 42px !important;
+  }
+
+  .theme-product-page__subtitle {
+    font-size: 16px !important;
+  }
+
+  .theme-product-page__intro {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+  }
+
+  .theme-hero-carousel__stats {
+    padding: 11px 0 10px !important;
+  }
+}
