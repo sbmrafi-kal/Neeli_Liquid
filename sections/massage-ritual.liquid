@@ -1,57 +1,68 @@
 <section class="theme-massage-ritual">
   {{ 'section-massage-ritual.css' | asset_url | stylesheet_tag }}
+
   <div class="theme-massage-ritual__hero">
-    <img src="{{ 'massage-ritual.png' | asset_url }}" alt="Your Easy Massage Ritual" class="theme-massage-ritual__hero-image" width="1206" height="678" />
+    {%- if section.settings.mobile_hero_image != blank or section.settings.desktop_hero_image != blank -%}
+      <picture>
+        {%- if section.settings.mobile_hero_image != blank -%}
+          <source media="(max-width: 989px)" srcset="{{ section.settings.mobile_hero_image | image_url: width: 900 }}">
+        {%- endif -%}
+        {%- if section.settings.desktop_hero_image != blank -%}
+          <source media="(min-width: 990px)" srcset="{{ section.settings.desktop_hero_image | image_url: width: 1400 }}">
+          {{ section.settings.desktop_hero_image | image_url: width: 1400 | image_tag: class: 'theme-massage-ritual__hero-image', loading: 'lazy', alt: section.settings.hero_alt }}
+        {%- elsif section.settings.mobile_hero_image != blank -%}
+          {{ section.settings.mobile_hero_image | image_url: width: 1400 | image_tag: class: 'theme-massage-ritual__hero-image', loading: 'lazy', alt: section.settings.hero_alt }}
+        {%- endif -%}
+      </picture>
+    {%- endif -%}
   </div>
 
   <div class="container-narrow theme-massage-ritual__container">
-    <!-- Mobile Steps View -->
     <div class="theme-massage-ritual__mobile-grid">
       <div class="theme-massage-ritual__mobile-step">
         <div class="theme-massage-ritual__mobile-number-wrap">
           <div class="theme-massage-ritual__mobile-number">1</div>
-          <div class="theme-massage-ritual__mobile-label">WARM</div>
+          <div class="theme-massage-ritual__mobile-label">{{ section.settings.mobile_step_1_title }}</div>
         </div>
         <div class="theme-massage-ritual__mobile-content">
-          <p class="theme-massage-ritual__mobile-desc">Warm oil penetrates - cold oil sits on the surface.</p>
+          <p class="theme-massage-ritual__mobile-desc">{{ section.settings.mobile_step_1_text }}</p>
         </div>
       </div>
       <div class="theme-massage-ritual__mobile-step">
         <div class="theme-massage-ritual__mobile-number-wrap">
           <div class="theme-massage-ritual__mobile-number">2</div>
-          <div class="theme-massage-ritual__mobile-label">APPLY</div>
+          <div class="theme-massage-ritual__mobile-label">{{ section.settings.mobile_step_2_title }}</div>
         </div>
         <div class="theme-massage-ritual__mobile-content">
-          <p class="theme-massage-ritual__mobile-desc">Apply adequate amount gently onto the scalp and hair</p>
+          <p class="theme-massage-ritual__mobile-desc">{{ section.settings.mobile_step_2_text }}</p>
         </div>
       </div>
       <div class="theme-massage-ritual__mobile-step theme-massage-ritual__mobile-step--last">
         <div class="theme-massage-ritual__mobile-number-wrap">
           <div class="theme-massage-ritual__mobile-number">3</div>
-          <div class="theme-massage-ritual__mobile-label">MASSAGE</div>
+          <div class="theme-massage-ritual__mobile-label">{{ section.settings.mobile_step_3_title }}</div>
         </div>
         <div class="theme-massage-ritual__mobile-content">
-          <p class="theme-massage-ritual__mobile-desc">Circular motion, 5 minutes. Fingertips, not nails.</p>
+          <p class="theme-massage-ritual__mobile-desc">{{ section.settings.mobile_step_3_text }}</p>
         </div>
       </div>
     </div>
 
-    <!-- Desktop Steps View -->
     <div class="theme-massage-ritual__desktop-grid">
       <div class="theme-massage-ritual__desktop-step theme-massage-ritual__desktop-step--bordered">
         <div class="theme-massage-ritual__desktop-number">1</div>
-        <div class="theme-massage-ritual__desktop-label">WARM</div>
-        <p class="theme-massage-ritual__desktop-desc">Warm oil penetrates - cold oil sits on the surface.</p>
+        <div class="theme-massage-ritual__desktop-label">{{ section.settings.desktop_step_1_title }}</div>
+        <p class="theme-massage-ritual__desktop-desc">{{ section.settings.desktop_step_1_text }}</p>
       </div>
       <div class="theme-massage-ritual__desktop-step theme-massage-ritual__desktop-step--bordered">
         <div class="theme-massage-ritual__desktop-number">2</div>
-        <div class="theme-massage-ritual__desktop-label">APPLY</div>
-        <p class="theme-massage-ritual__desktop-desc">Apply adequate amount gently onto the scalp and hair</p>
+        <div class="theme-massage-ritual__desktop-label">{{ section.settings.desktop_step_2_title }}</div>
+        <p class="theme-massage-ritual__desktop-desc">{{ section.settings.desktop_step_2_text }}</p>
       </div>
       <div class="theme-massage-ritual__desktop-step">
         <div class="theme-massage-ritual__desktop-number">3</div>
-        <div class="theme-massage-ritual__desktop-label">MASSAGE</div>
-        <p class="theme-massage-ritual__desktop-desc">Circular motion, 5 minutes. Fingertips, not nails.</p>
+        <div class="theme-massage-ritual__desktop-label">{{ section.settings.desktop_step_3_title }}</div>
+        <p class="theme-massage-ritual__desktop-desc">{{ section.settings.desktop_step_3_text }}</p>
       </div>
     </div>
   </div>
@@ -60,7 +71,23 @@
 {% schema %}
 {
   "name": "Massage ritual",
-  "settings": [],
+  "settings": [
+    { "type": "image_picker", "id": "desktop_hero_image", "label": "Desktop hero image" },
+    { "type": "image_picker", "id": "mobile_hero_image", "label": "Mobile hero image" },
+    { "type": "text", "id": "hero_alt", "label": "Hero image alt text", "default": "Your Easy Massage Ritual" },
+    { "type": "text", "id": "desktop_step_1_title", "label": "Desktop step 1 title", "default": "WARM" },
+    { "type": "textarea", "id": "desktop_step_1_text", "label": "Desktop step 1 text", "default": "Warm oil penetrates - cold oil sits on the surface." },
+    { "type": "text", "id": "desktop_step_2_title", "label": "Desktop step 2 title", "default": "APPLY" },
+    { "type": "textarea", "id": "desktop_step_2_text", "label": "Desktop step 2 text", "default": "Apply adequate amount gently onto the scalp and hair." },
+    { "type": "text", "id": "desktop_step_3_title", "label": "Desktop step 3 title", "default": "MASSAGE" },
+    { "type": "textarea", "id": "desktop_step_3_text", "label": "Desktop step 3 text", "default": "Circular motion, 5 minutes. Fingertips, not nails." },
+    { "type": "text", "id": "mobile_step_1_title", "label": "Mobile step 1 title", "default": "WARM" },
+    { "type": "textarea", "id": "mobile_step_1_text", "label": "Mobile step 1 text", "default": "Warm oil penetrates - cold oil sits on the surface." },
+    { "type": "text", "id": "mobile_step_2_title", "label": "Mobile step 2 title", "default": "APPLY" },
+    { "type": "textarea", "id": "mobile_step_2_text", "label": "Mobile step 2 text", "default": "Apply adequate amount gently onto the scalp and hair." },
+    { "type": "text", "id": "mobile_step_3_title", "label": "Mobile step 3 title", "default": "MASSAGE" },
+    { "type": "textarea", "id": "mobile_step_3_text", "label": "Mobile step 3 text", "default": "Circular motion, 5 minutes. Fingertips, not nails." }
+  ],
   "presets": [{ "name": "Massage ritual" }]
 }
 {% endschema %}

@@ -16,17 +16,27 @@
         </button>
 
         <nav class="theme-header__nav" aria-label="Primary">
-          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[0].url | default: routes.root_url }}">Shop All</a>
-          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[1].url | default: routes.root_url }}">Clinics</a>
-          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[2].url | default: routes.root_url }}">Resorts</a>
-          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[3].url | default: routes.root_url }}">Hospitals</a>
-          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_links[4].url | default: routes.root_url }}">Academy</a>
+          {%- if nav_links != blank and nav_links.size > 0 -%}
+            {%- for link in nav_links limit: 5 -%}
+              <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ link.url }}">{{ link.title }}</a>
+            {%- endfor -%}
+          {%- else -%}
+            <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ routes.root_url }}">Shop All</a>
+            <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ routes.root_url }}">Clinics</a>
+            <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ routes.root_url }}">Resorts</a>
+            <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ routes.root_url }}">Hospitals</a>
+            <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ routes.root_url }}">Academy</a>
+          {%- endif -%}
         </nav>
       </div>
 
       <div class="theme-header__center">
         <a class="theme-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
-          <img src="{{ 'logo-kerala.png' | asset_url }}" class="theme-header__brand-image" width="4167" height="4167" alt="{{ shop.name | escape }}" loading="eager">
+          {%- if section.settings.logo_image != blank -%}
+            {{ section.settings.logo_image | image_url: width: 600 | image_tag: class: 'theme-header__brand-image', loading: 'eager', alt: section.settings.logo_alt }}
+          {%- else -%}
+            <span class="theme-header__brand-text">{{ section.settings.logo_text | default: shop.name }}</span>
+          {%- endif -%}
         </a>
       </div>
 
@@ -37,7 +47,7 @@
             <path d="m21 21-4.35-4.35"/>
           </svg>
         </button>
-        <button class="theme-header__action-btn" type="button" aria-label="Account">
+        <button class="theme-header__action-btn theme-header__action-btn--account" type="button" aria-label="Account">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="8" r="5"/>
             <path d="M20 21a8 8 0 0 0-16 0"/>
@@ -59,8 +69,20 @@
     <div class="theme-header__subnav-inner">
       <div class="theme-header__breadcrumbs">
         <a href="{{ routes.root_url }}">Home</a>
-        <span class="theme-header__breadcrumb-sep">›</span>
-        <span class="theme-header__breadcrumb-current">Neelibhringadi Keram</span>
+        {%- assign breadcrumb_label = blank -%}
+        {%- if request.page_type == 'product' and product != blank -%}
+          {%- assign breadcrumb_label = product.title -%}
+        {%- elsif request.page_type == 'collection' and collection != blank -%}
+          {%- assign breadcrumb_label = collection.title -%}
+        {%- elsif request.page_type == 'page' and page != blank -%}
+          {%- assign breadcrumb_label = page.title -%}
+        {%- elsif request.page_type == 'article' and article != blank -%}
+          {%- assign breadcrumb_label = article.title -%}
+        {%- endif -%}
+        {%- if breadcrumb_label != blank -%}
+          <span class="theme-header__breadcrumb-sep">›</span>
+          <span class="theme-header__breadcrumb-current">{{ breadcrumb_label }}</span>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -77,6 +99,23 @@
       "id": "menu_handle",
       "label": "Main menu",
       "default": "main-menu"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo image"
+    },
+    {
+      "type": "text",
+      "id": "logo_alt",
+      "label": "Logo alt text",
+      "default": "Kerala Ayurveda"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo fallback text",
+      "default": "Kerala Ayurveda"
     },
     {
       "type": "range",

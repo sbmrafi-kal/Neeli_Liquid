@@ -8,73 +8,72 @@
     <div class="theme-timeline-header-banner__text">{{ section.settings.text }}</div>
   </div>
 
-  <div class="theme-timeline-grid theme-timeline-grid--mobile lg:hidden">
-    {%- assign stage_index = 0 -%}
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'stage' -%}
-        {%- assign stage_index = stage_index | plus: 1 -%}
-        {%- case stage_index -%}
-          {%- when 1 -%}
-            {%- assign default_stage_image = 'expect-1.jpg' -%}
-          {%- when 2 -%}
-            {%- assign default_stage_image = 'expect-2.jpg' -%}
-          {%- else -%}
-            {%- assign default_stage_image = 'expect-3.jpg' -%}
-        {%- endcase -%}
-        {%- assign mobile_phase = block.settings.mobile_phase | default: block.settings.phase -%}
+  {%- assign mobile_stages_markup = '' -%}
+  {%- assign desktop_stages_markup = '' -%}
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'stage' -%}
+      {%- assign mobile_phase = block.settings.mobile_phase | default: block.settings.phase -%}
+      {%- capture mobile_stage -%}
         <div class="theme-timeline-stage theme-timeline-stage--mobile" {{ block.shopify_attributes }}>
           <div class="theme-timeline-stage__mobile-left">
             <div class="theme-timeline-stage__mobile-img-wrap">
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 400 | image_tag: class: 'theme-timeline-stage__img', loading: 'lazy', alt: block.settings.title }}
-              {%- else -%}
-                <img src="{{ default_stage_image | asset_url }}" class="theme-timeline-stage__img" loading="lazy" width="200" height="100" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
             </div>
-            <div class="theme-timeline-stage__mobile-phase">{{ mobile_phase }}</div>
+            {%- if mobile_phase != blank -%}
+              <div class="theme-timeline-stage__mobile-phase">{{ mobile_phase }}</div>
+            {%- endif -%}
           </div>
           <div class="theme-timeline-stage__mobile-right">
-            <div class="theme-timeline-stage__label">{{ block.settings.label }}</div>
-            <h3 class="theme-timeline-stage__title">{{ block.settings.title }}</h3>
-            <p class="theme-timeline-stage__body">{{ block.settings.body }}</p>
+            {%- if block.settings.label != blank -%}
+              <div class="theme-timeline-stage__label">{{ block.settings.label }}</div>
+            {%- endif -%}
+            {%- if block.settings.title != blank -%}
+              <h3 class="theme-timeline-stage__title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.body != blank -%}
+              <p class="theme-timeline-stage__body">{{ block.settings.body }}</p>
+            {%- endif -%}
           </div>
         </div>
-      {%- endif -%}
-    {%- endfor -%}
-  </div>
-
-  <div class="theme-timeline-grid theme-timeline-grid--desktop hidden lg:grid">
-    {%- assign stage_index = 0 -%}
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'stage' -%}
-        {%- assign stage_index = stage_index | plus: 1 -%}
-        {%- case stage_index -%}
-          {%- when 1 -%}
-            {%- assign default_stage_image = 'expect-1.jpg' -%}
-          {%- when 2 -%}
-            {%- assign default_stage_image = 'expect-2.jpg' -%}
-          {%- else -%}
-            {%- assign default_stage_image = 'expect-3.jpg' -%}
-        {%- endcase -%}
+      {%- endcapture -%}
+      {%- capture desktop_stage -%}
         <div class="theme-timeline-stage theme-timeline-stage--desktop" {{ block.shopify_attributes }}>
           <div class="theme-timeline-stage__top">
-            <div class="theme-timeline-stage__phase">{{ block.settings.phase }}</div>
+            {%- if block.settings.phase != blank -%}
+              <div class="theme-timeline-stage__phase">{{ block.settings.phase }}</div>
+            {%- endif -%}
             <div class="theme-timeline-stage__img-wrap">
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 400 | image_tag: class: 'theme-timeline-stage__img', loading: 'lazy', alt: block.settings.title }}
-              {%- else -%}
-                <img src="{{ default_stage_image | asset_url }}" class="theme-timeline-stage__img" loading="lazy" width="200" height="100" alt="{{ block.settings.title | escape }}">
               {%- endif -%}
             </div>
           </div>
           <div class="theme-timeline-stage__bottom">
-            <div class="theme-timeline-stage__label">{{ block.settings.label }}</div>
-            <h3 class="theme-timeline-stage__title">{{ block.settings.title }}</h3>
-            <p class="theme-timeline-stage__body">{{ block.settings.body }}</p>
+            {%- if block.settings.label != blank -%}
+              <div class="theme-timeline-stage__label">{{ block.settings.label }}</div>
+            {%- endif -%}
+            {%- if block.settings.title != blank -%}
+              <h3 class="theme-timeline-stage__title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.body != blank -%}
+              <p class="theme-timeline-stage__body">{{ block.settings.body }}</p>
+            {%- endif -%}
           </div>
         </div>
-      {%- endif -%}
-    {%- endfor -%}
+      {%- endcapture -%}
+      {%- assign mobile_stages_markup = mobile_stages_markup | append: mobile_stage -%}
+      {%- assign desktop_stages_markup = desktop_stages_markup | append: desktop_stage -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  <div class="theme-timeline-grid theme-timeline-grid--mobile lg:hidden">
+    {{ mobile_stages_markup }}
+  </div>
+
+  <div class="theme-timeline-grid theme-timeline-grid--desktop hidden lg:grid">
+    {{ desktop_stages_markup }}
   </div>
 
   <div class="theme-timeline__footer-text">
@@ -89,14 +88,24 @@
   {%- if section.settings.show_upsell -%}
     <div class="theme-upsell-cross-sell">
       <div class="theme-upsell-cross-sell__inner">
-        <div class="theme-upsell-cross-sell__label">Add internal support</div>
+        {%- if section.settings.upsell_label != blank -%}
+          <div class="theme-upsell-cross-sell__label">{{ section.settings.upsell_label }}</div>
+        {%- endif -%}
         <div class="theme-upsell-cross-sell__card">
-          <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-cross-sell__img" width="64" height="64" alt="Upsell" loading="lazy">
+          {%- if section.settings.upsell_image != blank -%}
+            {{ section.settings.upsell_image | image_url: width: 160 | image_tag: class: 'theme-upsell-cross-sell__img', loading: 'lazy', alt: section.settings.upsell_title }}
+          {%- endif -%}
           <div class="theme-upsell-cross-sell__content">
-            <div class="theme-upsell-cross-sell__title">{{ section.settings.upsell_title }}</div>
-            <div class="theme-upsell-cross-sell__text">{{ section.settings.upsell_text }}</div>
+            {%- if section.settings.upsell_title != blank -%}
+              <div class="theme-upsell-cross-sell__title">{{ section.settings.upsell_title }}</div>
+            {%- endif -%}
+            {%- if section.settings.upsell_text != blank -%}
+              <div class="theme-upsell-cross-sell__text">{{ section.settings.upsell_text }}</div>
+            {%- endif -%}
           </div>
-          <a href="{{ section.settings.upsell_link }}" class="theme-upsell-cross-sell__btn">{{ section.settings.upsell_button_label }}</a>
+          {%- if section.settings.upsell_button_label != blank -%}
+            <a href="{{ section.settings.upsell_link }}" class="theme-upsell-cross-sell__btn">{{ section.settings.upsell_button_label }}</a>
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -117,6 +126,8 @@
     { "type": "text", "id": "footnote", "label": "Footnote", "default": "*Based on consistent use as directed. Individual results may vary." },
     { "type": "text", "id": "disclaimer", "label": "Disclaimer text", "default": "In cooler weather the coconut oil base may solidify - warm the oil before use." },
     { "type": "checkbox", "id": "show_upsell", "label": "Show upsell banner", "default": true },
+    { "type": "text", "id": "upsell_label", "label": "Upsell label", "default": "Add internal support" },
+    { "type": "image_picker", "id": "upsell_image", "label": "Upsell image" },
     { "type": "text", "id": "upsell_title", "label": "Upsell Title", "default": "Bringarajasava- 450ml" },
     { "type": "textarea", "id": "upsell_text", "label": "Upsell Text", "default": "Fermented herbal brew for hair growth from within." },
     { "type": "text", "id": "upsell_button_label", "label": "Upsell Button Label", "default": "+ ₹225" },

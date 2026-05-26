@@ -4,55 +4,58 @@
 
 
 <section class="theme-product-page__section theme-product-page__section--story theme-reveal color-{{ section.settings.color_scheme }} gradient">
-  <!-- Sub-section 1: What's in it. What is not. -->
   <div class="theme-ingredient-story__whats-in-it">
     <div class="theme-product-page__wrap">
       <div class="theme-section-heading theme-section-heading--center theme-section-heading--flush">
         {%- if section.settings.heading != blank -%}
           <h2 class="theme-section-heading__title">{{ section.settings.heading }}</h2>
         {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="theme-section-heading__text">{{ section.settings.text }}</div>
+        {%- endif -%}
       </div>
 
       <div class="theme-dual-panel">
+        {%- assign inclusions_markup = '' -%}
+        {%- assign exclusions_markup = '' -%}
+        {%- for block in section.blocks -%}
+          {%- capture list_item -%}
+            <div class="theme-list__item" {{ block.shopify_attributes }}>
+              <div class="theme-list__marker theme-list__marker--{{ block.type | replace: 'inclusion', 'ok' | replace: 'exclusion', 'no' }}">
+                {%- if block.type == 'inclusion' -%}
+                  <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M2.5 6L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                {%- else -%}
+                  <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M3 3L9 9M9 3L3 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                {%- endif -%}
+              </div>
+              <div>
+                <h3 class="theme-list__title{% if block.type == 'exclusion' %} theme-list__title--inverse{% endif %}">{{ block.settings.title }}</h3>
+                {%- if block.settings.text != blank -%}
+                  <p class="theme-list__text{% if block.type == 'exclusion' %} theme-list__text--inverse{% endif %}">{{ block.settings.text }}</p>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endcapture -%}
+          {%- if block.type == 'inclusion' -%}
+            {%- assign inclusions_markup = inclusions_markup | append: list_item -%}
+          {%- elsif block.type == 'exclusion' -%}
+            {%- assign exclusions_markup = exclusions_markup | append: list_item -%}
+          {%- endif -%}
+        {%- endfor -%}
+
         <div class="theme-panel theme-panel--soft">
           <div class="theme-list">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'inclusion' -%}
-                <div class="theme-list__item" {{ block.shopify_attributes }}>
-                  <div class="theme-list__marker theme-list__marker--ok">
-                    <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.5 6L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 class="theme-list__title">{{ block.settings.title }}</h3>
-                    {%- if block.settings.text != blank -%}
-                      <p class="theme-list__text">{{ block.settings.text }}</p>
-                    {%- endif -%}
-                  </div>
-                </div>
-              {%- endif -%}
-            {%- endfor -%}
+            {{ inclusions_markup }}
           </div>
         </div>
 
         <div class="theme-panel theme-panel--dark">
           <div class="theme-list">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'exclusion' -%}
-                <div class="theme-list__item" {{ block.shopify_attributes }}>
-                  <div class="theme-list__marker theme-list__marker--no">
-                    <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 3L9 9M9 3L3 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 class="theme-list__title theme-list__title--inverse">{{ block.settings.title }}</h3>
-                    <p class="theme-list__text theme-list__text--inverse">{{ block.settings.text }}</p>
-                  </div>
-                </div>
-              {%- endif -%}
-            {%- endfor -%}
+            {{ exclusions_markup }}
           </div>
         </div>
       </div>

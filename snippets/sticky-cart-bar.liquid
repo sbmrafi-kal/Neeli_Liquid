@@ -4,6 +4,7 @@
     {%- assign current_in_cart = true -%}
   {%- endif -%}
 {%- endfor -%}
+{%- assign sticky_variant = product.selected_or_first_available_variant -%}
 
 <div class="theme-sticky-cart-bar">
   <div class="theme-sticky-cart-bar__inner">
@@ -17,7 +18,13 @@
           <span class="theme-sticky-cart-bar__btn-text">View cart</span>
         </div>
         <div class="theme-sticky-cart-bar__price-col">
-          <span class="theme-sticky-cart-bar__price">{{ product.selected_or_first_available_variant.price | money }}</span>
+          <div class="theme-sticky-cart-bar__price-row">
+            <span class="theme-sticky-cart-bar__mrp">M.R.P.</span>
+            <span class="theme-sticky-cart-bar__price">{{ sticky_variant.price | money }}</span>
+            {%- if sticky_variant.compare_at_price > sticky_variant.price -%}
+              <span class="theme-sticky-cart-bar__compare">{{ sticky_variant.compare_at_price | money }}</span>
+            {%- endif -%}
+          </div>
           <span class="theme-sticky-cart-bar__tax-note">Inclusive of all taxes</span>
         </div>
       </a>
@@ -33,7 +40,13 @@
           <span class="theme-sticky-cart-bar__btn-text">Add to cart</span>
         </div>
         <div class="theme-sticky-cart-bar__price-col">
-          <span class="theme-sticky-cart-bar__price">{{ product.selected_or_first_available_variant.price | money }}</span>
+          <div class="theme-sticky-cart-bar__price-row">
+            <span class="theme-sticky-cart-bar__mrp">M.R.P.</span>
+            <span class="theme-sticky-cart-bar__price">{{ sticky_variant.price | money }}</span>
+            {%- if sticky_variant.compare_at_price > sticky_variant.price -%}
+              <span class="theme-sticky-cart-bar__compare">{{ sticky_variant.compare_at_price | money }}</span>
+            {%- endif -%}
+          </div>
           <span class="theme-sticky-cart-bar__tax-note">Inclusive of all taxes</span>
         </div>
       </button>

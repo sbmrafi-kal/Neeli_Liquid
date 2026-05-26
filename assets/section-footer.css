@@ -10,6 +10,15 @@
 .theme-footer-column__title { font-weight: 700 !important; }
 .theme-footer-social__icon,
 .theme-footer-social__icon svg { width: 2.25rem !important; height: 2.25rem !important; }
+.theme-footer-brand__text {
+  display: inline-block;
+  font-family: var(--font-heading-family);
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: inherit;
+}
 
 /* Next parity: social icons lift softly on hover/focus. */
 .footer-social {

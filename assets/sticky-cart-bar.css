@@ -5,12 +5,15 @@
   bottom: 0;
   z-index: 120;
   background: #8b5742;
-  padding: 12px 28px;
+  padding: 14px 24px;
 }
 
 .theme-sticky-cart-bar__inner {
-  width: min(1400px, 100%);
-  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .theme-sticky-cart-bar__btn {
@@ -30,7 +33,7 @@
 .theme-sticky-cart-bar__btn-pill {
   min-width: 390px;
   height: 56px;
-  border-radius: 10px;
+  border-radius: 8px;
   background: #ffffff;
   color: #151515;
   display: inline-flex;
@@ -72,7 +75,7 @@
 
 .theme-sticky-cart-bar__btn-text {
   font-family: var(--font-body-family);
-  font-size: 37px;
+  font-size: 22px;
   line-height: 1;
   font-weight: 700;
   letter-spacing: 0;
@@ -84,35 +87,66 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  margin-left: 24px;
+  min-width: 180px;
+}
+
+.theme-sticky-cart-bar__price-row {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 8px;
+  width: 100%;
+}
+
+.theme-sticky-cart-bar__mrp {
+  font-family: var(--font-body-family);
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .theme-sticky-cart-bar__price {
   font-family: var(--font-body-family);
-  font-size: 44px;
+  font-size: 24px;
   line-height: 1;
   font-weight: 700;
   color: #ffffff;
 }
 
+.theme-sticky-cart-bar__compare {
+  font-family: var(--font-body-family);
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: line-through;
+}
+
 .theme-sticky-cart-bar__tax-note {
   margin-top: 4px;
-  font-size: 34px;
+  font-size: 13px;
   line-height: 1;
   color: rgba(255, 255, 255, 0.82);
 }
 
 @media screen and (max-width: 1599px) {
   .theme-sticky-cart-bar__btn-text {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .theme-sticky-cart-bar__price {
-    font-size: 30px;
+    font-size: 22px;
+  }
+
+  .theme-sticky-cart-bar__compare {
+    font-size: 15px;
   }
 
   .theme-sticky-cart-bar__tax-note {
-    font-size: 18px;
+    font-size: 12px;
   }
 }
 

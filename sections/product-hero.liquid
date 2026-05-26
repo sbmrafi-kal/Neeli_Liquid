@@ -9,9 +9,6 @@
 {%- if product_override != blank -%}
   {%- assign product = product_override -%}
 {%- endif -%}
-{%- if product == blank -%}
-  {%- assign product = all_products['neelibhringadi-keram'] -%}
-{%- endif -%}
 {%- assign product_title = product.title | default: 'Neelibhringadi Keram' -%}
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
 {%- assign hero_stat_blocks = section.blocks | where: "type", "hero_stat" -%}
@@ -24,7 +21,7 @@
 >
   <script src="{{ 'theme-product-page.js' | asset_url }}" defer="defer"></script>
 
-{%- assign hero_images = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' -%}
+{%- assign hero_images = product.media -%}
 
   <div class="container-narrow">
     <div class="theme-product-page__hero">
@@ -39,11 +36,9 @@
                   {%- assign hero_loading = 'lazy' -%}
                 {%- endif -%}
                 {%- if media.preview_image != blank -%}
-                  <img src="{{ media.preview_image | image_url: width: 750 }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product_title | escape }}">
+                  {{ media.preview_image | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: product_title }}
                 {%- elsif media.src != blank -%}
-                  <img src="{{ media | image_url: width: 750 }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product_title | escape }}">
-                {%- else -%}
-                  <img src="{{ media | asset_url }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ product_title | escape }}">
+                  {{ media | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: product_title }}
                 {%- endif -%}
               </figure>
             {%- endfor -%}
@@ -65,11 +60,9 @@
                 data-theme-carousel-thumb="{{ forloop.index0 }}"
               >
                 {%- if media.preview_image != blank -%}
-                  <img src="{{ media.preview_image | image_url: width: 120 }}" class="theme-hero-carousel__thumb-image" loading="lazy" width="90" height="120" alt="">
+                  {{ media.preview_image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
                 {%- elsif media.src != blank -%}
-                  <img src="{{ media | image_url: width: 120 }}" class="theme-hero-carousel__thumb-image" loading="lazy" width="90" height="120" alt="">
-                {%- else -%}
-                  <img src="{{ media | asset_url }}" class="theme-hero-carousel__thumb-image" loading="lazy" width="90" height="120" alt="">
+                  {{ media | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
                 {%- endif -%}
               </button>
             {%- endfor -%}
@@ -99,9 +92,6 @@
           </div>
         </div>
 
-        <div class="theme-hero-below-product" aria-hidden="true">
-          <img src="{{ 'Below_the_product.png' | asset_url }}" class="theme-hero-below-product__image" loading="lazy" width="2000" height="2000" alt="">
-        </div>
       </div>
 
       <!-- DESKTOP HERO INFO COLUMN -->
@@ -234,23 +224,22 @@
             </div>
           </div>
           <div class="theme-new-cert-block__stamps">
-            <img src="{{ 'stamp_02_old.png' | asset_url }}" width="86" height="86" alt="AYUSH certified" loading="lazy">
-            <img src="{{ 'stamp_04_old.png' | asset_url }}" width="86" height="86" alt="ISO certified" loading="lazy">
-            <img src="{{ 'stamp_05.png' | asset_url }}" width="86" height="86" alt="GMP certified" loading="lazy">
-            <img src="{{ 'stamp_03_old.png' | asset_url }}" width="86" height="86" alt="FDA compliant" loading="lazy">
+            {%- if section.settings.stamp_1_image != blank -%}
+              {{ section.settings.stamp_1_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_1_alt }}
+            {%- endif -%}
+            {%- if section.settings.stamp_2_image != blank -%}
+              {{ section.settings.stamp_2_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_2_alt }}
+            {%- endif -%}
+            {%- if section.settings.stamp_3_image != blank -%}
+              {{ section.settings.stamp_3_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_3_alt }}
+            {%- endif -%}
+            {%- if section.settings.stamp_4_image != blank -%}
+              {{ section.settings.stamp_4_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_4_alt }}
+            {%- endif -%}
           </div>
         </div>
 
-        <div class="theme-hero-ritual-guide">
-          <svg class="theme-hero-ritual-guide__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
-            <path d="M12 3v1M12 20v1M3 12h1M20 12h1M18.36 5.64l-.7.7M6.34 17.66l-.7.7M5.64 5.64l.7.7M17.66 17.66l.7.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-          </svg>
-          <div>
-            <div class="theme-hero-ritual-guide__title">{{ section.settings.ritual_title }}</div>
-            <p class="theme-hero-ritual-guide__text">{{ section.settings.ritual_text }}</p>
-          </div>
-        </div>
+        {% render 'ritual-guide', title: section.settings.ritual_title, text: section.settings.ritual_text %}
       </div>
 
       <!-- MOBILE HERO INFO CONTAINER (Spans full narrow width) -->
@@ -379,7 +368,7 @@
       </div>
 
       {%- if section.settings.description_block != blank -%}
-        <div class="theme-product-page__desc-title">How Neelibringadi Keram works</div>
+        <div class="theme-product-page__desc-title">{{ section.settings.description_title }}</div>
         <p class="theme-product-page__description-block">
           {{ section.settings.description_block }}
         </p>
@@ -410,23 +399,22 @@
           {%- endif -%}
         </div>
         <div class="theme-new-cert-block__stamps">
-          <img src="{{ 'stamp_02_old.png' | asset_url }}" width="86" height="86" alt="AYUSH certified" loading="lazy">
-          <img src="{{ 'stamp_04_old.png' | asset_url }}" width="86" height="86" alt="ISO certified" loading="lazy">
-          <img src="{{ 'stamp_05.png' | asset_url }}" width="86" height="86" alt="GMP certified" loading="lazy">
-          <img src="{{ 'stamp_03_old.png' | asset_url }}" width="86" height="86" alt="FDA compliant" loading="lazy">
+          {%- if section.settings.stamp_1_image != blank -%}
+            {{ section.settings.stamp_1_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_1_alt }}
+          {%- endif -%}
+          {%- if section.settings.stamp_2_image != blank -%}
+            {{ section.settings.stamp_2_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_2_alt }}
+          {%- endif -%}
+          {%- if section.settings.stamp_3_image != blank -%}
+            {{ section.settings.stamp_3_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_3_alt }}
+          {%- endif -%}
+          {%- if section.settings.stamp_4_image != blank -%}
+            {{ section.settings.stamp_4_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_4_alt }}
+          {%- endif -%}
         </div>
       </div>
 
-      <div class="theme-hero-ritual-guide">
-        <svg class="theme-hero-ritual-guide__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
-          <path d="M12 3v1M12 20v1M3 12h1M20 12h1M18.36 5.64l-.7.7M6.34 17.66l-.7.7M5.64 5.64l.7.7M17.66 17.66l.7.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        </svg>
-        <div>
-          <div class="theme-hero-ritual-guide__title">The Ritual Guide</div>
-          <p class="theme-hero-ritual-guide__text">Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.</p>
-        </div>
-      </div>
+      {% render 'ritual-guide', title: section.settings.ritual_title, text: section.settings.ritual_text %}
     </div>
   </div>
   {% render 'sticky-cart-bar' %}
@@ -574,6 +562,50 @@
       "id": "stat_4_label",
       "label": "Stamp stat 4 label",
       "default": "Bought last year"
+    },
+    {
+      "type": "image_picker",
+      "id": "stamp_1_image",
+      "label": "Stamp image 1"
+    },
+    {
+      "type": "text",
+      "id": "stamp_1_alt",
+      "label": "Stamp alt text 1",
+      "default": "AYUSH certified"
+    },
+    {
+      "type": "image_picker",
+      "id": "stamp_2_image",
+      "label": "Stamp image 2"
+    },
+    {
+      "type": "text",
+      "id": "stamp_2_alt",
+      "label": "Stamp alt text 2",
+      "default": "ISO certified"
+    },
+    {
+      "type": "image_picker",
+      "id": "stamp_3_image",
+      "label": "Stamp image 3"
+    },
+    {
+      "type": "text",
+      "id": "stamp_3_alt",
+      "label": "Stamp alt text 3",
+      "default": "GMP certified"
+    },
+    {
+      "type": "image_picker",
+      "id": "stamp_4_image",
+      "label": "Stamp image 4"
+    },
+    {
+      "type": "text",
+      "id": "stamp_4_alt",
+      "label": "Stamp alt text 4",
+      "default": "FDA compliant"
     },
     {
       "type": "text",

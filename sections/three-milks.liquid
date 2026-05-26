@@ -16,17 +16,10 @@
         {%- if block.type == 'milk' -%}
           <article class="theme-three-milks__mobile-card theme-three-milks__mobile-card--{{ forloop.index }} motion-panel" {{ block.shopify_attributes }}>
             <div class="theme-three-milks__mobile-image-wrap">
-              {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 124 | image_tag: class: 'theme-three-milks__mobile-image', loading: 'lazy' }}
-              {%- else -%}
-                {%- case forloop.index -%}
-                  {%- when 1 -%}
-                    <img src="{{ 'Coconut_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__mobile-image" width="62" height="62" loading="lazy" />
-                  {%- when 2 -%}
-                    <img src="{{ 'Goat_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__mobile-image" width="62" height="62" loading="lazy" />
-                  {%- else -%}
-                    <img src="{{ 'Cow_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__mobile-image" width="62" height="62" loading="lazy" />
-                {%- endcase -%}
+              {%- if block.settings.mobile_image != blank -%}
+                {{ block.settings.mobile_image | image_url: width: 124 | image_tag: class: 'theme-three-milks__mobile-image', loading: 'lazy', alt: block.settings.title }}
+              {%- elsif block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 124 | image_tag: class: 'theme-three-milks__mobile-image', loading: 'lazy', alt: block.settings.title }}
               {%- endif -%}
             </div>
             <div class="theme-three-milks__mobile-content">
@@ -46,15 +39,6 @@
             <div class="theme-three-milks__image-wrap">
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 188 | image_tag: class: 'theme-three-milks__image', loading: 'lazy' }}
-              {%- else -%}
-                {%- case forloop.index -%}
-                  {%- when 1 -%}
-                    <img src="{{ 'Coconut_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__image" width="94" height="94" loading="lazy" />
-                  {%- when 2 -%}
-                    <img src="{{ 'Goat_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__image" width="94" height="94" loading="lazy" />
-                  {%- else -%}
-                    <img src="{{ 'Cow_milk.png' | asset_url }}" alt="{{ block.settings.title }}" class="theme-three-milks__image" width="94" height="94" loading="lazy" />
-                {%- endcase -%}
               {%- endif -%}
             </div>
             <h3 class="theme-three-milks__card-title">{{ block.settings.title }}</h3>
@@ -69,10 +53,12 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
           <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
         </svg>
-        <span>Always patch test first</span>
+        {%- if section.settings.patch_test_label != blank -%}
+          <span>{{ section.settings.patch_test_label }}</span>
+        {%- endif -%}
       </button>
       <div class="theme-patch-test-tooltip">
-        Apply a small amount behind the ear or on the inner elbow. Wait 24–48 hours. If no redness or irritation appears, proceed with regular use
+        {{ section.settings.tooltip_text }}
       </div>
     </div>
 
@@ -86,6 +72,7 @@
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "THE SECRET BASE" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Three milks. One complete formula." },
     { "type": "textarea", "id": "text", "label": "Text", "default": "Three nourishing milks work together for a healthier scalp and stronger, smoother hair." },
+    { "type": "text", "id": "patch_test_label", "label": "Patch test label", "default": "Always patch test first" },
     { "type": "text", "id": "tooltip_text", "label": "Tooltip text", "default": "Note: Patch test recommended. Some oils may cause fungal acne." }
   ],
   "blocks": [
@@ -95,6 +82,7 @@
       "limit": 3,
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
         { "type": "text", "id": "title", "label": "Title", "default": "Coconut milk" },
         { "type": "textarea", "id": "text", "label": "Description", "default": "Nourishes and moisturizes the scalp." }
       ]

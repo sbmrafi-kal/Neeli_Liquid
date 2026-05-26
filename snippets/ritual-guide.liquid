@@ -1,18 +1,27 @@
-<div class="theme-ritual-guide-container container-narrow pb-2 lg:pb-4">
-  <div class="theme-hero-ritual-guide mx-auto max-w-[460px] lg:mr-0 lg:ml-auto lg:max-w-[798px]">
-    <div class="theme-ritual-guide-card rounded-[12px] border border-[#f0d084] bg-[#fbf2da] px-4 py-3 text-[#a86d13] lg:max-w-[640px]">
-      <div class="flex items-start gap-3">
-        <span class="theme-ritual-guide-icon mt-0.5 h-4.5 w-4.5 shrink-0 text-[#e29a12]">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-full w-full">
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-          </svg>
-        </span>
-        <div>
-          <div class="text-[13px] font-medium uppercase tracking-[0.16em] leading-none">The Ritual Guide</div>
-          <p class="mt-1 text-[13px] leading-[1.35] text-[#8f5f17]">Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.</p>
+{%- assign ritual_title = title | default: 'The Ritual Guide' -%}
+{%- assign ritual_text = text | default: 'Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.' -%}
+
+{%- if ritual_title != blank or ritual_text != blank -%}
+  <div class="theme-ritual-guide-container container-narrow pb-2 lg:pb-4">
+    <div class="theme-hero-ritual-guide mx-auto max-w-[460px] lg:mr-0 lg:ml-auto lg:max-w-[798px]">
+      <div class="theme-ritual-guide-card rounded-[12px] border border-[#f0d084] bg-[#fbf2da] px-4 py-3 text-[#a86d13] lg:max-w-[640px]">
+        <div class="flex items-start gap-3">
+          <span class="theme-ritual-guide-icon mt-0.5 h-4.5 w-4.5 shrink-0 text-[#e29a12]" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-full w-full">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+          </span>
+          <div>
+            {%- if ritual_title != blank -%}
+              <div class="text-[13px] font-medium uppercase tracking-[0.16em] leading-none">{{ ritual_title }}</div>
+            {%- endif -%}
+            {%- if ritual_text != blank -%}
+              <p class="mt-1 text-[13px] leading-[1.35] text-[#8f5f17]">{{ ritual_text }}</p>
+            {%- endif -%}
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+{%- endif -%}
