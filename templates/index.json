@@ -472,6 +472,44 @@
         "padding_bottom": 80
       }
     },
+    "customer_reviews": {
+      "type": "customer-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "ANJALI K.",
+            "meta": "Verified Purchase",
+            "badge": "",
+            "body": "Excellent for postpartum hair fall. Within a month, the amount of hair on my brush was noticeably less. The routine is easy to keep up."
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "ROHAN S.",
+            "meta": "Verified Purchase",
+            "badge": "",
+            "body": "Started using it for early greying. Two months in, the texture has improved and the earthy smell has grown on me. No heaviness."
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "soft_background": false,
+        "kicker": "Feedback",
+        "heading": "Customer Reviews",
+        "text": "<p></p>",
+        "button_label": "Read all 86 reviews",
+        "rating_score": "4.64 / 5.0",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
     "brand_trust": {
       "type": "brand-trust",
       "settings": {}

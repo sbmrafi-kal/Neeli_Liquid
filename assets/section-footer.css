@@ -10,7 +10,7 @@
 .theme-footer-column__title { font-weight: 700 !important; }
 .theme-footer-column__title { font-size: 16px !important; }
 .theme-footer-social__icon,
-.theme-footer-social__icon svg { width: 2.25rem !important; height: 2.25rem !important; }
+.theme-footer-social__icon svg { width: 24px !important; height: 24px !important; }
 .theme-footer-brand__text {
   display: inline-block;
   font-family: var(--font-heading-family);
@@ -23,14 +23,12 @@
 
 /* Next parity: social icons lift softly on hover/focus. */
 .footer-social {
-  transition: transform 180ms ease, opacity 180ms ease !important;
-  will-change: transform !important;
+  transition: opacity 180ms ease !important;
 }
 
 .footer-social:hover,
 .footer-social:focus-visible {
   opacity: 0.82 !important;
-  transform: translateY(-2px) !important;
 }
 
 /* Final parity lock: footer spacing and rhythm */
@@ -87,7 +85,7 @@
   margin-top: 24px !important;
   color: rgba(42, 74, 61, 0.34) !important;
   opacity: 0.7 !important;
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 .theme-footer-decoration__svg {
@@ -140,6 +138,10 @@
     grid-column: 2 / 3 !important;
     justify-self: start !important;
     text-align: left !important;
+  }
+
+  .theme-footer-social__icons {
+    gap: 1rem !important;
   }
 
   .theme-footer-tagline-content {
