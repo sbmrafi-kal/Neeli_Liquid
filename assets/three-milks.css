@@ -19,7 +19,7 @@
   font-family: var(--theme-heading-font), serif;
   font-size: 40px;
   color: #1f4d3d;
-  line-height: 1;
+  line-height: 1.03;
 }
 
 .theme-three-milks__text {
@@ -67,8 +67,8 @@
 }
 
 .theme-three-milks__mobile-image-wrap {
-  width: 76px;
-  height: 76px;
+  width: 80px;
+  height: 80px;
   border-radius: 999px;
   overflow: hidden;
 }
@@ -82,7 +82,7 @@
 .theme-three-milks__mobile-title {
   font-family: var(--theme-heading-font), serif;
   font-size: 18px;
-  line-height: 1;
+  line-height: 1.05;
   color: #1f4d3d;
 }
 
@@ -106,8 +106,8 @@
 }
 
 .theme-three-milks__image-wrap {
-  width: 92px;
-  height: 92px;
+  width: 110px;
+  height: 110px;
   border-radius: 999px;
   overflow: hidden;
   margin: 0 auto 16px;
@@ -121,15 +121,15 @@
 
 .theme-three-milks__card-title {
   font-family: var(--theme-heading-font), serif;
-  font-size: 22px;
-  line-height: 1;
+  font-size: 28px;
+  line-height: 1.02;
   color: #1f4d3d;
 }
 
 .theme-three-milks__card-desc {
   margin-top: 10px;
-  font-size: 13px;
-  line-height: 1.35;
+  font-size: 15px;
+  line-height: 1.45;
   color: rgba(31, 77, 61, 0.76);
 }
 
@@ -197,5 +197,6 @@
 
   .theme-three-milks__title {
     font-size: 48px;
+    line-height: 1.03;
   }
 }

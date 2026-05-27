@@ -8,6 +8,7 @@
 /* Request lock: reduce footer padding artifacts from support rules. */
 .theme-footer-list li { margin-bottom: 0 !important; }
 .theme-footer-column__title { font-weight: 700 !important; }
+.theme-footer-column__title { font-size: 16px !important; }
 .theme-footer-social__icon,
 .theme-footer-social__icon svg { width: 2.25rem !important; height: 2.25rem !important; }
 .theme-footer-brand__text {
@@ -60,6 +61,7 @@
 .theme-footer-tagline-p {
   margin: 0 !important;
   line-height: 1.3 !important;
+  font-size: 14px !important;
 }
 
 @media screen and (max-width: 989px) {

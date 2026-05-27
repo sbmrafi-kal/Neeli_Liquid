@@ -47,11 +47,11 @@
                     <div class="theme-footer-social__label">{{ block.settings.label }}</div>
                   {%- endif -%}
                   <div class="theme-footer-social__icons">
-                    {%- assign facebook_link = settings.social_facebook_link | default: 'https://www.facebook.com/KeralaAyurvedaUSA/' -%}
-                    {%- assign twitter_link = settings.social_twitter_link | default: 'https://twitter.com/keralaayurveda' -%}
-                    {%- assign instagram_link = settings.social_instagram_link | default: 'https://www.instagram.com/keralaayurveda/' -%}
-                    {%- assign youtube_link = settings.social_youtube_link | default: 'https://www.youtube.com/user/KeralaAyurveda' -%}
-                    {%- assign linkedin_link = settings.social_linkedin_link | default: 'https://www.linkedin.com/company/kerala-ayurveda-ltd' -%}
+                    {%- assign facebook_link = block.settings.facebook_link | default: section.settings.facebook_link | default: settings.social_facebook_link -%}
+                    {%- assign twitter_link = block.settings.twitter_link | default: section.settings.twitter_link | default: settings.social_twitter_link -%}
+                    {%- assign instagram_link = block.settings.instagram_link | default: section.settings.instagram_link | default: settings.social_instagram_link -%}
+                    {%- assign youtube_link = block.settings.youtube_link | default: section.settings.youtube_link | default: settings.social_youtube_link -%}
+                    {%- assign linkedin_link = block.settings.linkedin_link | default: section.settings.linkedin_link | default: settings.social_linkedin_link -%}
 
                     {%- if facebook_link != blank -%}
                       <a href="{{ facebook_link }}" aria-label="Facebook" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener">
@@ -133,11 +133,11 @@
         <div class="theme-footer-social-content">
           <div class="theme-footer-social__label">{{ section.settings.social_label }}</div>
           <div class="theme-footer-social__icons">
-            {%- assign facebook_link = settings.social_facebook_link | default: 'https://www.facebook.com/KeralaAyurvedaUSA/' -%}
-            {%- assign twitter_link = settings.social_twitter_link | default: 'https://twitter.com/keralaayurveda' -%}
-            {%- assign instagram_link = settings.social_instagram_link | default: 'https://www.instagram.com/keralaayurveda/' -%}
-            {%- assign youtube_link = settings.social_youtube_link | default: 'https://www.youtube.com/user/KeralaAyurveda' -%}
-            {%- assign linkedin_link = settings.social_linkedin_link | default: 'https://www.linkedin.com/company/kerala-ayurveda-ltd' -%}
+            {%- assign facebook_link = section.settings.facebook_link | default: settings.social_facebook_link -%}
+            {%- assign twitter_link = section.settings.twitter_link | default: settings.social_twitter_link -%}
+            {%- assign instagram_link = section.settings.instagram_link | default: settings.social_instagram_link -%}
+            {%- assign youtube_link = section.settings.youtube_link | default: settings.social_youtube_link -%}
+            {%- assign linkedin_link = section.settings.linkedin_link | default: settings.social_linkedin_link -%}
             {%- if facebook_link != blank -%}
               <a href="{{ facebook_link }}" aria-label="Facebook" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
             {%- endif -%}
@@ -180,6 +180,11 @@
     { "type": "link_list", "id": "policies_menu", "label": "Policies menu", "default": "footer" },
     { "type": "link_list", "id": "network_menu", "label": "Our network menu", "default": "footer" },
     { "type": "text", "id": "social_label", "label": "Social label", "default": "Follow Us" },
+    { "type": "url", "id": "facebook_link", "label": "Facebook link", "default": "" },
+    { "type": "url", "id": "twitter_link", "label": "Twitter link", "default": "" },
+    { "type": "url", "id": "instagram_link", "label": "Instagram link", "default": "" },
+    { "type": "url", "id": "youtube_link", "label": "YouTube link", "default": "" },
+    { "type": "url", "id": "linkedin_link", "label": "LinkedIn link", "default": "" },
     { "type": "image_picker", "id": "logo_image", "label": "Logo image" },
     { "type": "text", "id": "logo_alt", "label": "Logo alt text", "default": "Kerala Ayurveda" },
     { "type": "text", "id": "logo_text", "label": "Logo fallback text", "default": "Kerala Ayurveda" },
@@ -208,7 +213,12 @@
       "type": "social",
       "name": "Social",
       "settings": [
-        { "type": "text", "id": "label", "label": "Label", "default": "Follow Us" }
+        { "type": "text", "id": "label", "label": "Label", "default": "Follow Us" },
+        { "type": "url", "id": "facebook_link", "label": "Facebook link", "default": "" },
+        { "type": "url", "id": "twitter_link", "label": "Twitter link", "default": "" },
+        { "type": "url", "id": "instagram_link", "label": "Instagram link", "default": "" },
+        { "type": "url", "id": "youtube_link", "label": "YouTube link", "default": "" },
+        { "type": "url", "id": "linkedin_link", "label": "LinkedIn link", "default": "" }
       ]
     },
     {

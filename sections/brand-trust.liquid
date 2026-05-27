@@ -1,16 +1,9 @@
 {{ 'section-brand-trust.css' | asset_url | stylesheet_tag }}
 
-{%- assign show_brand_trust = section.settings.mobile_title != blank
-  or section.settings.desktop_title != blank
-  or section.settings.mobile_image != blank
-  or section.settings.desktop_image != blank
-  or section.settings.heading != blank
-  or section.settings.text != blank
-  or section.settings.patents_heading != blank
-  or section.settings.patents_text != blank
-  or section.settings.mark_heading != blank
-  or section.settings.mark_text != blank
--%}
+{%- assign show_brand_trust = false -%}
+{%- if section.settings.mobile_title != blank or section.settings.desktop_title != blank or section.settings.mobile_image != blank or section.settings.desktop_image != blank or section.settings.heading != blank or section.settings.text != blank or section.settings.patents_heading != blank or section.settings.patents_text != blank or section.settings.mark_heading != blank or section.settings.mark_text != blank -%}
+  {%- assign show_brand_trust = true -%}
+{%- endif -%}
 
 {%- assign desktop_title = section.settings.heading | default: section.settings.desktop_title -%}
 {%- assign mobile_title = section.settings.heading | default: section.settings.mobile_title -%}

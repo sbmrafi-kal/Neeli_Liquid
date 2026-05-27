@@ -1,9 +1,6 @@
 {{ 'section-header.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
 
-{%- assign main_menu = linklists[section.settings.menu_handle] -%}
-{%- assign nav_links = main_menu.links -%}
-
 <header class="theme-header" role="banner">
   <div class="theme-header__primary-bar">
     <div class="theme-header__inner">
@@ -39,15 +36,6 @@
         <a class="theme-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
           {%- if section.settings.logo_image != blank -%}
             {{ section.settings.logo_image | image_url: width: 600 | image_tag: class: 'theme-header__brand-image', loading: 'eager', alt: section.settings.logo_alt }}
-          {%- elsif 'logo-kerala.png' | asset_url != blank -%}
-            <img
-              class="theme-header__brand-image theme-header__brand-image--asset"
-              src="{{ 'logo-kerala.png' | asset_url }}"
-              alt="{{ section.settings.logo_alt | default: shop.name | escape }}"
-              loading="eager"
-              width="220"
-              height="38"
-            >
           {%- else -%}
             <span class="theme-header__brand-text">{{ section.settings.logo_text | default: shop.name }}</span>
           {%- endif -%}
@@ -83,17 +71,19 @@
     <div class="theme-header__subnav-inner">
       <div class="theme-header__breadcrumbs">
         <a href="{{ routes.root_url }}">Home</a>
-        {%- assign breadcrumb_label = blank -%}
-        {%- if request.page_type == 'product' and product != blank -%}
-          {%- assign breadcrumb_label = product.title -%}
-        {%- elsif request.page_type == 'collection' and collection != blank -%}
-          {%- assign breadcrumb_label = collection.title -%}
-        {%- elsif request.page_type == 'page' and page != blank -%}
-          {%- assign breadcrumb_label = page.title -%}
-        {%- elsif request.page_type == 'article' and article != blank -%}
-          {%- assign breadcrumb_label = article.title -%}
+        {%- assign breadcrumb_label = section.settings.breadcrumb_current_label | strip -%}
+        {%- if breadcrumb_label == blank -%}
+          {%- if request.page_type == 'product' and product != blank -%}
+            {%- assign breadcrumb_label = product.title -%}
+          {%- elsif request.page_type == 'collection' and collection != blank -%}
+            {%- assign breadcrumb_label = collection.title -%}
+          {%- elsif request.page_type == 'page' and page != blank and page.title != 'Home' -%}
+            {%- assign breadcrumb_label = page.title -%}
+          {%- elsif request.page_type == 'article' and article != blank -%}
+            {%- assign breadcrumb_label = article.title -%}
+          {%- endif -%}
         {%- endif -%}
-        {%- if breadcrumb_label != blank -%}
+        {%- if breadcrumb_label != blank and breadcrumb_label != 'Home' -%}
           <span class="theme-header__breadcrumb-sep">›</span>
           <span class="theme-header__breadcrumb-current">{{ breadcrumb_label }}</span>
         {%- endif -%}
@@ -185,6 +175,12 @@
       "id": "logo_text",
       "label": "Logo fallback text",
       "default": "Kerala Ayurveda"
+    },
+    {
+      "type": "text",
+      "id": "breadcrumb_current_label",
+      "label": "Breadcrumb current item",
+      "default": ""
     },
     {
       "type": "range",

@@ -43,14 +43,14 @@
 }
 
 .theme-massage-ritual__mobile-number {
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1;
   color: #1f4d3d;
 }
 
 .theme-massage-ritual__mobile-label {
   margin-top: 2px;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   color: rgba(31, 77, 61, 0.62);
 }
@@ -92,15 +92,15 @@
   }
 
   .theme-massage-ritual__desktop-number {
-    font-size: 32px;
+    font-size: 36px;
     color: #1f4d3d;
     line-height: 1;
   }
 
   .theme-massage-ritual__desktop-label {
-    margin-top: 4px;
-    font-size: 14px;
-    line-height: 1.2;
+    margin-top: 6px;
+    font-size: 16px;
+    line-height: 1.15;
     color: #8f4f36;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -108,9 +108,9 @@
 
   .theme-massage-ritual__desktop-desc {
     margin: 14px auto 0;
-    max-width: 340px;
-    font-size: 15px;
-    line-height: 1.35;
+    max-width: 360px;
+    font-size: 16px;
+    line-height: 1.45;
     color: rgba(31, 77, 61, 0.82);
   }
 }

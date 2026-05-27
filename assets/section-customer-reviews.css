@@ -51,9 +51,9 @@
 
 .theme-reviews-section__heading {
   font-family: "Amstir", var(--theme-heading-font), serif !important;
-  font-size: 35px !important;
+  font-size: 42px !important;
   font-weight: 400 !important;
-  line-height: 46px !important;
+  line-height: 1.03 !important;
   letter-spacing: 0.05em !important;
   color: #1e4b3c !important;
 }
@@ -107,8 +107,8 @@
 .theme-review-card__author-name {
   font-family: "Avenir", var(--theme-body-font), sans-serif !important;
   font-weight: 900 !important;
-  font-size: 18px !important;
-  line-height: 25px !important;
+  font-size: 20px !important;
+  line-height: 26px !important;
   color: #191d18 !important;
   text-transform: uppercase !important;
 }
