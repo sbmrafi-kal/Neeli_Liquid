@@ -2,9 +2,15 @@
 <section class="theme-timeline color-{{ section.settings.color_scheme }} gradient">
 
   <div class="theme-timeline-header-banner">
-    <div class="theme-timeline-header-banner__kicker">{{ section.settings.kicker }}</div>
-    <h2 class="theme-timeline-header-banner__title">{{ section.settings.heading }}</h2>
-    <div class="theme-timeline-header-banner__text">{{ section.settings.text }}</div>
+    {%- if section.settings.kicker != blank -%}
+      <div class="theme-timeline-header-banner__kicker">{{ section.settings.kicker }}</div>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="theme-timeline-header-banner__title">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="theme-timeline-header-banner__text rte">{{ section.settings.text }}</div>
+    {%- endif -%}
   </div>
 
   {%- assign mobile_stages_markup = '' -%}

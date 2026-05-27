@@ -1,9 +1,22 @@
-.theme-ingredients-in-out__inner { padding: 48px 0; }
-.theme-ingredients-in-out__split { display:flex; gap:20px; }
-.theme-ingredients-in-out__box { flex:1; padding:20px; border-radius:8px; }
-.theme-ingredients-in-out__box--in { background: #f4fbf7; border:1px solid rgba(31,77,61,0.06); }
-.theme-ingredients-in-out__box--out { background: #fff6f3; border:1px solid rgba(131,77,60,0.06); }
-.theme-ingredients-in-out__box-title { font-weight:700; margin-bottom:10px; }
-.theme-ingredients-in-out__item { margin-bottom:12px; }
-.theme-ingredients-in-out__item-text { color: rgba(0,0,0,0.7); }
-@media (max-width: 900px) { .theme-ingredients-in-out__split { flex-direction: column; } }
+.theme-ingredients-in-out__inner { padding: 56px 0; }
+.theme-ingredients-in-out__heading {
+  text-align: center;
+  font-family: var(--theme-heading-font), serif;
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 400;
+  color: #1f4d3d;
+  margin: 0 0 24px;
+}
+.theme-ingredients-in-out__split { display:flex; gap:20px; align-items: stretch; }
+.theme-ingredients-in-out__box { flex:1; padding:22px; border-radius:14px; }
+.theme-ingredients-in-out__box--in { background: #e9f4ea; border:1px solid rgba(31,77,61,0.08); }
+.theme-ingredients-in-out__box--out { background: #f6ece6; border:1px solid rgba(143,79,54,0.12); }
+.theme-ingredients-in-out__box-title { font-weight:700; margin-bottom:14px; letter-spacing: 0.08em; text-transform: uppercase; color: #1f4d3d; }
+.theme-ingredients-in-out__item { margin-bottom:14px; }
+.theme-ingredients-in-out__item strong { display:block; margin-bottom:4px; color:#1f4d3d; }
+.theme-ingredients-in-out__item-text { color: rgba(31,77,61,0.82); line-height: 1.45; }
+@media (max-width: 900px) {
+  .theme-ingredients-in-out__inner { padding: 40px 0; }
+  .theme-ingredients-in-out__split { flex-direction: column; }
+  .theme-ingredients-in-out__box { padding:18px; }
+}

@@ -97,7 +97,7 @@
       <div class="theme-header__breadcrumbs">
         <a href="{{ routes.root_url }}">Home</a>
         {%- assign breadcrumb_label = section.settings.breadcrumb_current_label | strip -%}
-        {%- if breadcrumb_label == blank -%}
+        {%- if breadcrumb_label == blank or breadcrumb_label == 'Home' -%}
           {%- if request.page_type == 'product' and product != blank -%}
             {%- assign breadcrumb_label = product.title -%}
           {%- elsif request.page_type == 'collection' and collection != blank -%}
