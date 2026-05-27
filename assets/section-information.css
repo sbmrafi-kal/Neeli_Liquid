@@ -35,13 +35,17 @@
   }
   
   .theme-accordion__item {
-    border-bottom: 1px solid rgba(253, 252, 248, 0.22);
+    margin-bottom: 0 !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(23, 55, 45, 0.08) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
   }
   .theme-accordion__item:last-child {
-    border-bottom: none;
+    border-bottom: none !important;
   }
   .theme-accordion__summary {
-    padding: 18px 34px;
+    padding: 16px 28px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,14 +64,16 @@
     letter-spacing: 0.02em;
   }
   .theme-accordion__caret-svg {
-    color: rgba(253, 252, 248, 0.72);
+    color: #1f4d3d;
+    width: 18px;
+    height: 18px;
     transition: transform 0.2s ease;
   }
   .theme-accordion__item[open] .theme-accordion__caret-svg {
     transform: rotate(90deg);
   }
   .theme-accordion__content {
-    padding: 0 34px 20px;
+    padding: 0 28px 18px;
     font-family: "Avenir", var(--theme-body-font), sans-serif;
     font-size: 16px;
     color: rgba(31, 77, 61, 0.8);

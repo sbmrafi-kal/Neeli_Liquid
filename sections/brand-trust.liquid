@@ -1,36 +1,23 @@
 {{ 'section-brand-trust.css' | asset_url | stylesheet_tag }}
 
-{%- assign show_brand_trust = false -%}
-{%- if section.settings.mobile_title != blank
-  or section.settings.desktop_title != blank
-  or section.settings.mobile_image != blank
-  or section.settings.desktop_image != blank
-  or section.settings.heading != blank
-  or section.settings.text != blank
-  or section.settings.patents_heading != blank
-  or section.settings.patents_text != blank
-  or section.settings.mark_heading != blank
-  or section.settings.mark_text != blank
--%}
-  {%- assign show_brand_trust = true -%}
-{%- endif -%}
-
-{%- assign desktop_title = section.settings.heading | default: section.settings.desktop_title -%}
-{%- assign mobile_title = section.settings.heading | default: section.settings.mobile_title -%}
-{%- assign desktop_description = section.settings.text | default: section.settings.desktop_description -%}
-{%- assign mobile_description = section.settings.text | default: section.settings.mobile_description -%}
-{%- assign desktop_kicker = section.settings.patents_kicker | default: section.settings.desktop_kicker -%}
-{%- assign mobile_kicker = section.settings.patents_kicker | default: section.settings.mobile_kicker -%}
-{%- assign desktop_title_2 = section.settings.patents_heading | default: section.settings.desktop_title_2 -%}
-{%- assign mobile_title_2 = section.settings.patents_heading | default: section.settings.mobile_title_2 -%}
-{%- assign desktop_description_2 = section.settings.patents_text | default: section.settings.desktop_description_2 -%}
-{%- assign mobile_description_2 = section.settings.patents_text | default: section.settings.mobile_description_2 -%}
+{%- assign desktop_title = section.settings.heading | default: section.settings.desktop_title | default: 'Full Spectrum' -%}
+{%- assign mobile_title = section.settings.heading | default: section.settings.mobile_title | default: 'Full Spectrum' -%}
+{%- assign desktop_description = section.settings.text | default: '<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>' -%}
+{%- assign mobile_description = section.settings.text | default: '<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>' -%}
+{%- assign desktop_kicker = section.settings.patents_kicker | default: 'Globally Recognized' -%}
+{%- assign mobile_kicker = section.settings.mobile_kicker | default: 'Globally Recognized' -%}
+{%- assign desktop_title_2 = section.settings.patents_heading | default: 'PATENTED FORMULATIONS' -%}
+{%- assign mobile_title_2 = section.settings.mobile_title_2 | default: 'PATENTED FORMULATIONS' -%}
+{%- assign desktop_description_2 = section.settings.patents_text | default: '<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>' -%}
+{%- assign mobile_description_2 = section.settings.mobile_description_2 | default: '<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>' -%}
 {%- comment -%} Patents removed per Figma — do not render patent images/text here {%- endcomment -%}
 {%- assign seal_kicker = section.settings.mark_kicker -%}
-{%- assign seal_title = section.settings.mark_heading | default: section.settings.seal_text -%}
-{%- assign seal_text = section.settings.mark_text -%}
+{%- assign seal_title = section.settings.mark_heading | default: section.settings.seal_text | default: 'Rooted in Authentic Ayurveda.' -%}
+{%- assign seal_text = section.settings.mark_text | default: '<p>Rooted in<br>Authentic Ayurveda.</p>' -%}
 {%- assign desktop_image = section.settings.desktop_image -%}
 {%- assign mobile_image = section.settings.mobile_image -%}
+{%- assign seal_image = section.settings.seal_image -%}
+{%- assign show_brand_trust = true -%}
 
 {%- if show_brand_trust -%}
   <section class="theme-brand-trust-section theme-reveal">
@@ -43,6 +30,10 @@
             | image_url: width: 900
             | image_tag: class: 'theme-brand-trust__mobile-img', loading: 'lazy', alt: mobile_title
           }}
+        </div>
+      {%- else -%}
+        <div class="theme-brand-trust__mobile-img-wrap">
+          {{ 'Flower.png' | asset_url | image_tag: class: 'theme-brand-trust__mobile-img', loading: 'lazy', alt: mobile_title }}
         </div>
       {%- endif -%}
 
@@ -80,14 +71,11 @@
           <div class="theme-brand-trust__mobile-seal-container">
             {%- if section.settings.seal_image != blank -%}
               <div class="theme-brand-trust__mobile-seal-img-wrap">
-                {{
-                  section.settings.seal_image
-                  | image_url: width: 240
-                  | image_tag:
-                    class: 'theme-brand-trust__mobile-seal-img',
-                    loading: 'lazy',
-                    alt: section.settings.seal_text
-                }}
+                {%- if seal_image != blank -%}
+                  {{ seal_image | image_url: width: 240 | image_tag: class: 'theme-brand-trust__mobile-seal-img', loading: 'lazy', alt: seal_title }}
+                {%- else -%}
+                  {{ 'ka-mark.png' | asset_url | image_tag: class: 'theme-brand-trust__mobile-seal-img', loading: 'lazy', alt: seal_title }}
+                {%- endif -%}
               </div>
             {%- endif -%}
             {%- if seal_kicker != blank -%}
@@ -115,6 +103,10 @@
             | image_url: width: 1200
             | image_tag: class: 'theme-brand-trust__desktop-img', loading: 'lazy', alt: desktop_title
           }}
+        </div>
+      {%- else -%}
+        <div class="theme-brand-trust__desktop-img-wrap">
+          {{ 'Flower.png' | asset_url | image_tag: class: 'theme-brand-trust__desktop-img', loading: 'lazy', alt: desktop_title }}
         </div>
       {%- endif -%}
 
@@ -149,12 +141,10 @@
         or seal_text != blank
       -%}
         <div class="theme-brand-trust__desktop-seal-container">
-          {%- if section.settings.seal_image != blank -%}
-            {{
-              section.settings.seal_image
-              | image_url: width: 220
-              | image_tag: class: 'theme-brand-trust__desktop-seal-img', loading: 'lazy', alt: seal_title
-            }}
+          {%- if seal_image != blank -%}
+            {{ seal_image | image_url: width: 220 | image_tag: class: 'theme-brand-trust__desktop-seal-img', loading: 'lazy', alt: seal_title }}
+          {%- else -%}
+            {{ 'ka-mark.png' | asset_url | image_tag: class: 'theme-brand-trust__desktop-seal-img', loading: 'lazy', alt: seal_title }}
           {%- endif -%}
           {%- if seal_kicker != blank -%}
             <div class="theme-brand-trust__desktop-seal-kicker">{{ seal_kicker }}</div>
