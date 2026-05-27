@@ -6,7 +6,7 @@
 .theme-ingredient-story .theme-section-heading__title {
   color: #1f4d3d;
   font-family: var(--theme-heading-font), serif;
-  font-size: 56px;
+  font-size: 42px;
   line-height: 1;
   margin-bottom: 32px;
 }
@@ -50,6 +50,8 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  display: grid;
+  place-items: center;
 }
 
 .theme-ingredient-story .theme-list__marker--ok {
@@ -64,11 +66,12 @@
 
 .theme-ingredient-story .theme-list__title {
   font-family: var(--theme-body-font), sans-serif;
-  font-size: 38px;
+  font-size: 18px;
   line-height: 1.03;
   letter-spacing: 0;
   text-transform: uppercase;
   color: #1f4d3d;
+  font-weight: 700;
 }
 
 .theme-ingredient-story .theme-list__text {
@@ -98,7 +101,7 @@
   }
 
   .theme-ingredient-story .theme-section-heading__title {
-    font-size: 44px;
+    font-size: 30px;
     margin-bottom: 20px;
   }
 
@@ -135,7 +138,7 @@
   }
 
   .theme-ingredient-story .theme-panel--soft .theme-list__title {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.2;
     text-transform: none;
     font-family: var(--theme-body-font), sans-serif;
@@ -147,7 +150,7 @@
   }
 
   .theme-ingredient-story .theme-panel--dark .theme-list__title {
-    font-size: 17px;
+    font-size: 14px;
     font-family: var(--theme-body-font), sans-serif;
     font-weight: 700;
   }

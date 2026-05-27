@@ -17,7 +17,7 @@
 .theme-three-milks__title {
   margin-top: 8px;
   font-family: var(--theme-heading-font), serif;
-  font-size: 56px;
+  font-size: 40px;
   color: #1f4d3d;
   line-height: 1;
 }
@@ -75,7 +75,7 @@
 
 .theme-three-milks__mobile-title {
   font-family: var(--theme-heading-font), serif;
-  font-size: 32px;
+  font-size: 18px;
   line-height: 1;
   color: #1f4d3d;
 }
@@ -93,15 +93,15 @@
 }
 
 .theme-three-milks__card {
-  background: #f3f0ea;
+  background: transparent;
   border-radius: 8px;
-  padding: 24px 22px 20px;
+  padding: 8px 18px 10px;
   text-align: center;
 }
 
 .theme-three-milks__image-wrap {
-  width: 96px;
-  height: 96px;
+  width: 92px;
+  height: 92px;
   border-radius: 999px;
   overflow: hidden;
   margin: 0 auto 16px;
@@ -115,14 +115,14 @@
 
 .theme-three-milks__card-title {
   font-family: var(--theme-heading-font), serif;
-  font-size: 48px;
+  font-size: 22px;
   line-height: 1;
   color: #1f4d3d;
 }
 
 .theme-three-milks__card-desc {
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.35;
   color: rgba(31, 77, 61, 0.76);
 }
@@ -190,6 +190,6 @@
   }
 
   .theme-three-milks__title {
-    font-size: 70px;
+    font-size: 48px;
   }
 }

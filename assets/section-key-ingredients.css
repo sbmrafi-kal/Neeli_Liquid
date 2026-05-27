@@ -9,7 +9,7 @@
 
   .theme-ki-header__title {
     font-family: var(--theme-heading-font), serif;
-    font-size: 32px;
+    font-size: 40px;
     color: #1f4d3d;
     font-weight: 400;
     margin-bottom: 16px;
@@ -64,7 +64,7 @@
 
   .theme-ki-card__title {
     font-family: var(--theme-heading-font), serif;
-    font-size: 46px;
+    font-size: 28px;
     font-weight: 400;
     color: #1f4d3d;
     margin-bottom: 6px;
@@ -73,7 +73,7 @@
 
   .theme-ki-card__subtitle {
     font-family: var(--theme-body-font);
-    font-size: 28px;
+    font-size: 18px;
     font-style: italic;
     font-weight: 400;
     text-transform: none;
@@ -132,7 +132,7 @@
 
     .theme-ki-card__subtitle {
       margin-bottom: 8px;
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .theme-ki-card__text {
