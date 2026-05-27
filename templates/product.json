@@ -495,22 +495,38 @@
           "type": "link_column",
           "settings": {
             "heading": "Quick Links",
-            "menu": "footer",
-            "fallback_text": "About Kerala Ayurveda\nClinics\nAyurveda Academy"
+            "item_1_title": "About Kerala Ayurveda",
+            "item_2_title": "Clinics",
+            "item_3_title": "Ayurveda Academy",
+            "item_4_title": "Investors",
+            "item_5_title": "Research & Development",
+            "item_6_title": "Careers",
+            "item_7_title": "Blogs",
+            "item_8_title": "Our Editorial Team"
           }
         },
         "links_2": {
           "type": "link_column",
           "settings": {
             "heading": "Policies",
-            "menu": "footer"
+            "item_1_title": "Terms Of Use",
+            "item_2_title": "Privacy Policy",
+            "item_3_title": "Shipping And Delivery Policy",
+            "item_4_title": "Return/Cancellation Policy",
+            "item_5_title": "FAQs"
           }
         },
         "links_3": {
           "type": "link_column",
           "settings": {
             "heading": "Our Network",
-            "menu": "footer"
+            "item_1_title": "Ayurvedagram Bengaluru",
+            "item_2_title": "Ayurvedagram Bali",
+            "item_3_title": "The Health Village",
+            "item_4_title": "Kerala Ayurveda India - Academy",
+            "item_5_title": "Kerala Ayurveda USA - Store",
+            "item_6_title": "Kerala Ayurveda USA - Wellness",
+            "item_7_title": "Kerala Ayurveda USA - Academy"
           }
         },
         "social": {
