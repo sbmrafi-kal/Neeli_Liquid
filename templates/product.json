@@ -11,6 +11,36 @@
     "main": {
       "type": "product-hero",
       "blocks": {
+        "hero_image_1": {
+          "type": "hero_image",
+          "settings": {
+            "alt": "Product image 1"
+          }
+        },
+        "hero_image_2": {
+          "type": "hero_image",
+          "settings": {
+            "alt": "Product image 2"
+          }
+        },
+        "hero_image_3": {
+          "type": "hero_image",
+          "settings": {
+            "alt": "Product image 3"
+          }
+        },
+        "hero_image_4": {
+          "type": "hero_image",
+          "settings": {
+            "alt": "Product image 4"
+          }
+        },
+        "hero_image_5": {
+          "type": "hero_image",
+          "settings": {
+            "alt": "Product image 5"
+          }
+        },
         "badge": {
           "type": "text",
           "settings": {
@@ -77,6 +107,11 @@
         }
       },
       "block_order": [
+        "hero_image_1",
+        "hero_image_2",
+        "hero_image_3",
+        "hero_image_4",
+        "hero_image_5",
         "badge",
         "title",
         "caption",

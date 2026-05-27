@@ -12,6 +12,7 @@
 {%- assign product_title = product.title | default: 'Neelibhringadi Keram' -%}
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
 {%- assign hero_stat_blocks = section.blocks | where: "type", "hero_stat" -%}
+{%- assign hero_image_blocks = section.blocks | where: "type", "hero_image" -%}
 
 <section
   id="NeeliProduct-{{ section.id }}"
@@ -21,7 +22,10 @@
 >
   <script src="{{ 'theme-product-page.js' | asset_url }}" defer="defer"></script>
 
-{%- assign hero_images = product.media -%}
+{%- assign hero_images = hero_image_blocks -%}
+{%- if hero_images.size == 0 -%}
+  {%- assign hero_images = product.media -%}
+{%- endif -%}
 {%- assign hero_fallback_image = product.featured_image -%}
 
   <div class="container-narrow">
@@ -36,7 +40,11 @@
                 {%- else -%}
                   {%- assign hero_loading = 'lazy' -%}
                 {%- endif -%}
-                {%- if media.preview_image != blank -%}
+                {%- if hero_image_blocks.size > 0 -%}
+                  {%- if media.settings.image != blank -%}
+                    {{ media.settings.image | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: product_title }}
+                  {%- endif -%}
+                {%- elsif media.preview_image != blank -%}
                   {{ media.preview_image | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: product_title }}
                 {%- elsif media.src != blank -%}
                   {{ media | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: product_title }}
@@ -66,7 +74,11 @@
                 aria-label="Show image {{ forloop.index }}"
                 data-theme-carousel-thumb="{{ forloop.index0 }}"
               >
-                {%- if media.preview_image != blank -%}
+                {%- if hero_image_blocks.size > 0 -%}
+                  {%- if media.settings.image != blank -%}
+                    {{ media.settings.image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                  {%- endif -%}
+                {%- elsif media.preview_image != blank -%}
                   {{ media.preview_image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
                 {%- elsif media.src != blank -%}
                   {{ media | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
@@ -120,7 +132,7 @@
                   {%- if clean_badge != blank -%}
                     <span class="theme-product-page__badge-line" {{ block.shopify_attributes }}>
                       <span class="theme-badge-bullet">•</span>
-                      <span>{{ clean_badge }}</span>
+                      <span>{{ clean_badge | strip_html }}</span>
                     </span>
                   {%- endif -%}
                 {%- endfor -%}
@@ -142,7 +154,7 @@
           {%- assign subtitle_block = section.blocks | where: "type", "caption" | first -%}
           <p class="theme-product-page__subtitle subtitle">
             {%- if subtitle_block -%}
-              {{ subtitle_block.settings.text }}
+              {{ subtitle_block.settings.text | strip_html }}
             {%- else -%}
               One oil for complete hair recovery
             {%- endif -%}
@@ -152,12 +164,12 @@
           <p class="theme-product-page__body theme-product-page__intro">
             {%- capture hero_note_text -%}
               {%- if hero_note_block -%}
-                {{ hero_note_block.settings.text }}
+                {{ hero_note_block.settings.text | strip_html }}
               {%- else -%}
                 Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
               {%- endif -%}
             {%- endcapture -%}
-            {{ hero_note_text | strip | replace: 'Neelibhringadi works', 'Neelibhringadi<br class="theme-hero-note-break">works' }}
+            {{ hero_note_text | strip }}
           </p>
         </div>
 
@@ -193,21 +205,22 @@
         </div>
 
         <div class="theme-delivery-banner">
-          {{ section.settings.delivery_banner_text }}
+          <span class="theme-delivery-banner__truck" aria-hidden="true">🚚</span>
+          <span class="theme-delivery-banner__text">{{ section.settings.delivery_banner_text | strip_html }}</span>
         </div>
 
         {%- assign quote_block = section.blocks | where: "type", "hero_quote" | first -%}
         <div class="theme-product-page__quote-wrap motion-panel">
           <div class="theme-product-page__quote">
             {%- if quote_block -%}
-              {{ quote_block.settings.quote }}
+              {{ quote_block.settings.quote | strip_html }}
             {%- else -%}
               "Hair fall reduced noticeably, and I can already see tiny baby hairs coming"
             {%- endif -%}
           </div>
           <div class="theme-product-page__quote-meta">
             {%- if quote_block -%}
-              {{ quote_block.settings.author }}
+              {{ quote_block.settings.author | strip_html }}
             {%- else -%}
               - ANU R., CHENNAI
             {%- endif -%}
@@ -217,7 +230,7 @@
         {%- if section.settings.description_block != blank -%}
           <div class="theme-product-page__desc-title">{{ section.settings.description_title }}</div>
           <p class="theme-product-page__description-block">
-            {{ section.settings.description_block }}
+            {{ section.settings.description_block | strip_html }}
           </p>
         {%- endif -%}
 
@@ -429,6 +442,7 @@
 
       {% render 'ritual-guide', title: section.settings.ritual_title, text: section.settings.ritual_text %}
     </div>
+  </div>
   </div>
   {% render 'sticky-cart-bar' %}
 </section>
@@ -672,12 +686,20 @@
       "label": "Top padding"
     },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 0, "label": "Bottom padding" },
-    { "type": "html", "id": "delivery_banner_text", "label": "Delivery Banner Text", "default": "Free delivery on orders over ₹299 | <span class=\"theme-delivery-banner__truck\">🚚</span> 2-4 days delivery" },
+    { "type": "text", "id": "delivery_banner_text", "label": "Delivery Banner Text", "default": "Free delivery on orders over ₹299 | 2-4 days delivery" },
     { "type": "text", "id": "description_title", "label": "Description Title", "default": "How Neelibringadi Keram works" },
     { "type": "text", "id": "ritual_title", "label": "Ritual Guide Title", "default": "The Ritual Guide" },
     { "type": "textarea", "id": "ritual_text", "label": "Ritual Guide Text", "default": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week." }
   ],
   "blocks": [
+    {
+      "type": "hero_image",
+      "name": "Carousel image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "alt", "label": "Alt text", "default": "Product image" }
+      ]
+    },
     {
       "type": "text",
       "name": "Hero badge",
