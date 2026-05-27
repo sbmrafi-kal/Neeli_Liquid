@@ -4,12 +4,12 @@
 
   .theme-ki-header {
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 40px;
   }
 
   .theme-ki-header__title {
     font-family: var(--theme-heading-font), serif;
-    font-size: clamp(30px, 4vw, 48px);
+    font-size: 48px;
     color: #1f4d3d;
     font-weight: 400;
     margin-bottom: 18px;
@@ -44,10 +44,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(31, 77, 61, 0.08);
-    border-radius: 16px;
-    padding: 0 0 14px;
   }
 
   .theme-ki-card__img-wrap {
@@ -68,7 +64,7 @@
 
   .theme-ki-card__title {
     font-family: var(--theme-heading-font), serif;
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 400;
     color: #1f4d3d;
     margin-bottom: 6px;
@@ -102,7 +98,7 @@
   @media screen and (max-width: 989px) {
     .theme-ki-grid {
       grid-template-columns: 1fr;
-      gap: 12px;
+      gap: 8px;
       max-width: 420px;
     }
 
@@ -113,7 +109,7 @@
       align-items: start;
       padding: 8px;
       background: #ffffff;
-      border-radius: 14px;
+      border-radius: 6px;
       border: 1px solid rgba(31, 77, 61, 0.08);
       text-align: left;
     }

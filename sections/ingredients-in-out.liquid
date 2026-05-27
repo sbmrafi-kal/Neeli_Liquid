@@ -3,48 +3,30 @@
 <section class="theme-ingredients-in-out section" role="region" aria-label="What's in it. What is not.">
   <div class="container-narrow">
     <div class="theme-ingredients-in-out__inner">
-      {%- if section.settings.heading != blank -%}
-        <h2 class="theme-ingredients-in-out__heading">{{ section.settings.heading }}</h2>
-      {%- endif -%}
-
-      {%- assign inclusion_markup = '' -%}
-      {%- assign exclusion_markup = '' -%}
-      {%- for block in section.blocks -%}
-        {%- capture item_markup -%}
-          <li class="theme-ingredients-in-out__item" {{ block.shopify_attributes }}>
-            {%- if block.settings.title != blank -%}
-              <strong>{{ block.settings.title }}</strong>
-            {%- endif -%}
-            {%- if block.settings.text != blank -%}
-              <div class="theme-ingredients-in-out__item-text rte">{{ block.settings.text }}</div>
-            {%- endif -%}
-          </li>
-        {%- endcapture -%}
-
-        {%- if block.type == 'inclusion' -%}
-          {%- assign inclusion_markup = inclusion_markup | append: item_markup -%}
-        {%- elsif block.type == 'exclusion' -%}
-          {%- assign exclusion_markup = exclusion_markup | append: item_markup -%}
-        {%- endif -%}
-      {%- endfor -%}
-
+      <h2 class="theme-ingredients-in-out__heading">{{ section.settings.heading }}</h2>
       <div class="theme-ingredients-in-out__split">
         <div class="theme-ingredients-in-out__box theme-ingredients-in-out__box--in">
-          {%- if inclusion_markup != blank -%}
-            <h3 class="theme-ingredients-in-out__box-title">What's in it</h3>
-            <ul>
-              {{ inclusion_markup }}
-            </ul>
-          {%- endif -%}
+          <h3 class="theme-ingredients-in-out__box-title">What's in it</h3>
+          <ul>
+            {%- for block in section.blocks | where: "type", "inclusion" -%}
+              <li class="theme-ingredients-in-out__item">
+                <strong>{{ block.settings.title }}</strong>
+                <div class="theme-ingredients-in-out__item-text">{{ block.settings.text | strip_html }}</div>
+              </li>
+            {%- endfor -%}
+          </ul>
         </div>
 
         <div class="theme-ingredients-in-out__box theme-ingredients-in-out__box--out">
-          {%- if exclusion_markup != blank -%}
-            <h3 class="theme-ingredients-in-out__box-title">What is not</h3>
-            <ul>
-              {{ exclusion_markup }}
-            </ul>
-          {%- endif -%}
+          <h3 class="theme-ingredients-in-out__box-title">What is not</h3>
+          <ul>
+            {%- for block in section.blocks | where: "type", "exclusion" -%}
+              <li class="theme-ingredients-in-out__item">
+                <strong>{{ block.settings.title }}</strong>
+                <div class="theme-ingredients-in-out__item-text">{{ block.settings.text | strip_html }}</div>
+              </li>
+            {%- endfor -%}
+          </ul>
         </div>
       </div>
     </div>

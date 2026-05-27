@@ -20,16 +20,14 @@
               </div>
             {%- endif -%}
 
-            {%- if block.settings.title != blank -%}
-              <h3 class="theme-ki-card__title">{{ block.settings.title }}</h3>
-            {%- endif -%}
+            <h3 class="theme-ki-card__title">{{ block.settings.title }}</h3>
 
             {%- if block.settings.subtitle != blank -%}
               <div class="theme-ki-card__subtitle">{{ block.settings.subtitle }}</div>
             {%- endif -%}
 
             {%- if block.settings.text != blank -%}
-              <div class="theme-ki-card__text rte">{{ block.settings.text }}</div>
+              <div class="theme-ki-card__text">{{ block.settings.text }}</div>
             {%- endif -%}
           </div>
         {%- endif -%}
