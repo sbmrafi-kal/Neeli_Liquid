@@ -1,0 +1,22 @@
+.theme-product-page--figma .theme-product-page__figma-inner { display: grid; grid-template-columns: 1fr 420px; gap: 28px; align-items: start; }
+.theme-product-page--figma .theme-product-page__figma-media { position: relative; }
+.theme-hero-carousel { border-radius: 20px; overflow: hidden; background: transparent; }
+.theme-hero-carousel__stage { position: relative; min-height: 520px; background: #fff; border-radius: 12px; }
+.theme-hero-carousel__thumbs { position: absolute; left: 50%; transform: translateX(-50%); bottom: 24px; display:flex; gap:10px; background:#fff; padding:8px; border-radius:10px; box-shadow:0 10px 24px rgba(0,0,0,0.08); }
+.theme-hero-carousel__thumb { width:64px; height:88px; overflow:hidden; border-radius:8px; border:1px solid rgba(31,77,61,0.06); }
+.theme-hero-carousel__thumb-image { width:100%; height:100%; object-fit:cover; }
+
+.theme-product-page__figma-info { padding-top: 8px; }
+.theme-product-page__title { font-family: var(--theme-heading-font); font-size:34px; margin: 0 0 12px 0; }
+.theme-product-page__subtitle { text-transform:uppercase; letter-spacing:0.08em; color:rgba(31,77,61,0.8); margin-bottom:16px; }
+
+.theme-variant-boxes { display:flex; gap:12px; margin-bottom:18px; }
+.theme-variant-box { flex:1; border:1px solid rgba(31,77,61,0.12); padding:14px; border-radius:10px; cursor:pointer; display:flex; flex-direction:column; justify-content:space-between; }
+.theme-variant-box.is-selected { border:2px solid #1f4d3d; background:#fbf9f4; }
+.theme-variant-box__title { font-weight:700; color:#1f4d3d; }
+.theme-variant-box__price-new { font-weight:800; color:#1f4d3d; font-size:16px; }
+
+.theme-reorder-btn { display:inline-flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 22px; background:#84563C; color:#fff; border-radius:50px; border:0; cursor:pointer; font-weight:700; }
+
+.theme-new-cert-block__stamps { display:flex; gap:12px; margin-top:18px; }
+.theme-new-cert-block__stamps img { height:56px; width:auto; border-radius:999px; background:#fff; padding:6px; box-shadow:0 6px 20px rgba(0,0,0,0.06); }

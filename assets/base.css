@@ -6,6 +6,7 @@
   --radius: 1rem;
   --font-sans: "Avenir", sans-serif;
   --font-serif: "Amstir", "Avenir", serif;
+  --font-dmserif: 'DM Serif Display', serif;
 
   /* Brand Luxury Ayurvedic Design System Tokens */
   --brand-forest: #1f4d3d;
@@ -23,12 +24,17 @@
   --theme-cream-deep: var(--brand-cream-deep);
   --theme-gold: var(--brand-gold);
   --theme-cta: var(--brand-cta);
-  --theme-heading-font: var(--font-serif);
+  --theme-heading-font: var(--font-dmserif);
+  --color-background: #F9F7F2;
   --theme-body-font: var(--font-sans);
 
   --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+}
+
+body {
+  background-color: var(--color-background);
 }
 
 .product-card-wrapper .card,

@@ -1,0 +1,102 @@
+{{ 'section-product-hero-figma.css' | asset_url | stylesheet_tag }}
+
+{%- assign product_override = all_products[section.settings.product] -%}
+{%- if product_override != blank -%}
+  {%- assign product = product_override -%}
+{%- endif -%}
+{%- assign product_title = product.title | default: 'Product' -%}
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+
+<section id="ProductHeroFigma-{{ section.id }}" class="theme-product-page theme-product-page--figma" data-section="{{ section.id }}">
+  <div class="theme-product-page__figma-inner container-narrow">
+    <div class="theme-product-page__figma-media">
+      <div class="theme-hero-carousel" data-theme-carousel data-theme-autoplay="false">
+        <div class="theme-hero-carousel__stage">
+          {%- for i in (1..5) -%}
+            {%- assign img = section.settings['carousel_image_' | append: i] -%}
+            {%- if img != blank -%}
+              <figure class="theme-hero-carousel__slide" data-theme-carousel-slide>
+                {{ img | image_url: width: 1000 | image_tag: class: 'theme-hero-carousel__image', loading: 'lazy', alt: product_title }}
+              </figure>
+            {%- endif -%}
+          {%- endfor -%}
+
+          <button class="theme-hero-carousel__control theme-hero-carousel__control--prev" type="button" aria-label="Previous image" data-theme-carousel-prev>‹</button>
+          <button class="theme-hero-carousel__control theme-hero-carousel__control--next" type="button" aria-label="Next image" data-theme-carousel-next>›</button>
+
+          <div class="theme-hero-carousel__thumbs" role="tablist" aria-label="Product gallery thumbnails">
+            {%- for i in (1..5) -%}
+              {%- assign img = section.settings['carousel_image_' | append: i] -%}
+              {%- if img != blank -%}
+                <button class="theme-hero-carousel__thumb" type="button" data-theme-carousel-thumb="{{ forloop.index0 }}">
+                  {{ img | image_url: width: 140 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', alt: '' }}
+                </button>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="theme-product-page__figma-info">
+      <h1 class="theme-product-page__title">{{ product_title | escape }}</h1>
+      <p class="theme-product-page__subtitle">{{ section.settings.subtitle | default: 'One oil for complete hair recovery' }}</p>
+
+      {%- form 'product', product, id: "theme-product-form-figma", class: "theme-product-form" -%}
+        <div class="theme-variant-boxes">
+          {%- for variant in product.variants limit:2 -%}
+            <label class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}" for="Variant-Figma-{{ section.id }}-{{ forloop.index }}">
+              <input type="radio" class="theme-variant-box__input" name="id" value="{{ variant.id }}" id="Variant-Figma-{{ section.id }}-{{ forloop.index }}"
+                data-price="{{ variant.price | money }}"
+                data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
+                data-available="{{ variant.available }}"
+                {% if variant == product.selected_or_first_available_variant %}checked{% endif %}>
+              <div class="theme-variant-box__title">{{ variant.title }}</div>
+              <div class="theme-variant-box__price-row">
+                <span class="theme-variant-box__price-new">{{ variant.price | money }}</span>
+              </div>
+            </label>
+          {%- endfor -%}
+        </div>
+
+        <button type="submit" class="theme-reorder-btn cta-sheen">
+          <span class="theme-reorder-btn__title">Add to cart</span>
+          <span class="theme-reorder-btn__price-new">{{ selected_variant.price | money }}</span>
+        </button>
+      {%- endform -%}
+
+      <div class="theme-new-cert-block__stamps">
+        {%- for i in (1..4) -%}
+          {%- assign stamp = section.settings['stamp_' | append: i | append: '_image'] -%}
+          {%- if stamp != blank -%}
+            {{ stamp | image_url: width: 120 | image_tag: loading: 'lazy', alt: section.settings['stamp_' | append: i | append: '_alt'] }}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Hero (Figma)",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product override" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle" },
+    { "type": "image_picker", "id": "carousel_image_1", "label": "Carousel image 1" },
+    { "type": "image_picker", "id": "carousel_image_2", "label": "Carousel image 2" },
+    { "type": "image_picker", "id": "carousel_image_3", "label": "Carousel image 3" },
+    { "type": "image_picker", "id": "carousel_image_4", "label": "Carousel image 4" },
+    { "type": "image_picker", "id": "carousel_image_5", "label": "Carousel image 5" },
+    { "type": "image_picker", "id": "stamp_1_image", "label": "Stamp 1" },
+    { "type": "text", "id": "stamp_1_alt", "label": "Stamp 1 alt" },
+    { "type": "image_picker", "id": "stamp_2_image", "label": "Stamp 2" },
+    { "type": "text", "id": "stamp_2_alt", "label": "Stamp 2 alt" },
+    { "type": "image_picker", "id": "stamp_3_image", "label": "Stamp 3" },
+    { "type": "text", "id": "stamp_3_alt", "label": "Stamp 3 alt" },
+    { "type": "image_picker", "id": "stamp_4_image", "label": "Stamp 4" },
+    { "type": "text", "id": "stamp_4_alt", "label": "Stamp 4 alt" }
+  ],
+  "presets": [{ "name": "Product Hero (Figma)" }]
+}
+{% endschema %}
