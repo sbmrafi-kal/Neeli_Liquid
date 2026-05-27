@@ -1,9 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "header": {
       "type": "header",
       "settings": {
-        "breadcrumb_current_label": "Neelibhringadi Keram",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -44,11 +52,12 @@
         "badge": {
           "type": "text",
           "settings": {
-            "text": "\u2022 Minimizes hair fall \u2022 Supports hair growth"
+            "text": "• Minimizes hair fall • Supports hair growth"
           }
         },
         "title": {
-          "type": "title"
+          "type": "title",
+          "settings": {}
         },
         "caption": {
           "type": "caption",
@@ -124,13 +133,7 @@
         "stat_4"
       ],
       "settings": {
-          "carousel_image_1": null,
-          "carousel_image_2": null,
-          "carousel_image_3": null,
-          "carousel_image_4": null,
-          "carousel_image_5": null,
         "color_scheme": "scheme-1",
-        "padding_top": 0,
         "stat_3_value": "Clinics & Academy",
         "stat_3_label": "Expert led",
         "delivery_1_text": "2-4 day delivery",
@@ -139,7 +142,8 @@
         "category_label": "HAIR CARE",
         "review_count": "86",
         "cta_meta": "",
-        "description_block": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil."
+        "description_block": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.",
+        "padding_top": 0
       }
     },
     "timeline": {
@@ -187,7 +191,6 @@
         "heading": "The honest sequence.",
         "text": "<p>Root strength comes before visible density.</p>",
         "footnote": "*Based on consistent use as directed. Individual results may vary.",
-        "inverse_text": true,
         "padding_top": 80,
         "padding_bottom": 60
       }
@@ -308,7 +311,6 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "soft_background": true,
         "heading": "Key Ingredients",
         "text": "",
         "padding_top": 80,
@@ -347,7 +349,7 @@
           "settings": {
             "icon": "ruler",
             "title": "Frequently asked",
-            "text": "<p><strong>When Will I See Results?</strong><br>Reduced hair fall is typically noticed within 2\u20133 weeks. Visible improvement in growth and texture requires 2+ months of consistent use. Recovery is a process, not a single event.</p><p><strong>Does It Help With Greying?</strong><br>Yes. Neeli and Bhringaraja are traditionally used to help minimise premature greying and support natural hair colour.</p><p><strong>Can I Use It On Coloured Hair?</strong><br>Yes. The formula is gentle. It may slightly darken hair over extended use due to the Bhringaraja and Neeli content.</p><p><strong>Is It Safe During Pregnancy?</strong><br>This is an external-use oil with no known contraindicated ingredients for topical application. However, as with any product during pregnancy or nursing, we recommend consulting your doctor before starting a new regimen.</p>"
+            "text": "<p><strong>When Will I See Results?</strong><br>Reduced hair fall is typically noticed within 2–3 weeks. Visible improvement in growth and texture requires 2+ months of consistent use. Recovery is a process, not a single event.</p><p><strong>Does It Help With Greying?</strong><br>Yes. Neeli and Bhringaraja are traditionally used to help minimise premature greying and support natural hair colour.</p><p><strong>Can I Use It On Coloured Hair?</strong><br>Yes. The formula is gentle. It may slightly darken hair over extended use due to the Bhringaraja and Neeli content.</p><p><strong>Is It Safe During Pregnancy?</strong><br>This is an external-use oil with no known contraindicated ingredients for topical application. However, as with any product during pregnancy or nursing, we recommend consulting your doctor before starting a new regimen.</p>"
           }
         },
         "faq_1": {
@@ -439,31 +441,10 @@
     },
     "brand_trust": {
       "type": "brand-trust",
-      "settings": {
-        "color_scheme": "scheme-3",
-        "kicker": "",
-        "heading": "",
-        "text": "<p></p>",
-        "patents_kicker": "",
-        "patents_heading": "",
-        "patents_text": "<p></p>",
-        "us_title": "",
-        "us_text": "<p></p>",
-        "japan_title": "",
-        "japan_text": "<p></p>",
-        "mark_kicker": "",
-        "mark_heading": "",
-        "mark_text": "<p></p>",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
+      "settings": {}
     },
     "three_milks": {
       "type": "three-milks",
-      "settings": {
-        "patch_test_label": "Always patch test first",
-        "tooltip_text": "Apply a small amount behind the ear or on the inner elbow. Wait 24-48 hours. If no redness or irritation appears, proceed with regular use."
-      },
       "blocks": {
         "milk_1": {
           "type": "milk",
@@ -491,7 +472,11 @@
         "milk_1",
         "milk_2",
         "milk_3"
-      ]
+      ],
+      "settings": {
+        "patch_test_label": "Always patch test first",
+        "tooltip_text": "Apply a small amount behind the ear or on the inner elbow. Wait 24-48 hours. If no redness or irritation appears, proceed with regular use."
+      }
     },
     "massage_ritual": {
       "type": "massage-ritual",
@@ -499,38 +484,61 @@
     },
     "footer": {
       "type": "footer",
+      "blocks": {
+        "brand": {
+          "type": "brand",
+          "settings": {
+            "logo": ""
+          }
+        },
+        "links_1": {
+          "type": "link_column",
+          "settings": {
+            "heading": "Quick Links",
+            "menu": "footer",
+            "fallback_text": "About Kerala Ayurveda\nClinics\nAyurveda Academy"
+          }
+        },
+        "links_2": {
+          "type": "link_column",
+          "settings": {
+            "heading": "Policies",
+            "menu": "footer"
+          }
+        },
+        "links_3": {
+          "type": "link_column",
+          "settings": {
+            "heading": "Our Network",
+            "menu": "footer"
+          }
+        },
+        "social": {
+          "type": "social",
+          "settings": {
+            "label": "Follow Us"
+          }
+        },
+        "tagline": {
+          "type": "tagline",
+          "settings": {
+            "text": "The Proprietary Kerala Ayurveda Formulation.\nThis Is One Of Them."
+          }
+        }
+      },
+      "block_order": [
+        "brand",
+        "links_1",
+        "links_2",
+        "links_3",
+        "social",
+        "tagline"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "padding_top": 80,
         "padding_bottom": 80
-      },
-      "blocks": {
-        "brand": {
-          "type": "brand",
-          "settings": { "logo": "" }
-        },
-        "links_1": {
-          "type": "link_column",
-          "settings": { "heading": "Quick Links", "menu": "footer", "fallback_text": "About Kerala Ayurveda\nClinics\nAyurveda Academy" }
-        },
-        "links_2": {
-          "type": "link_column",
-          "settings": { "heading": "Policies", "menu": "footer" }
-        },
-        "links_3": {
-          "type": "link_column",
-          "settings": { "heading": "Our Network", "menu": "footer" }
-        },
-        "social": {
-          "type": "social",
-          "settings": { "label": "Follow Us" }
-        },
-        "tagline": {
-          "type": "tagline",
-          "settings": { "text": "The Proprietary Kerala Ayurveda Formulation.\nThis Is One Of Them." }
-        }
-      },
-      "block_order": ["brand","links_1","links_2","links_3","social","tagline"]
+      }
     }
   },
   "order": [
