@@ -39,6 +39,15 @@
         <a class="theme-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
           {%- if section.settings.logo_image != blank -%}
             {{ section.settings.logo_image | image_url: width: 600 | image_tag: class: 'theme-header__brand-image', loading: 'eager', alt: section.settings.logo_alt }}
+          {%- elsif 'logo-kerala.png' | asset_url != blank -%}
+            <img
+              class="theme-header__brand-image theme-header__brand-image--asset"
+              src="{{ 'logo-kerala.png' | asset_url }}"
+              alt="{{ section.settings.logo_alt | default: shop.name | escape }}"
+              loading="eager"
+              width="220"
+              height="38"
+            >
           {%- else -%}
             <span class="theme-header__brand-text">{{ section.settings.logo_text | default: shop.name }}</span>
           {%- endif -%}

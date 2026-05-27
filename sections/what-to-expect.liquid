@@ -1,4 +1,3 @@
-{{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
 {{ 'section-what-to-expect.css' | asset_url | stylesheet_tag }}
 <section class="theme-timeline color-{{ section.settings.color_scheme }} gradient">
 
@@ -44,11 +43,11 @@
             {%- if block.settings.phase != blank -%}
               <div class="theme-timeline-stage__phase">{{ block.settings.phase }}</div>
             {%- endif -%}
-            <div class="theme-timeline-stage__img-wrap">
-              {%- if block.settings.image != blank -%}
+            {%- if block.settings.image != blank -%}
+              <div class="theme-timeline-stage__img-wrap">
                 {{ block.settings.image | image_url: width: 400 | image_tag: class: 'theme-timeline-stage__img', loading: 'lazy', alt: block.settings.title }}
-              {%- endif -%}
-            </div>
+              </div>
+            {%- endif -%}
           </div>
           <div class="theme-timeline-stage__bottom">
             {%- if block.settings.label != blank -%}

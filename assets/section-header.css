@@ -65,8 +65,8 @@
 
 /* Mobile Default Styles */
 .theme-header__primary-bar {
-  background-color: rgba(253, 252, 248, 0.95);
-  color: #1f4d3d;
+  background-color: #1e4b3c;
+  color: #fdfcf8;
   height: 64px;
 }
 
@@ -79,9 +79,9 @@
 }
 
 .theme-header__brand-image {
-  height: 32px;
+  height: 28px;
   width: auto;
-  max-width: 140px;
+  max-width: 220px;
   object-fit: contain;
 }
 
@@ -127,9 +127,9 @@
 /* Desktop Styles */
 @media screen and (min-width: 990px) {
   .theme-header__primary-bar {
-    background-color: rgba(31, 77, 61, 0.98);
+    background-color: #1e4b3c;
     color: #fdfcf8;
-    height: 68px;
+    height: 72px;
   }
 
   .theme-header__menu-btn {
@@ -147,10 +147,13 @@
 
   .theme-header__nav-link {
     color: #fdfcf8;
-    font-size: 13px;
-    font-weight: 500;
+    font-family: "Avenir", var(--theme-body-font), sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    font-style: normal;
+    line-height: 16px;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 1.2px;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -168,8 +171,8 @@
   }
 
   .theme-header__brand-image {
-    height: 30px;
-    filter: brightness(0) invert(1);
+    height: 34px;
+    filter: none;
   }
 
   .theme-header__brand-text {
@@ -278,7 +281,7 @@
 
 @media screen and (min-width: 990px) {
   .theme-header__inner {
-    min-height: 82px;
+    min-height: 72px;
   }
 
   .theme-header__action-btn svg,

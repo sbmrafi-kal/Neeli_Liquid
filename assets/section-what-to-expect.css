@@ -4,10 +4,10 @@
 }
 
 .theme-timeline-header-banner {
-  background: #1f4d3d;
+  background: #1e4b3c;
   color: #faf8f5;
   text-align: center;
-  padding: 24px 16px 20px;
+  padding: 30px 16px 24px;
 }
 
 .theme-timeline-header-banner__kicker {
@@ -19,11 +19,12 @@
 }
 
 .theme-timeline-header-banner__title {
-  margin: 8px 0 4px;
-  font-family: var(--theme-heading-font), serif;
-  font-size: 52px;
-  line-height: 1;
+  margin: 10px 0 6px;
+  font-family: "Amstir", var(--theme-heading-font), serif;
+  font-size: 72px;
+  line-height: 0.95;
   color: #faf8f5;
+  letter-spacing: 0.02em;
 }
 
 .theme-timeline-header-banner__text {
@@ -124,18 +125,20 @@
 
 .theme-timeline-stage__top {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 14px;
-  align-items: center;
-  padding: 14px 16px;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: flex-start;
+  padding: 0;
   background: #f5f1e9;
 }
 
 .theme-timeline-stage__phase {
-  font-size: 42px;
+  padding: 14px 18px;
+  font-size: 58px;
   color: rgba(31, 77, 61, 0.44);
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 0.95;
+  border-bottom: 1px solid rgba(31, 77, 61, 0.08);
 }
 
 .theme-timeline-stage--desktop .theme-timeline-stage__img-wrap {
@@ -154,13 +157,15 @@
 }
 
 .theme-timeline-stage--desktop .theme-timeline-stage__title {
-  font-size: 46px;
+  font-size: 64px;
+  line-height: 0.95;
 }
 
 .theme-timeline-stage--desktop .theme-timeline-stage__body {
   max-width: 340px;
   margin: 0 auto;
-  font-size: 14px;
+  font-size: 18px;
+  line-height: 1.35;
 }
 
 .theme-timeline__footer-text {
@@ -266,11 +271,11 @@
 
 @media screen and (max-width: 989px) {
   .theme-timeline-header-banner__title {
-    font-size: 48px;
+    font-size: 46px;
   }
 
   .theme-timeline-stage__title {
-    font-size: 40px;
+    font-size: 34px;
   }
 
   .theme-upsell-product-card {

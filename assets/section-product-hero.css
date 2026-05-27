@@ -476,6 +476,17 @@
   }
 }
 
+.theme-product-page__hero-info .theme-hero-ritual-guide {
+  position: static !important;
+  display: block !important;
+  margin-top: 14px !important;
+  order: 99 !important;
+}
+
+.theme-product-page__hero-info .theme-new-cert-block + .theme-hero-ritual-guide {
+  margin-top: 12px !important;
+}
+
 @media screen and (max-width: 989px) {
   .theme-product-page__badge,
   .theme-product-page__badge--mobile {
