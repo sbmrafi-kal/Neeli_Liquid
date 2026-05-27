@@ -11,7 +11,6 @@
 {%- endif -%}
 {%- assign product_title = product.title | default: 'Neelibhringadi Keram' -%}
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
-{%- assign hero_stat_blocks = section.blocks | where: "type", "hero_stat" -%}
 
 <section
   id="NeeliProduct-{{ section.id }}"
@@ -89,63 +88,62 @@
             <button class="theme-hero-carousel__control theme-hero-carousel__control--next" type="button" aria-label="Next image" data-theme-carousel-next>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
             </button>
-          </div>
-
-          <div class="theme-hero-carousel__thumbs" role="tablist" aria-label="Product gallery thumbnails">
-            {%- assign hero_thumb_count = 0 -%}
-            {%- if section.settings.carousel_image_1 != blank -%}
-              {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
-              <button class="theme-hero-carousel__thumb is-active" type="button" aria-label="Show image 1" data-theme-carousel-thumb="0">
-                {{ section.settings.carousel_image_1 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
-              </button>
-            {%- endif -%}
-            {%- if section.settings.carousel_image_2 != blank -%}
-              {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
-              <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 2" data-theme-carousel-thumb="1">
-                {{ section.settings.carousel_image_2 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
-              </button>
-            {%- endif -%}
-            {%- if section.settings.carousel_image_3 != blank -%}
-              {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
-              <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 3" data-theme-carousel-thumb="2">
-                {{ section.settings.carousel_image_3 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
-              </button>
-            {%- endif -%}
-            {%- if section.settings.carousel_image_4 != blank -%}
-              {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
-              <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 4" data-theme-carousel-thumb="3">
-                {{ section.settings.carousel_image_4 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
-              </button>
-            {%- endif -%}
-            {%- if section.settings.carousel_image_5 != blank -%}
-              {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
-              <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 5" data-theme-carousel-thumb="4">
-                {{ section.settings.carousel_image_5 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
-              </button>
-            {%- endif -%}
-
-            {%- if hero_thumb_count == 0 and product.media.size > 0 -%}
-              {%- for media in product.media -%}
-                <button
-                  class="theme-hero-carousel__thumb{% if forloop.first %} is-active{% endif %}"
-                  type="button"
-                  aria-label="Show image {{ forloop.index }}"
-                  data-theme-carousel-thumb="{{ forloop.index0 }}"
-                >
-                  {%- if media.preview_image != blank -%}
-                    {{ media.preview_image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
-                  {%- elsif media.src != blank -%}
-                    {{ media | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
-                  {%- endif -%}
+            <div class="theme-hero-carousel__thumbs" role="tablist" aria-label="Product gallery thumbnails">
+              {%- assign hero_thumb_count = 0 -%}
+              {%- if section.settings.carousel_image_1 != blank -%}
+                {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
+                <button class="theme-hero-carousel__thumb is-active" type="button" aria-label="Show image 1" data-theme-carousel-thumb="0">
+                  {{ section.settings.carousel_image_1 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
                 </button>
-              {%- endfor -%}
-            {%- endif -%}
+              {%- endif -%}
+              {%- if section.settings.carousel_image_2 != blank -%}
+                {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
+                <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 2" data-theme-carousel-thumb="1">
+                  {{ section.settings.carousel_image_2 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                </button>
+              {%- endif -%}
+              {%- if section.settings.carousel_image_3 != blank -%}
+                {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
+                <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 3" data-theme-carousel-thumb="2">
+                  {{ section.settings.carousel_image_3 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                </button>
+              {%- endif -%}
+              {%- if section.settings.carousel_image_4 != blank -%}
+                {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
+                <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 4" data-theme-carousel-thumb="3">
+                  {{ section.settings.carousel_image_4 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                </button>
+              {%- endif -%}
+              {%- if section.settings.carousel_image_5 != blank -%}
+                {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
+                <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 5" data-theme-carousel-thumb="4">
+                  {{ section.settings.carousel_image_5 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                </button>
+              {%- endif -%}
 
-            {%- if hero_thumb_count == 0 and product.media.size == 0 and hero_fallback_image != blank -%}
-              <button class="theme-hero-carousel__thumb is-active" type="button" aria-label="Show image 1" data-theme-carousel-thumb="0">
-                {{ hero_fallback_image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
-              </button>
-            {%- endif -%}
+              {%- if hero_thumb_count == 0 and product.media.size > 0 -%}
+                {%- for media in product.media -%}
+                  <button
+                    class="theme-hero-carousel__thumb{% if forloop.first %} is-active{% endif %}"
+                    type="button"
+                    aria-label="Show image {{ forloop.index }}"
+                    data-theme-carousel-thumb="{{ forloop.index0 }}"
+                  >
+                    {%- if media.preview_image != blank -%}
+                      {{ media.preview_image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                    {%- elsif media.src != blank -%}
+                      {{ media | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                    {%- endif -%}
+                  </button>
+                {%- endfor -%}
+              {%- endif -%}
+
+              {%- if hero_thumb_count == 0 and product.media.size == 0 and hero_fallback_image != blank -%}
+                <button class="theme-hero-carousel__thumb is-active" type="button" aria-label="Show image 1" data-theme-carousel-thumb="0">
+                  {{ hero_fallback_image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                </button>
+              {%- endif -%}
+            </div>
           </div>
 
           <div class="theme-hero-carousel__stats">
@@ -233,7 +231,7 @@
         {%- form 'product', product, id: "theme-product-form", class: "theme-product-form" -%}
             {%- if product.variants.size > 1 -%}
               <div class="theme-variant-boxes theme-variant-boxes--desktop">
-                {%- for variant in product.variants -%}
+                {%- for variant in product.variants limit:2 -%}
                   <label class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}" for="Variant-{{ section.id }}-{{ forloop.index }}">
                     <input type="radio" class="theme-variant-box__input" name="id" value="{{ variant.id }}" id="Variant-{{ section.id }}-{{ forloop.index }}"
                       data-price="{{ variant.price | money }}"
@@ -290,20 +288,7 @@
         {%- endif -%}
 
         <div class="theme-new-cert-block motion-panel">
-          <div class="theme-new-cert-block__stats">
-            <div class="theme-new-cert-block__stat">
-              <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_1_value }}</div>
-              <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_1_label }}</div>
-            </div>
-            <div class="theme-new-cert-block__stat">
-              <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_2_value }}</div>
-              <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_2_label }}</div>
-            </div>
-            <div class="theme-new-cert-block__stat">
-              <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_3_value }}</div>
-              <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_3_label }}</div>
-            </div>
-          </div>
+
           <div class="theme-new-cert-block__stamps">
             {%- if section.settings.stamp_1_image != blank -%}
               {{ section.settings.stamp_1_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_1_alt }}
@@ -420,7 +405,7 @@
 
           {%- if product.variants.size > 1 -%}
             <div class="theme-variant-boxes theme-variant-boxes--mobile">
-              {%- for variant in product.variants -%}
+            {%- for variant in product.variants limit:2 -%}
                 <label class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}" for="Variant-Mobile-{{ section.id }}-{{ forloop.index }}">
                   <input type="radio" class="theme-variant-box__input" name="id" value="{{ variant.id }}" id="Variant-Mobile-{{ section.id }}-{{ forloop.index }}"
                     data-price="{{ variant.price | money }}"
@@ -454,29 +439,6 @@
       {%- endif -%}
 
       <div class="theme-new-cert-block motion-panel">
-        <div class="theme-new-cert-block__stats">
-          {%- if hero_stat_blocks.size > 0 -%}
-            {%- for block in hero_stat_blocks limit: 3 -%}
-              <div class="theme-new-cert-block__stat" {{ block.shopify_attributes }}>
-                <div class="theme-new-cert-block__stat-val">{{ block.settings.value }}</div>
-                <div class="theme-new-cert-block__stat-lbl">{{ block.settings.label }}</div>
-              </div>
-            {%- endfor -%}
-          {%- else -%}
-            <div class="theme-new-cert-block__stat">
-              <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_1_value }}</div>
-              <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_1_label }}</div>
-            </div>
-            <div class="theme-new-cert-block__stat">
-              <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_2_value }}</div>
-              <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_2_label }}</div>
-            </div>
-            <div class="theme-new-cert-block__stat">
-              <div class="theme-new-cert-block__stat-val">{{ section.settings.stat_3_value }}</div>
-              <div class="theme-new-cert-block__stat-lbl">{{ section.settings.stat_3_label }}</div>
-            </div>
-          {%- endif -%}
-        </div>
         <div class="theme-new-cert-block__stamps">
           {%- if section.settings.stamp_1_image != blank -%}
             {{ section.settings.stamp_1_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_1_alt }}

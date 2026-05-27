@@ -44,18 +44,18 @@
 
 .theme-hero-carousel__thumbs {
   position: absolute !important;
-  bottom: 28px !important;
+  bottom: 20px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  z-index: 12 !important;
+  z-index: 20 !important;
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
-  background: transparent !important;
-  padding: 0 6px !important;
+  gap: 10px !important;
+  background: #ffffff !important;
+  padding: 8px 10px !important;
   border-radius: 12px !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
+  box-shadow: 0 10px 24px rgba(17,48,39,0.12) !important;
+  backdrop-filter: blur(6px) !important;
   width: max-content !important;
   max-width: 88% !important;
 }
@@ -144,18 +144,37 @@
   height: 16px !important;
 }
 
-.theme-hero-carousel__stats {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  background: #1f4d3d !important;
-  color: #faf8f4 !important;
-  padding: 10px 0 !important;
-  gap: 0 !important;
-  border-top: 0 !important;
-  overflow: hidden !important;
-  border-bottom-left-radius: 24px !important;
-  border-bottom-right-radius: 24px !important;
+.theme-hero-carousel__image {
+  display: block;
+  width: auto !important;
+  height: 100% !important;
+  min-height: 560px;
+  max-width: none !important;
+  object-fit: cover !important;
+  padding: 0 !important;
+  background: transparent;
+  object-position: center center !important;
+  transition: transform 0.35s ease;
 }
+
+/* Product section background & spacing to match Figma */
+.theme-product-page {
+  background-color: #F9F7F2 !important;
+  padding-bottom: 18px !important;
+}
+
+/* Heading typography tweaks to match Figma */
+.theme-product-page__title {
+  font-family: 'DM Serif Display', var(--font-heading-family), serif !important;
+  font-weight: 700 !important;
+  font-size: 40px !important;
+  line-height: 1.05 !important;
+  color: #1f4d3d !important;
+}
+
+/* Tighten vertical spacing */
+.theme-product-page__hero-info { padding-top: 6px !important; }
+.theme-product-page__hero { margin-bottom: 8px !important; }
 
 .theme-hero-carousel__stat-value { font-family: var(--font-heading-family) !important; font-size: 18px !important; line-height: 1 !important; }
 .theme-hero-carousel__stat-label { font-size: 10px !important; letter-spacing: 0.08em !important; line-height: 1.15 !important; }

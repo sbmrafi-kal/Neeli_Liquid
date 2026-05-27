@@ -4,7 +4,7 @@
   right: 0;
   bottom: 0;
   z-index: 120;
-  background: #8B5E3C; /* Figma brown */
+  background: #84563C; /* Figma brown (updated) */
   padding: 12px 20px;
 }
 
@@ -33,7 +33,7 @@
 .theme-sticky-cart-bar__btn-pill {
   min-width: 390px;
   height: 56px;
-  border-radius: 8px;
+  border-radius: 50px;
   background: #ffffff;
   color: #151515;
   display: inline-flex;
@@ -67,7 +67,7 @@
   font-weight: 700;
   line-height: 1;
   color: #ffffff;
-  background: #8b5742;
+  background: #7a4536;
   display: inline-flex;
   align-items: center;
   justify-content: center;

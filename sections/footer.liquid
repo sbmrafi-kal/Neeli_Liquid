@@ -15,7 +15,12 @@
             {%- when 'brand' -%}
               <div class="theme-footer-brand" {{ block.shopify_attributes }}>
                 {%- if block.settings.logo != blank -%}
-                  {{ block.settings.logo | image_url: width: 800 | image_tag: class: 'theme-footer-brand__logo', loading: 'lazy', alt: block.settings.logo.alt | default: shop.name }}
+                  {{
+                    block.settings.logo
+                    | image_url: width: 800
+                    | image_tag: class: 'theme-footer-brand__logo', loading: 'lazy', alt: block.settings.logo.alt
+                    | default: shop.name
+                  }}
                 {%- endif -%}
               </div>
             {%- when 'link_column' -%}
@@ -27,13 +32,17 @@
                   {%- assign footer_menu = linklists[block.settings.menu] -%}
                   {%- if footer_menu != blank and footer_menu.links.size > 0 -%}
                     {%- for link in footer_menu.links -%}
-                      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                      <li>
+                        <a href="{{ link.url }}">{{ link.title }}</a>
+                      </li>
                     {%- endfor -%}
                   {%- elsif block.settings.fallback_text != blank -%}
                     {%- assign fallback_lines = block.settings.fallback_text | split: '\n' -%}
                     {%- for line in fallback_lines -%}
                       {%- if line != blank -%}
-                        <li><span>{{ line }}</span></li>
+                        <li>
+                          <span>{{ line }}</span>
+                        </li>
                       {%- endif -%}
                     {%- endfor -%}
                   {%- endif -%}
@@ -47,35 +56,90 @@
                     <div class="theme-footer-social__label">{{ block.settings.label }}</div>
                   {%- endif -%}
                   <div class="theme-footer-social__icons">
-                    {%- assign facebook_link = block.settings.facebook_link | default: section.settings.facebook_link | default: settings.social_facebook_link -%}
-                    {%- assign twitter_link = block.settings.twitter_link | default: section.settings.twitter_link | default: settings.social_twitter_link -%}
-                    {%- assign instagram_link = block.settings.instagram_link | default: section.settings.instagram_link | default: settings.social_instagram_link -%}
-                    {%- assign youtube_link = block.settings.youtube_link | default: section.settings.youtube_link | default: settings.social_youtube_link -%}
-                    {%- assign linkedin_link = block.settings.linkedin_link | default: section.settings.linkedin_link | default: settings.social_linkedin_link -%}
+                    {%- assign facebook_link = block.settings.facebook_link
+                      | default: section.settings.facebook_link
+                      | default: settings.social_facebook_link
+                    -%}
+                    {%- assign twitter_link = block.settings.twitter_link
+                      | default: section.settings.twitter_link
+                      | default: settings.social_twitter_link
+                    -%}
+                    {%- assign instagram_link = block.settings.instagram_link
+                      | default: section.settings.instagram_link
+                      | default: settings.social_instagram_link
+                    -%}
+                    {%- assign youtube_link = block.settings.youtube_link
+                      | default: section.settings.youtube_link
+                      | default: settings.social_youtube_link
+                    -%}
+                    {%- assign linkedin_link = block.settings.linkedin_link
+                      | default: section.settings.linkedin_link
+                      | default: settings.social_linkedin_link
+                    -%}
 
                     {%- if facebook_link != blank -%}
-                      <a href="{{ facebook_link }}" aria-label="Facebook" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                      <a
+                        href="{{ facebook_link }}"
+                        aria-label="Facebook"
+                        class="theme-footer-social__icon footer-social"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                          <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                       </a>
                     {%- endif -%}
                     {%- if twitter_link != blank -%}
-                      <a href="{{ twitter_link }}" aria-label="X" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 4l14 16M19 4 5 20" stroke-width="1.5" stroke-linecap="round" /></svg>
+                      <a
+                        href="{{ twitter_link }}"
+                        aria-label="X"
+                        class="theme-footer-social__icon footer-social"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                          <path d="M5 4l14 16M19 4 5 20" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
                       </a>
                     {%- endif -%}
                     {%- if instagram_link != blank -%}
-                      <a href="{{ instagram_link }}" aria-label="Instagram" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" stroke-width="1.5" /><circle cx="12" cy="12" r="3.5" stroke-width="1.5" /><circle cx="17.4" cy="6.6" r="0.8" fill="currentColor" stroke="none" /></svg>
+                      <a
+                        href="{{ instagram_link }}"
+                        aria-label="Instagram"
+                        class="theme-footer-social__icon footer-social"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                          <rect x="4" y="4" width="16" height="16" rx="4" stroke-width="1.5" /><circle cx="12" cy="12" r="3.5" stroke-width="1.5" /><circle cx="17.4" cy="6.6" r="0.8" fill="currentColor" stroke="none" />
+                        </svg>
                       </a>
                     {%- endif -%}
                     {%- if youtube_link != blank -%}
-                      <a href="{{ youtube_link }}" aria-label="YouTube" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3.5" y="6.5" width="17" height="11" rx="3" stroke-width="1.5" /><path d="M10 9.5 15 12l-5 2.5v-5Z" fill="currentColor" stroke="none" /></svg>
+                      <a
+                        href="{{ youtube_link }}"
+                        aria-label="YouTube"
+                        class="theme-footer-social__icon footer-social"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                          <rect x="3.5" y="6.5" width="17" height="11" rx="3" stroke-width="1.5" /><path d="M10 9.5 15 12l-5 2.5v-5Z" fill="currentColor" stroke="none" />
+                        </svg>
                       </a>
                     {%- endif -%}
                     {%- if linkedin_link != blank -%}
-                      <a href="{{ linkedin_link }}" aria-label="LinkedIn" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6.5 9.5v8M6.5 6.5h.01M11 17.5v-5.2c0-1.4 1.1-2.5 2.5-2.5S16 10.9 16 12.3v5.2M11 11V9.5M6 9.5h1M16 17.5h1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><rect x="4" y="4" width="16" height="16" rx="2.5" stroke-width="1.5" /></svg>
+                      <a
+                        href="{{ linkedin_link }}"
+                        aria-label="LinkedIn"
+                        class="theme-footer-social__icon footer-social"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                          <path d="M6.5 9.5v8M6.5 6.5h.01M11 17.5v-5.2c0-1.4 1.1-2.5 2.5-2.5S16 10.9 16 12.3v5.2M11 11V9.5M6 9.5h1M16 17.5h1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><rect x="4" y="4" width="16" height="16" rx="2.5" stroke-width="1.5" />
+                        </svg>
                       </a>
                     {%- endif -%}
                   </div>
@@ -94,10 +158,14 @@
         {%- endfor -%}
       </div>
     {%- else -%}
-        <div class="theme-footer-grid">
+      <div class="theme-footer-grid">
         <div class="theme-footer-brand">
           {%- if section.settings.logo_image != blank -%}
-            {{ section.settings.logo_image | image_url: width: 800 | image_tag: class: 'theme-footer-brand__logo', loading: 'lazy', alt: section.settings.logo_alt }}
+            {{
+              section.settings.logo_image
+              | image_url: width: 800
+              | image_tag: class: 'theme-footer-brand__logo', loading: 'lazy', alt: section.settings.logo_alt
+            }}
           {%- else -%}
             <span class="theme-footer-brand__text">{{ section.settings.logo_text | default: shop.name }}</span>
           {%- endif -%}
@@ -106,7 +174,9 @@
           <h2 class="theme-footer-column__title">Quick Links</h2>
           <ul class="theme-footer-list">
             {%- for link in quick_links_menu.links -%}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
             {%- endfor -%}
           </ul>
         </div>
@@ -114,7 +184,9 @@
           <h2 class="theme-footer-column__title">Policies</h2>
           <ul class="theme-footer-list">
             {%- for link in policies_menu.links -%}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
             {%- endfor -%}
           </ul>
         </div>
@@ -122,7 +194,9 @@
           <h2 class="theme-footer-column__title">Our Network</h2>
           <ul class="theme-footer-list">
             {%- for link in network_menu.links -%}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
             {%- endfor -%}
           </ul>
         </div>
@@ -139,19 +213,69 @@
             {%- assign youtube_link = section.settings.youtube_link | default: settings.social_youtube_link -%}
             {%- assign linkedin_link = section.settings.linkedin_link | default: settings.social_linkedin_link -%}
             {%- if facebook_link != blank -%}
-              <a href="{{ facebook_link }}" aria-label="Facebook" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+              <a
+                href="{{ facebook_link }}"
+                aria-label="Facebook"
+                class="theme-footer-social__icon footer-social"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
             {%- endif -%}
             {%- if twitter_link != blank -%}
-              <a href="{{ twitter_link }}" aria-label="X" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 4l14 16M19 4 5 20" stroke-width="1.5" stroke-linecap="round" /></svg></a>
+              <a
+                href="{{ twitter_link }}"
+                aria-label="X"
+                class="theme-footer-social__icon footer-social"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M5 4l14 16M19 4 5 20" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </a>
             {%- endif -%}
             {%- if instagram_link != blank -%}
-              <a href="{{ instagram_link }}" aria-label="Instagram" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" stroke-width="1.5" /><circle cx="12" cy="12" r="3.5" stroke-width="1.5" /><circle cx="17.4" cy="6.6" r="0.8" fill="currentColor" stroke="none" /></svg></a>
+              <a
+                href="{{ instagram_link }}"
+                aria-label="Instagram"
+                class="theme-footer-social__icon footer-social"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <rect x="4" y="4" width="16" height="16" rx="4" stroke-width="1.5" /><circle cx="12" cy="12" r="3.5" stroke-width="1.5" /><circle cx="17.4" cy="6.6" r="0.8" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
             {%- endif -%}
             {%- if youtube_link != blank -%}
-              <a href="{{ youtube_link }}" aria-label="YouTube" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3.5" y="6.5" width="17" height="11" rx="3" stroke-width="1.5" /><path d="M10 9.5 15 12l-5 2.5v-5Z" fill="currentColor" stroke="none" /></svg></a>
+              <a
+                href="{{ youtube_link }}"
+                aria-label="YouTube"
+                class="theme-footer-social__icon footer-social"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <rect x="3.5" y="6.5" width="17" height="11" rx="3" stroke-width="1.5" /><path d="M10 9.5 15 12l-5 2.5v-5Z" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
             {%- endif -%}
             {%- if linkedin_link != blank -%}
-              <a href="{{ linkedin_link }}" aria-label="LinkedIn" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6.5 9.5v8M6.5 6.5h.01M11 17.5v-5.2c0-1.4 1.1-2.5 2.5-2.5S16 10.9 16 12.3v5.2M11 11V9.5M6 9.5h1M16 17.5h1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><rect x="4" y="4" width="16" height="16" rx="2.5" stroke-width="1.5" /></svg></a>
+              <a
+                href="{{ linkedin_link }}"
+                aria-label="LinkedIn"
+                class="theme-footer-social__icon footer-social"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M6.5 9.5v8M6.5 6.5h.01M11 17.5v-5.2c0-1.4 1.1-2.5 2.5-2.5S16 10.9 16 12.3v5.2M11 11V9.5M6 9.5h1M16 17.5h1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><rect x="4" y="4" width="16" height="16" rx="2.5" stroke-width="1.5" />
+                </svg>
+              </a>
             {%- endif -%}
           </div>
         </div>
@@ -188,17 +312,28 @@
     { "type": "image_picker", "id": "logo_image", "label": "Logo image" },
     { "type": "text", "id": "logo_alt", "label": "Logo alt text", "default": "Kerala Ayurveda" },
     { "type": "text", "id": "logo_text", "label": "Logo fallback text", "default": "Kerala Ayurveda" },
-    { "type": "textarea", "id": "tagline", "label": "Tagline", "default": "The Proprietary Kerala Ayurveda Formulation.\nThis Is One Of Them." },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "The Proprietary Kerala Ayurveda Formulation.\nThis Is One Of Them."
+    },
     { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "default": 40, "label": "Top padding" },
-    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 40, "label": "Bottom padding" }
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "label": "Bottom padding"
+    }
   ],
   "blocks": [
     {
       "type": "brand",
       "name": "Brand",
-      "settings": [
-        { "type": "image_picker", "id": "logo", "label": "Logo" }
-      ]
+      "settings": [{ "type": "image_picker", "id": "logo", "label": "Logo" }]
     },
     {
       "type": "link_column",
@@ -206,7 +341,12 @@
       "settings": [
         { "type": "text", "id": "heading", "label": "Heading", "default": "Quick Links" },
         { "type": "link_list", "id": "menu", "label": "Menu" },
-        { "type": "textarea", "id": "fallback_text", "label": "Fallback text", "default": "About Kerala Ayurveda\nClinics\nAyurveda Academy" }
+        {
+          "type": "textarea",
+          "id": "fallback_text",
+          "label": "Fallback text",
+          "default": "About Kerala Ayurveda\nClinics\nAyurveda Academy"
+        }
       ]
     },
     {
@@ -225,7 +365,12 @@
       "type": "tagline",
       "name": "Tagline",
       "settings": [
-        { "type": "textarea", "id": "text", "label": "Text", "default": "The Proprietary Kerala Ayurveda Formulation.\nThis Is One Of Them." }
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "The Proprietary Kerala Ayurveda Formulation.\nThis Is One Of Them."
+        }
       ]
     }
   ],
