@@ -1466,7 +1466,11 @@
 }
 
 .theme-accordion__item[open] .theme-accordion__caret {
-  transform: rotate(180deg);
+  transform: rotate(90deg);
+}
+
+.theme-accordion__item[open] .theme-accordion__summary {
+  padding-bottom: 0;
 }
 
 .theme-accordion__content {

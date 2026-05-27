@@ -44,6 +44,12 @@
   .theme-accordion__item:last-child {
     border-bottom: none !important;
   }
+  .theme-information .theme-accordion__summary-title {
+    gap: 0 !important;
+  }
+  .theme-information .theme-accordion__summary-title .svg-wrapper {
+    display: none !important;
+  }
   .theme-accordion__summary {
     padding: 16px 28px;
     display: flex;

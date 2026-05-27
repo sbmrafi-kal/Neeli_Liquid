@@ -33,7 +33,7 @@
         </div>
       {%- else -%}
         <div class="theme-brand-trust__mobile-img-wrap">
-          {{ 'Flower.png' | asset_url | image_tag: class: 'theme-brand-trust__mobile-img', loading: 'lazy', alt: mobile_title }}
+          <img src="{{ 'Flower.png' | asset_url }}" class="theme-brand-trust__mobile-img" width="1024" height="1024" loading="lazy" alt="{{ mobile_title | escape }}">
         </div>
       {%- endif -%}
 
@@ -74,7 +74,7 @@
                 {%- if seal_image != blank -%}
                   {{ seal_image | image_url: width: 240 | image_tag: class: 'theme-brand-trust__mobile-seal-img', loading: 'lazy', alt: seal_title }}
                 {%- else -%}
-                  {{ 'ka-mark.png' | asset_url | image_tag: class: 'theme-brand-trust__mobile-seal-img', loading: 'lazy', alt: seal_title }}
+                  <img src="{{ 'ka-mark.png' | asset_url }}" class="theme-brand-trust__mobile-seal-img" width="238" height="328" loading="lazy" alt="{{ seal_title | escape }}">
                 {%- endif -%}
               </div>
             {%- endif -%}
@@ -106,7 +106,7 @@
         </div>
       {%- else -%}
         <div class="theme-brand-trust__desktop-img-wrap">
-          {{ 'Flower.png' | asset_url | image_tag: class: 'theme-brand-trust__desktop-img', loading: 'lazy', alt: desktop_title }}
+          <img src="{{ 'Flower.png' | asset_url }}" class="theme-brand-trust__desktop-img" width="1024" height="1024" loading="lazy" alt="{{ desktop_title | escape }}">
         </div>
       {%- endif -%}
 
@@ -144,7 +144,7 @@
           {%- if seal_image != blank -%}
             {{ seal_image | image_url: width: 220 | image_tag: class: 'theme-brand-trust__desktop-seal-img', loading: 'lazy', alt: seal_title }}
           {%- else -%}
-            {{ 'ka-mark.png' | asset_url | image_tag: class: 'theme-brand-trust__desktop-seal-img', loading: 'lazy', alt: seal_title }}
+            <img src="{{ 'ka-mark.png' | asset_url }}" class="theme-brand-trust__desktop-seal-img" width="238" height="328" loading="lazy" alt="{{ seal_title | escape }}">
           {%- endif -%}
           {%- if seal_kicker != blank -%}
             <div class="theme-brand-trust__desktop-seal-kicker">{{ seal_kicker }}</div>
