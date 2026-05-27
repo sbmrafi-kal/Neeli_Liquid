@@ -20,6 +20,7 @@
   padding: 0 20px;
   max-width: 1680px;
   margin: 0 auto;
+  position: relative;
 }
 
 .theme-header__left,
@@ -83,6 +84,7 @@
   width: auto;
   max-width: 220px;
   object-fit: contain;
+  display: block;
 }
 
 .theme-header__brand {
@@ -143,6 +145,7 @@
   .theme-header__nav {
     display: flex;
     gap: 0;
+    padding-left: 12px; /* breathing room before nav items */
   }
 
   .theme-header__nav-link {
@@ -173,6 +176,18 @@
   .theme-header__brand-image {
     height: 34px;
     filter: none;
+    display: block;
+    max-width: 220px;
+  }
+
+  .theme-header__center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
   }
 
   .theme-header__brand-text {

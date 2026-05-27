@@ -21,8 +21,8 @@
 .theme-timeline-header-banner__title {
   margin: 10px 0 6px;
   font-family: "Amstir", var(--theme-heading-font), serif;
-  font-size: 72px;
-  line-height: 0.95;
+  font-size: 44px; /* reduced for parity */
+  line-height: 1;
   color: #faf8f5;
   letter-spacing: 0.02em;
 }
@@ -271,7 +271,7 @@
 
 @media screen and (max-width: 989px) {
   .theme-timeline-header-banner__title {
-    font-size: 46px;
+    font-size: 30px; /* reduced for mobile parity */
   }
 
   .theme-timeline-stage__title {

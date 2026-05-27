@@ -26,9 +26,9 @@
     width: min(1320px, 100%);
     min-height: 162px;
     margin: 0 auto;
-    background: #1e4b3c;
-    border-top: 1px solid rgba(253, 252, 248, 0.22);
-    border-bottom: 1px solid rgba(253, 252, 248, 0.22);
+    background: #ffffff; /* changed from green to white for neutral menus */
+    border-top: 1px solid rgba(23, 55, 45, 0.04);
+    border-bottom: 1px solid rgba(23, 55, 45, 0.04);
     border-radius: 8px;
     box-shadow: none;
     overflow: hidden;
@@ -54,9 +54,9 @@
   }
   .theme-accordion__title {
     font-family: "Avenir", var(--theme-body-font), sans-serif;
-    font-size: 38px;
-    color: #fdfcf8;
-    font-weight: 400;
+    font-size: 28px; /* toned down to avoid oversized menu titles */
+    color: #1f4d3d; /* dark forest for readability on white */
+    font-weight: 500;
     letter-spacing: 0.02em;
   }
   .theme-accordion__caret-svg {
@@ -70,7 +70,7 @@
     padding: 0 34px 20px;
     font-family: "Avenir", var(--theme-body-font), sans-serif;
     font-size: 16px;
-    color: rgba(253, 252, 248, 0.88);
+    color: rgba(31, 77, 61, 0.8);
     background: transparent;
     line-height: 1.45;
   }
