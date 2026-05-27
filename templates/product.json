@@ -124,13 +124,13 @@
         "stat_4"
       ],
       "settings": {
+          "carousel_image_1": null,
+          "carousel_image_2": null,
+          "carousel_image_3": null,
+          "carousel_image_4": null,
+          "carousel_image_5": null,
         "color_scheme": "scheme-1",
         "padding_top": 0,
-        "padding_bottom": 16,
-        "stat_1_value": "1945",
-        "stat_1_label": "Established",
-        "stat_2_value": "350+",
-        "stat_2_label": "Products",
         "stat_3_value": "Clinics & Academy",
         "stat_3_label": "Expert led",
         "delivery_1_text": "2-4 day delivery",

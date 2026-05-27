@@ -12,7 +12,6 @@
 {%- assign product_title = product.title | default: 'Neelibhringadi Keram' -%}
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
 {%- assign hero_stat_blocks = section.blocks | where: "type", "hero_stat" -%}
-{%- assign hero_image_blocks = section.blocks | where: "type", "hero_image" -%}
 
 <section
   id="NeeliProduct-{{ section.id }}"
@@ -22,10 +21,6 @@
 >
   <script src="{{ 'theme-product-page.js' | asset_url }}" defer="defer"></script>
 
-{%- assign hero_images = hero_image_blocks -%}
-{%- if hero_images.size == 0 -%}
-  {%- assign hero_images = product.media -%}
-{%- endif -%}
 {%- assign hero_fallback_image = product.featured_image -%}
 
   <div class="container-narrow">
@@ -33,26 +28,56 @@
       <div class="theme-product-page__hero-media">
         <div class="theme-hero-carousel" data-theme-carousel data-theme-autoplay="false" data-theme-interval="4800">
           <div class="theme-hero-carousel__stage">
-            {%- for media in hero_images -%}
-              <figure class="theme-hero-carousel__slide{% if forloop.first %} is-active{% endif %}" data-theme-carousel-slide>
-                {%- if forloop.first -%}
-                  {%- assign hero_loading = 'eager' -%}
-                {%- else -%}
-                  {%- assign hero_loading = 'lazy' -%}
-                {%- endif -%}
-                {%- if hero_image_blocks.size > 0 -%}
-                  {%- if media.settings.image != blank -%}
-                    {{ media.settings.image | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: product_title }}
-                  {%- endif -%}
-                {%- elsif media.preview_image != blank -%}
-                  {{ media.preview_image | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: product_title }}
-                {%- elsif media.src != blank -%}
-                  {{ media | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: product_title }}
-                {%- endif -%}
+            {%- assign hero_slide_count = 0 -%}
+            {%- if section.settings.carousel_image_1 != blank -%}
+              {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
+              <figure class="theme-hero-carousel__slide is-active" data-theme-carousel-slide>
+                {{ section.settings.carousel_image_1 | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'eager', width: 750, height: 1000, alt: product_title }}
               </figure>
-            {%- endfor -%}
+            {%- endif -%}
+            {%- if section.settings.carousel_image_2 != blank -%}
+              {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
+              <figure class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}" data-theme-carousel-slide>
+                {{ section.settings.carousel_image_2 | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'lazy', width: 750, height: 1000, alt: product_title }}
+              </figure>
+            {%- endif -%}
+            {%- if section.settings.carousel_image_3 != blank -%}
+              {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
+              <figure class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}" data-theme-carousel-slide>
+                {{ section.settings.carousel_image_3 | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'lazy', width: 750, height: 1000, alt: product_title }}
+              </figure>
+            {%- endif -%}
+            {%- if section.settings.carousel_image_4 != blank -%}
+              {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
+              <figure class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}" data-theme-carousel-slide>
+                {{ section.settings.carousel_image_4 | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'lazy', width: 750, height: 1000, alt: product_title }}
+              </figure>
+            {%- endif -%}
+            {%- if section.settings.carousel_image_5 != blank -%}
+              {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
+              <figure class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}" data-theme-carousel-slide>
+                {{ section.settings.carousel_image_5 | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'lazy', width: 750, height: 1000, alt: product_title }}
+              </figure>
+            {%- endif -%}
 
-            {%- if hero_images.size == 0 and hero_fallback_image != blank -%}
+            {%- if hero_slide_count == 0 and product.media.size > 0 -%}
+              {%- for media in product.media -%}
+                <figure class="theme-hero-carousel__slide{% if forloop.first %} is-active{% endif %}" data-theme-carousel-slide>
+                  {%- if forloop.first -%}
+                    {%- assign hero_loading = 'eager' -%}
+                  {%- else -%}
+                    {%- assign hero_loading = 'lazy' -%}
+                  {%- endif -%}
+                  {%- if media.preview_image != blank -%}
+                    {{ media.preview_image | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: product_title }}
+                  {%- elsif media.src != blank -%}
+                    {{ media | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: product_title }}
+                  {%- endif -%}
+                </figure>
+              {%- endfor -%}
+            {%- endif -%}
+
+            {%- if hero_slide_count == 0 and product.media.size == 0 and hero_fallback_image != blank -%}
               <figure class="theme-hero-carousel__slide is-active" data-theme-carousel-slide>
                 {{ hero_fallback_image | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'eager', width: 750, height: 1000, alt: product_title }}
               </figure>
@@ -67,26 +92,56 @@
           </div>
 
           <div class="theme-hero-carousel__thumbs" role="tablist" aria-label="Product gallery thumbnails">
-            {%- for media in hero_images -%}
-              <button
-                class="theme-hero-carousel__thumb{% if forloop.first %} is-active{% endif %}"
-                type="button"
-                aria-label="Show image {{ forloop.index }}"
-                data-theme-carousel-thumb="{{ forloop.index0 }}"
-              >
-                {%- if hero_image_blocks.size > 0 -%}
-                  {%- if media.settings.image != blank -%}
-                    {{ media.settings.image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
-                  {%- endif -%}
-                {%- elsif media.preview_image != blank -%}
-                  {{ media.preview_image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
-                {%- elsif media.src != blank -%}
-                  {{ media | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
-                {%- endif -%}
+            {%- assign hero_thumb_count = 0 -%}
+            {%- if section.settings.carousel_image_1 != blank -%}
+              {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
+              <button class="theme-hero-carousel__thumb is-active" type="button" aria-label="Show image 1" data-theme-carousel-thumb="0">
+                {{ section.settings.carousel_image_1 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
               </button>
-            {%- endfor -%}
+            {%- endif -%}
+            {%- if section.settings.carousel_image_2 != blank -%}
+              {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
+              <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 2" data-theme-carousel-thumb="1">
+                {{ section.settings.carousel_image_2 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+              </button>
+            {%- endif -%}
+            {%- if section.settings.carousel_image_3 != blank -%}
+              {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
+              <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 3" data-theme-carousel-thumb="2">
+                {{ section.settings.carousel_image_3 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+              </button>
+            {%- endif -%}
+            {%- if section.settings.carousel_image_4 != blank -%}
+              {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
+              <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 4" data-theme-carousel-thumb="3">
+                {{ section.settings.carousel_image_4 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+              </button>
+            {%- endif -%}
+            {%- if section.settings.carousel_image_5 != blank -%}
+              {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
+              <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 5" data-theme-carousel-thumb="4">
+                {{ section.settings.carousel_image_5 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+              </button>
+            {%- endif -%}
 
-            {%- if hero_images.size == 0 and hero_fallback_image != blank -%}
+            {%- if hero_thumb_count == 0 and product.media.size > 0 -%}
+              {%- for media in product.media -%}
+                <button
+                  class="theme-hero-carousel__thumb{% if forloop.first %} is-active{% endif %}"
+                  type="button"
+                  aria-label="Show image {{ forloop.index }}"
+                  data-theme-carousel-thumb="{{ forloop.index0 }}"
+                >
+                  {%- if media.preview_image != blank -%}
+                    {{ media.preview_image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                  {%- elsif media.src != blank -%}
+                    {{ media | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                  {%- endif -%}
+                </button>
+              {%- endfor -%}
+            {%- endif -%}
+
+            {%- if hero_thumb_count == 0 and product.media.size == 0 and hero_fallback_image != blank -%}
               <button class="theme-hero-carousel__thumb is-active" type="button" aria-label="Show image 1" data-theme-carousel-thumb="0">
                 {{ hero_fallback_image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
               </button>
@@ -543,6 +598,31 @@
       "label": "Enable video looping"
     },
     {
+      "type": "image_picker",
+      "id": "carousel_image_1",
+      "label": "Carousel image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "carousel_image_2",
+      "label": "Carousel image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "carousel_image_3",
+      "label": "Carousel image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "carousel_image_4",
+      "label": "Carousel image 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "carousel_image_5",
+      "label": "Carousel image 5"
+    },
+    {
       "type": "text",
       "id": "stat_1_value",
       "label": "Stamp stat 1 value",
@@ -692,14 +772,6 @@
     { "type": "textarea", "id": "ritual_text", "label": "Ritual Guide Text", "default": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week." }
   ],
   "blocks": [
-    {
-      "type": "hero_image",
-      "name": "Carousel image",
-      "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "alt", "label": "Alt text", "default": "Product image" }
-      ]
-    },
     {
       "type": "text",
       "name": "Hero badge",
