@@ -24,11 +24,12 @@
   width: 100%;
   height: auto !important;
   aspect-ratio: 458 / 482;
-  min-height: 320px;
+  min-height: 420px;
   object-fit: cover !important;
   padding: 0 !important;
   background: var(--theme-white);
-  object-position: center;
+  object-position: center 32%;
+  transition: transform 0.35s ease;
 }
 
 @media screen and (min-width: 640px) {
@@ -41,20 +42,20 @@
 
 .theme-hero-carousel__thumbs {
   position: absolute !important;
-  bottom: 66px !important;
+  bottom: 40px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  z-index: 10 !important;
+  z-index: 12 !important;
   display: flex !important;
   align-items: center !important;
-  gap: 6px !important;
-  background: rgba(255, 255, 255, 0.94) !important;
-  padding: 6px !important;
-  border-radius: 16px !important;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
-  backdrop-filter: blur(8px) !important;
+  gap: 8px !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  padding: 6px 8px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12) !important;
+  backdrop-filter: blur(6px) !important;
   width: max-content !important;
-  max-width: 90% !important;
+  max-width: 88% !important;
 }
 
 @media screen and (min-width: 990px) {
@@ -64,17 +65,18 @@
 }
 
 .theme-hero-carousel__thumb {
-  width: 2.625rem !important;
-  height: 2.125rem !important;
-  border-radius: 8px !important;
+  width: 3.25rem !important;
+  height: 2.5rem !important;
+  border-radius: 10px !important;
   overflow: hidden !important;
-  border: 1.5px solid transparent !important;
-  opacity: 0.7 !important;
-  transition: all 0.3s ease !important;
-  padding: 0 !important;
-  background: transparent !important;
+  border: 1px solid rgba(31,77,61,0.06) !important;
+  background: #fff !important;
+  opacity: 0.95 !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease !important;
+  padding: 2px !important;
   flex-shrink: 0 !important;
   cursor: pointer !important;
+  box-shadow: 0 6px 14px rgba(17,48,39,0.06) !important;
 }
 
 @media screen and (min-width: 640px) {
@@ -87,7 +89,8 @@
 .theme-hero-carousel__thumb.is-active {
   border-color: #1f4d3d !important;
   opacity: 1 !important;
-  transform: scale(1.02) !important;
+  transform: scale(1.04) !important;
+  box-shadow: 0 10px 22px rgba(17,48,39,0.12) !important;
 }
 
 .theme-hero-carousel__thumb:hover {
@@ -100,6 +103,7 @@
   height: 100% !important;
   object-fit: cover !important;
   display: block !important;
+  border-radius: 6px !important;
 }
 
 .theme-hero-carousel__control {
