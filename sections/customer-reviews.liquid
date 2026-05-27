@@ -3,7 +3,8 @@
   <script src="{{ 'customer-reviews.js' | asset_url }}" defer="defer"></script>
 
 
-
+{%- assign review_blocks = section.blocks | where: 'type', 'review' -%}
+{%- if section.settings.heading != blank and review_blocks.size > 0 -%}
 <section class="theme-product-page__section theme-reveal  color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}theme-product-page__section--soft{% endif %}">
   <div class="theme-product-page__wrap">
     <div class="theme-reviews-header-wrap">
@@ -36,8 +37,7 @@
     </div>
 
     <div class="theme-review-grid">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'review' -%}
+      {%- for block in review_blocks -%}
           <article class="theme-review-card motion-panel" {{ block.shopify_attributes }}>
             <div class="theme-review-card__header">
               <div class="theme-review-card__header-left">
@@ -57,7 +57,6 @@
             {%- endif -%}
             <p class="theme-review-card__quote">&ldquo;{{ block.settings.body }}&rdquo;</p>
           </article>
-        {%- endif -%}
       {%- endfor -%}
     </div>
 
@@ -76,6 +75,7 @@
     {%- endif -%}
   </div>
 </section>
+{%- endif -%}
 
 {% schema %}
 {

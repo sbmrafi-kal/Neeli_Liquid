@@ -199,7 +199,12 @@
   color: #161717;
 }
 
-.theme-upsell-cross-sell__card {
+.theme-upsell-cross-sell__list {
+  display: grid;
+  gap: 12px;
+}
+
+.theme-upsell-product-card {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -209,32 +214,49 @@
   padding: 12px;
 }
 
-.theme-upsell-cross-sell__img {
+.theme-upsell-product-card__media {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.theme-upsell-product-card__img {
+  display: block;
   width: 66px;
   height: 66px;
   border-radius: 8px;
   object-fit: cover;
 }
 
-.theme-upsell-cross-sell__content {
+.theme-upsell-product-card__content {
   flex: 1;
+  min-width: 0;
 }
 
-.theme-upsell-cross-sell__title {
+.theme-upsell-product-card__title {
+  color: inherit;
+  display: inline-block;
   font-size: 14px;
   font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
 }
 
-.theme-upsell-cross-sell__text {
+.theme-upsell-product-card__text {
   margin-top: 2px;
   font-size: 12px;
+  line-height: 1.35;
   color: rgba(255, 255, 255, 0.82);
 }
 
-.theme-upsell-cross-sell__btn {
+.theme-upsell-product-card__btn {
   background: #ffffff;
   color: #121212;
-  font-size: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 132px;
+  font-size: 32px;
   font-weight: 700;
   border-radius: 10px;
   padding: 8px 16px;
@@ -251,7 +273,18 @@
     font-size: 40px;
   }
 
-  .theme-upsell-cross-sell__btn {
+  .theme-upsell-product-card {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .theme-upsell-product-card__img {
+    width: 54px;
+    height: 54px;
+  }
+
+  .theme-upsell-product-card__btn {
+    min-width: 84px;
     font-size: 16px;
     padding: 8px 12px;
   }

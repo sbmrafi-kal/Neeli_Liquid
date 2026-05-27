@@ -46,14 +46,6 @@
             "text": "Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides."
           }
         },
-        "upsell": {
-          "type": "hero_upsell",
-          "settings": {
-            "title": "Add internal support",
-            "text": "Bringarajasava - fermented herbal brew for hair growth from within.",
-            "button_label": "+ \u20b9225"
-          }
-        },
         "stat_1": {
           "type": "hero_stat",
           "settings": {
@@ -90,7 +82,6 @@
         "feature_1",
         "quote",
         "hero_note",
-        "upsell",
         "stat_1",
         "stat_2",
         "stat_3",
@@ -245,7 +236,7 @@
           "settings": {
             "title": "Bringaraj",
             "subtitle": "Eclipta prostrata",
-            "text": "Supports hair growth. Activates follicles and increases scalp circulation."
+            "text": "<p>Supports hair growth. Activates follicles and increases scalp circulation.</p>"
           }
         },
         "ingredient_2": {
@@ -253,7 +244,7 @@
           "settings": {
             "title": "Amla",
             "subtitle": "Phyllanthus emblica",
-            "text": "Minimizes hair fall. Strengthens the hair shaft with natural Vitamin C."
+            "text": "<p>Minimizes hair fall. Strengthens the hair shaft with natural Vitamin C.</p>"
           }
         },
         "ingredient_3": {
@@ -261,7 +252,7 @@
           "settings": {
             "title": "Neeli",
             "subtitle": "Indigofera tinctoria",
-            "text": "Cools and recovers. Reduces scalp inflammation and promotes regrowth."
+            "text": "<p>Cools and recovers. Reduces scalp inflammation and promotes regrowth.</p>"
           }
         },
         "ingredient_4": {
@@ -269,7 +260,7 @@
           "settings": {
             "title": "Keram",
             "subtitle": "Cocos nucifera",
-            "text": "Deep nourishment. Traditional carrier that mimics natural scalp lipids."
+            "text": "<p>Deep nourishment. Traditional carrier that mimics natural scalp lipids.</p>"
           }
         }
       },
@@ -377,18 +368,18 @@
       "settings": {
         "color_scheme": "scheme-3",
         "kicker": "",
-        "heading": "Full Spectrum",
-        "text": "<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>",
-        "patents_kicker": "Globally Recognized",
-        "patents_heading": "Patented Formulations",
-        "patents_text": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
-        "us_title": "US PATENT",
-        "us_text": "<p>Protected formulation details and process knowledge.</p>",
-        "japan_title": "JAPAN PATENT",
-        "japan_text": "<p>Recognition of the proprietary process and method.</p>",
-        "mark_kicker": "Rooted in",
-        "mark_heading": "Authentic Ayurveda.",
-        "mark_text": "<p>Bring the same trust cues from the Neeli landing page into Shopify.</p>",
+        "heading": "",
+        "text": "<p></p>",
+        "patents_kicker": "",
+        "patents_heading": "",
+        "patents_text": "<p></p>",
+        "us_title": "",
+        "us_text": "<p></p>",
+        "japan_title": "",
+        "japan_text": "<p></p>",
+        "mark_kicker": "",
+        "mark_heading": "",
+        "mark_text": "<p></p>",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -401,21 +392,21 @@
           "type": "milk",
           "settings": {
             "title": "Coconut milk",
-            "text": "Nourishes and moisturizes the scalp."
+            "text": "<p>Nourishes and moisturizes the scalp.</p>"
           }
         },
         "milk_2": {
           "type": "milk",
           "settings": {
             "title": "Goat milk",
-            "text": "Addresses dandruff and improves hair texture."
+            "text": "<p>Addresses dandruff and improves hair texture.</p>"
           }
         },
         "milk_3": {
           "type": "milk",
           "settings": {
             "title": "Cow milk",
-            "text": "Controls hair fall and promotes hair growth."
+            "text": "<p>Controls hair fall and promotes hair growth.</p>"
           }
         }
       },

@@ -1,0 +1,28 @@
+{%- liquid
+  assign upsell_product = upsell_product | default: blank
+  assign image_width = image_width | default: 180
+-%}
+
+{%- if upsell_product != blank -%}
+  {%- assign upsell_variant = upsell_product.selected_or_first_available_variant -%}
+  <article class="theme-upsell-product-card">
+    <a class="theme-upsell-product-card__media" href="{{ upsell_product.url }}" aria-label="{{ upsell_product.title | escape }}">
+      {%- if upsell_product.featured_image != blank -%}
+        {{ upsell_product.featured_image | image_url: width: image_width | image_tag: class: 'theme-upsell-product-card__img', loading: 'lazy', alt: upsell_product.title }}
+      {%- endif -%}
+    </a>
+
+    <div class="theme-upsell-product-card__content">
+      <a class="theme-upsell-product-card__title" href="{{ upsell_product.url }}">{{ upsell_product.title }}</a>
+      {%- if upsell_product.description != blank -%}
+        <div class="theme-upsell-product-card__text">{{ upsell_product.description | strip_html | truncatewords: 14 }}</div>
+      {%- endif -%}
+    </div>
+
+    {%- if upsell_variant != blank -%}
+      <a class="theme-upsell-product-card__btn" href="{{ upsell_product.url }}" aria-label="View {{ upsell_product.title | escape }}">
+        + {{ upsell_variant.price | money_without_trailing_zeros }}
+      </a>
+    {%- endif -%}
+  </article>
+{%- endif -%}

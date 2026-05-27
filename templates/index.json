@@ -46,14 +46,6 @@
             "text": "Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides."
           }
         },
-        "upsell": {
-          "type": "hero_upsell",
-          "settings": {
-            "title": "Add internal support",
-            "text": "Bringarajasava - fermented herbal brew for hair growth from within.",
-            "button_label": "+ \u20b9225"
-          }
-        },
         "stat_1": {
           "type": "hero_stat",
           "settings": {
@@ -90,7 +82,6 @@
         "feature_1",
         "quote",
         "hero_note",
-        "upsell",
         "stat_1",
         "stat_2",
         "stat_3",
@@ -227,7 +218,7 @@
             "title": "SIDE EFFECTS",
             "text": "This is a botanical product, but patch testing first is still the safest place to start for sensitive scalps."
           }
-        },
+        }
       },
       "block_order": [
         "inclusion_1",
@@ -258,28 +249,28 @@
           "type": "ingredient",
           "settings": {
             "title": "Bringaraj",
-            "text": "Supports hair growth. Activates follicles and increases scalp circulation."
+            "text": "<p>Supports hair growth. Activates follicles and increases scalp circulation.</p>"
           }
         },
         "ingredient_2": {
           "type": "ingredient",
           "settings": {
             "title": "Amla",
-            "text": "Minimizes hair fall. Strengthens the hair shaft with natural Vitamin C."
+            "text": "<p>Minimizes hair fall. Strengthens the hair shaft with natural Vitamin C.</p>"
           }
         },
         "ingredient_3": {
           "type": "ingredient",
           "settings": {
             "title": "Neeli",
-            "text": "Cools and recovers. Reduces scalp inflammation and promotes regrowth."
+            "text": "<p>Cools and recovers. Reduces scalp inflammation and promotes regrowth.</p>"
           }
         },
         "ingredient_4": {
           "type": "ingredient",
           "settings": {
             "title": "Coconut oil",
-            "text": "Deep nourishment. Traditional carrier that mimics natural scalp lipids."
+            "text": "<p>Deep nourishment. Traditional carrier that mimics natural scalp lipids.</p>"
           }
         }
       },
@@ -418,21 +409,21 @@
           "type": "milk",
           "settings": {
             "title": "Coconut milk",
-            "text": "Rich in lauric acid, nourishes and moisturizes the scalp."
+            "text": "<p>Rich in lauric acid, nourishes and moisturizes the scalp.</p>"
           }
         },
         "milk_2": {
           "type": "milk",
           "settings": {
             "title": "Cow milk",
-            "text": "Carries the herbal extract deep into the follicles."
+            "text": "<p>Carries the herbal extract deep into the follicles.</p>"
           }
         },
         "milk_3": {
           "type": "milk",
           "settings": {
             "title": "Goat milk",
-            "text": "The most easily absorbed milk, addresses dandruff."
+            "text": "<p>The most easily absorbed milk, addresses dandruff.</p>"
           }
         }
       },

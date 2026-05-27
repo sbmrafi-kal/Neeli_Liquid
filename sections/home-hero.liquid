@@ -4,9 +4,8 @@
 
 
 
-{%- assign hero_images = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' -%}
-{%- assign hero_thumbs = 'Product_carosul_01.png|Product_carosul_02.png|Product_carosul_03.png|Product_carosul_04.png|Product_carosul_05.png' | split: '|' -%}
-{%- assign homepage_stamps = 'stamp_01.png|stamp_02.png|stamp_03.png|stamp_04.png|stamp_05.png' | split: '|' -%}
+{%- assign hero_image_blocks = section.blocks | where: "type", "hero_image" -%}
+{%- assign stamp_blocks = section.blocks | where: "type", "certification" -%}
 
 <section
   id="NeeliHomeHero-{{ section.id }}"
@@ -20,37 +19,49 @@
       <div class="theme-product-page__hero-media">
         <div class="theme-hero-carousel" data-theme-carousel data-theme-autoplay="true" data-theme-interval="4800">
           <div class="theme-hero-carousel__stage">
-            {%- for image in hero_images -%}
-              <figure class="theme-hero-carousel__slide{% if forloop.first %} is-active{% endif %}" data-theme-carousel-slide>
-                {%- if forloop.first -%}
-                  {%- assign hero_loading = 'eager' -%}
-                {%- else -%}
-                  {%- assign hero_loading = 'lazy' -%}
-                {%- endif -%}
-                <img src="{{ image | asset_url }}" class="theme-hero-carousel__image image-zoom" loading="{{ hero_loading }}" width="750" height="1000" alt="{{ section.settings.hero_alt | escape }}">
-              </figure>
+            {%- assign hero_image_active = false -%}
+            {%- for block in hero_image_blocks -%}
+              {%- if block.settings.image != blank -%}
+                <figure class="theme-hero-carousel__slide{% unless hero_image_active %} is-active{% endunless %}" data-theme-carousel-slide {{ block.shopify_attributes }}>
+                  {%- unless hero_image_active -%}
+                    {%- assign hero_loading = 'eager' -%}
+                    {%- assign hero_image_active = true -%}
+                  {%- else -%}
+                    {%- assign hero_loading = 'lazy' -%}
+                  {%- endunless -%}
+                  {{ block.settings.image | image_url: width: 900 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: block.settings.alt }}
+                </figure>
+              {%- endif -%}
             {%- endfor -%}
 
-            <button class="theme-hero-carousel__control theme-hero-carousel__control--prev" type="button" aria-label="Previous image" data-theme-carousel-prev>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
-            </button>
-            <button class="theme-hero-carousel__control theme-hero-carousel__control--next" type="button" aria-label="Next image" data-theme-carousel-next>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
-            </button>
-          </div>
-
-          <div class="theme-hero-carousel__thumbs" role="tablist" aria-label="Homepage gallery thumbnails">
-            {%- for image in hero_thumbs -%}
-              <button
-                class="theme-hero-carousel__thumb{% if forloop.first %} is-active{% endif %}"
-                type="button"
-                aria-label="Show image {{ forloop.index }}"
-                data-theme-carousel-thumb="{{ forloop.index0 }}"
-              >
-                <img src="{{ image | asset_url }}" class="theme-hero-carousel__thumb-image" loading="lazy" width="750" height="1000" alt="">
+            {%- if hero_image_active -%}
+              <button class="theme-hero-carousel__control theme-hero-carousel__control--prev" type="button" aria-label="Previous image" data-theme-carousel-prev>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
               </button>
-            {%- endfor -%}
+              <button class="theme-hero-carousel__control theme-hero-carousel__control--next" type="button" aria-label="Next image" data-theme-carousel-next>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            {%- endif -%}
           </div>
+
+          {%- if hero_image_active -%}
+            <div class="theme-hero-carousel__thumbs" role="tablist" aria-label="Homepage gallery thumbnails">
+              {%- assign hero_thumb_index = 0 -%}
+              {%- for block in hero_image_blocks -%}
+                {%- if block.settings.image != blank -%}
+                  <button
+                    class="theme-hero-carousel__thumb{% if hero_thumb_index == 0 %} is-active{% endif %}"
+                    type="button"
+                    aria-label="Show image {{ hero_thumb_index | plus: 1 }}"
+                    data-theme-carousel-thumb="{{ hero_thumb_index }}"
+                  >
+                    {{ block.settings.image | image_url: width: 160 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                  </button>
+                  {%- assign hero_thumb_index = hero_thumb_index | plus: 1 -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
 
           <div class="theme-hero-carousel__stats">
             {%- assign stat_blocks = section.blocks | where: "type", "hero_stat" -%}
@@ -63,9 +74,11 @@
           </div>
         </div>
 
-        <div class="theme-hero-below theme-hero-below--desktop">
-          <img src="{{ 'Below_the_product.png' | asset_url }}" class="theme-hero-below__image" loading="lazy" width="2000" height="2000" alt="">
-        </div>
+        {%- if section.settings.below_product_image != blank -%}
+          <div class="theme-hero-below theme-hero-below--desktop">
+            {{ section.settings.below_product_image | image_url: width: 1600 | image_tag: class: 'theme-hero-below__image', loading: 'lazy', width: 1600, height: 1600, alt: section.settings.below_product_alt }}
+          </div>
+        {%- endif -%}
       </div>
 
       <!-- DESKTOP HERO INFO COLUMN -->
@@ -141,14 +154,17 @@
         </div>
 
         <div class="theme-stamp-card motion-panel">
-          <div class="theme-stamp-card__top">
-            {%- for stamp in homepage_stamps -%}
-              <div class="theme-stamp-card__stamp">
-                {%- assign stamp_alt = 'Certification ' | append: forloop.index -%}
-                <img src="{{ stamp | asset_url }}" class="theme-stamp-card__stamp-image" loading="lazy" width="1920" height="1080" alt="{{ stamp_alt | escape }}">
-              </div>
-            {%- endfor -%}
-          </div>
+          {%- if stamp_blocks.size > 0 -%}
+            <div class="theme-stamp-card__top">
+              {%- for block in stamp_blocks limit: 5 -%}
+                {%- if block.settings.image != blank -%}
+                  <div class="theme-stamp-card__stamp" {{ block.shopify_attributes }}>
+                    {{ block.settings.image | image_url: width: 180 | image_tag: class: 'theme-stamp-card__stamp-image', loading: 'lazy', width: 90, height: 90, alt: block.settings.alt }}
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
           <div class="theme-stamp-card__stats">
             <div class="theme-stamp-card__stat">
               <div class="theme-stamp-card__stat-value">{{ section.settings.stat_1_value }}</div>
@@ -252,13 +268,17 @@
             </div>
           </div>
 
-          <div class="mt-1.5 grid grid-cols-4 items-center gap-0.5 pt-1">
-            {%- for stamp in homepage_stamps offset: 1 limit: 4 -%}
-              <div class="flex justify-center overflow-hidden">
-                <img src="{{ stamp | asset_url }}" class="h-[58px] w-[58px] scale-[2.02] object-contain opacity-95 contrast-125 saturate-0" loading="lazy" width="58" height="58" alt="Certification">
-              </div>
-            {%- endfor -%}
-          </div>
+          {%- if stamp_blocks.size > 0 -%}
+            <div class="mt-1.5 grid grid-cols-4 items-center gap-0.5 pt-1">
+              {%- for block in stamp_blocks limit: 4 -%}
+                {%- if block.settings.image != blank -%}
+                  <div class="flex justify-center overflow-hidden" {{ block.shopify_attributes }}>
+                    {{ block.settings.image | image_url: width: 120 | image_tag: class: 'h-[58px] w-[58px] scale-[2.02] object-contain opacity-95 contrast-125 saturate-0', loading: 'lazy', width: 58, height: 58, alt: block.settings.alt }}
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
         </div>
       </div>
   </div>
@@ -282,6 +302,8 @@
     { "type": "text", "id": "cta_price", "label": "Price", "default": "₹315" },
     { "type": "url", "id": "button_link", "label": "CTA link" },
     { "type": "text", "id": "hero_alt", "label": "Hero image alt", "default": "Neelibhringadi Keram product gallery" },
+    { "type": "image_picker", "id": "below_product_image", "label": "Below product image" },
+    { "type": "text", "id": "below_product_alt", "label": "Below product image alt", "default": "Product trust badges" },
     { "type": "text", "id": "stat_1_value", "label": "Stamp stat 1 value", "default": "1945" },
     { "type": "text", "id": "stat_1_label", "label": "Stamp stat 1 label", "default": "Established" },
     { "type": "text", "id": "stat_2_value", "label": "Stamp stat 2 value", "default": "350+" },
@@ -296,6 +318,22 @@
   ],
   "blocks": [
     {
+      "type": "hero_image",
+      "name": "Hero image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "alt", "label": "Alt text", "default": "Product image" }
+      ]
+    },
+    {
+      "type": "certification",
+      "name": "Certification image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "alt", "label": "Alt text", "default": "Certification" }
+      ]
+    },
+    {
       "type": "hero_stat",
       "name": "Hero stat",
       "settings": [
@@ -308,6 +346,15 @@
     {
       "name": "homepage hero",
       "blocks": [
+        { "type": "hero_image" },
+        { "type": "hero_image" },
+        { "type": "hero_image" },
+        { "type": "hero_image" },
+        { "type": "hero_image" },
+        { "type": "certification" },
+        { "type": "certification" },
+        { "type": "certification" },
+        { "type": "certification" },
         { "type": "hero_stat" },
         { "type": "hero_stat" },
         { "type": "hero_stat" },

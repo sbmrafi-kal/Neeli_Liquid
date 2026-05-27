@@ -26,7 +26,9 @@
               <div class="theme-ki-card__subtitle">{{ block.settings.subtitle }}</div>
             {%- endif -%}
 
-            <p class="theme-ki-card__text">{{ block.settings.text }}</p>
+            {%- if block.settings.text != blank -%}
+              <div class="theme-ki-card__text">{{ block.settings.text }}</div>
+            {%- endif -%}
           </div>
         {%- endif -%}
       {%- endfor -%}
@@ -54,7 +56,7 @@
         { "type": "image_picker", "id": "image", "label": "Image" },
         { "type": "text", "id": "title", "label": "Title", "default": "Neeli" },
         { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "For scalp health" },
-        { "type": "textarea", "id": "text", "label": "Text", "default": "Reduces inflammation and stops premature greying." }
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Reduces inflammation and stops premature greying.</p>" }
       ]
     }
   ],

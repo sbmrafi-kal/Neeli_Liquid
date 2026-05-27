@@ -1,4 +1,3 @@
-{{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
 {{ 'section-brand-trust.css' | asset_url | stylesheet_tag }}
 
 {%- assign show_brand_trust = section.settings.mobile_title != blank
@@ -30,8 +29,8 @@
 {%- assign seal_kicker = section.settings.mark_kicker -%}
 {%- assign seal_title = section.settings.mark_heading | default: section.settings.seal_text -%}
 {%- assign seal_text = section.settings.mark_text -%}
-{%- assign desktop_image = section.settings.desktop_image | default: product.featured_image -%}
-{%- assign mobile_image = section.settings.mobile_image | default: product.featured_image -%}
+{%- assign desktop_image = section.settings.desktop_image -%}
+{%- assign mobile_image = section.settings.mobile_image -%}
 
 {%- if show_brand_trust -%}
 <section class="theme-brand-trust-section theme-reveal">
@@ -237,28 +236,28 @@
   "settings": [
     { "type": "image_picker", "id": "desktop_image", "label": "Desktop image" },
     { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
-    { "type": "text", "id": "desktop_title", "label": "Desktop title", "default": "Full Spectrum" },
-    { "type": "text", "id": "mobile_title", "label": "Mobile title", "default": "Full Spectrum" },
-    { "type": "richtext", "id": "desktop_description", "label": "Desktop description", "default": "<p>Classical and proprietary Ayurvedic products, therapies, education, and R&amp;D.</p>" },
-    { "type": "richtext", "id": "mobile_description", "label": "Mobile description", "default": "<p>Classical and proprietary Ayurvedic products, therapies, education, and R&amp;D.</p>" },
-    { "type": "text", "id": "desktop_kicker", "label": "Desktop kicker", "default": "Globally Recognized" },
-    { "type": "text", "id": "mobile_kicker", "label": "Mobile kicker", "default": "Globally Recognized" },
-    { "type": "text", "id": "desktop_title_2", "label": "Desktop secondary title", "default": "Patented Formulations" },
-    { "type": "text", "id": "mobile_title_2", "label": "Mobile secondary title", "default": "Patented Formulations" },
-    { "type": "richtext", "id": "desktop_description_2", "label": "Desktop secondary description", "default": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>" },
-    { "type": "richtext", "id": "mobile_description_2", "label": "Mobile secondary description", "default": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>" },
-    { "type": "text", "id": "heading", "label": "Main heading", "default": "Full Spectrum" },
-    { "type": "richtext", "id": "text", "label": "Main text", "default": "<p>Classical and proprietary Ayurvedic products, therapies, education, and R&amp;D.</p>" },
-    { "type": "text", "id": "patents_kicker", "label": "Patents kicker", "default": "Globally Recognized" },
-    { "type": "text", "id": "patents_heading", "label": "Patents heading", "default": "Patented Formulations" },
-    { "type": "richtext", "id": "patents_text", "label": "Patents text", "default": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>" },
-    { "type": "text", "id": "us_title", "label": "US title", "default": "US PATENT" },
-    { "type": "richtext", "id": "us_text", "label": "US text", "default": "<p>Protected formulation details and process knowledge.</p>" },
-    { "type": "text", "id": "japan_title", "label": "Japan title", "default": "JAPAN PATENT" },
-    { "type": "richtext", "id": "japan_text", "label": "Japan text", "default": "<p>Recognition of the proprietary process and method.</p>" },
-    { "type": "text", "id": "mark_kicker", "label": "Mark kicker", "default": "Rooted in" },
-    { "type": "text", "id": "mark_heading", "label": "Mark heading", "default": "Authentic Ayurveda." },
-    { "type": "richtext", "id": "mark_text", "label": "Mark text", "default": "<p>Bring the same trust cues from the Neeli landing page into Shopify.</p>" },
+    { "type": "text", "id": "desktop_title", "label": "Desktop title", "default": "" },
+    { "type": "text", "id": "mobile_title", "label": "Mobile title", "default": "" },
+    { "type": "richtext", "id": "desktop_description", "label": "Desktop description", "default": "<p></p>" },
+    { "type": "richtext", "id": "mobile_description", "label": "Mobile description", "default": "<p></p>" },
+    { "type": "text", "id": "desktop_kicker", "label": "Desktop kicker", "default": "" },
+    { "type": "text", "id": "mobile_kicker", "label": "Mobile kicker", "default": "" },
+    { "type": "text", "id": "desktop_title_2", "label": "Desktop secondary title", "default": "" },
+    { "type": "text", "id": "mobile_title_2", "label": "Mobile secondary title", "default": "" },
+    { "type": "richtext", "id": "desktop_description_2", "label": "Desktop secondary description", "default": "<p></p>" },
+    { "type": "richtext", "id": "mobile_description_2", "label": "Mobile secondary description", "default": "<p></p>" },
+    { "type": "text", "id": "heading", "label": "Main heading", "default": "" },
+    { "type": "richtext", "id": "text", "label": "Main text", "default": "<p></p>" },
+    { "type": "text", "id": "patents_kicker", "label": "Patents kicker", "default": "" },
+    { "type": "text", "id": "patents_heading", "label": "Patents heading", "default": "" },
+    { "type": "richtext", "id": "patents_text", "label": "Patents text", "default": "<p></p>" },
+    { "type": "text", "id": "us_title", "label": "US title", "default": "" },
+    { "type": "richtext", "id": "us_text", "label": "US text", "default": "<p></p>" },
+    { "type": "text", "id": "japan_title", "label": "Japan title", "default": "" },
+    { "type": "richtext", "id": "japan_text", "label": "Japan text", "default": "<p></p>" },
+    { "type": "text", "id": "mark_kicker", "label": "Mark kicker", "default": "" },
+    { "type": "text", "id": "mark_heading", "label": "Mark heading", "default": "" },
+    { "type": "richtext", "id": "mark_text", "label": "Mark text", "default": "<p></p>" },
     { "type": "image_picker", "id": "patent_1_image", "label": "Patent image 1" },
     { "type": "text", "id": "patent_1_title", "label": "Patent title 1", "default": "US PATENT" },
     { "type": "image_picker", "id": "patent_2_image", "label": "Patent image 2" },

@@ -29,6 +29,12 @@
   color: rgba(31, 77, 61, 0.74);
 }
 
+.theme-three-milks__text p,
+.theme-three-milks__card-desc p,
+.theme-three-milks__mobile-desc p {
+  margin: 0;
+}
+
 .theme-three-milks__desktop-grid {
   display: none;
 }

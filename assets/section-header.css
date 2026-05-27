@@ -111,6 +111,15 @@
   font-weight: 600;
 }
 
+.theme-header__brand-text,
+.theme-header__brand-text:link,
+.theme-header__brand-text:visited,
+.theme-header__brand-text:hover,
+.theme-header__brand-text:focus {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
 .theme-header__subnav {
   display: none;
 }
@@ -138,10 +147,10 @@
 
   .theme-header__nav-link {
     color: #fdfcf8;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.12em;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -161,6 +170,16 @@
   .theme-header__brand-image {
     height: 30px;
     filter: brightness(0) invert(1);
+  }
+
+  .theme-header__brand-text {
+    font-size: 20px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: var(--font-heading-family);
+    color: #fdfcf8 !important;
+    font-weight: 500;
+    line-height: 1;
   }
 
   /* Subnav */
@@ -255,4 +274,16 @@
 
 .theme-header__inner {
   min-height: 64px;
+}
+
+@media screen and (min-width: 990px) {
+  .theme-header__inner {
+    min-height: 82px;
+  }
+
+  .theme-header__action-btn svg,
+  .theme-header__menu-btn svg {
+    width: 26px;
+    height: 26px;
+  }
 }

@@ -91,6 +91,10 @@
     margin: 0 auto 12px;
   }
 
+  .theme-ki-card__text p {
+    margin: 0;
+  }
+
   @media screen and (max-width: 989px) {
     .theme-ki-grid {
       grid-template-columns: 1fr;
