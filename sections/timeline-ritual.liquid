@@ -6,16 +6,30 @@
       <header class="theme-timeline-ritual__header">
         <div class="kicker">{{ section.settings.kicker }}</div>
         <h2 class="theme-timeline-ritual__heading">{{ section.settings.heading }}</h2>
-        <div class="theme-timeline-ritual__text">{{ section.settings.text | strip_html }}</div>
+        <div class="theme-timeline-ritual__text">{{ section.settings.text }}</div>
       </header>
 
       <div class="theme-timeline-ritual__stages">
         {%- for block in section.blocks -%}
           <div class="theme-timeline-ritual__stage" {{ block.shopify_attributes }}>
-            <div class="theme-timeline-ritual__phase">{{ block.settings.phase }}</div>
-            <div class="theme-timeline-ritual__label">{{ block.settings.label }}</div>
-            <h3 class="theme-timeline-ritual__title">{{ block.settings.title }}</h3>
-            <div class="theme-timeline-ritual__body">{{ block.settings.body | strip_html }}</div>
+            <div class="theme-timeline-ritual__media">
+              {%- if block.settings.image != blank -%}
+                {%- assign stage_mobile_image = block.settings.mobile_image | default: block.settings.image -%}
+                {%- assign stage_image_alt = block.settings.image_alt | default: block.settings.title -%}
+                <picture>
+                  {%- if stage_mobile_image != blank -%}
+                    <source media="(max-width: 989px)" srcset="{{ stage_mobile_image | image_url: width: 480 }}">
+                  {%- endif -%}
+                  {{ block.settings.image | image_url: width: 520 | image_tag: class: 'theme-timeline-ritual__image', loading: 'lazy', alt: stage_image_alt }}
+                </picture>
+              {%- endif -%}
+            </div>
+            <div class="theme-timeline-ritual__copy">
+              <div class="theme-timeline-ritual__phase">{{ block.settings.phase }}</div>
+              <div class="theme-timeline-ritual__label">{{ block.settings.label }}</div>
+              <h3 class="theme-timeline-ritual__title">{{ block.settings.title }}</h3>
+              <div class="theme-timeline-ritual__body">{{ block.settings.body }}</div>
+            </div>
           </div>
         {%- endfor -%}
       </div>
@@ -41,7 +55,10 @@
       { "type": "text", "id": "phase", "label": "Phase", "default": "FIRST TIME" },
       { "type": "text", "id": "label", "label": "Label", "default": "FIRST APPLICATION" },
       { "type": "text", "id": "title", "label": "Title", "default": "Scalp cools immediately" },
-      { "type": "textarea", "id": "body", "label": "Body", "default": "The Neeli acts immediately. Oil absorbs without heaviness." }
+      { "type": "richtext", "id": "body", "label": "Body", "default": "<p>The Neeli acts immediately. Oil absorbs without heaviness.</p>" },
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
+      { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Timeline step image" }
     ] }
   ],
   "presets": [ { "name": "Timeline Ritual" } ]

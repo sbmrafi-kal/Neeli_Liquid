@@ -4,13 +4,23 @@
   <div class="theme-header-figma__inner">
     <div class="theme-header-figma__left">
       <nav class="theme-header-figma__nav" aria-label="Primary">
-        {%- for i in (1..5) -%}
-          {%- assign title = section.settings['nav_' | append: i | append: '_title'] | default: '' -%}
-          {%- assign url = section.settings['nav_' | append: i | append: '_url'] | default: routes.root_url -%}
-          {%- if title != blank -%}
-            <a class="theme-header-figma__nav-link" href="{{ url }}">{{ title }}</a>
-          {%- endif -%}
-        {%- endfor -%}
+        {%- assign nav_1_title = section.settings.nav_1_title | default: '' -%}
+        {%- assign nav_2_title = section.settings.nav_2_title | default: '' -%}
+        {%- assign nav_3_title = section.settings.nav_3_title | default: '' -%}
+        {%- assign nav_4_title = section.settings.nav_4_title | default: '' -%}
+        {%- assign nav_5_title = section.settings.nav_5_title | default: '' -%}
+
+        {%- assign nav_1_url = section.settings.nav_1_url | default: routes.root_url -%}
+        {%- assign nav_2_url = section.settings.nav_2_url | default: routes.root_url -%}
+        {%- assign nav_3_url = section.settings.nav_3_url | default: routes.root_url -%}
+        {%- assign nav_4_url = section.settings.nav_4_url | default: routes.root_url -%}
+        {%- assign nav_5_url = section.settings.nav_5_url | default: routes.root_url -%}
+
+        {%- if nav_1_title != blank -%}<a class="theme-header-figma__nav-link" href="{{ nav_1_url }}">{{ nav_1_title }}</a>{%- endif -%}
+        {%- if nav_2_title != blank -%}<a class="theme-header-figma__nav-link" href="{{ nav_2_url }}">{{ nav_2_title }}</a>{%- endif -%}
+        {%- if nav_3_title != blank -%}<a class="theme-header-figma__nav-link" href="{{ nav_3_url }}">{{ nav_3_title }}</a>{%- endif -%}
+        {%- if nav_4_title != blank -%}<a class="theme-header-figma__nav-link" href="{{ nav_4_url }}">{{ nav_4_title }}</a>{%- endif -%}
+        {%- if nav_5_title != blank -%}<a class="theme-header-figma__nav-link" href="{{ nav_5_url }}">{{ nav_5_title }}</a>{%- endif -%}
       </nav>
     </div>
 
@@ -30,15 +40,48 @@
       <a class="theme-header-figma__action" href="{{ routes.account_url }}" aria-label="Account">👤</a>
     </div>
   </div>
+
+  <div class="theme-header-figma__breadcrumbs-wrap">
+    <div class="theme-header-figma__breadcrumbs">
+      <a href="{{ routes.root_url }}">Home</a>
+      {%- assign breadcrumb_label = section.settings.breadcrumb_current_label | strip -%}
+      {%- if breadcrumb_label == blank -%}
+        {%- if request.page_type == 'product' and product != blank -%}
+          {%- assign breadcrumb_label = product.title -%}
+        {%- elsif request.page_type == 'collection' and collection != blank -%}
+          {%- assign breadcrumb_label = collection.title -%}
+        {%- elsif request.page_type == 'page' and page != blank and page.title != 'Home' -%}
+          {%- assign breadcrumb_label = page.title -%}
+        {%- elsif request.page_type == 'article' and article != blank -%}
+          {%- assign breadcrumb_label = article.title -%}
+        {%- endif -%}
+      {%- endif -%}
+      {%- if breadcrumb_label != blank and breadcrumb_label != 'Home' -%}
+        <span class="theme-header-figma__breadcrumb-sep">&gt;</span>
+        <span class="theme-header-figma__breadcrumb-current">{{ breadcrumb_label }}</span>
+      {%- endif -%}
+    </div>
+  </div>
 </header>
 
 {% schema %}
 {
   "name": "Header (Figma)",
   "settings": [
+    { "type": "text", "id": "nav_1_title", "label": "Nav item 1 label", "default": "Shop All" },
+    { "type": "url", "id": "nav_1_url", "label": "Nav item 1 link" },
+    { "type": "text", "id": "nav_2_title", "label": "Nav item 2 label", "default": "Clinics" },
+    { "type": "url", "id": "nav_2_url", "label": "Nav item 2 link" },
+    { "type": "text", "id": "nav_3_title", "label": "Nav item 3 label", "default": "Resorts" },
+    { "type": "url", "id": "nav_3_url", "label": "Nav item 3 link" },
+    { "type": "text", "id": "nav_4_title", "label": "Nav item 4 label", "default": "Hospitals" },
+    { "type": "url", "id": "nav_4_url", "label": "Nav item 4 link" },
+    { "type": "text", "id": "nav_5_title", "label": "Nav item 5 label", "default": "Academy" },
+    { "type": "url", "id": "nav_5_url", "label": "Nav item 5 link" },
     { "type": "image_picker", "id": "logo_image", "label": "Logo image" },
     { "type": "text", "id": "logo_alt", "label": "Logo alt text" },
-    { "type": "text", "id": "logo_text", "label": "Logo fallback text", "default": "Shop" }
+    { "type": "text", "id": "logo_text", "label": "Logo fallback text", "default": "Shop" },
+    { "type": "text", "id": "breadcrumb_current_label", "label": "Breadcrumb current label", "default": "" }
   ],
   "presets": [{ "name": "Header (Figma)" }]
 }

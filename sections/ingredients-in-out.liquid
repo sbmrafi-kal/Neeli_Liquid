@@ -5,28 +5,30 @@
     <div class="theme-ingredients-in-out__inner">
       <h2 class="theme-ingredients-in-out__heading">{{ section.settings.heading }}</h2>
       <div class="theme-ingredients-in-out__split">
+        {%- assign inclusion_items = '' -%}
+        {%- assign exclusion_items = '' -%}
+        {%- for block in section.blocks -%}
+          {%- capture item_markup -%}
+            <li class="theme-ingredients-in-out__item" {{ block.shopify_attributes }}>
+              <strong>{{ block.settings.title }}</strong>
+              <div class="theme-ingredients-in-out__item-text">{{ block.settings.text }}</div>
+            </li>
+          {%- endcapture -%}
+          {%- if block.type == 'inclusion' -%}
+            {%- assign inclusion_items = inclusion_items | append: item_markup -%}
+          {%- elsif block.type == 'exclusion' -%}
+            {%- assign exclusion_items = exclusion_items | append: item_markup -%}
+          {%- endif -%}
+        {%- endfor -%}
+
         <div class="theme-ingredients-in-out__box theme-ingredients-in-out__box--in">
           <h3 class="theme-ingredients-in-out__box-title">What's in it</h3>
-          <ul>
-            {%- for block in section.blocks | where: "type", "inclusion" -%}
-              <li class="theme-ingredients-in-out__item">
-                <strong>{{ block.settings.title }}</strong>
-                <div class="theme-ingredients-in-out__item-text">{{ block.settings.text | strip_html }}</div>
-              </li>
-            {%- endfor -%}
-          </ul>
+          <ul>{{ inclusion_items }}</ul>
         </div>
 
         <div class="theme-ingredients-in-out__box theme-ingredients-in-out__box--out">
           <h3 class="theme-ingredients-in-out__box-title">What is not</h3>
-          <ul>
-            {%- for block in section.blocks | where: "type", "exclusion" -%}
-              <li class="theme-ingredients-in-out__item">
-                <strong>{{ block.settings.title }}</strong>
-                <div class="theme-ingredients-in-out__item-text">{{ block.settings.text | strip_html }}</div>
-              </li>
-            {%- endfor -%}
-          </ul>
+          <ul>{{ exclusion_items }}</ul>
         </div>
       </div>
     </div>
@@ -42,11 +44,11 @@
   "blocks": [
     { "type": "inclusion", "name": "Inclusion", "settings": [
       { "type": "text", "id": "title", "label": "Title" },
-      { "type": "textarea", "id": "text", "label": "Text" }
+      { "type": "richtext", "id": "text", "label": "Text" }
     ] },
     { "type": "exclusion", "name": "Exclusion", "settings": [
       { "type": "text", "id": "title", "label": "Title" },
-      { "type": "textarea", "id": "text", "label": "Text" }
+      { "type": "richtext", "id": "text", "label": "Text" }
     ] }
   ],
   "presets": [ { "name": "Ingredients — In & Out" } ]

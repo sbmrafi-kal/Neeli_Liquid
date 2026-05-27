@@ -12,27 +12,71 @@
     <div class="theme-product-page__figma-media">
       <div class="theme-hero-carousel" data-theme-carousel data-theme-autoplay="false">
         <div class="theme-hero-carousel__stage">
-          {%- for i in (1..5) -%}
-            {%- assign img = section.settings['carousel_image_' | append: i] -%}
-            {%- if img != blank -%}
-              <figure class="theme-hero-carousel__slide" data-theme-carousel-slide>
-                {{ img | image_url: width: 1000 | image_tag: class: 'theme-hero-carousel__image', loading: 'lazy', alt: product_title }}
-              </figure>
+          {%- assign hero_slide_count = 0 -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'hero_image' -%}
+              {%- assign desktop_image = block.settings.image -%}
+              {%- assign mobile_image = block.settings.mobile_image | default: desktop_image -%}
+              {%- assign slide_alt = block.settings.alt | default: product_title -%}
+              {%- if desktop_image != blank -%}
+                {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
+                <figure class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}" data-theme-carousel-slide {{ block.shopify_attributes }}>
+                  <picture class="theme-hero-carousel__picture">
+                    {%- if mobile_image != blank -%}
+                      <source media="(max-width: 989px)" srcset="{{ mobile_image | image_url: width: 1200 }}">
+                    {%- endif -%}
+                    {{ desktop_image | image_url: width: 1600 | image_tag: class: 'theme-hero-carousel__image', loading: 'lazy', alt: slide_alt }}
+                  </picture>
+                </figure>
+              {%- endif -%}
             {%- endif -%}
           {%- endfor -%}
+
+          {%- if hero_slide_count == 0 and product.media.size > 0 -%}
+            {%- for media in product.media -%}
+              <figure class="theme-hero-carousel__slide{% if forloop.first %} is-active{% endif %}" data-theme-carousel-slide>
+                {%- if forloop.first -%}{%- assign hero_loading = 'eager' -%}{%- else -%}{%- assign hero_loading = 'lazy' -%}{%- endif -%}
+                  {%- if media.preview_image != blank -%}
+                    {{ media.preview_image | image_url: width: 1600 | image_tag: class: 'theme-hero-carousel__image', loading: hero_loading, alt: product_title }}
+                {%- elsif media.src != blank -%}
+                  {{ media | image_url: width: 1600 | image_tag: class: 'theme-hero-carousel__image', loading: hero_loading, alt: product_title }}
+                {%- endif -%}
+              </figure>
+            {%- endfor -%}
+          {%- endif -%}
 
           <button class="theme-hero-carousel__control theme-hero-carousel__control--prev" type="button" aria-label="Previous image" data-theme-carousel-prev>‹</button>
           <button class="theme-hero-carousel__control theme-hero-carousel__control--next" type="button" aria-label="Next image" data-theme-carousel-next>›</button>
 
           <div class="theme-hero-carousel__thumbs" role="tablist" aria-label="Product gallery thumbnails">
-            {%- for i in (1..5) -%}
-              {%- assign img = section.settings['carousel_image_' | append: i] -%}
-              {%- if img != blank -%}
-                <button class="theme-hero-carousel__thumb" type="button" data-theme-carousel-thumb="{{ forloop.index0 }}">
-                  {{ img | image_url: width: 140 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', alt: '' }}
+            {%- assign thumb_index = 0 -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'hero_image' and block.settings.image != blank -%}
+                <button class="theme-hero-carousel__thumb{% if thumb_index == 0 %} is-active{% endif %}" type="button" data-theme-carousel-thumb="{{ thumb_index }}">
+                  {{ block.settings.image | image_url: width: 180 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', alt: '' }}
                 </button>
+                {%- assign thumb_index = thumb_index | plus: 1 -%}
               {%- endif -%}
             {%- endfor -%}
+          </div>
+        </div>
+
+        <div class="theme-hero-carousel__stats" aria-label="Product highlights">
+          <div class="theme-hero-carousel__stat">
+            <div class="theme-hero-carousel__stat-value">{{ section.settings.stat_1_value }}</div>
+            <div class="theme-hero-carousel__stat-label">{{ section.settings.stat_1_label }}</div>
+          </div>
+          <div class="theme-hero-carousel__stat">
+            <div class="theme-hero-carousel__stat-value">{{ section.settings.stat_2_value }}</div>
+            <div class="theme-hero-carousel__stat-label">{{ section.settings.stat_2_label }}</div>
+          </div>
+          <div class="theme-hero-carousel__stat">
+            <div class="theme-hero-carousel__stat-value">{{ section.settings.stat_3_value }}</div>
+            <div class="theme-hero-carousel__stat-label">{{ section.settings.stat_3_label }}</div>
+          </div>
+          <div class="theme-hero-carousel__stat">
+            <div class="theme-hero-carousel__stat-value">{{ section.settings.stat_4_value }}</div>
+            <div class="theme-hero-carousel__stat-label">{{ section.settings.stat_4_label }}</div>
           </div>
         </div>
       </div>
@@ -41,6 +85,27 @@
     <div class="theme-product-page__figma-info">
       <h1 class="theme-product-page__title">{{ product_title | escape }}</h1>
       <p class="theme-product-page__subtitle">{{ section.settings.subtitle | default: 'One oil for complete hair recovery' }}</p>
+
+      {%- if section.settings.delivery_banner_text != blank -%}
+        <div class="theme-product-page__delivery-banner">
+          <span class="theme-product-page__delivery-icon" aria-hidden="true">🚚</span>
+          <span>{{ section.settings.delivery_banner_text | strip_html }}</span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.quote_text != blank -%}
+        <div class="theme-product-page__quote-wrap">
+          <div class="theme-product-page__quote">{{ section.settings.quote_text }}</div>
+          {%- if section.settings.quote_author != blank -%}
+            <div class="theme-product-page__quote-meta">{{ section.settings.quote_author | strip_html }}</div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.description_block != blank -%}
+        <div class="theme-product-page__desc-title">{{ section.settings.description_title }}</div>
+        <div class="theme-product-page__description-block">{{ section.settings.description_block }}</div>
+      {%- endif -%}
 
       {%- form 'product', product, id: "theme-product-form-figma", class: "theme-product-form" -%}
         <div class="theme-variant-boxes">
@@ -66,12 +131,18 @@
       {%- endform -%}
 
       <div class="theme-new-cert-block__stamps">
-        {%- for i in (1..4) -%}
-          {%- assign stamp = section.settings['stamp_' | append: i | append: '_image'] -%}
-          {%- if stamp != blank -%}
-            {{ stamp | image_url: width: 120 | image_tag: loading: 'lazy', alt: section.settings['stamp_' | append: i | append: '_alt'] }}
-          {%- endif -%}
-        {%- endfor -%}
+        {%- if section.settings.stamp_1_image != blank -%}
+          {{ section.settings.stamp_1_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: section.settings.stamp_1_alt }}
+        {%- endif -%}
+        {%- if section.settings.stamp_2_image != blank -%}
+          {{ section.settings.stamp_2_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: section.settings.stamp_2_alt }}
+        {%- endif -%}
+        {%- if section.settings.stamp_3_image != blank -%}
+          {{ section.settings.stamp_3_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: section.settings.stamp_3_alt }}
+        {%- endif -%}
+        {%- if section.settings.stamp_4_image != blank -%}
+          {{ section.settings.stamp_4_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: section.settings.stamp_4_alt }}
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -83,11 +154,19 @@
   "settings": [
     { "type": "product", "id": "product", "label": "Product override" },
     { "type": "text", "id": "subtitle", "label": "Subtitle" },
-    { "type": "image_picker", "id": "carousel_image_1", "label": "Carousel image 1" },
-    { "type": "image_picker", "id": "carousel_image_2", "label": "Carousel image 2" },
-    { "type": "image_picker", "id": "carousel_image_3", "label": "Carousel image 3" },
-    { "type": "image_picker", "id": "carousel_image_4", "label": "Carousel image 4" },
-    { "type": "image_picker", "id": "carousel_image_5", "label": "Carousel image 5" },
+    { "type": "text", "id": "delivery_banner_text", "label": "Delivery banner text", "default": "Free delivery on orders over ₹299 | 2-4 days delivery" },
+    { "type": "richtext", "id": "quote_text", "label": "Quote text", "default": "<p>Hair fall reduced noticeably, and I can already see tiny baby hairs coming.</p>" },
+    { "type": "text", "id": "quote_author", "label": "Quote author", "default": "- ANU R., CHENNAI" },
+    { "type": "text", "id": "description_title", "label": "Description title", "default": "How Neelibringadi Keram works" },
+    { "type": "richtext", "id": "description_block", "label": "Description block", "default": "<p>Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within.</p>" },
+    { "type": "text", "id": "stat_1_value", "label": "Stat 1 value", "default": "4.64★" },
+    { "type": "text", "id": "stat_1_label", "label": "Stat 1 label", "default": "Ratings" },
+    { "type": "text", "id": "stat_2_value", "label": "Stat 2 value", "default": "1200+" },
+    { "type": "text", "id": "stat_2_label", "label": "Stat 2 label", "default": "Reviews" },
+    { "type": "text", "id": "stat_3_value", "label": "Stat 3 value", "default": "30" },
+    { "type": "text", "id": "stat_3_label", "label": "Stat 3 label", "default": "Uses/bottle" },
+    { "type": "text", "id": "stat_4_value", "label": "Stat 4 value", "default": "40,000+" },
+    { "type": "text", "id": "stat_4_label", "label": "Stat 4 label", "default": "Bought last year" },
     { "type": "image_picker", "id": "stamp_1_image", "label": "Stamp 1" },
     { "type": "text", "id": "stamp_1_alt", "label": "Stamp 1 alt" },
     { "type": "image_picker", "id": "stamp_2_image", "label": "Stamp 2" },
@@ -96,6 +175,17 @@
     { "type": "text", "id": "stamp_3_alt", "label": "Stamp 3 alt" },
     { "type": "image_picker", "id": "stamp_4_image", "label": "Stamp 4" },
     { "type": "text", "id": "stamp_4_alt", "label": "Stamp 4 alt" }
+  ],
+  "blocks": [
+    {
+      "type": "hero_image",
+      "name": "Hero image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Desktop image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
+        { "type": "text", "id": "alt", "label": "Alt text", "default": "Product image" }
+      ]
+    }
   ],
   "presets": [{ "name": "Product Hero (Figma)" }]
 }
