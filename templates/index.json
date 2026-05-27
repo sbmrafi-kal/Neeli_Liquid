@@ -395,6 +395,7 @@
       "type": "massage-ritual",
       "settings": {
         "desktop_hero_image": "shopify://shop_images/how_to_use_desktop.png",
+        "mobile_hero_image": "shopify://shop_images/mob.png",
         "hero_alt": "Your Easy Massage Ritual",
         "desktop_step_1_title": "WARM",
         "desktop_step_1_text": "Warm oil penetrates - cold oil sits on the surface.",
