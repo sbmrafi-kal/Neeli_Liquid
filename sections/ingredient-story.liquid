@@ -62,6 +62,38 @@
     </div>
   </div>
 
+  {%- assign difference_blocks = section.blocks | where: 'type', 'difference' -%}
+  {%- if difference_blocks.size > 0 -%}
+    <div class="theme-ingredient-story__difference">
+      <div class="theme-product-page__wrap">
+        <div class="theme-ingredient-story__difference-header">
+          {%- assign difference_title = section.settings.accordion_kicker | default: section.settings.kicker -%}
+          {%- assign difference_subtitle = section.settings.accordion_heading -%}
+          {%- if difference_title != blank -%}
+            <h3 class="theme-ingredient-story__difference-title">{{ difference_title }}</h3>
+          {%- endif -%}
+          {%- if difference_subtitle != blank -%}
+            <div class="theme-ingredient-story__difference-subtitle">{{ difference_subtitle }}</div>
+          {%- endif -%}
+        </div>
+
+        <div class="theme-difference-panel">
+          <div class="theme-accordion">
+            {%- for block in difference_blocks -%}
+              {% render 'accordion-item',
+                item_id: 'Difference-' | append: block.id,
+                title: block.settings.title,
+                content: block.settings.text,
+                icon: block.settings.icon,
+                open: false
+              %}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
 </section>
 
 {% schema %}
@@ -75,6 +107,8 @@
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "The formula" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "What's in it. What is not." },
     { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Two clear columns make the formula easier to scan and trust.</p>" },
+    { "type": "text", "id": "accordion_kicker", "label": "Accordion kicker", "default": "Kerala Ayurveda Difference" },
+    { "type": "text", "id": "accordion_heading", "label": "Accordion heading", "default": "" },
     { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "default": 88, "label": "Top padding" },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 88, "label": "Bottom padding" }
   ],
@@ -94,6 +128,27 @@
         { "type": "text", "id": "title", "label": "Title", "default": "NO PARABENS" },
         { "type": "textarea", "id": "text", "label": "Text", "default": "We use natural antioxidants to preserve the formula." }
       ]
+    },
+    {
+      "type": "difference",
+      "name": "Difference item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "none",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "leather", "label": "Leather" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "ruler", "label": "Ruler" },
+            { "value": "heart", "label": "Heart" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "INGREDIENTS" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "A clear explanation of how the formula is put together." }
+      ]
     }
   ],
   "presets": [
@@ -106,7 +161,11 @@
         { "type": "exclusion" },
         { "type": "exclusion" },
         { "type": "exclusion" },
-        { "type": "exclusion" }
+        { "type": "exclusion" },
+        { "type": "difference" },
+        { "type": "difference" },
+        { "type": "difference" },
+        { "type": "difference" }
       ]
     }
   ]

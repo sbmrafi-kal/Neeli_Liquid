@@ -5,71 +5,127 @@
   or section.settings.desktop_title != blank
   or section.settings.mobile_image != blank
   or section.settings.desktop_image != blank
+  or section.settings.heading != blank
+  or section.settings.text != blank
+  or section.settings.patents_heading != blank
+  or section.settings.patents_text != blank
+  or section.settings.mark_heading != blank
+  or section.settings.mark_text != blank
 -%}
+
+{%- assign desktop_title = section.settings.heading | default: section.settings.desktop_title -%}
+{%- assign mobile_title = section.settings.heading | default: section.settings.mobile_title -%}
+{%- assign desktop_description = section.settings.text | default: section.settings.desktop_description -%}
+{%- assign mobile_description = section.settings.text | default: section.settings.mobile_description -%}
+{%- assign desktop_kicker = section.settings.patents_kicker | default: section.settings.desktop_kicker -%}
+{%- assign mobile_kicker = section.settings.patents_kicker | default: section.settings.mobile_kicker -%}
+{%- assign desktop_title_2 = section.settings.patents_heading | default: section.settings.desktop_title_2 -%}
+{%- assign mobile_title_2 = section.settings.patents_heading | default: section.settings.mobile_title_2 -%}
+{%- assign desktop_description_2 = section.settings.patents_text | default: section.settings.desktop_description_2 -%}
+{%- assign mobile_description_2 = section.settings.patents_text | default: section.settings.mobile_description_2 -%}
+{%- assign patent_1_title = section.settings.us_title | default: section.settings.patent_1_title -%}
+{%- assign patent_2_title = section.settings.japan_title | default: section.settings.patent_2_title -%}
+{%- assign patent_1_text = section.settings.us_text -%}
+{%- assign patent_2_text = section.settings.japan_text -%}
+{%- assign seal_kicker = section.settings.mark_kicker -%}
+{%- assign seal_title = section.settings.mark_heading | default: section.settings.seal_text -%}
+{%- assign seal_text = section.settings.mark_text -%}
+{%- assign desktop_image = section.settings.desktop_image | default: product.featured_image -%}
+{%- assign mobile_image = section.settings.mobile_image | default: product.featured_image -%}
 
 {%- if show_brand_trust -%}
 <section class="theme-brand-trust-section theme-reveal">
   <!-- MOBILE VIEW (lg:hidden) -->
   <div class="theme-brand-trust__mobile lg:hidden">
-    {%- if section.settings.mobile_image != blank -%}
+    {%- if mobile_image != blank -%}
       <div class="theme-brand-trust__mobile-img-wrap">
-        {{ section.settings.mobile_image | image_url: width: 900 | image_tag: class: 'theme-brand-trust__mobile-img', loading: 'lazy', alt: section.settings.mobile_title }}
+        {{ mobile_image | image_url: width: 900 | image_tag: class: 'theme-brand-trust__mobile-img', loading: 'lazy', alt: mobile_title }}
       </div>
     {%- endif -%}
 
     <div class="theme-brand-trust__mobile-content">
-      {%- if section.settings.mobile_title != blank -%}
-        <div class="theme-brand-trust__mobile-title">{{ section.settings.mobile_title }}</div>
+      {%- if mobile_title != blank -%}
+        <div class="theme-brand-trust__mobile-title">{{ mobile_title }}</div>
       {%- endif -%}
-      {%- if section.settings.mobile_description != blank -%}
-        <div class="theme-brand-trust__mobile-desc">{{ section.settings.mobile_description }}</div>
+      {%- if mobile_description != blank -%}
+        <div class="theme-brand-trust__mobile-desc">{{ mobile_description }}</div>
       {%- endif -%}
 
-      {%- if section.settings.mobile_title_2 != blank or section.settings.mobile_description_2 != blank or section.settings.patent_1_image != blank or section.settings.patent_2_image != blank -%}
+      {%- if mobile_title_2 != blank or mobile_description_2 != blank or patent_1_title != blank or patent_1_text != blank or patent_2_title != blank or patent_2_text != blank or section.settings.patent_1_image != blank or section.settings.patent_2_image != blank -%}
         <div class="theme-brand-trust__mobile-divider"></div>
       {%- endif -%}
 
-      {%- if section.settings.mobile_kicker != blank -%}
-        <div class="theme-brand-trust__mobile-kicker">{{ section.settings.mobile_kicker }}</div>
+      {%- if mobile_kicker != blank -%}
+        <div class="theme-brand-trust__mobile-kicker">{{ mobile_kicker }}</div>
       {%- endif -%}
-      {%- if section.settings.mobile_title_2 != blank -%}
-        <div class="theme-brand-trust__mobile-title theme-brand-trust__mobile-patents-title">{{ section.settings.mobile_title_2 }}</div>
+      {%- if mobile_title_2 != blank -%}
+        <div class="theme-brand-trust__mobile-title theme-brand-trust__mobile-patents-title">{{ mobile_title_2 }}</div>
       {%- endif -%}
-      {%- if section.settings.mobile_description_2 != blank -%}
-        <div class="theme-brand-trust__mobile-desc">{{ section.settings.mobile_description_2 }}</div>
+      {%- if mobile_description_2 != blank -%}
+        <div class="theme-brand-trust__mobile-desc">{{ mobile_description_2 }}</div>
       {%- endif -%}
 
-      {%- if section.settings.patent_1_image != blank or section.settings.patent_2_image != blank -%}
+      {%- if section.settings.patent_1_image != blank or section.settings.patent_2_image != blank or patent_1_title != blank or patent_1_text != blank or patent_2_title != blank or patent_2_text != blank -%}
         <div class="theme-brand-trust__mobile-patent-container">
           {%- if section.settings.patent_1_image != blank -%}
             <div class="motion-panel theme-brand-trust__mobile-patent-card">
               {{ section.settings.patent_1_image | image_url: width: 120 | image_tag: class: 'theme-brand-trust__mobile-flag', loading: 'lazy', alt: section.settings.patent_1_title }}
-              {%- if section.settings.patent_1_title != blank -%}
-                <div class="theme-brand-trust__mobile-patent-title">{{ section.settings.patent_1_title }}</div>
+              {%- if patent_1_title != blank -%}
+                <div class="theme-brand-trust__mobile-patent-title">{{ patent_1_title }}</div>
+              {%- endif -%}
+              {%- if patent_1_text != blank -%}
+                <div class="theme-brand-trust__mobile-patent-text">{{ patent_1_text }}</div>
+              {%- endif -%}
+            </div>
+          {%- elsif patent_1_title != blank or patent_1_text != blank -%}
+            <div class="motion-panel theme-brand-trust__mobile-patent-card theme-brand-trust__mobile-patent-card--text">
+              {%- if patent_1_title != blank -%}
+                <div class="theme-brand-trust__mobile-patent-title">{{ patent_1_title }}</div>
+              {%- endif -%}
+              {%- if patent_1_text != blank -%}
+                <div class="theme-brand-trust__mobile-patent-text">{{ patent_1_text }}</div>
               {%- endif -%}
             </div>
           {%- endif -%}
           {%- if section.settings.patent_2_image != blank -%}
             <div class="motion-panel theme-brand-trust__mobile-patent-card">
               {{ section.settings.patent_2_image | image_url: width: 120 | image_tag: class: 'theme-brand-trust__mobile-flag', loading: 'lazy', alt: section.settings.patent_2_title }}
-              {%- if section.settings.patent_2_title != blank -%}
-                <div class="theme-brand-trust__mobile-patent-title">{{ section.settings.patent_2_title }}</div>
+              {%- if patent_2_title != blank -%}
+                <div class="theme-brand-trust__mobile-patent-title">{{ patent_2_title }}</div>
+              {%- endif -%}
+              {%- if patent_2_text != blank -%}
+                <div class="theme-brand-trust__mobile-patent-text">{{ patent_2_text }}</div>
+              {%- endif -%}
+            </div>
+          {%- elsif patent_2_title != blank or patent_2_text != blank -%}
+            <div class="motion-panel theme-brand-trust__mobile-patent-card theme-brand-trust__mobile-patent-card--text">
+              {%- if patent_2_title != blank -%}
+                <div class="theme-brand-trust__mobile-patent-title">{{ patent_2_title }}</div>
+              {%- endif -%}
+              {%- if patent_2_text != blank -%}
+                <div class="theme-brand-trust__mobile-patent-text">{{ patent_2_text }}</div>
               {%- endif -%}
             </div>
           {%- endif -%}
         </div>
       {%- endif -%}
 
-      {%- if section.settings.seal_image != blank or section.settings.seal_text != blank -%}
+      {%- if section.settings.seal_image != blank or seal_kicker != blank or seal_title != blank or seal_text != blank -%}
         <div class="theme-brand-trust__mobile-seal-container">
           {%- if section.settings.seal_image != blank -%}
             <div class="theme-brand-trust__mobile-seal-img-wrap">
               {{ section.settings.seal_image | image_url: width: 240 | image_tag: class: 'theme-brand-trust__mobile-seal-img', loading: 'lazy', alt: section.settings.seal_text }}
             </div>
           {%- endif -%}
-          {%- if section.settings.seal_text != blank -%}
+          {%- if seal_kicker != blank -%}
+            <div class="theme-brand-trust__mobile-seal-kicker">{{ seal_kicker }}</div>
+          {%- endif -%}
+          {%- if seal_title != blank -%}
+            <div class="theme-brand-trust__mobile-seal-title">{{ seal_title }}</div>
+          {%- endif -%}
+          {%- if seal_text != blank -%}
             <div class="theme-brand-trust__mobile-seal-text-wrap">
-              <p class="theme-brand-trust__mobile-seal-text">{{ section.settings.seal_text | newline_to_br }}</p>
+              <div class="theme-brand-trust__mobile-seal-text">{{ seal_text }}</div>
             </div>
           {%- endif -%}
         </div>
@@ -79,49 +135,73 @@
 
   <!-- DESKTOP VIEW (hidden lg:grid) -->
   <div class="container-narrow theme-brand-trust__desktop hidden lg:grid">
-    {%- if section.settings.desktop_image != blank -%}
+    {%- if desktop_image != blank -%}
       <div class="theme-brand-trust__desktop-img-wrap">
-        {{ section.settings.desktop_image | image_url: width: 1200 | image_tag: class: 'theme-brand-trust__desktop-img', loading: 'lazy', alt: section.settings.desktop_title }}
+        {{ desktop_image | image_url: width: 1200 | image_tag: class: 'theme-brand-trust__desktop-img', loading: 'lazy', alt: desktop_title }}
       </div>
     {%- endif -%}
 
     <div class="theme-brand-trust__desktop-content">
-      {%- if section.settings.desktop_title != blank -%}
-        <div class="theme-brand-trust__desktop-title">{{ section.settings.desktop_title }}</div>
+      {%- if desktop_title != blank -%}
+        <div class="theme-brand-trust__desktop-title">{{ desktop_title }}</div>
       {%- endif -%}
-      {%- if section.settings.desktop_description != blank -%}
-        <div class="theme-brand-trust__desktop-desc">{{ section.settings.desktop_description }}</div>
+      {%- if desktop_description != blank -%}
+        <div class="theme-brand-trust__desktop-desc">{{ desktop_description }}</div>
       {%- endif -%}
 
-      {%- if section.settings.desktop_title_2 != blank or section.settings.desktop_description_2 != blank or section.settings.patent_1_image != blank or section.settings.patent_2_image != blank -%}
+      {%- if desktop_title_2 != blank or desktop_description_2 != blank or patent_1_title != blank or patent_1_text != blank or patent_2_title != blank or patent_2_text != blank or section.settings.patent_1_image != blank or section.settings.patent_2_image != blank -%}
         <div class="theme-brand-trust__desktop-divider"></div>
       {%- endif -%}
 
-      {%- if section.settings.desktop_kicker != blank -%}
-        <div class="theme-brand-trust__desktop-kicker">{{ section.settings.desktop_kicker }}</div>
+      {%- if desktop_kicker != blank -%}
+        <div class="theme-brand-trust__desktop-kicker">{{ desktop_kicker }}</div>
       {%- endif -%}
-      {%- if section.settings.desktop_title_2 != blank -%}
-        <div class="theme-brand-trust__desktop-title">{{ section.settings.desktop_title_2 }}</div>
+      {%- if desktop_title_2 != blank -%}
+        <div class="theme-brand-trust__desktop-title">{{ desktop_title_2 }}</div>
       {%- endif -%}
-      {%- if section.settings.desktop_description_2 != blank -%}
-        <div class="theme-brand-trust__desktop-desc">{{ section.settings.desktop_description_2 }}</div>
+      {%- if desktop_description_2 != blank -%}
+        <div class="theme-brand-trust__desktop-desc">{{ desktop_description_2 }}</div>
       {%- endif -%}
 
-      {%- if section.settings.patent_1_image != blank or section.settings.patent_2_image != blank -%}
+      {%- if section.settings.patent_1_image != blank or section.settings.patent_2_image != blank or patent_1_title != blank or patent_1_text != blank or patent_2_title != blank or patent_2_text != blank -%}
         <div class="theme-brand-trust__desktop-patent-container">
           {%- if section.settings.patent_1_image != blank -%}
             <div class="motion-panel theme-brand-trust__desktop-patent-card">
-              {{ section.settings.patent_1_image | image_url: width: 160 | image_tag: class: 'theme-brand-trust__desktop-flag', loading: 'lazy', alt: section.settings.patent_1_title }}
-              {%- if section.settings.patent_1_title != blank -%}
-                <div class="theme-brand-trust__desktop-patent-title">{{ section.settings.patent_1_title }}</div>
+              {{ section.settings.patent_1_image | image_url: width: 160 | image_tag: class: 'theme-brand-trust__desktop-flag', loading: 'lazy', alt: patent_1_title }}
+              {%- if patent_1_title != blank -%}
+                <div class="theme-brand-trust__desktop-patent-title">{{ patent_1_title }}</div>
+              {%- endif -%}
+              {%- if patent_1_text != blank -%}
+                <div class="theme-brand-trust__desktop-patent-text">{{ patent_1_text }}</div>
+              {%- endif -%}
+            </div>
+          {%- elsif patent_1_title != blank or patent_1_text != blank -%}
+            <div class="motion-panel theme-brand-trust__desktop-patent-card theme-brand-trust__desktop-patent-card--text">
+              {%- if patent_1_title != blank -%}
+                <div class="theme-brand-trust__desktop-patent-title">{{ patent_1_title }}</div>
+              {%- endif -%}
+              {%- if patent_1_text != blank -%}
+                <div class="theme-brand-trust__desktop-patent-text">{{ patent_1_text }}</div>
               {%- endif -%}
             </div>
           {%- endif -%}
           {%- if section.settings.patent_2_image != blank -%}
             <div class="motion-panel theme-brand-trust__desktop-patent-card">
-              {{ section.settings.patent_2_image | image_url: width: 160 | image_tag: class: 'theme-brand-trust__desktop-flag', loading: 'lazy', alt: section.settings.patent_2_title }}
-              {%- if section.settings.patent_2_title != blank -%}
-                <div class="theme-brand-trust__desktop-patent-title">{{ section.settings.patent_2_title }}</div>
+              {{ section.settings.patent_2_image | image_url: width: 160 | image_tag: class: 'theme-brand-trust__desktop-flag', loading: 'lazy', alt: patent_2_title }}
+              {%- if patent_2_title != blank -%}
+                <div class="theme-brand-trust__desktop-patent-title">{{ patent_2_title }}</div>
+              {%- endif -%}
+              {%- if patent_2_text != blank -%}
+                <div class="theme-brand-trust__desktop-patent-text">{{ patent_2_text }}</div>
+              {%- endif -%}
+            </div>
+          {%- elsif patent_2_title != blank or patent_2_text != blank -%}
+            <div class="motion-panel theme-brand-trust__desktop-patent-card theme-brand-trust__desktop-patent-card--text">
+              {%- if patent_2_title != blank -%}
+                <div class="theme-brand-trust__desktop-patent-title">{{ patent_2_title }}</div>
+              {%- endif -%}
+              {%- if patent_2_text != blank -%}
+                <div class="theme-brand-trust__desktop-patent-text">{{ patent_2_text }}</div>
               {%- endif -%}
             </div>
           {%- endif -%}
@@ -129,13 +209,19 @@
       {%- endif -%}
     </div>
 
-    {%- if section.settings.seal_image != blank or section.settings.seal_text != blank -%}
+    {%- if section.settings.seal_image != blank or seal_kicker != blank or seal_title != blank or seal_text != blank -%}
       <div class="theme-brand-trust__desktop-seal-container">
         {%- if section.settings.seal_image != blank -%}
-          {{ section.settings.seal_image | image_url: width: 220 | image_tag: class: 'theme-brand-trust__desktop-seal-img', loading: 'lazy', alt: section.settings.seal_text }}
+          {{ section.settings.seal_image | image_url: width: 220 | image_tag: class: 'theme-brand-trust__desktop-seal-img', loading: 'lazy', alt: seal_title }}
         {%- endif -%}
-        {%- if section.settings.seal_text != blank -%}
-          <p class="theme-brand-trust__desktop-seal-text">{{ section.settings.seal_text | newline_to_br }}</p>
+        {%- if seal_kicker != blank -%}
+          <div class="theme-brand-trust__desktop-seal-kicker">{{ seal_kicker }}</div>
+        {%- endif -%}
+        {%- if seal_title != blank -%}
+          <div class="theme-brand-trust__desktop-seal-title">{{ seal_title }}</div>
+        {%- endif -%}
+        {%- if seal_text != blank -%}
+          <div class="theme-brand-trust__desktop-seal-text">{{ seal_text }}</div>
         {%- endif -%}
       </div>
     {%- endif -%}
@@ -161,6 +247,18 @@
     { "type": "text", "id": "mobile_title_2", "label": "Mobile secondary title", "default": "Patented Formulations" },
     { "type": "richtext", "id": "desktop_description_2", "label": "Desktop secondary description", "default": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>" },
     { "type": "richtext", "id": "mobile_description_2", "label": "Mobile secondary description", "default": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>" },
+    { "type": "text", "id": "heading", "label": "Main heading", "default": "Full Spectrum" },
+    { "type": "richtext", "id": "text", "label": "Main text", "default": "<p>Classical and proprietary Ayurvedic products, therapies, education, and R&amp;D.</p>" },
+    { "type": "text", "id": "patents_kicker", "label": "Patents kicker", "default": "Globally Recognized" },
+    { "type": "text", "id": "patents_heading", "label": "Patents heading", "default": "Patented Formulations" },
+    { "type": "richtext", "id": "patents_text", "label": "Patents text", "default": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>" },
+    { "type": "text", "id": "us_title", "label": "US title", "default": "US PATENT" },
+    { "type": "richtext", "id": "us_text", "label": "US text", "default": "<p>Protected formulation details and process knowledge.</p>" },
+    { "type": "text", "id": "japan_title", "label": "Japan title", "default": "JAPAN PATENT" },
+    { "type": "richtext", "id": "japan_text", "label": "Japan text", "default": "<p>Recognition of the proprietary process and method.</p>" },
+    { "type": "text", "id": "mark_kicker", "label": "Mark kicker", "default": "Rooted in" },
+    { "type": "text", "id": "mark_heading", "label": "Mark heading", "default": "Authentic Ayurveda." },
+    { "type": "richtext", "id": "mark_text", "label": "Mark text", "default": "<p>Bring the same trust cues from the Neeli landing page into Shopify.</p>" },
     { "type": "image_picker", "id": "patent_1_image", "label": "Patent image 1" },
     { "type": "text", "id": "patent_1_title", "label": "Patent title 1", "default": "US PATENT" },
     { "type": "image_picker", "id": "patent_2_image", "label": "Patent image 2" },

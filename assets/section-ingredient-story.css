@@ -1,54 +1,60 @@
 .theme-ingredient-story__whats-in-it {
   background: #f7f3e9;
-  padding: 28px 0 24px;
+  padding: 24px 0 20px;
 }
 
 .theme-ingredient-story .theme-section-heading__title {
   color: #1f4d3d;
   font-family: var(--theme-heading-font), serif;
-  font-size: 42px;
-  line-height: 1;
-  margin-bottom: 32px;
+  font-size: clamp(28px, 3.6vw, 38px);
+  line-height: 1.02;
+  margin-bottom: 20px;
+}
+
+.theme-ingredient-story .theme-section-heading__text {
+  color: rgba(31, 77, 61, 0.72);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .theme-ingredient-story .theme-dual-panel {
   display: grid;
-  gap: 28px;
+  gap: 20px;
   grid-template-columns: 1fr;
   max-width: 1320px;
   margin: 0 auto;
 }
 
 .theme-ingredient-story .theme-panel {
-  border-radius: 12px;
-  border: 1px solid rgba(31, 77, 61, 0.2);
-  padding: 28px 30px;
+  border-radius: 14px;
+  border: 1px solid rgba(31, 77, 61, 0.16);
+  padding: 24px 24px;
 }
 
 .theme-ingredient-story .theme-panel--soft {
-  background: #dcece2;
+  background: #e8efe6;
 }
 
 .theme-ingredient-story .theme-panel--dark {
-  background: #f7f4ef;
-  border-color: rgba(143, 79, 54, 0.52);
+  background: #f5f0e8;
+  border-color: rgba(143, 79, 54, 0.3);
 }
 
 .theme-ingredient-story .theme-list {
   display: grid;
-  gap: 18px;
+  gap: 16px;
 }
 
 .theme-ingredient-story .theme-list__item {
   display: grid;
-  gap: 14px;
-  grid-template-columns: 40px 1fr;
+  gap: 12px;
+  grid-template-columns: 34px 1fr;
   align-items: start;
 }
 
 .theme-ingredient-story .theme-list__marker {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -66,19 +72,19 @@
 
 .theme-ingredient-story .theme-list__title {
   font-family: var(--theme-body-font), sans-serif;
-  font-size: 18px;
-  line-height: 1.03;
-  letter-spacing: 0;
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #1f4d3d;
   font-weight: 700;
 }
 
 .theme-ingredient-story .theme-list__text {
-  margin-top: 2px;
+  margin-top: 4px;
   font-size: 14px;
-  line-height: 1.4;
-  color: rgba(31, 77, 61, 0.82);
+  line-height: 1.45;
+  color: rgba(31, 77, 61, 0.76);
 }
 
 .theme-ingredient-story .theme-list__title--inverse {
@@ -86,7 +92,88 @@
 }
 
 .theme-ingredient-story .theme-list__text--inverse {
-  color: rgba(31, 77, 61, 0.82);
+  color: rgba(31, 77, 61, 0.76);
+}
+
+.theme-ingredient-story__difference {
+  background: #f7f3e9;
+  padding: 22px 0 10px;
+}
+
+.theme-ingredient-story__difference-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.theme-ingredient-story__difference-title {
+  font-family: var(--theme-heading-font), serif;
+  color: #1f4d3d;
+  font-size: clamp(24px, 2.8vw, 34px);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.theme-ingredient-story__difference-subtitle {
+  margin-top: 8px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(31, 77, 61, 0.58);
+}
+
+.theme-difference-panel {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #1f4d3d;
+  box-shadow: 0 10px 30px rgba(17, 48, 39, 0.08);
+}
+
+.theme-difference-panel .theme-accordion {
+  display: grid;
+}
+
+.theme-difference-panel .theme-accordion__item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.theme-difference-panel .theme-accordion__item:last-child {
+  border-bottom: 0;
+}
+
+.theme-difference-panel .theme-accordion__summary {
+  min-height: 60px;
+  padding: 18px 24px;
+  background: transparent;
+}
+
+.theme-difference-panel .theme-accordion__summary:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.theme-difference-panel .theme-accordion__summary-title {
+  gap: 12px;
+}
+
+.theme-difference-panel .theme-accordion__title {
+  color: #fdfcf8;
+  font-family: var(--theme-body-font);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.theme-difference-panel .theme-accordion__caret-svg {
+  stroke: rgba(253, 252, 248, 0.64);
+}
+
+.theme-difference-panel .theme-accordion__content {
+  padding: 0 24px 18px 52px;
+  color: rgba(253, 252, 248, 0.88);
+  font-size: 14px;
+  line-height: 1.55;
 }
 
 @media screen and (min-width: 990px) {
@@ -97,49 +184,48 @@
 
 @media screen and (max-width: 989px) {
   .theme-ingredient-story__whats-in-it {
-    padding: 18px 0 12px;
+    padding: 18px 0 14px;
   }
 
   .theme-ingredient-story .theme-section-heading__title {
-    font-size: 30px;
-    margin-bottom: 20px;
+    font-size: 24px;
+    margin-bottom: 16px;
   }
 
   .theme-ingredient-story .theme-dual-panel {
     gap: 14px;
-    max-width: 360px;
   }
 
   .theme-ingredient-story .theme-panel {
-    padding: 12px;
-    border-radius: 10px;
+    padding: 16px;
+    border-radius: 12px;
   }
 
   .theme-ingredient-story .theme-panel--soft .theme-list {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
+    gap: 8px;
   }
 
   .theme-ingredient-story .theme-panel--soft .theme-list__item {
     grid-template-columns: 1fr;
     justify-items: center;
     text-align: center;
-    background: #e4f2e9;
-    border: 1px solid rgba(31, 77, 61, 0.22);
+    background: #eef5eb;
+    border: 1px solid rgba(31, 77, 61, 0.18);
     border-radius: 12px;
     padding: 10px 8px;
-    min-height: 120px;
+    min-height: 112px;
   }
 
   .theme-ingredient-story .theme-panel--soft .theme-list__marker {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
   }
 
   .theme-ingredient-story .theme-panel--soft .theme-list__title {
     font-size: 13px;
-    line-height: 1.2;
+    line-height: 1.18;
     text-transform: none;
     font-family: var(--theme-body-font), sans-serif;
     font-weight: 600;
@@ -157,5 +243,28 @@
 
   .theme-ingredient-story .theme-panel--dark .theme-list__text {
     font-size: 12px;
+  }
+
+  .theme-ingredient-story__difference {
+    padding-top: 16px;
+  }
+
+  .theme-ingredient-story__difference-title {
+    font-size: 22px;
+  }
+
+  .theme-difference-panel .theme-accordion__summary {
+    min-height: 54px;
+    padding: 16px 18px;
+  }
+
+  .theme-difference-panel .theme-accordion__title {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+
+  .theme-difference-panel .theme-accordion__content {
+    padding: 0 18px 16px 44px;
+    font-size: 13px;
   }
 }

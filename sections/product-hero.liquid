@@ -22,6 +22,7 @@
   <script src="{{ 'theme-product-page.js' | asset_url }}" defer="defer"></script>
 
 {%- assign hero_images = product.media -%}
+{%- assign hero_fallback_image = product.featured_image -%}
 
   <div class="container-narrow">
     <div class="theme-product-page__hero">
@@ -42,6 +43,12 @@
                 {%- endif -%}
               </figure>
             {%- endfor -%}
+
+            {%- if hero_images.size == 0 and hero_fallback_image != blank -%}
+              <figure class="theme-hero-carousel__slide is-active" data-theme-carousel-slide>
+                {{ hero_fallback_image | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'eager', width: 750, height: 1000, alt: product_title }}
+              </figure>
+            {%- endif -%}
 
             <button class="theme-hero-carousel__control theme-hero-carousel__control--prev" type="button" aria-label="Previous image" data-theme-carousel-prev>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
@@ -66,6 +73,12 @@
                 {%- endif -%}
               </button>
             {%- endfor -%}
+
+            {%- if hero_images.size == 0 and hero_fallback_image != blank -%}
+              <button class="theme-hero-carousel__thumb is-active" type="button" aria-label="Show image 1" data-theme-carousel-thumb="0">
+                {{ hero_fallback_image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+              </button>
+            {%- endif -%}
           </div>
 
           <div class="theme-hero-carousel__stats">

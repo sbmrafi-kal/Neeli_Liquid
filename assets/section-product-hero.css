@@ -66,7 +66,7 @@
 .theme-hero-carousel__thumb {
   width: 2.625rem !important;
   height: 2.125rem !important;
-  border-radius: 10px !important;
+  border-radius: 8px !important;
   overflow: hidden !important;
   border: 1.5px solid transparent !important;
   opacity: 0.7 !important;
@@ -143,7 +143,7 @@
   grid-template-columns: repeat(4, 1fr) !important;
   background: #1f4d3d !important;
   color: #faf8f4 !important;
-  padding: 12px 0 !important;
+  padding: 10px 0 !important;
   gap: 0 !important;
   border-top: 0 !important;
   overflow: hidden !important;
@@ -151,7 +151,8 @@
   border-bottom-right-radius: 24px !important;
 }
 
-.theme-hero-carousel__stat-value { font-family: var(--font-heading-family) !important; font-size: 20px !important; line-height: 1 !important; }
+.theme-hero-carousel__stat-value { font-family: var(--font-heading-family) !important; font-size: 18px !important; line-height: 1 !important; }
+.theme-hero-carousel__stat-label { font-size: 10px !important; letter-spacing: 0.08em !important; line-height: 1.15 !important; }
 
 /* Pricing / reorder bar adjustments */
 .theme-reorder-card { border-radius: 1.125rem !important; min-height: 76px !important; height: auto !important; display: flex !important; align-items: center !important; }

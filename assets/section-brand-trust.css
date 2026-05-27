@@ -340,3 +340,175 @@
 .theme-brand-trust__mobile-flag {
   height: 34px !important;
 }
+
+/* Final cleanup: tighter type scale and aligned grid for the ref screenshot */
+.theme-brand-trust-section,
+.theme-brand-trust__mobile,
+.theme-brand-trust__desktop {
+  background: #1f4d3d !important;
+}
+
+.theme-brand-trust__desktop {
+  align-items: stretch !important;
+  grid-template-columns: 0.95fr 1.4fr 0.55fr !important;
+}
+
+.theme-brand-trust__desktop-img-wrap,
+.theme-brand-trust__desktop-content,
+.theme-brand-trust__desktop-seal-container {
+  min-height: 360px !important;
+}
+
+.theme-brand-trust__desktop-content {
+  padding: 2rem 2rem !important;
+  text-align: left !important;
+  justify-content: center !important;
+}
+
+.theme-brand-trust__desktop-title {
+  font-size: 26px !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+}
+
+.theme-brand-trust__desktop-kicker {
+  font-size: 12px !important;
+  letter-spacing: 0.12em !important;
+  color: #d7c870 !important;
+}
+
+.theme-brand-trust__desktop-desc {
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: rgba(250, 248, 244, 0.84) !important;
+}
+
+.theme-brand-trust__desktop-patent-container {
+  gap: 1rem !important;
+}
+
+.theme-brand-trust__desktop-patent-card {
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+}
+
+.theme-brand-trust__desktop-patent-card--text {
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+.theme-brand-trust__desktop-patent-title {
+  font-size: 13px !important;
+  color: #d2a13f !important;
+  letter-spacing: 0.06em !important;
+}
+
+.theme-brand-trust__desktop-patent-text {
+  margin-top: 6px !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  color: rgba(250, 248, 244, 0.82) !important;
+  font-family: var(--theme-body-font) !important;
+}
+
+.theme-brand-trust__desktop-seal-container {
+  padding: 2rem 1.25rem !important;
+}
+
+.theme-brand-trust__desktop-seal-kicker {
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #d7c870 !important;
+}
+
+.theme-brand-trust__desktop-seal-title {
+  margin-top: 4px !important;
+  font-family: var(--theme-heading-font) !important;
+  font-size: 18px !important;
+  line-height: 1.08 !important;
+  color: #faf8f4 !important;
+}
+
+.theme-brand-trust__desktop-seal-text {
+  margin-top: 10px !important;
+  max-width: 180px !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  color: rgba(250, 248, 244, 0.86) !important;
+}
+
+.theme-brand-trust__mobile-content {
+  padding: 1.5rem 1.25rem !important;
+}
+
+.theme-brand-trust__mobile-title {
+  font-size: 22px !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+}
+
+.theme-brand-trust__mobile-desc {
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.theme-brand-trust__mobile-kicker {
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+}
+
+.theme-brand-trust__mobile-patent-title {
+  font-size: 12px !important;
+  letter-spacing: 0.05em !important;
+}
+
+.theme-brand-trust__mobile-patent-text {
+  margin-top: 6px !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+  color: rgba(250, 248, 244, 0.82) !important;
+  font-family: var(--theme-body-font) !important;
+  text-align: center !important;
+}
+
+.theme-brand-trust__mobile-seal-container {
+  grid-template-columns: 1fr !important;
+  gap: 6px !important;
+  padding: 0 0 1.25rem !important;
+  border-top: 0 !important;
+}
+
+.theme-brand-trust__mobile-seal-img-wrap {
+  padding: 0.75rem 0 0.25rem !important;
+}
+
+.theme-brand-trust__mobile-seal-kicker {
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #d7c870 !important;
+  text-align: center !important;
+}
+
+.theme-brand-trust__mobile-seal-title {
+  font-family: var(--theme-heading-font) !important;
+  font-size: 16px !important;
+  line-height: 1.08 !important;
+  color: #faf8f4 !important;
+  text-align: center !important;
+}
+
+.theme-brand-trust__mobile-seal-text-wrap {
+  border-left: 0 !important;
+  padding: 0 !important;
+}
+
+.theme-brand-trust__mobile-seal-text {
+  writing-mode: horizontal-tb !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  color: rgba(250, 248, 244, 0.86) !important;
+}
