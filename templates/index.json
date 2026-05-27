@@ -1,8 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "header": {
       "type": "header",
       "settings": {
+        "menu_handle": "main-menu",
+        "nav_1_title": "Shop All",
+        "nav_1_url": "",
+        "nav_2_title": "Clinics",
+        "nav_2_url": "",
+        "nav_3_title": "Resorts",
+        "nav_3_url": "",
+        "nav_4_title": "Hospitals",
+        "nav_4_url": "",
+        "nav_5_title": "Academy",
+        "nav_5_url": "",
+        "logo_image": "shopify://shop_images/logo-kerala.png",
+        "logo_alt": "Kerala Ayurveda",
+        "logo_text": "Kerala Ayurveda",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -13,11 +36,12 @@
         "badge": {
           "type": "text",
           "settings": {
-            "text": "\u2022 Minimizes hair fall \u2022 Supports hair growth"
+            "text": "• Minimizes hair fall • Supports hair growth"
           }
         },
         "title": {
-          "type": "title"
+          "type": "title",
+          "settings": {}
         },
         "caption": {
           "type": "caption",
@@ -49,7 +73,7 @@
         "stat_1": {
           "type": "hero_stat",
           "settings": {
-            "value": "4.64\u2605",
+            "value": "4.64★",
             "label": "Ratings"
           }
         },
@@ -88,22 +112,42 @@
         "stat_4"
       ],
       "settings": {
+        "product": "",
+        "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 16,
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "hide_variants": false,
+        "enable_video_looping": false,
         "stat_1_value": "1945",
         "stat_1_label": "Established",
         "stat_2_value": "350+",
         "stat_2_label": "Products",
         "stat_3_value": "Clinics & Academy",
         "stat_3_label": "Expert led",
+        "stat_4_value": "40,000+",
+        "stat_4_label": "Bought last year",
+        "stamp_1_alt": "AYUSH certified",
+        "stamp_2_alt": "ISO certified",
+        "stamp_3_alt": "GMP certified",
+        "stamp_4_alt": "FDA compliant",
         "delivery_1_text": "2-4 day delivery",
         "delivery_2_text": "COD available",
         "delivery_3_text": "7-day returns",
         "category_label": "HAIR CARE",
         "review_count": "86",
         "cta_meta": "",
-        "description_block": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil."
+        "description_block": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.",
+        "padding_top": 0,
+        "padding_bottom": 16,
+        "delivery_banner_text": "Free delivery on orders over ₹299 | <span class=\"theme-delivery-banner__truck\">🚚</span> 2-4 days delivery",
+        "description_title": "How Neelibringadi Keram works",
+        "ritual_title": "The Ritual Guide",
+        "ritual_text": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week."
       }
     },
     "timeline": {
@@ -151,7 +195,10 @@
         "heading": "The honest sequence.",
         "text": "<p>Root strength comes before visible density.</p>",
         "footnote": "Based on consistent use as directed. Individual results may vary.",
-        "inverse_text": true,
+        "disclaimer": "In cooler weather the coconut oil base may solidify - warm the oil before use.",
+        "show_upsell": true,
+        "upsell_label": "Add internal support",
+        "upsell_products": [],
         "padding_top": 80,
         "padding_bottom": 60
       }
@@ -249,6 +296,7 @@
           "type": "ingredient",
           "settings": {
             "title": "Bringaraj",
+            "subtitle": "For scalp health",
             "text": "<p>Supports hair growth. Activates follicles and increases scalp circulation.</p>"
           }
         },
@@ -256,6 +304,7 @@
           "type": "ingredient",
           "settings": {
             "title": "Amla",
+            "subtitle": "For scalp health",
             "text": "<p>Minimizes hair fall. Strengthens the hair shaft with natural Vitamin C.</p>"
           }
         },
@@ -263,6 +312,7 @@
           "type": "ingredient",
           "settings": {
             "title": "Neeli",
+            "subtitle": "For scalp health",
             "text": "<p>Cools and recovers. Reduces scalp inflammation and promotes regrowth.</p>"
           }
         },
@@ -270,6 +320,7 @@
           "type": "ingredient",
           "settings": {
             "title": "Coconut oil",
+            "subtitle": "For scalp health",
             "text": "<p>Deep nourishment. Traditional carrier that mimics natural scalp lipids.</p>"
           }
         }
@@ -282,128 +333,14 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "soft_background": true,
-        "kicker": "",
         "heading": "Key Ingredients",
         "text": "",
-        "milk_kicker": "The secret base",
-        "milk_heading": "Three milks. One complete formula.",
-        "milk_text": "<p>Three nourishing milks work together for a healthier scalp and stronger, smoother hair.</p>",
-        "steps_kicker": "",
-        "steps_heading": "",
-        "steps_text": "",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "information": {
-      "type": "information",
-      "blocks": {
-        "info_1": {
-          "type": "info",
-          "settings": {
-            "icon": "none",
-            "title": "Full ingredient list",
-            "text": "<p><strong>Oil base</strong><br>Sesame oil (Sesamum indicum), Coconut oil (Cocos nucifera)</p><p><strong>Primary herbs</strong><br>Neeli (Indigofera tinctoria), Bhringaraja (Eclipta alba), Amla (Emblica officinalis)</p><p><strong>Triple-milk base</strong><br>Coconut milk, Goat milk, Cow milk - a genuine differentiator in Ayurvedic hair oil formulation</p><p><strong>Supporting herbs</strong><br>Manjishtha (Rubia cordifolia), Yashtimadhu (Glycyrrhiza glabra), Haritaki (Terminalia chebula), Vibhitaki (Terminalia bellirica), Jatamansi (Nardostachys jatamansi), Padmaka (Prunus cerasoides), Sariva (Hemidesmus indicus), Nilotpala, Durva, Gunjamoola, Priyangu, Anjana, and Lauha bhasma.</p><p>Processed over 7 days using traditional Taila Paka Vidhi (classical oil preparation method).</p>"
-          }
-        },
-        "info_2": {
-          "type": "info",
-          "settings": {
-            "icon": "truck",
-            "title": "Preparation - 7 days",
-            "text": "<p><strong>Preparation</strong></p><p>Each batch follows the Sahasrayogam's Taila Paka Vidhi - a classical method requiring 7 days of slow-heat extraction. Herbs are first made into a kashaya (decoction), then combined with the sesame oil base and kalka (paste). The mixture is heated on low flame, monitored by hand, until the water content fully evaporates and the herbal essence binds to the oil. This process cannot be rushed or mechanized.</p>"
-          }
-        },
-        "info_3": {
-          "type": "info",
-          "settings": {
-            "icon": "heart",
-            "title": "Safety & Interactions",
-            "text": "<p><strong>Safety &amp; interactions</strong></p><p>External use only. Always patch test before first full application. Pregnant or nursing? Talk to your doctor before starting a new topical regimen - the formula is not tested for this cohort.</p>"
-          }
-        },
-        "info_4": {
-          "type": "info",
-          "settings": {
-            "icon": "ruler",
-            "title": "Frequently asked",
-            "text": "<p><strong>When Will I See Results?</strong><br>Reduced hair fall is typically noticed within 2\u20133 weeks. Visible improvement in growth and texture requires 2+ months of consistent use. Recovery is a process, not a single event.</p><p><strong>Does It Help With Greying?</strong><br>Yes. Neeli and Bhringaraja are traditionally used to help minimise premature greying and support natural hair colour.</p><p><strong>Can I Use It On Coloured Hair?</strong><br>Yes. The formula is gentle. It may slightly darken hair over extended use due to the Bhringaraja and Neeli content.</p><p><strong>Is It Safe During Pregnancy?</strong><br>This is an external-use oil with no known contraindicated ingredients for topical application. However, as with any product during pregnancy or nursing, we recommend consulting your doctor before starting a new regimen.</p>"
-          }
-        },
-        "faq_1": {
-          "type": "faq",
-          "settings": {
-            "question": "When will I see results?",
-            "answer": "Reduced hair fall is typically noticed within 2 to 3 weeks."
-          }
-        },
-        "faq_2": {
-          "type": "faq",
-          "settings": {
-            "question": "Does it help with greying?",
-            "answer": "Neeli and Bhringaraja are traditionally used to support natural hair colour."
-          }
-        },
-        "faq_3": {
-          "type": "faq",
-          "settings": {
-            "question": "Can I use it on coloured hair?",
-            "answer": "Yes. The formula is gentle, but extended use may slightly darken hair over time."
-          }
-        },
-        "faq_4": {
-          "type": "faq",
-          "settings": {
-            "question": "Is it safe during pregnancy?",
-            "answer": "As with any new topical regimen during pregnancy or nursing, consult your doctor first."
-          }
-        }
-      },
-      "block_order": [
-        "info_1",
-        "info_2",
-        "info_3",
-        "info_4"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "soft_background": true,
-        "kicker": "Information",
-        "heading": "Go deeper.",
-        "text": "",
-        "info_kicker": "Full ingredient list",
-        "info_heading": "What is inside",
-        "faq_kicker": "Frequently asked",
-        "faq_heading": "Questions we hear often",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "brand_trust": {
-      "type": "brand-trust",
-      "settings": {
-        "color_scheme": "scheme-3",
-        "kicker": "",
-        "heading": "",
-        "text": "<p></p>",
-        "patents_kicker": "",
-        "patents_heading": "",
-        "patents_text": "<p></p>",
-        "us_title": "",
-        "us_text": "<p></p>",
-        "japan_title": "",
-        "japan_text": "<p></p>",
-        "mark_kicker": "",
-        "mark_heading": "",
-        "mark_text": "<p></p>",
         "padding_top": 80,
         "padding_bottom": 80
       }
     },
     "three_milks": {
       "type": "three-milks",
-      "settings": {},
       "blocks": {
         "milk_1": {
           "type": "milk",
@@ -431,46 +368,157 @@
         "milk_1",
         "milk_2",
         "milk_3"
-      ]
+      ],
+      "settings": {
+        "kicker": "THE SECRET BASE",
+        "heading": "Three milks. One complete formula.",
+        "text": "<p>Three nourishing milks work together for a healthier scalp and stronger, smoother hair.</p>",
+        "patch_test_label": "Always patch test first",
+        "tooltip_text": "Apply a small amount behind the ear or on the inner elbow. Wait 24-48 hours. If no redness or irritation appears, proceed with regular use."
+      }
     },
     "massage_ritual": {
       "type": "massage-ritual",
+      "settings": {
+        "hero_alt": "Your Easy Massage Ritual",
+        "desktop_step_1_title": "WARM",
+        "desktop_step_1_text": "Warm oil penetrates - cold oil sits on the surface.",
+        "desktop_step_2_title": "APPLY",
+        "desktop_step_2_text": "Apply adequate amount gently onto the scalp and hair.",
+        "desktop_step_3_title": "MASSAGE",
+        "desktop_step_3_text": "Circular motion, 5 minutes. Fingertips, not nails.",
+        "mobile_step_1_title": "WARM",
+        "mobile_step_1_text": "Warm oil penetrates - cold oil sits on the surface.",
+        "mobile_step_2_title": "APPLY",
+        "mobile_step_2_text": "Apply adequate amount gently onto the scalp and hair.",
+        "mobile_step_3_title": "MASSAGE",
+        "mobile_step_3_text": "Circular motion, 5 minutes. Fingertips, not nails."
+      }
+    },
+    "information": {
+      "type": "information",
+      "blocks": {
+        "info_1": {
+          "type": "info",
+          "settings": {
+            "icon": "none",
+            "title": "Full ingredient list",
+            "text": "<p><strong>Oil base</strong><br>Sesame oil (Sesamum indicum), Coconut oil (Cocos nucifera)</p><p><strong>Primary herbs</strong><br>Neeli (Indigofera tinctoria), Bhringaraja (Eclipta alba), Amla (Emblica officinalis)</p><p><strong>Triple-milk base</strong><br>Coconut milk, Goat milk, Cow milk - a genuine differentiator in Ayurvedic hair oil formulation</p><p><strong>Supporting herbs</strong><br>Manjishtha (Rubia cordifolia), Yashtimadhu (Glycyrrhiza glabra), Haritaki (Terminalia chebula), Vibhitaki (Terminalia bellirica), Jatamansi (Nardostachys jatamansi), Padmaka (Prunus cerasoides), Sariva (Hemidesmus indicus), Nilotpala, Durva, Gunjamoola, Priyangu, Anjana, and Lauha bhasma.</p><p>Processed over 7 days using traditional Taila Paka Vidhi (classical oil preparation method).</p>"
+          }
+        },
+        "info_2": {
+          "type": "info",
+          "settings": {
+            "icon": "truck",
+            "title": "Preparation - 7 days",
+            "text": "<p><strong>Preparation</strong></p><p>Each batch follows the Sahasrayogam's Taila Paka Vidhi - a classical method requiring 7 days of slow-heat extraction. Herbs are first made into a kashaya (decoction), then combined with the sesame oil base and kalka (paste). The mixture is heated on low flame, monitored by hand, until the water content fully evaporates and the herbal essence binds to the oil. This process cannot be rushed or mechanized.</p>"
+          }
+        },
+        "info_3": {
+          "type": "info",
+          "settings": {
+            "icon": "heart",
+            "title": "Safety & Interactions",
+            "text": "<p><strong>Safety & interactions</strong></p><p>External use only. Always patch test before first full application. Pregnant or nursing? Talk to your doctor before starting a new topical regimen - the formula is not tested for this cohort.</p>"
+          }
+        },
+        "info_4": {
+          "type": "info",
+          "settings": {
+            "icon": "ruler",
+            "title": "Frequently asked",
+            "text": "<p><strong>When Will I See Results?</strong><br>Reduced hair fall is typically noticed within 2–3 weeks. Visible improvement in growth and texture requires 2+ months of consistent use. Recovery is a process, not a single event.</p><p><strong>Does It Help With Greying?</strong><br>Yes. Neeli and Bhringaraja are traditionally used to help minimise premature greying and support natural hair colour.</p><p><strong>Can I Use It On Coloured Hair?</strong><br>Yes. The formula is gentle. It may slightly darken hair over extended use due to the Bhringaraja and Neeli content.</p><p><strong>Is It Safe During Pregnancy?</strong><br>This is an external-use oil with no known contraindicated ingredients for topical application. However, as with any product during pregnancy or nursing, we recommend consulting your doctor before starting a new regimen.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_1",
+        "info_2",
+        "info_3",
+        "info_4"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "soft_background": true,
+        "kicker": "Information",
+        "heading": "Go deeper.",
+        "text": "",
+        "info_kicker": "Full ingredient list",
+        "info_heading": "What is inside",
+        "faq_kicker": "Frequently asked",
+        "faq_heading": "Questions we hear often",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "brand_trust": {
+      "type": "brand-trust",
       "settings": {}
     },
     "footer": {
       "type": "footer",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "padding_top": 80,
-        "padding_bottom": 80
-      },
       "blocks": {
         "brand": {
           "type": "brand",
-          "settings": { "logo": "" }
+          "settings": {}
         },
         "links_1": {
           "type": "link_column",
-          "settings": { "heading": "Quick Links", "menu": "footer", "fallback_text": "About Kerala Ayurveda\nClinics\nAyurveda Academy" }
+          "settings": {
+            "heading": "Quick Links",
+            "menu": "footer",
+            "fallback_text": "About Kerala Ayurveda\nClinics\nAyurveda Academy"
+          }
         },
         "links_2": {
           "type": "link_column",
-          "settings": { "heading": "Policies", "menu": "footer" }
+          "settings": {
+            "heading": "Policies",
+            "menu": "footer",
+            "fallback_text": "About Kerala Ayurveda\nClinics\nAyurveda Academy"
+          }
         },
         "links_3": {
           "type": "link_column",
-          "settings": { "heading": "Our Network", "menu": "footer" }
+          "settings": {
+            "heading": "Our Network",
+            "menu": "footer",
+            "fallback_text": "About Kerala Ayurveda\nClinics\nAyurveda Academy"
+          }
         },
         "social": {
           "type": "social",
-          "settings": { "label": "Follow Us" }
+          "settings": {
+            "label": "Follow Us"
+          }
         },
         "tagline": {
           "type": "tagline",
-          "settings": { "text": "The Proprietary Kerala Ayurveda Formulation.\nThis Is One Of Them." }
+          "settings": {
+            "text": "The Proprietary Kerala Ayurveda Formulation.\nThis Is One Of Them."
+          }
         }
       },
-      "block_order": ["brand","links_1","links_2","links_3","social","tagline"]
+      "block_order": [
+        "brand",
+        "links_1",
+        "links_2",
+        "links_3",
+        "social",
+        "tagline"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "quick_links_menu": "footer",
+        "policies_menu": "footer",
+        "network_menu": "footer",
+        "social_label": "Follow Us",
+        "logo_alt": "Kerala Ayurveda",
+        "logo_text": "Kerala Ayurveda",
+        "tagline": "The Proprietary Kerala Ayurveda Formulation.\nThis Is One Of Them.",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
