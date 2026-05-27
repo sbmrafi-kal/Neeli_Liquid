@@ -16,17 +16,23 @@
         </button>
 
         <nav class="theme-header__nav" aria-label="Primary">
-          {%- if nav_links != blank and nav_links.size > 0 -%}
-            {%- for link in nav_links limit: 5 -%}
-              <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ link.url }}">{{ link.title }}</a>
-            {%- endfor -%}
-          {%- else -%}
-            <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ routes.root_url }}">Shop All</a>
-            <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ routes.root_url }}">Clinics</a>
-            <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ routes.root_url }}">Resorts</a>
-            <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ routes.root_url }}">Hospitals</a>
-            <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ routes.root_url }}">Academy</a>
-          {%- endif -%}
+          {%- assign nav_1_title = section.settings.nav_1_title | default: 'Shop All' -%}
+          {%- assign nav_2_title = section.settings.nav_2_title | default: 'Clinics' -%}
+          {%- assign nav_3_title = section.settings.nav_3_title | default: 'Resorts' -%}
+          {%- assign nav_4_title = section.settings.nav_4_title | default: 'Hospitals' -%}
+          {%- assign nav_5_title = section.settings.nav_5_title | default: 'Academy' -%}
+
+          {%- assign nav_1_url = section.settings.nav_1_url | default: routes.root_url -%}
+          {%- assign nav_2_url = section.settings.nav_2_url | default: routes.root_url -%}
+          {%- assign nav_3_url = section.settings.nav_3_url | default: routes.root_url -%}
+          {%- assign nav_4_url = section.settings.nav_4_url | default: routes.root_url -%}
+          {%- assign nav_5_url = section.settings.nav_5_url | default: routes.root_url -%}
+
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_1_url }}">{{ nav_1_title }}</a>
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_2_url }}">{{ nav_2_title }}</a>
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_3_url }}">{{ nav_3_title }}</a>
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_4_url }}">{{ nav_4_title }}</a>
+          <a class="theme-header__nav-link theme-header__nav-link--soft" href="{{ nav_5_url }}">{{ nav_5_title }}</a>
         </nav>
       </div>
 
@@ -99,6 +105,61 @@
       "id": "menu_handle",
       "label": "Main menu",
       "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "nav_1_title",
+      "label": "Nav item 1 label",
+      "default": "Shop All"
+    },
+    {
+      "type": "url",
+      "id": "nav_1_url",
+      "label": "Nav item 1 link"
+    },
+    {
+      "type": "text",
+      "id": "nav_2_title",
+      "label": "Nav item 2 label",
+      "default": "Clinics"
+    },
+    {
+      "type": "url",
+      "id": "nav_2_url",
+      "label": "Nav item 2 link"
+    },
+    {
+      "type": "text",
+      "id": "nav_3_title",
+      "label": "Nav item 3 label",
+      "default": "Resorts"
+    },
+    {
+      "type": "url",
+      "id": "nav_3_url",
+      "label": "Nav item 3 link"
+    },
+    {
+      "type": "text",
+      "id": "nav_4_title",
+      "label": "Nav item 4 label",
+      "default": "Hospitals"
+    },
+    {
+      "type": "url",
+      "id": "nav_4_url",
+      "label": "Nav item 4 link"
+    },
+    {
+      "type": "text",
+      "id": "nav_5_title",
+      "label": "Nav item 5 label",
+      "default": "Academy"
+    },
+    {
+      "type": "url",
+      "id": "nav_5_url",
+      "label": "Nav item 5 link"
     },
     {
       "type": "image_picker",

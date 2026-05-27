@@ -228,24 +228,6 @@
             "text": "This is a botanical product, but patch testing first is still the safest place to start for sensitive scalps."
           }
         },
-        "review_1": {
-          "type": "story_review",
-          "settings": {
-            "name": "Priya M.",
-            "meta": "BENGALURU \u2022 6 WEEKS",
-            "badge": "LESS FALL - WEEK 3",
-            "quote": "Less hair in the shower drain by week three. That was the first sign it was working. The routine is simple enough<br>to actually stick with."
-          }
-        },
-        "review_2": {
-          "type": "story_review",
-          "settings": {
-            "name": "Arjun V.",
-            "meta": "KOCHI \u2022 3 MONTHS",
-            "badge": "DENSITY IMPROVED",
-            "quote": "New growth visible at the temples after three months. Consistent use was the key. It's a recovery system, not a<br>quick fix."
-          }
-        }
       },
       "block_order": [
         "inclusion_1",
@@ -255,9 +237,7 @@
         "difference_1",
         "difference_2",
         "difference_3",
-        "difference_4",
-        "review_1",
-        "review_2"
+        "difference_4"
       ],
       "settings": {
         "color_scheme": "scheme-1",
@@ -430,43 +410,6 @@
         "padding_bottom": 80
       }
     },
-    "reviews": {
-      "type": "customer-reviews",
-      "blocks": {
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "name": "ANJALI K.",
-            "meta": "Verified Purchase",
-            "badge": "Postpartum hair fall",
-            "body": "Excellent for postpartum hair fall. Within a month, the amount of hair on my brush was noticeably less. The routine is easy to keep up."
-          }
-        },
-        "review_2": {
-          "type": "review",
-          "settings": {
-            "name": "ROHAN S.",
-            "meta": "Verified Purchase",
-            "badge": "Early greying",
-            "body": "Started using it for early greying. Two months in, the texture has improved and the earthy smell has grown on me. No heaviness."
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "soft_background": false,
-        "kicker": "Feedback",
-        "heading": "Customer Reviews",
-        "text": "",
-        "button_label": "Read all 86 reviews",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
     "three_milks": {
       "type": "three-milks",
       "settings": {},
@@ -522,7 +465,6 @@
     "massage_ritual",
     "information",
     "brand_trust",
-    "reviews",
     "footer"
   ]
 }

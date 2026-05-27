@@ -393,43 +393,6 @@
         "padding_bottom": 80
       }
     },
-    "reviews": {
-      "type": "customer-reviews",
-      "blocks": {
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "name": "ANJALI K.",
-            "meta": "Verified Purchase",
-            "badge": "Reduced hair fall",
-            "body": "Excellent for postpartum hair fall. Within a month, the amount of hair on my brush was noticeably less. The routine is easy to keep up."
-          }
-        },
-        "review_2": {
-          "type": "review",
-          "settings": {
-            "name": "ROHAN S.",
-            "meta": "Verified Purchase",
-            "badge": "Improved hair growth",
-            "body": "Started using it for early greying. Two months in, the texture has improved and the earthy smell has grown on me. No heaviness."
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "soft_background": false,
-        "kicker": "Feedback",
-        "heading": "Customer Reviews",
-        "text": "",
-        "button_label": "Read all 86 reviews",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
     "three_milks": {
       "type": "three-milks",
       "settings": {},
@@ -485,7 +448,6 @@
     "massage_ritual",
     "information",
     "brand_trust",
-    "reviews",
     "footer"
   ]
 }

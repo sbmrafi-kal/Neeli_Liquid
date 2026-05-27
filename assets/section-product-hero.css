@@ -210,12 +210,58 @@
   color: #a86d13 !important;
 }
 
+.theme-hero-ritual-guide__inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+}
+
+.theme-hero-ritual-guide__icon {
+  width: 24px !important;
+  height: 24px !important;
+  flex-shrink: 0 !important;
+  color: #e29a12 !important;
+}
+
+.theme-hero-ritual-guide__icon svg {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.theme-hero-ritual-guide__copy {
+  text-align: center !important;
+}
+
+.theme-hero-ritual-guide__title {
+  font-family: var(--font-body-family) !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: #8f5f17 !important;
+}
+
+.theme-hero-ritual-guide__text {
+  margin-top: 4px !important;
+  font-family: var(--font-body-family) !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+  color: #8f5f17 !important;
+}
+
 @media screen and (min-width: 990px) {
   .theme-hero-ritual-guide__card {
     max-width: 640px !important;
     width: 100% !important;
     margin-left: auto !important;
     margin-right: 0 !important;
+  }
+
+  .theme-hero-ritual-guide__inner {
+    justify-content: center !important;
   }
 }
 
