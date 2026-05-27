@@ -544,13 +544,9 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "quick_links_menu": "footer",
-        "policies_menu": "footer",
-        "network_menu": "footer",
         "social_label": "Follow Us",
         "logo_image": "shopify://shop_images/logo-kerala.png",
         "logo_alt": "Kerala Ayurveda",
-        "logo_text": "Kerala Ayurveda",
         "tagline": "The Proprietary Kerala Ayurveda Formulation.\nThis Is One Of Them.",
         "padding_top": 52,
         "padding_bottom": 80

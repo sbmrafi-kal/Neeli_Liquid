@@ -2,10 +2,6 @@
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'footer.js' | asset_url }}" defer="defer"></script>
 
-{%- assign quick_links_menu = linklists[section.settings.quick_links_menu] -%}
-{%- assign policies_menu = linklists[section.settings.policies_menu] -%}
-{%- assign network_menu = linklists[section.settings.network_menu] -%}
-
 <footer class="theme-product-page__section theme-reveal section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   <div class="theme-product-page__wrap">
     {%- if section.blocks.size > 0 -%}
@@ -221,39 +217,7 @@
               | image_url: width: 800
               | image_tag: class: 'theme-footer-brand__logo', loading: 'lazy', alt: section.settings.logo_alt
             }}
-          {%- else -%}
-            <span class="theme-footer-brand__text">{{ section.settings.logo_text | default: shop.name }}</span>
           {%- endif -%}
-        </div>
-        <div class="theme-footer-column">
-          <h2 class="theme-footer-column__title">Quick Links</h2>
-          <ul class="theme-footer-list">
-            {%- for link in quick_links_menu.links -%}
-              <li>
-                <a href="{{ link.url }}">{{ link.title }}</a>
-              </li>
-            {%- endfor -%}
-          </ul>
-        </div>
-        <div class="theme-footer-column">
-          <h2 class="theme-footer-column__title">Policies</h2>
-          <ul class="theme-footer-list">
-            {%- for link in policies_menu.links -%}
-              <li>
-                <a href="{{ link.url }}">{{ link.title }}</a>
-              </li>
-            {%- endfor -%}
-          </ul>
-        </div>
-        <div class="theme-footer-column">
-          <h2 class="theme-footer-column__title">Our Network</h2>
-          <ul class="theme-footer-list">
-            {%- for link in network_menu.links -%}
-              <li>
-                <a href="{{ link.url }}">{{ link.title }}</a>
-              </li>
-            {%- endfor -%}
-          </ul>
         </div>
       </div>
 
@@ -365,9 +329,6 @@
   "class": "section theme-footer",
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
-    { "type": "link_list", "id": "quick_links_menu", "label": "Quick links menu", "default": "footer" },
-    { "type": "link_list", "id": "policies_menu", "label": "Policies menu", "default": "footer" },
-    { "type": "link_list", "id": "network_menu", "label": "Our network menu", "default": "footer" },
     { "type": "text", "id": "social_label", "label": "Social label", "default": "Follow Us" },
     { "type": "url", "id": "facebook_link", "label": "Facebook link", "default": "" },
     { "type": "url", "id": "twitter_link", "label": "Twitter link", "default": "" },
@@ -376,7 +337,6 @@
     { "type": "url", "id": "linkedin_link", "label": "LinkedIn link", "default": "" },
     { "type": "image_picker", "id": "logo_image", "label": "Logo image" },
     { "type": "text", "id": "logo_alt", "label": "Logo alt text", "default": "Kerala Ayurveda" },
-    { "type": "text", "id": "logo_text", "label": "Logo fallback text", "default": "Kerala Ayurveda" },
     {
       "type": "textarea",
       "id": "tagline",
