@@ -4,8 +4,8 @@
   right: 0;
   bottom: 0;
   z-index: 120;
-  background: #8b5742;
-  padding: 14px 24px;
+  background: #8B5E3C; /* Figma brown */
+  padding: 12px 20px;
 }
 
 .theme-sticky-cart-bar__inner {

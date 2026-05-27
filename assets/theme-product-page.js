@@ -217,8 +217,8 @@
       const radios = Array.from(section.querySelectorAll('.theme-variant-box__input'));
       if (!radios.length) return;
 
-      const priceTargets = Array.from(section.querySelectorAll('.theme-reorder-btn__price-new, .theme-reorder-card__price-new, .theme-sticky-cart-bar__price'));
-      const oldPriceTargets = Array.from(section.querySelectorAll('.theme-reorder-btn__price-old, .theme-reorder-card__price-old'));
+      const priceTargets = Array.from(section.querySelectorAll('.theme-reorder-btn__price-new, .theme-reorder-card__price-new, .theme-sticky-cart-bar__price, .theme-variant-box__price-new'));
+      const oldPriceTargets = Array.from(section.querySelectorAll('.theme-reorder-btn__price-old, .theme-reorder-card__price-old, .theme-variant-box__price-old'));
       const actionButtons = Array.from(section.querySelectorAll('.theme-reorder-btn'));
       const titleTargets = Array.from(section.querySelectorAll('.theme-reorder-btn__title'));
       const labels = Array.from(section.querySelectorAll('.theme-variant-box'));
@@ -241,7 +241,7 @@
         });
 
         oldPriceTargets.forEach((node) => {
-          if (comparePrice.trim()) {
+          if (comparePrice && comparePrice.trim()) {
             node.textContent = comparePrice;
             node.hidden = false;
           } else {
