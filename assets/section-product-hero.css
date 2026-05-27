@@ -19,16 +19,18 @@
   margin-bottom: 0.5rem !important;
 }
 
+.theme-hero-carousel__stage { display: flex; align-items: center; justify-content: center; }
+.theme-hero-carousel__slide { display: flex; align-items: center; justify-content: center; }
 .theme-hero-carousel__image {
   display: block;
-  width: 100%;
-  height: auto !important;
-  aspect-ratio: 458 / 482;
-  min-height: 420px;
+  width: auto !important;
+  height: 100% !important;
+  min-height: 520px;
+  max-width: none !important;
   object-fit: cover !important;
   padding: 0 !important;
-  background: var(--theme-white);
-  object-position: center 32%;
+  background: transparent;
+  object-position: center center !important;
   transition: transform 0.35s ease;
 }
 
@@ -42,18 +44,18 @@
 
 .theme-hero-carousel__thumbs {
   position: absolute !important;
-  bottom: 40px !important;
+  bottom: 28px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   z-index: 12 !important;
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
-  background: rgba(255, 255, 255, 0.96) !important;
-  padding: 6px 8px !important;
+  background: transparent !important;
+  padding: 0 6px !important;
   border-radius: 12px !important;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12) !important;
-  backdrop-filter: blur(6px) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
   width: max-content !important;
   max-width: 88% !important;
 }
@@ -402,6 +404,12 @@
     align-items: center !important;
     padding: 0 14px !important;
   }
+
+/* Minor spacing to ensure ritual guide sits clearly below the hero */
+.theme-hero-ritual-guide { margin-top: 18px !important; }
+
+/* Ensure badges are visible and inline over the hero */
+.theme-product-page__badge { background: transparent !important; display: inline-flex !important; gap: 10px !important; align-items: center !important; padding: 6px 10px !important; border-radius: 999px !important; }
 
   .theme-product-page__description-block {
     box-sizing: border-box !important;
