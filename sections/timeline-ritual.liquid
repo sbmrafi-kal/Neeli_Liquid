@@ -1,0 +1,49 @@
+{{ 'section-timeline-ritual.css' | asset_url | stylesheet_tag }}
+
+<section class="theme-timeline-ritual section" role="region" aria-label="What to expect">
+  <div class="container-narrow">
+    <div class="theme-timeline-ritual__inner">
+      <header class="theme-timeline-ritual__header">
+        <div class="kicker">{{ section.settings.kicker }}</div>
+        <h2 class="theme-timeline-ritual__heading">{{ section.settings.heading }}</h2>
+        <div class="theme-timeline-ritual__text">{{ section.settings.text | strip_html }}</div>
+      </header>
+
+      <div class="theme-timeline-ritual__stages">
+        {%- for block in section.blocks -%}
+          <div class="theme-timeline-ritual__stage" {{ block.shopify_attributes }}>
+            <div class="theme-timeline-ritual__phase">{{ block.settings.phase }}</div>
+            <div class="theme-timeline-ritual__label">{{ block.settings.label }}</div>
+            <h3 class="theme-timeline-ritual__title">{{ block.settings.title }}</h3>
+            <div class="theme-timeline-ritual__body">{{ block.settings.body | strip_html }}</div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.footnote != blank -%}
+        <div class="theme-timeline-ritual__footnote">{{ section.settings.footnote | strip_html }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Timeline Ritual",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "What to expect" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The honest sequence." },
+    { "type": "textarea", "id": "text", "label": "Intro text", "default": "Root strength comes before visible density." },
+    { "type": "text", "id": "footnote", "label": "Footnote", "default": "*Based on consistent use as directed. Individual results may vary." }
+  ],
+  "blocks": [
+    { "type": "stage", "name": "Stage", "settings": [
+      { "type": "text", "id": "phase", "label": "Phase", "default": "FIRST TIME" },
+      { "type": "text", "id": "label", "label": "Label", "default": "FIRST APPLICATION" },
+      { "type": "text", "id": "title", "label": "Title", "default": "Scalp cools immediately" },
+      { "type": "textarea", "id": "body", "label": "Body", "default": "The Neeli acts immediately. Oil absorbs without heaviness." }
+    ] }
+  ],
+  "presets": [ { "name": "Timeline Ritual" } ]
+}
+{% endschema %}

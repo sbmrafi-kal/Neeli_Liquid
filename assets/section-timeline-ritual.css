@@ -1,0 +1,10 @@
+.theme-timeline-ritual__inner { padding: 48px 0; }
+.theme-timeline-ritual__header { text-align: left; margin-bottom: 28px; }
+.theme-timeline-ritual__heading { font-family: var(--theme-heading-font); font-size: 28px; margin: 6px 0 10px; }
+.theme-timeline-ritual__stages { display:flex; gap:18px; justify-content:space-between; }
+.theme-timeline-ritual__stage { background: #fff; padding: 18px; border-radius: 8px; flex:1; box-shadow: 0 6px 20px rgba(0,0,0,0.04); }
+.theme-timeline-ritual__phase { font-weight:700; color:#1f4d3d; font-size:12px; text-transform:uppercase; }
+.theme-timeline-ritual__label { font-weight:600; margin-top:6px; color:rgba(31,77,61,0.7); }
+.theme-timeline-ritual__title { margin:10px 0 6px; font-size:18px; }
+.theme-timeline-ritual__body { color: rgba(0,0,0,0.72); font-size:14px; }
+.theme-timeline-ritual__footnote { margin-top: 14px; font-size:13px; color:rgba(0,0,0,0.6); }

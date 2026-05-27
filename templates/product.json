@@ -10,14 +10,14 @@
 {
   "sections": {
     "header": {
-      "type": "header",
+      "type": "header-figma",
       "settings": {
         "padding_top": 0,
         "padding_bottom": 0
       }
     },
     "main": {
-      "type": "product-hero",
+      "type": "product-hero-figma",
       "blocks": {
         "hero_image_1": {
           "type": "hero_image",
@@ -147,7 +147,7 @@
       }
     },
     "timeline": {
-      "type": "what-to-expect",
+      "type": "timeline-ritual",
       "blocks": {
         "stage_1": {
           "type": "stage",
@@ -196,7 +196,7 @@
       }
     },
     "story": {
-      "type": "ingredient-story",
+      "type": "ingredients-in-out",
       "blocks": {
         "inclusion_1": {
           "type": "inclusion",

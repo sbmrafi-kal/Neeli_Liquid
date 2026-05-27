@@ -1,0 +1,9 @@
+.theme-ingredients-in-out__inner { padding: 48px 0; }
+.theme-ingredients-in-out__split { display:flex; gap:20px; }
+.theme-ingredients-in-out__box { flex:1; padding:20px; border-radius:8px; }
+.theme-ingredients-in-out__box--in { background: #f4fbf7; border:1px solid rgba(31,77,61,0.06); }
+.theme-ingredients-in-out__box--out { background: #fff6f3; border:1px solid rgba(131,77,60,0.06); }
+.theme-ingredients-in-out__box-title { font-weight:700; margin-bottom:10px; }
+.theme-ingredients-in-out__item { margin-bottom:12px; }
+.theme-ingredients-in-out__item-text { color: rgba(0,0,0,0.7); }
+@media (max-width: 900px) { .theme-ingredients-in-out__split { flex-direction: column; } }

@@ -1,0 +1,54 @@
+{{ 'section-ingredients-in-out.css' | asset_url | stylesheet_tag }}
+
+<section class="theme-ingredients-in-out section" role="region" aria-label="What's in it. What is not.">
+  <div class="container-narrow">
+    <div class="theme-ingredients-in-out__inner">
+      <h2 class="theme-ingredients-in-out__heading">{{ section.settings.heading }}</h2>
+      <div class="theme-ingredients-in-out__split">
+        <div class="theme-ingredients-in-out__box theme-ingredients-in-out__box--in">
+          <h3 class="theme-ingredients-in-out__box-title">What's in it</h3>
+          <ul>
+            {%- for block in section.blocks | where: "type", "inclusion" -%}
+              <li class="theme-ingredients-in-out__item">
+                <strong>{{ block.settings.title }}</strong>
+                <div class="theme-ingredients-in-out__item-text">{{ block.settings.text | strip_html }}</div>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        <div class="theme-ingredients-in-out__box theme-ingredients-in-out__box--out">
+          <h3 class="theme-ingredients-in-out__box-title">What is not</h3>
+          <ul>
+            {%- for block in section.blocks | where: "type", "exclusion" -%}
+              <li class="theme-ingredients-in-out__item">
+                <strong>{{ block.settings.title }}</strong>
+                <div class="theme-ingredients-in-out__item-text">{{ block.settings.text | strip_html }}</div>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients — In & Out",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What's in it. What is not." }
+  ],
+  "blocks": [
+    { "type": "inclusion", "name": "Inclusion", "settings": [
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "textarea", "id": "text", "label": "Text" }
+    ] },
+    { "type": "exclusion", "name": "Exclusion", "settings": [
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "textarea", "id": "text", "label": "Text" }
+    ] }
+  ],
+  "presets": [ { "name": "Ingredients — In & Out" } ]
+}
+{% endschema %}
