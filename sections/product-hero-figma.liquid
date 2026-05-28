@@ -25,6 +25,12 @@
               {%- assign slide_alt = block.settings.alt | default: product_title -%}
               {%- if desktop_image != blank -%}
                 {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
+                {%- assign hero_loading = 'lazy' -%}
+                {%- assign hero_fetchpriority = 'auto' -%}
+                {%- if hero_slide_count == 1 -%}
+                  {%- assign hero_loading = 'eager' -%}
+                  {%- assign hero_fetchpriority = 'high' -%}
+                {%- endif -%}
                 <figure
                   class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}"
                   data-theme-carousel-slide
@@ -37,7 +43,11 @@
                     {{
                       desktop_image
                       | image_url: width: 1600
-                      | image_tag: class: 'theme-hero-carousel__image', loading: 'lazy', alt: slide_alt
+                      | image_tag:
+                        class: 'theme-hero-carousel__image',
+                        loading: hero_loading,
+                        fetchpriority: hero_fetchpriority,
+                        alt: slide_alt
                     }}
                   </picture>
                 </figure>
@@ -53,20 +63,30 @@
               >
                 {%- if forloop.first -%}
                   {%- assign hero_loading = 'eager' -%}
+                  {%- assign hero_fetchpriority = 'high' -%}
                 {%- else -%}
                   {%- assign hero_loading = 'lazy' -%}
+                  {%- assign hero_fetchpriority = 'auto' -%}
                 {%- endif -%}
                 {%- if media.preview_image != blank -%}
                   {{
                     media.preview_image
                     | image_url: width: 1600
-                    | image_tag: class: 'theme-hero-carousel__image', loading: hero_loading, alt: product_title
+                    | image_tag:
+                      class: 'theme-hero-carousel__image',
+                      loading: hero_loading,
+                      fetchpriority: hero_fetchpriority,
+                      alt: product_title
                   }}
                 {%- elsif media.src != blank -%}
                   {{
                     media
                     | image_url: width: 1600
-                    | image_tag: class: 'theme-hero-carousel__image', loading: hero_loading, alt: product_title
+                    | image_tag:
+                      class: 'theme-hero-carousel__image',
+                      loading: hero_loading,
+                      fetchpriority: hero_fetchpriority,
+                      alt: product_title
                   }}
                 {%- endif -%}
               </figure>

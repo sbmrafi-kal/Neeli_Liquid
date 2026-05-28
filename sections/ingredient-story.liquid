@@ -60,7 +60,7 @@
   </div>
 
   {%- assign difference_blocks = section.blocks | where: 'type', 'difference' -%}
-  {%- if difference_blocks.size > 0 -%}
+  {%- if section.settings.show_difference and difference_blocks.size > 0 -%}
     <div class="theme-ingredient-story__difference">
       <div class="theme-product-page__wrap">
         <div class="theme-ingredient-story__difference-header">
@@ -108,6 +108,12 @@
       "id": "text",
       "label": "Text",
       "default": "<p>Two clear columns make the formula easier to scan and trust.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_difference",
+      "label": "Show difference accordion",
+      "default": false
     },
     { "type": "text", "id": "accordion_kicker", "label": "Accordion kicker", "default": "Kerala Ayurveda Difference" },
     { "type": "text", "id": "accordion_heading", "label": "Accordion heading", "default": "Why it matters" },

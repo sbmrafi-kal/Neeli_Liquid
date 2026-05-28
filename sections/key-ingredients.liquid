@@ -15,6 +15,12 @@
         {%- if block.type == 'ingredient' -%}
           <div class="theme-ki-card motion-panel" {{ block.shopify_attributes }}>
             {%- assign ingredient_mobile_image = block.settings.mobile_image | default: block.settings.image -%}
+            {%- assign show_ingredient_text = false -%}
+            {%- if section.settings.show_text -%}
+              {%- if block.settings.title != blank or block.settings.subtitle != blank or block.settings.text != blank -%}
+                {%- assign show_ingredient_text = true -%}
+              {%- endif -%}
+            {%- endif -%}
             {%- if block.settings.image != blank -%}
               <div class="theme-ki-card__img-wrap">
                 <picture>
@@ -34,19 +40,21 @@
               </div>
             {%- endif -%}
 
-            <div class="theme-ki-card__content">
-              {%- if block.settings.title != blank -%}
-                <h3 class="theme-ki-card__title">{{ block.settings.title }}</h3>
-              {%- endif -%}
+            {%- if show_ingredient_text -%}
+              <div class="theme-ki-card__content">
+                {%- if block.settings.title != blank -%}
+                  <h3 class="theme-ki-card__title">{{ block.settings.title }}</h3>
+                {%- endif -%}
 
-              {%- if block.settings.subtitle != blank -%}
-                <div class="theme-ki-card__subtitle">{{ block.settings.subtitle }}</div>
-              {%- endif -%}
+                {%- if block.settings.subtitle != blank -%}
+                  <div class="theme-ki-card__subtitle">{{ block.settings.subtitle }}</div>
+                {%- endif -%}
 
-              {%- if block.settings.text != blank -%}
-                <div class="theme-ki-card__text">{{ block.settings.text }}</div>
-              {%- endif -%}
-            </div>
+                {%- if block.settings.text != blank -%}
+                  <div class="theme-ki-card__text rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
           </div>
         {%- endif -%}
       {%- endfor -%}
@@ -61,8 +69,9 @@
   "class": "section theme-key-ingredients-section",
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "What's in it. What is not." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Key Ingredients" },
     { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Only potent Ayurvedic botanicals. No mineral oil, no artificial fragrances, no hidden chemicals.</p>" },
+    { "type": "checkbox", "id": "show_text", "label": "Show card text", "default": false },
     { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Top padding" },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Bottom padding" }
   ],

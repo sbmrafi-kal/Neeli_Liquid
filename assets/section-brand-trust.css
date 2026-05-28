@@ -11,7 +11,7 @@
 }
 
 .theme-brand-trust__mobile-hero {
-  aspect-ratio: 1 / 1.16;
+  aspect-ratio: 1 / 1.14;
   overflow: hidden;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .theme-brand-trust__mobile-panel {
-  padding: 18px 18px 20px;
+  padding: 18px 18px 22px;
 }
 
 .theme-brand-trust__mobile-copy + .theme-brand-trust__mobile-divider,
@@ -38,16 +38,17 @@
   font-weight: 400;
   line-height: 1;
   color: #fdfcf8;
+  letter-spacing: -0.02em;
 }
 
 .theme-brand-trust__mobile-title {
-  font-size: clamp(28px, 7vw, 36px);
+  font-size: clamp(30px, 7vw, 40px);
 }
 
 .theme-brand-trust__mobile-secondary-title {
   margin: 6px 0 0;
   font-family: var(--theme-heading-font), serif;
-  font-size: clamp(24px, 6.8vw, 32px);
+  font-size: clamp(26px, 6.5vw, 34px);
   line-height: 1;
   font-weight: 400;
   color: #fdfcf8;
@@ -116,15 +117,15 @@
 
 .theme-brand-trust__desktop {
   display: none;
-  grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.26fr) minmax(240px, 0.62fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(200px, 0.42fr);
   align-items: stretch;
-  min-height: 406px;
+  min-height: 456px;
 }
 
 .theme-brand-trust__desktop-media,
 .theme-brand-trust__desktop-content,
 .theme-brand-trust__desktop-seal {
-  min-height: 406px;
+  min-height: 456px;
 }
 
 .theme-brand-trust__desktop-media {
@@ -139,7 +140,7 @@
 }
 
 .theme-brand-trust__desktop-content {
-  padding: 34px 30px 30px;
+  padding: 56px 42px 36px;
   border-left: 1px solid rgba(253, 252, 248, 0.18);
   border-right: 1px solid rgba(253, 252, 248, 0.18);
   display: flex;
@@ -156,13 +157,13 @@
 }
 
 .theme-brand-trust__desktop-title {
-  font-size: clamp(30px, 2.4vw, 46px);
+  font-size: clamp(36px, 3vw, 56px);
 }
 
 .theme-brand-trust__desktop-secondary-title {
   margin: 6px 0 0;
   font-family: var(--theme-heading-font), serif;
-  font-size: clamp(24px, 2vw, 34px);
+  font-size: clamp(28px, 2.2vw, 40px);
   line-height: 1.06;
   font-weight: 400;
   color: #fdfcf8;
@@ -171,22 +172,25 @@
 .theme-brand-trust__desktop-desc {
   margin-top: 12px;
   font-size: 16px;
-  max-width: 560px;
+  line-height: 1.55;
+  max-width: 520px;
 }
 
 .theme-brand-trust__desktop-seal {
-  padding: 30px 24px;
+  padding: 32px 18px 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
+  overflow: hidden;
 }
 
 .theme-brand-trust__desktop-seal-image {
   display: block;
   width: auto;
-  height: 104px;
+  max-width: 160px;
+  height: auto;
   margin: 0 auto 16px;
   object-fit: contain;
 }
@@ -218,4 +222,16 @@
   .theme-brand-trust__mobile-panel {
     padding-inline: 16px;
   }
+}
+
+.theme-brand-trust-section .theme-brand-trust__desktop {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(200px, 0.42fr) !important;
+}
+
+.theme-brand-trust-section .theme-brand-trust__desktop-seal {
+  padding: 32px 18px 28px !important;
+}
+
+.theme-brand-trust-section .theme-brand-trust__desktop-seal-image {
+  max-width: 160px !important;
 }
