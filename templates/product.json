@@ -134,6 +134,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "subtitle": "One oil for complete hair recovery",
+        "intro_text": "<p>Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibringadi works both sides.</p>",
         "delivery_banner_text": "Free delivery on orders over ₹299 | 2-4 days delivery",
         "quote_text": "<p>Hair fall reduced noticeably, and I can already see tiny baby hairs coming.</p>",
         "quote_author": "- ANU R., CHENNAI",
@@ -474,10 +475,8 @@
         "desktop_kicker": "Globally Recognized",
         "desktop_title_2": "PATENTED FORMULATIONS",
         "desktop_description_2": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
-        "mark_heading": "",
-        "mark_text": "",
-        "seal_title": "ka",
-        "seal_text": "<p>Rooted in Authentic Ayurveda.</p>"
+        "mark_heading": "ka",
+        "mark_text": "<p>Rooted in Authentic Ayurveda.</p>"
       }
     },
     "three_milks": {
@@ -522,8 +521,8 @@
         "heading": "Always patch test- pop up",
         "button_label": "Always patch test first",
         "popup_text": "Apply a small amount behind the ear or on the inner elbow. Wait 24-48 hours. If no redness or irritation appears, proceed with regular use",
-        "padding_top": 14,
-        "padding_bottom": 14
+        "padding_top": 12,
+        "padding_bottom": 12
       }
     },
     "footer": {

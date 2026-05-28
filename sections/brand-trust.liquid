@@ -24,14 +24,22 @@
   assign seal_text_plain = seal_text | strip_html | strip
   assign has_content = false
   if desktop_image != blank
-    or mobile_image != blank
-    or desktop_title != blank
-    or desktop_description_plain != blank
-    or desktop_title_2 != blank
-    or desktop_description_2_plain != blank
-    or seal_image != blank
-    or seal_title != blank
-    or seal_text_plain != blank
+    assign has_content = true
+  elsif mobile_image != blank
+    assign has_content = true
+  elsif desktop_title != blank
+    assign has_content = true
+  elsif desktop_description_plain != blank
+    assign has_content = true
+  elsif desktop_title_2 != blank
+    assign has_content = true
+  elsif desktop_description_2_plain != blank
+    assign has_content = true
+  elsif seal_image != blank
+    assign has_content = true
+  elsif seal_title != blank
+    assign has_content = true
+  elsif seal_text_plain != blank
     assign has_content = true
   endif
 -%}

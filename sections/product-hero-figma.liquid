@@ -1,4 +1,5 @@
 {{ 'section-product-hero-figma.css' | asset_url | stylesheet_tag }}
+{{ 'sticky-cart-bar.css' | asset_url | stylesheet_tag }}
 
 {%- assign product_override = all_products[section.settings.product] -%}
 {%- if product_override != blank -%}
@@ -173,25 +174,10 @@
         {{ section.settings.subtitle | default: 'One oil for complete hair recovery' }}
       </p>
 
-      {%- if section.settings.delivery_banner_text != blank -%}
-        <div class="theme-product-page__delivery-banner">
-          <span class="theme-product-page__delivery-icon" aria-hidden="true">🚚</span>
-          <span>{{ section.settings.delivery_banner_text | strip_html }}</span>
-        </div>
-      {%- endif -%}
-
-      {%- if section.settings.quote_text != blank -%}
-        <div class="theme-product-page__quote-wrap">
-          <div class="theme-product-page__quote">{{ section.settings.quote_text }}</div>
-          {%- if section.settings.quote_author != blank -%}
-            <div class="theme-product-page__quote-meta">{{ section.settings.quote_author | strip_html }}</div>
-          {%- endif -%}
-        </div>
-      {%- endif -%}
-
-      {%- if section.settings.description_block != blank -%}
-        <div class="theme-product-page__desc-title">{{ section.settings.description_title }}</div>
-        <div class="theme-product-page__description-block">{{ section.settings.description_block }}</div>
+      {%- assign intro_text = section.settings.intro_text -%}
+      {%- assign intro_text_plain = intro_text | strip_html | strip -%}
+      {%- if intro_text_plain != blank -%}
+        <div class="theme-product-page__intro rte">{{ intro_text }}</div>
       {%- endif -%}
 
       {%- form 'product', product, id: 'theme-product-form-figma', class: 'theme-product-form' -%}
@@ -231,9 +217,41 @@
         </button>
       {%- endform -%}
 
+      {%- if section.settings.delivery_banner_text != blank -%}
+        <div class="theme-product-page__delivery-banner">
+          <span class="theme-product-page__delivery-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 6h11v9H3z"></path>
+              <path d="M14 9h3.5l3.5 3.5V15h-7z"></path>
+              <circle cx="7" cy="18" r="1.7"></circle>
+              <circle cx="17" cy="18" r="1.7"></circle>
+            </svg>
+          </span>
+          <span>{{ section.settings.delivery_banner_text | strip_html }}</span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.quote_text != blank -%}
+        <div class="theme-product-page__quote-wrap">
+          <div class="theme-product-page__quote">{{ section.settings.quote_text }}</div>
+          {%- if section.settings.quote_author != blank -%}
+            <div class="theme-product-page__quote-meta">{{ section.settings.quote_author | strip_html }}</div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.description_block != blank -%}
+        {%- if section.settings.description_title != blank -%}
+          <div class="theme-product-page__desc-title">{{ section.settings.description_title }}</div>
+        {%- endif -%}
+        <div class="theme-product-page__description-block rte">{{ section.settings.description_block }}</div>
+      {%- endif -%}
+
     </div>
   </div>
 </section>
+
+{% render 'sticky-cart-bar' %}
 
 {% schema %}
 {
@@ -252,6 +270,12 @@
       "id": "delivery_banner_text",
       "label": "Delivery banner text",
       "default": "Free delivery on orders over ₹299 | 2-4 days delivery"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Intro text",
+      "default": "<p>Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibringadi works both sides.</p>"
     },
     {
       "type": "richtext",

@@ -3,12 +3,18 @@
 {%- liquid
   assign has_marks = false
   if section.settings.mark_1_image != blank
-    or section.settings.mark_2_image != blank
-    or section.settings.mark_3_image != blank
-    or section.settings.mark_4_image != blank
-    or section.settings.stat_1_value != blank
-    or section.settings.stat_2_value != blank
-    or section.settings.stat_3_value != blank
+    assign has_marks = true
+  elsif section.settings.mark_2_image != blank
+    assign has_marks = true
+  elsif section.settings.mark_3_image != blank
+    assign has_marks = true
+  elsif section.settings.mark_4_image != blank
+    assign has_marks = true
+  elsif section.settings.stat_1_value != blank
+    assign has_marks = true
+  elsif section.settings.stat_2_value != blank
+    assign has_marks = true
+  elsif section.settings.stat_3_value != blank
     assign has_marks = true
   endif
 -%}
