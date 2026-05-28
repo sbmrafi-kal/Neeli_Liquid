@@ -47,71 +47,6 @@
           "settings": {
             "alt": "Product image 5"
           }
-        },
-        "badge": {
-          "type": "text",
-          "settings": {
-            "text": "• Minimizes hair fall • Supports hair growth"
-          }
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "caption": {
-          "type": "caption",
-          "settings": {
-            "text": "One oil for complete hair recovery",
-            "text_style": "body"
-          }
-        },
-        "feature_1": {
-          "type": "hero_feature",
-          "settings": {
-            "title": "",
-            "text": "Made by BAMS doctors in our GMP & ISO - certified facility. FDA compliant and AYUSH licensed."
-          }
-        },
-        "quote": {
-          "type": "hero_quote",
-          "settings": {
-            "quote": "\"Hair fall reduced noticeably, and I can already see tiny baby hairs coming\"",
-            "author": "- ANU R., CHENNAI"
-          }
-        },
-        "hero_note": {
-          "type": "hero_note",
-          "settings": {
-            "text": "Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides."
-          }
-        },
-        "stat_1": {
-          "type": "hero_stat",
-          "settings": {
-            "value": "4.64★",
-            "label": "Ratings"
-          }
-        },
-        "stat_2": {
-          "type": "hero_stat",
-          "settings": {
-            "value": "1200+",
-            "label": "Reviews"
-          }
-        },
-        "stat_3": {
-          "type": "hero_stat",
-          "settings": {
-            "value": "30",
-            "label": "Uses/per bottle"
-          }
-        },
-        "stat_4": {
-          "type": "hero_stat",
-          "settings": {
-            "value": "40,000+",
-            "label": "Bought last year"
-          }
         }
       },
       "block_order": [
@@ -119,17 +54,7 @@
         "hero_image_2",
         "hero_image_3",
         "hero_image_4",
-        "hero_image_5",
-        "badge",
-        "title",
-        "caption",
-        "feature_1",
-        "quote",
-        "hero_note",
-        "stat_1",
-        "stat_2",
-        "stat_3",
-        "stat_4"
+        "hero_image_5"
       ],
       "settings": {
         "color_scheme": "scheme-1",
@@ -148,7 +73,7 @@
         "stat_3_label": "Uses/per bottle",
         "stat_4_value": "40,000+",
         "stat_4_label": "Bought last year",
-        "description_block": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.",
+        "description_block": "<p>Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.</p>",
         "padding_top": 0
       }
     },
@@ -179,7 +104,7 @@
             "mobile_phase": "First Time",
             "label": "FIRST APPLICATION",
             "title": "Scalp cools immediately",
-            "body": "The Neeli acts immediately. Oil absorbs without heaviness."
+            "body": "<p>The Neeli acts immediately. Oil absorbs without heaviness.</p>"
           }
         },
         "stage_2": {
@@ -189,7 +114,7 @@
             "mobile_phase": "Week 2-3",
             "label": "~ 8 USES",
             "title": "Less in the shower",
-            "body": "Fall reduction is the first signal. The follicle is strengthening."
+            "body": "<p>Fall reduction is the first signal. The follicle is strengthening.</p>"
           }
         },
         "stage_3": {
@@ -199,7 +124,7 @@
             "mobile_phase": "Month 3+",
             "label": "~ 36 USES",
             "title": "Visible change",
-            "body": "Three months completes a cycle. Visible density increase at the crown.*"
+            "body": "<p>Three months completes a cycle. Visible density increase at the crown.*</p>"
           }
         }
       },
