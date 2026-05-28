@@ -16,21 +16,22 @@
   }
   .theme-info-header__title {
     font-family: var(--theme-heading-font), serif;
-    font-size: 36px;
+    font-size: clamp(34px, 4vw, 54px);
     color: #1f4d3d;
     font-weight: 400;
+    line-height: 1;
     margin: 0;
   }
   
   .theme-info-accordion-wrap {
-    width: min(1320px, 100%);
+    width: min(1320px, calc(100% - 48px));
     min-height: 162px;
     margin: 0 auto;
     background: #ffffff; /* changed from green to white for neutral menus */
     border-top: 1px solid rgba(23, 55, 45, 0.04);
     border-bottom: 1px solid rgba(23, 55, 45, 0.04);
-    border-radius: 8px;
-    box-shadow: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(17, 48, 39, 0.04);
     overflow: hidden;
   }
   
@@ -51,7 +52,7 @@
     display: none !important;
   }
   .theme-accordion__summary {
-    padding: 16px 28px;
+    padding: 18px 28px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,11 +64,11 @@
     background: rgba(255, 255, 255, 0.02);
   }
   .theme-accordion__title {
-    font-family: "Avenir", var(--theme-body-font), sans-serif;
-    font-size: 28px; /* toned down to avoid oversized menu titles */
+    font-family: var(--theme-heading-font), serif;
+    font-size: 22px;
     color: #1f4d3d; /* dark forest for readability on white */
-    font-weight: 500;
-    letter-spacing: 0.02em;
+    font-weight: 400;
+    letter-spacing: 0;
   }
   .theme-accordion__caret-svg {
     color: #1f4d3d;
@@ -80,7 +81,6 @@
   }
   .theme-accordion__content {
     padding: 0 28px 18px;
-    font-family: "Avenir", var(--theme-body-font), sans-serif;
     font-size: 16px;
     color: rgba(31, 77, 61, 0.8);
     background: transparent;
@@ -108,7 +108,7 @@
 
   .theme-info-faq-header__title {
     font-family: var(--theme-heading-font), serif;
-    font-size: 28px;
+    font-size: 24px;
     color: #1f4d3d;
     font-weight: 400;
     line-height: 1.08;
@@ -118,4 +118,32 @@
   .theme-info-faq-accordion {
     border-radius: 8px;
     overflow: hidden;
+  }
+
+  @media screen and (max-width: 989px) {
+    .theme-info-header {
+      margin-bottom: 24px;
+    }
+
+    .theme-info-header__title {
+      font-size: clamp(28px, 8vw, 38px);
+    }
+
+    .theme-info-accordion-wrap {
+      width: calc(100% - 24px);
+      border-radius: 10px;
+    }
+
+    .theme-accordion__summary {
+      padding: 14px 18px;
+    }
+
+    .theme-accordion__title {
+      font-size: 17px;
+    }
+
+    .theme-accordion__content {
+      padding: 0 18px 16px;
+      font-size: 14px;
+    }
   }
