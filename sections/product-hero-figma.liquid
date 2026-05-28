@@ -6,6 +6,7 @@
 {%- endif -%}
 {%- assign product_title = product.title | default: 'Product' -%}
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
+{%- assign badge_text = section.settings.badge_text | default: 'Minimizes hair fall • Supports hair growth' -%}
 
 <section
   id="ProductHeroFigma-{{ section.id }}"
@@ -132,6 +133,21 @@
     </div>
 
     <div class="theme-product-page__figma-info">
+      {%- if badge_text != blank -%}
+        <div class="theme-product-page__badge theme-product-page__badge--figma">
+          {%- assign badge_lines = badge_text | split: '•' -%}
+          {%- for badge_line in badge_lines -%}
+            {%- assign badge_label = badge_line | strip -%}
+            {%- if badge_label != blank -%}
+              <span class="theme-product-page__badge-line">
+                <span class="theme-badge-bullet" aria-hidden="true">•</span>
+                <span>{{ badge_label | strip_html }}</span>
+              </span>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
       <h1 class="theme-product-page__title">{{ product_title | escape }}</h1>
       <p class="theme-product-page__subtitle">
         {{ section.settings.subtitle | default: 'One oil for complete hair recovery' }}
@@ -222,6 +238,8 @@
           }}
         {%- endif -%}
       </div>
+
+      {% render 'ritual-guide', title: section.settings.ritual_title, text: section.settings.ritual_text %}
     </div>
   </div>
 </section>
@@ -232,6 +250,12 @@
   "settings": [
     { "type": "product", "id": "product", "label": "Product override" },
     { "type": "text", "id": "subtitle", "label": "Subtitle" },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "Minimizes hair fall • Supports hair growth"
+    },
     {
       "type": "text",
       "id": "delivery_banner_text",
@@ -256,6 +280,13 @@
       "id": "description_block",
       "label": "Description block",
       "default": "<p>Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within.</p>"
+    },
+    { "type": "text", "id": "ritual_title", "label": "Ritual guide title", "default": "The Ritual Guide" },
+    {
+      "type": "textarea",
+      "id": "ritual_text",
+      "label": "Ritual guide text",
+      "default": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week."
     },
     { "type": "text", "id": "stat_1_value", "label": "Stat 1 value", "default": "4.64★" },
     { "type": "text", "id": "stat_1_label", "label": "Stat 1 label", "default": "Ratings" },

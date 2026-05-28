@@ -3,15 +3,24 @@
 <section class="theme-ingredients-in-out section" role="region" aria-label="What's in it. What is not.">
   <div class="container-narrow">
     <div class="theme-ingredients-in-out__inner">
-      <h2 class="theme-ingredients-in-out__heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.heading != blank -%}
+        <h2 class="theme-ingredients-in-out__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
       <div class="theme-ingredients-in-out__split">
         {%- assign inclusion_items = '' -%}
         {%- assign exclusion_items = '' -%}
         {%- for block in section.blocks -%}
+          {%- if block.settings.title == blank and block.settings.text == blank -%}
+            {%- continue -%}
+          {%- endif -%}
           {%- capture item_markup -%}
             <li class="theme-ingredients-in-out__item" {{ block.shopify_attributes }}>
-              <strong>{{ block.settings.title }}</strong>
-              <div class="theme-ingredients-in-out__item-text">{{ block.settings.text }}</div>
+              {%- if block.settings.title != blank -%}
+                <strong>{{ block.settings.title }}</strong>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <div class="theme-ingredients-in-out__item-text rte">{{ block.settings.text }}</div>
+              {%- endif -%}
             </li>
           {%- endcapture -%}
           {%- if block.type == 'inclusion' -%}
@@ -22,14 +31,18 @@
         {%- endfor -%}
 
         <div class="theme-ingredients-in-out__box theme-ingredients-in-out__box--in">
-          <h3 class="theme-ingredients-in-out__box-title">What's in it</h3>
+          {%- if section.settings.inclusion_heading != blank -%}
+            <h3 class="theme-ingredients-in-out__box-title">{{ section.settings.inclusion_heading }}</h3>
+          {%- endif -%}
           <ul>
             {{ inclusion_items }}
           </ul>
         </div>
 
         <div class="theme-ingredients-in-out__box theme-ingredients-in-out__box--out">
-          <h3 class="theme-ingredients-in-out__box-title">What is not</h3>
+          {%- if section.settings.exclusion_heading != blank -%}
+            <h3 class="theme-ingredients-in-out__box-title">{{ section.settings.exclusion_heading }}</h3>
+          {%- endif -%}
           <ul>
             {{ exclusion_items }}
           </ul>
@@ -42,7 +55,11 @@
 {% schema %}
 {
   "name": "Ingredients — In & Out",
-  "settings": [{ "type": "text", "id": "heading", "label": "Heading", "default": "What's in it. What is not." }],
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What's in it. What is not." },
+    { "type": "text", "id": "inclusion_heading", "label": "Inclusion heading", "default": "What's in it" },
+    { "type": "text", "id": "exclusion_heading", "label": "Exclusion heading", "default": "What is not" }
+  ],
   "blocks": [
     {
       "type": "inclusion",

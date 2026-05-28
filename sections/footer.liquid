@@ -31,126 +31,87 @@
       </div>
 
       <!-- Link columns (render blocks if present, otherwise show sensible defaults) -->
-      {%- if link_blocks.size > 0 -%}
-        {%- for block in link_blocks -%}
-          <div class="theme-footer-column" {{ block.shopify_attributes }}>
-            {%- if block.settings.heading != blank -%}
-              <h2 class="theme-footer-column__title">{{ block.settings.heading }}</h2>
+      {%- for block in link_blocks -%}
+        <div class="theme-footer-column" {{ block.shopify_attributes }}>
+          {%- if block.settings.heading != blank -%}
+            <h2 class="theme-footer-column__title">{{ block.settings.heading }}</h2>
+          {%- endif -%}
+          <ul class="theme-footer-list">
+            {%- if block.settings.item_1_title != blank -%}
+              <li>
+                {%- if block.settings.item_1_link != blank -%}
+                  <a href="{{ block.settings.item_1_link }}">{{ block.settings.item_1_title }}</a>
+                {%- else -%}
+                  <span>{{ block.settings.item_1_title }}</span>
+                {%- endif -%}
+              </li>
             {%- endif -%}
-            <ul class="theme-footer-list">
-              {%- if block.settings.item_1_title != blank -%}
-                <li>
-                  {%- if block.settings.item_1_link != blank -%}
-                    <a href="{{ block.settings.item_1_link }}">{{ block.settings.item_1_title }}</a>
-                  {%- else -%}
-                    <span>{{ block.settings.item_1_title }}</span>
-                  {%- endif -%}
-                </li>
-              {%- endif -%}
-              {%- if block.settings.item_2_title != blank -%}
-                <li>
-                  {%- if block.settings.item_2_link != blank -%}
-                    <a href="{{ block.settings.item_2_link }}">{{ block.settings.item_2_title }}</a>
-                  {%- else -%}
-                    <span>{{ block.settings.item_2_title }}</span>
-                  {%- endif -%}
-                </li>
-              {%- endif -%}
-              {%- if block.settings.item_3_title != blank -%}
-                <li>
-                  {%- if block.settings.item_3_link != blank -%}
-                    <a href="{{ block.settings.item_3_link }}">{{ block.settings.item_3_title }}</a>
-                  {%- else -%}
-                    <span>{{ block.settings.item_3_title }}</span>
-                  {%- endif -%}
-                </li>
-              {%- endif -%}
-              {%- if block.settings.item_4_title != blank -%}
-                <li>
-                  {%- if block.settings.item_4_link != blank -%}
-                    <a href="{{ block.settings.item_4_link }}">{{ block.settings.item_4_title }}</a>
-                  {%- else -%}
-                    <span>{{ block.settings.item_4_title }}</span>
-                  {%- endif -%}
-                </li>
-              {%- endif -%}
-              {%- if block.settings.item_5_title != blank -%}
-                <li>
-                  {%- if block.settings.item_5_link != blank -%}
-                    <a href="{{ block.settings.item_5_link }}">{{ block.settings.item_5_title }}</a>
-                  {%- else -%}
-                    <span>{{ block.settings.item_5_title }}</span>
-                  {%- endif -%}
-                </li>
-              {%- endif -%}
-              {%- if block.settings.item_6_title != blank -%}
-                <li>
-                  {%- if block.settings.item_6_link != blank -%}
-                    <a href="{{ block.settings.item_6_link }}">{{ block.settings.item_6_title }}</a>
-                  {%- else -%}
-                    <span>{{ block.settings.item_6_title }}</span>
-                  {%- endif -%}
-                </li>
-              {%- endif -%}
-              {%- if block.settings.item_7_title != blank -%}
-                <li>
-                  {%- if block.settings.item_7_link != blank -%}
-                    <a href="{{ block.settings.item_7_link }}">{{ block.settings.item_7_title }}</a>
-                  {%- else -%}
-                    <span>{{ block.settings.item_7_title }}</span>
-                  {%- endif -%}
-                </li>
-              {%- endif -%}
-              {%- if block.settings.item_8_title != blank -%}
-                <li>
-                  {%- if block.settings.item_8_link != blank -%}
-                    <a href="{{ block.settings.item_8_link }}">{{ block.settings.item_8_title }}</a>
-                  {%- else -%}
-                    <span>{{ block.settings.item_8_title }}</span>
-                  {%- endif -%}
-                </li>
-              {%- endif -%}
-            </ul>
-          </div>
-        {%- endfor -%}
-      {%- else -%}
-        <!-- Fallback static columns when no blocks exist (keeps layout stable) -->
-        <div class="theme-footer-column">
-          <h2 class="theme-footer-column__title">Quick Links</h2>
-          <ul class="theme-footer-list">
-            <li><a href="#">About Kerala Ayurveda</a></li>
-            <li><a href="#">Clinics</a></li>
-            <li><a href="#">Ayurveda Academy</a></li>
-            <li><a href="#">Investors</a></li>
-            <li><a href="#">Research & Development</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Blogs</a></li>
-            <li><a href="#">Our Editorial Team</a></li>
+            {%- if block.settings.item_2_title != blank -%}
+              <li>
+                {%- if block.settings.item_2_link != blank -%}
+                  <a href="{{ block.settings.item_2_link }}">{{ block.settings.item_2_title }}</a>
+                {%- else -%}
+                  <span>{{ block.settings.item_2_title }}</span>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+            {%- if block.settings.item_3_title != blank -%}
+              <li>
+                {%- if block.settings.item_3_link != blank -%}
+                  <a href="{{ block.settings.item_3_link }}">{{ block.settings.item_3_title }}</a>
+                {%- else -%}
+                  <span>{{ block.settings.item_3_title }}</span>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+            {%- if block.settings.item_4_title != blank -%}
+              <li>
+                {%- if block.settings.item_4_link != blank -%}
+                  <a href="{{ block.settings.item_4_link }}">{{ block.settings.item_4_title }}</a>
+                {%- else -%}
+                  <span>{{ block.settings.item_4_title }}</span>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+            {%- if block.settings.item_5_title != blank -%}
+              <li>
+                {%- if block.settings.item_5_link != blank -%}
+                  <a href="{{ block.settings.item_5_link }}">{{ block.settings.item_5_title }}</a>
+                {%- else -%}
+                  <span>{{ block.settings.item_5_title }}</span>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+            {%- if block.settings.item_6_title != blank -%}
+              <li>
+                {%- if block.settings.item_6_link != blank -%}
+                  <a href="{{ block.settings.item_6_link }}">{{ block.settings.item_6_title }}</a>
+                {%- else -%}
+                  <span>{{ block.settings.item_6_title }}</span>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+            {%- if block.settings.item_7_title != blank -%}
+              <li>
+                {%- if block.settings.item_7_link != blank -%}
+                  <a href="{{ block.settings.item_7_link }}">{{ block.settings.item_7_title }}</a>
+                {%- else -%}
+                  <span>{{ block.settings.item_7_title }}</span>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+            {%- if block.settings.item_8_title != blank -%}
+              <li>
+                {%- if block.settings.item_8_link != blank -%}
+                  <a href="{{ block.settings.item_8_link }}">{{ block.settings.item_8_title }}</a>
+                {%- else -%}
+                  <span>{{ block.settings.item_8_title }}</span>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
           </ul>
         </div>
-        <div class="theme-footer-column">
-          <h2 class="theme-footer-column__title">Policies</h2>
-          <ul class="theme-footer-list">
-            <li><a href="#">Terms Of Use</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Shipping And Delivery Policy</a></li>
-            <li><a href="#">Return/Cancellation Policy</a></li>
-            <li><a href="#">FAQs</a></li>
-          </ul>
-        </div>
-        <div class="theme-footer-column">
-          <h2 class="theme-footer-column__title">Our Network</h2>
-          <ul class="theme-footer-list">
-            <li><a href="#">Ayurvedagram Bengaluru</a></li>
-            <li><a href="#">Ayurvedagram Bali</a></li>
-            <li><a href="#">The Health Village</a></li>
-            <li><a href="#">Kerala Ayurveda India - Academy</a></li>
-            <li><a href="#">Kerala Ayurveda USA - Store</a></li>
-            <li><a href="#">Kerala Ayurveda USA - Wellness</a></li>
-            <li><a href="#">Kerala Ayurveda USA - Academy</a></li>
-          </ul>
-        </div>
-      {%- endif -%}
+      {%- endfor -%}
     </div>
 
     <!-- Social + Tagline (prefer add/remove social blocks, fallback to legacy social block) -->

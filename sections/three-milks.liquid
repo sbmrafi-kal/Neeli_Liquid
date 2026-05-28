@@ -18,10 +18,22 @@
         {%- if block.type == 'milk' -%}
           <article class="theme-three-milks__mobile-card theme-three-milks__mobile-card--{{ forloop.index }} motion-panel" {{ block.shopify_attributes }}>
             <div class="theme-three-milks__mobile-image-wrap">
-              {%- if block.settings.mobile_image != blank -%}
-                {{ block.settings.mobile_image | image_url: width: 124 | image_tag: class: 'theme-three-milks__mobile-image', loading: 'lazy', alt: block.settings.title }}
-              {%- elsif block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 124 | image_tag: class: 'theme-three-milks__mobile-image', loading: 'lazy', alt: block.settings.title }}
+              {%- assign milk_mobile_image = block.settings.mobile_image | default: block.settings.image -%}
+              {%- if block.settings.image != blank -%}
+                <picture>
+                  {%- if milk_mobile_image != blank -%}
+                    <source media="(max-width: 989px)" srcset="{{ milk_mobile_image | image_url: width: 240 }}">
+                  {%- endif -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 320
+                    | image_tag:
+                      class: 'theme-three-milks__mobile-image',
+                      loading: 'lazy',
+                      widths: '124, 180, 240, 320',
+                      alt: block.settings.title
+                  }}
+                </picture>
               {%- endif -%}
             </div>
             <div class="theme-three-milks__mobile-content">
@@ -42,7 +54,20 @@
           <article class="theme-three-milks__card motion-panel" {{ block.shopify_attributes }}>
             <div class="theme-three-milks__image-wrap">
               {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 188 | image_tag: class: 'theme-three-milks__image', loading: 'lazy' }}
+                <picture>
+                  {%- if block.settings.mobile_image != blank -%}
+                    <source media="(max-width: 989px)" srcset="{{ block.settings.mobile_image | image_url: width: 240 }}">
+                  {%- endif -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 400
+                    | image_tag:
+                      class: 'theme-three-milks__image',
+                      loading: 'lazy',
+                      widths: '188, 240, 320, 400',
+                      alt: block.settings.title
+                  }}
+                </picture>
               {%- endif -%}
             </div>
             <h3 class="theme-three-milks__card-title">{{ block.settings.title }}</h3>

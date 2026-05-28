@@ -14,21 +14,39 @@
       {%- for block in section.blocks -%}
         {%- if block.type == 'ingredient' -%}
           <div class="theme-ki-card motion-panel" {{ block.shopify_attributes }}>
+            {%- assign ingredient_mobile_image = block.settings.mobile_image | default: block.settings.image -%}
             {%- if block.settings.image != blank -%}
               <div class="theme-ki-card__img-wrap">
-                {{ block.settings.image | image_url: width: 240 | image_tag: class: 'theme-ki-card__img image-zoom', loading: 'lazy', alt: block.settings.title }}
+                <picture>
+                  {%- if ingredient_mobile_image != blank -%}
+                    <source media="(max-width: 989px)" srcset="{{ ingredient_mobile_image | image_url: width: 480 }}">
+                  {%- endif -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 900
+                    | image_tag:
+                      class: 'theme-ki-card__img image-zoom',
+                      loading: 'lazy',
+                      widths: '240, 360, 480, 720, 900',
+                      alt: block.settings.title
+                  }}
+                </picture>
               </div>
             {%- endif -%}
 
-            <h3 class="theme-ki-card__title">{{ block.settings.title }}</h3>
+            <div class="theme-ki-card__content">
+              {%- if block.settings.title != blank -%}
+                <h3 class="theme-ki-card__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
 
-            {%- if block.settings.subtitle != blank -%}
-              <div class="theme-ki-card__subtitle">{{ block.settings.subtitle }}</div>
-            {%- endif -%}
+              {%- if block.settings.subtitle != blank -%}
+                <div class="theme-ki-card__subtitle">{{ block.settings.subtitle }}</div>
+              {%- endif -%}
 
-            {%- if block.settings.text != blank -%}
-              <div class="theme-ki-card__text">{{ block.settings.text }}</div>
-            {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <div class="theme-ki-card__text">{{ block.settings.text }}</div>
+              {%- endif -%}
+            </div>
           </div>
         {%- endif -%}
       {%- endfor -%}
@@ -54,6 +72,7 @@
       "name": "Ingredient",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
         { "type": "text", "id": "title", "label": "Title", "default": "Neeli" },
         { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "For scalp health" },
         { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Reduces inflammation and stops premature greying.</p>" }

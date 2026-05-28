@@ -56,19 +56,34 @@
   </div>
 
   <div class="theme-header-figma__breadcrumbs-wrap">
-    <div class="theme-header-figma__breadcrumbs">
+    <div class="theme-header-figma__breadcrumbs" aria-label="Breadcrumb">
       <a href="{{ routes.root_url }}">Home</a>
-      {%- assign breadcrumb_label = section.settings.breadcrumb_current_label | strip -%}
-      {%- if breadcrumb_label == blank -%}
-        {%- if request.page_type == 'product' and product != blank -%}
-          {%- assign breadcrumb_label = product.title -%}
-        {%- elsif request.page_type == 'collection' and collection != blank -%}
-          {%- assign breadcrumb_label = collection.title -%}
-        {%- elsif request.page_type == 'page' and page != blank and page.title != 'Home' -%}
-          {%- assign breadcrumb_label = page.title -%}
-        {%- elsif request.page_type == 'article' and article != blank -%}
-          {%- assign breadcrumb_label = article.title -%}
-        {%- endif -%}
+      {%- assign breadcrumb_label = '' -%}
+      {%- case request.page_type -%}
+        {%- when 'product' -%}
+          {%- if product != blank -%}
+            {%- assign breadcrumb_label = product.title -%}
+          {%- endif -%}
+        {%- when 'collection' -%}
+          {%- if collection != blank -%}
+            {%- assign breadcrumb_label = collection.title -%}
+          {%- endif -%}
+        {%- when 'page' -%}
+          {%- if page != blank and page.title != 'Home' -%}
+            {%- assign breadcrumb_label = page.title -%}
+          {%- endif -%}
+        {%- when 'article' -%}
+          {%- if article != blank -%}
+            {%- assign breadcrumb_label = article.title -%}
+          {%- endif -%}
+      {%- endcase -%}
+      {%- assign custom_breadcrumb_label = section.settings.breadcrumb_current_label | strip -%}
+      {%- if breadcrumb_label == blank
+        and custom_breadcrumb_label != blank
+        and custom_breadcrumb_label != 'Home'
+        and custom_breadcrumb_label != 'Current Page'
+      -%}
+        {%- assign breadcrumb_label = custom_breadcrumb_label -%}
       {%- endif -%}
       {%- if breadcrumb_label != blank and breadcrumb_label != 'Home' -%}
         <span class="theme-header-figma__breadcrumb-sep">&gt;</span>

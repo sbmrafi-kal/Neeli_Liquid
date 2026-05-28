@@ -8,151 +8,140 @@
   }
 
   .theme-ki-header__title {
+    margin: 0 0 14px;
     font-family: var(--theme-heading-font), serif;
-    font-size: 42px;
-    color: #1f4d3d;
+    font-size: clamp(28px, 3.4vw, 42px);
+    line-height: 1.02;
     font-weight: 400;
-    margin-bottom: 14px;
+    color: #1f4d3d;
   }
 
   .theme-ki-header__text {
-    font-family: var(--theme-body-font);
-    font-size: 16px;
-    color: rgba(31, 77, 61, 0.85);
     max-width: 780px;
     margin: 0 auto;
+    font-family: var(--theme-body-font);
+    font-size: 16px;
+    line-height: 1.45;
+    color: rgba(31, 77, 61, 0.82);
   }
 
   .theme-ki-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px 16px;
-    max-width: 1280px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 1320px;
     margin: 0 auto;
     padding: 0 16px;
   }
 
-  @media screen and (min-width: 990px) {
-    .theme-ki-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-    }
-  }
-
   .theme-ki-card {
-    background: #ffffff;
-    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 12px;
+    align-items: stretch;
+    border: 1px solid rgba(31, 77, 61, 0.08);
+    border-radius: 14px;
+    background: #fff;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(17, 48, 39, 0.05);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    box-shadow: 0 8px 20px rgba(17, 48, 39, 0.04);
   }
 
   .theme-ki-card__img-wrap {
+    min-height: 100%;
+    aspect-ratio: 1 / 1;
+    background: #f4f1e8;
+  }
+
+  .theme-ki-card__img-wrap picture,
+  .theme-ki-card__img {
+    display: block;
     width: 100%;
-    height: 184px;
-    border-radius: 0;
-    overflow: hidden;
-    margin-bottom: 0;
-    background: #fff;
-    border: 0;
+    height: 100%;
   }
 
   .theme-ki-card__img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
   }
 
+  .theme-ki-card__title,
+  .theme-ki-card__subtitle,
+  .theme-ki-card__text {
+    text-align: left;
+  }
+
   .theme-ki-card__title {
+    margin: 0;
     font-family: var(--theme-heading-font), serif;
-    font-size: 24px;
+    font-size: 18px;
+    line-height: 1.08;
     font-weight: 400;
     color: #1f4d3d;
-    margin-bottom: 4px;
-    margin-top: 14px;
   }
 
   .theme-ki-card__subtitle {
+    margin-top: 4px;
     font-family: var(--theme-body-font);
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 1.25;
     font-style: italic;
-    font-weight: 400;
-    text-transform: none;
-    letter-spacing: 0;
-    color: rgba(31, 77, 61, 0.65);
-    margin-bottom: 8px;
+    color: rgba(31, 77, 61, 0.64);
   }
 
   .theme-ki-card__text {
+    margin-top: 8px;
     font-family: var(--theme-body-font);
-    font-size: 14px;
-    color: rgba(31, 77, 61, 0.88);
-    line-height: 1.45;
-    max-width: 300px;
-    margin: 0 auto 16px;
+    font-size: 13px;
+    line-height: 1.35;
+    color: rgba(31, 77, 61, 0.84);
   }
 
   .theme-ki-card__text p {
     margin: 0;
   }
 
-  @media screen and (max-width: 989px) {
+  .theme-ki-card__content {
+    padding: 14px 14px 14px 0;
+  }
+
+  @media screen and (min-width: 990px) {
     .theme-ki-grid {
-      grid-template-columns: 1fr;
-      gap: 10px;
-      max-width: 460px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      padding: 0 24px;
     }
 
     .theme-ki-card {
-      display: grid;
-      grid-template-columns: 92px 1fr;
-      gap: 10px;
-      align-items: start;
-      padding: 8px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 1px solid rgba(31, 77, 61, 0.08);
-      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: none;
     }
 
     .theme-ki-card__img-wrap {
-      width: 92px;
-      height: 92px;
-      margin-bottom: 0;
-      border-radius: 6px;
-      background: transparent;
+      aspect-ratio: 1 / 0.78;
+      width: 100%;
     }
 
-    .theme-ki-card__title,
-    .theme-ki-card__subtitle,
-    .theme-ki-card__text {
-      text-align: left;
+    .theme-ki-card__content {
+      padding: 14px 18px 18px;
     }
 
     .theme-ki-card__title {
-      margin-bottom: 4px;
-      margin-top: 0;
-      font-size: 18px;
+      text-align: center;
+      font-size: 24px;
+      line-height: 1.06;
     }
 
     .theme-ki-card__subtitle {
-      margin-bottom: 8px;
-      font-size: 13px;
+      text-align: center;
+      font-size: 14px;
     }
 
     .theme-ki-card__text {
-      font-size: 13px;
-      margin: 0;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.45;
     }
-  }
-
-  /* Figma parity overrides: ensure consistent desktop/mobile scale */
-  @media screen and (min-width: 990px) {
-    .theme-ki-header__title { font-size: 42px; line-height: 1.03; }
-    .theme-ki-header__text { font-size: 16px; }
-    .theme-ki-card__title { font-size: 24px; }
-    .theme-ki-card__text { font-size: 14px; }
   }

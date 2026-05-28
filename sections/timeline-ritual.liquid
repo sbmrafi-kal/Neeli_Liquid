@@ -1,63 +1,157 @@
+{{ 'section-what-to-expect.css' | asset_url | stylesheet_tag }}
 {{ 'section-timeline-ritual.css' | asset_url | stylesheet_tag }}
 
-<section class="theme-timeline-ritual section" role="region" aria-label="What to expect">
-  <div class="container-narrow theme-timeline-ritual__inner">
-    {%- if section.settings.ritual_text != blank -%}
-      <div class="theme-timeline-ritual__guide">
-        <div class="theme-timeline-ritual__guide-inner">
-          <svg class="theme-timeline-ritual__guide-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-            <path d="M12 3v1M12 20v1M3 12h1M20 12h1M5.636 5.636l.707.707M17.657 17.657l.707.707M18.364 5.636l-.707.707M6.343 17.657l-.707.707" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <div>
-            {%- if section.settings.ritual_title != blank -%}
-              <div class="theme-timeline-ritual__guide-title">{{ section.settings.ritual_title }}</div>
-            {%- endif -%}
-            <div class="theme-timeline-ritual__guide-text">{{ section.settings.ritual_text }}</div>
-          </div>
-        </div>
-      </div>
-    {%- endif -%}
+{%- assign mobile_stages_markup = '' -%}
+{%- assign desktop_stages_markup = '' -%}
 
-    <header class="theme-timeline-ritual__header">
-      <div class="kicker">{{ section.settings.kicker }}</div>
-      <h2 class="theme-timeline-ritual__heading">{{ section.settings.heading }}</h2>
-      <div class="theme-timeline-ritual__text">{{ section.settings.text }}</div>
-    </header>
-
-    <div class="theme-timeline-ritual__stages">
-      {%- for block in section.blocks -%}
-        <div class="theme-timeline-ritual__stage" {{ block.shopify_attributes }}>
-          <div class="theme-timeline-ritual__media">
+{%- for block in section.blocks -%}
+  {%- if block.type == 'stage' -%}
+    {%- assign mobile_phase = block.settings.mobile_phase | default: block.settings.phase -%}
+    {%- assign stage_image_alt = block.settings.image_alt | default: block.settings.title -%}
+    {%- capture mobile_stage -%}
+      <div class="theme-timeline-stage theme-timeline-stage--mobile" {{ block.shopify_attributes }}>
+        <div class="theme-timeline-stage__mobile-left">
+          <div class="theme-timeline-stage__mobile-img-wrap">
             {%- if block.settings.image != blank -%}
               {%- assign stage_mobile_image = block.settings.mobile_image | default: block.settings.image -%}
-              {%- assign stage_image_alt = block.settings.image_alt | default: block.settings.title -%}
               <picture>
                 {%- if stage_mobile_image != blank -%}
                   <source media="(max-width: 989px)" srcset="{{ stage_mobile_image | image_url: width: 480 }}">
                 {%- endif -%}
                 {{
                   block.settings.image
-                  | image_url: width: 520
-                  | image_tag: class: 'theme-timeline-ritual__image', loading: 'lazy', alt: stage_image_alt
+                  | image_url: width: 600
+                  | image_tag:
+                    class: 'theme-timeline-stage__img',
+                    loading: 'lazy',
+                    widths: '240, 360, 480, 600',
+                    alt: stage_image_alt
                 }}
               </picture>
             {%- endif -%}
           </div>
-          <div class="theme-timeline-ritual__copy">
-            <div class="theme-timeline-ritual__phase">{{ block.settings.phase }}</div>
-            <div class="theme-timeline-ritual__label">{{ block.settings.label }}</div>
-            <h3 class="theme-timeline-ritual__title">{{ block.settings.title }}</h3>
-            <div class="theme-timeline-ritual__body">{{ block.settings.body }}</div>
-          </div>
+          {%- if mobile_phase != blank -%}
+            <div class="theme-timeline-stage__mobile-phase">{{ mobile_phase }}</div>
+          {%- endif -%}
         </div>
-      {%- endfor -%}
-    </div>
+        <div class="theme-timeline-stage__mobile-right">
+          {%- if block.settings.label != blank -%}
+            <div class="theme-timeline-stage__label">{{ block.settings.label }}</div>
+          {%- endif -%}
+          {%- if block.settings.title != blank -%}
+            <h3 class="theme-timeline-stage__title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+          {%- if block.settings.body != blank -%}
+            <div class="theme-timeline-stage__body rte">{{ block.settings.body }}</div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endcapture -%}
+    {%- capture desktop_stage -%}
+      <div class="theme-timeline-stage theme-timeline-stage--desktop" {{ block.shopify_attributes }}>
+        <div class="theme-timeline-stage__top">
+          {%- if block.settings.phase != blank -%}
+            <div class="theme-timeline-stage__phase">{{ block.settings.phase }}</div>
+          {%- endif -%}
+          {%- if block.settings.image != blank -%}
+            <div class="theme-timeline-stage__img-wrap">
+              <picture>
+                {%- if block.settings.mobile_image != blank -%}
+                  <source media="(max-width: 989px)" srcset="{{ block.settings.mobile_image | image_url: width: 480 }}">
+                {%- endif -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 720
+                  | image_tag:
+                    class: 'theme-timeline-stage__img',
+                    loading: 'lazy',
+                    widths: '360, 480, 720',
+                    alt: stage_image_alt
+                }}
+              </picture>
+            </div>
+          {%- endif -%}
+        </div>
+        <div class="theme-timeline-stage__bottom">
+          {%- if block.settings.label != blank -%}
+            <div class="theme-timeline-stage__label">{{ block.settings.label }}</div>
+          {%- endif -%}
+          {%- if block.settings.title != blank -%}
+            <h3 class="theme-timeline-stage__title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+          {%- if block.settings.body != blank -%}
+            <div class="theme-timeline-stage__body rte">{{ block.settings.body }}</div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endcapture -%}
+    {%- assign mobile_stages_markup = mobile_stages_markup | append: mobile_stage -%}
+    {%- assign desktop_stages_markup = desktop_stages_markup | append: desktop_stage -%}
+  {%- endif -%}
+{%- endfor -%}
 
-    {%- if section.settings.footnote != blank -%}
-      <div class="theme-timeline-ritual__footnote">{{ section.settings.footnote | strip_html }}</div>
+<section class="theme-timeline" role="region" aria-label="{{ section.settings.heading | default: 'What to expect' }}">
+  {%- if section.settings.ritual_text != blank -%}
+    <div class="theme-timeline-ritual-guide">
+      <div class="theme-timeline-ritual-guide__inner">
+        <svg class="theme-timeline-ritual-guide__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle>
+          <path d="M12 3v1M12 20v1M3 12h1M20 12h1M5.636 5.636l.707.707M17.657 17.657l.707.707M18.364 5.636l-.707.707M6.343 17.657l-.707.707" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+        <div class="theme-timeline-ritual-guide__copy">
+          {%- if section.settings.ritual_title != blank -%}
+            <div class="theme-timeline-ritual-guide__title">{{ section.settings.ritual_title }}</div>
+          {%- endif -%}
+          <div class="theme-timeline-ritual-guide__text">{{ section.settings.ritual_text }}</div>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="theme-timeline-header-banner">
+    {%- if section.settings.kicker != blank -%}
+      <div class="theme-timeline-header-banner__kicker">{{ section.settings.kicker }}</div>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="theme-timeline-header-banner__title">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="theme-timeline-header-banner__text rte">{{ section.settings.text }}</div>
     {%- endif -%}
   </div>
+
+  <div class="theme-timeline-grid theme-timeline-grid--mobile lg:hidden">
+    {{ mobile_stages_markup }}
+  </div>
+
+  <div class="theme-timeline-grid theme-timeline-grid--desktop hidden lg:grid">
+    {{ desktop_stages_markup }}
+  </div>
+
+  <div class="theme-timeline__footer-text">
+    {%- if section.settings.footnote != blank -%}
+      <p class="theme-timeline__footnote">{{ section.settings.footnote }}</p>
+    {%- endif -%}
+    {%- if section.settings.disclaimer != blank -%}
+      <p class="theme-timeline__disclaimer">{{ section.settings.disclaimer }}</p>
+    {%- endif -%}
+  </div>
+
+  {%- assign upsell_products = section.settings.upsell_products -%}
+  {%- if section.settings.show_upsell and upsell_products != blank -%}
+    <div class="theme-upsell-cross-sell">
+      <div class="theme-upsell-cross-sell__inner">
+        {%- if section.settings.upsell_label != blank -%}
+          <div class="theme-upsell-cross-sell__label">{{ section.settings.upsell_label }}</div>
+        {%- endif -%}
+        <div class="theme-upsell-cross-sell__list">
+          {%- for upsell_product in upsell_products -%}
+            {% render 'upsell-product-card', upsell_product: upsell_product %}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
 </section>
 
 {% schema %}
@@ -68,39 +162,40 @@
     { "type": "textarea", "id": "ritual_text", "label": "Ritual guide text", "default": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week." },
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "What to expect" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "The honest sequence." },
-    {
-      "type": "textarea",
-      "id": "text",
-      "label": "Intro text",
-      "default": "Root strength comes before visible density."
-    },
-    {
-      "type": "text",
-      "id": "footnote",
-      "label": "Footnote",
-      "default": "*Based on consistent use as directed. Individual results may vary."
-    }
+    { "type": "richtext", "id": "text", "label": "Intro text", "default": "<p>Root strength comes before visible density.</p>" },
+    { "type": "text", "id": "footnote", "label": "Footnote", "default": "*Based on consistent use as directed. Individual results may vary." },
+    { "type": "text", "id": "disclaimer", "label": "Disclaimer text", "default": "In cooler weather the coconut oil base may solidify - warm the oil before use." },
+    { "type": "checkbox", "id": "show_upsell", "label": "Show upsell banner", "default": true },
+    { "type": "text", "id": "upsell_label", "label": "Upsell label", "default": "Add internal support" },
+    { "type": "product_list", "id": "upsell_products", "label": "Upsell products", "limit": 4 },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Top padding" },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 0, "label": "Bottom padding" }
   ],
   "blocks": [
     {
       "type": "stage",
       "name": "Stage",
       "settings": [
-        { "type": "text", "id": "phase", "label": "Phase", "default": "FIRST TIME" },
-        { "type": "text", "id": "label", "label": "Label", "default": "FIRST APPLICATION" },
-        { "type": "text", "id": "title", "label": "Title", "default": "Scalp cools immediately" },
-        {
-          "type": "richtext",
-          "id": "body",
-          "label": "Body",
-          "default": "<p>The Neeli acts immediately. Oil absorbs without heaviness.</p>"
-        },
         { "type": "image_picker", "id": "image", "label": "Image" },
         { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
-        { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Timeline step image" }
+        { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Timeline step image" },
+        { "type": "text", "id": "phase", "label": "Phase", "default": "FIRST TIME" },
+        { "type": "text", "id": "mobile_phase", "label": "Mobile phase", "default": "First Time" },
+        { "type": "text", "id": "label", "label": "Label", "default": "FIRST APPLICATION" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Scalp cools immediately" },
+        { "type": "richtext", "id": "body", "label": "Body", "default": "<p>The Neeli acts immediately. Oil absorbs without heaviness.</p>" }
       ]
     }
   ],
-  "presets": [{ "name": "Timeline Ritual" }]
+  "presets": [
+    {
+      "name": "Timeline Ritual",
+      "blocks": [
+        { "type": "stage" },
+        { "type": "stage" },
+        { "type": "stage" }
+      ]
+    }
+  ]
 }
 {% endschema %}

@@ -86,3 +86,36 @@
     background: transparent;
     line-height: 1.45;
   }
+
+  .theme-info-faq-wrap {
+    margin-top: 28px;
+  }
+
+  .theme-info-faq-header {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .theme-info-faq-header__kicker {
+    font-family: var(--theme-body-font), sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #8f4f36;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .theme-info-faq-header__title {
+    font-family: var(--theme-heading-font), serif;
+    font-size: 28px;
+    color: #1f4d3d;
+    font-weight: 400;
+    line-height: 1.08;
+    margin: 0;
+  }
+
+  .theme-info-faq-accordion {
+    border-radius: 8px;
+    overflow: hidden;
+  }

@@ -1,84 +1,66 @@
-.theme-timeline-ritual__inner { padding: 18px 0 56px; }
-
-.theme-timeline-ritual__guide {
-	max-width: 640px;
-	margin: 0 auto 12px;
-	border: 1px solid #f0d084;
-	border-radius: 12px;
-	background: #fbf2da;
-	padding: 12px 16px;
-	color: #8f5f17;
-	box-shadow: 0 8px 20px rgba(17, 48, 39, 0.05);
-}
-.theme-timeline-ritual__guide-inner {
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
-	gap: 12px;
-}
-.theme-timeline-ritual__guide-icon {
-	width: 22px;
-	height: 22px;
-	flex-shrink: 0;
-	color: #e29a12;
-	margin-top: 1px;
-}
-.theme-timeline-ritual__guide-title {
-	font-size: 13px;
-	font-weight: 600;
-	letter-spacing: 0.16em;
-	text-transform: uppercase;
-	color: #a86d13;
-}
-.theme-timeline-ritual__guide-text {
-	margin-top: 4px;
-	font-size: 13px;
-	line-height: 1.35;
-	color: #8f5f17;
-}
-.theme-timeline-ritual__header {
-	text-align: center;
-	margin-bottom: 0;
-	background: #1f4d3d;
-	color: #fff;
-	padding: 34px 24px 30px;
-	border-radius: 0;
-}
-.theme-timeline-ritual__header .kicker { color: rgba(255,255,255,0.7); }
-.theme-timeline-ritual__heading { font-family: var(--theme-heading-font); font-size: 42px; margin: 8px 0 6px; }
-.theme-timeline-ritual__text { color: rgba(255,255,255,0.86); font-size: 16px; }
-.theme-timeline-ritual__stages { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; background: #fff; border: 1px solid rgba(31,77,61,0.10); border-top: 0; }
-.theme-timeline-ritual__stage { display:grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: start; padding: 18px 18px 20px; border-right: 1px solid rgba(31,77,61,0.08); }
-.theme-timeline-ritual__stage:last-child { border-right: 0; }
-.theme-timeline-ritual__media { width: 96px; }
-.theme-timeline-ritual__media picture,
-.theme-timeline-ritual__image { display:block; width:96px; height:96px; }
-.theme-timeline-ritual__image { object-fit: cover; border-radius: 4px; border: 1px solid rgba(206, 160, 72, 0.55); }
-.theme-timeline-ritual__phase { font-weight:700; color:#1f4d3d; font-size:12px; text-transform:uppercase; letter-spacing:0.12em; }
-.theme-timeline-ritual__label { font-weight:600; margin-top:6px; color:rgba(31,77,61,0.72); font-size: 12px; text-transform: uppercase; letter-spacing:0.12em; }
-.theme-timeline-ritual__title { margin:10px 0 6px; font-size:18px; font-family: var(--theme-heading-font); }
-.theme-timeline-ritual__body { color: rgba(0,0,0,0.72); font-size:14px; }
-.theme-timeline-ritual__footnote { margin-top: 14px; font-size:13px; color:rgba(0,0,0,0.6); text-align:center; }
-
-@media (max-width: 989px) {
-	.theme-timeline-ritual__guide {
-		max-width: none;
-		margin-bottom: 12px;
-		padding: 12px 14px;
-	}
-	.theme-timeline-ritual__guide-title { font-size: 12px; }
-	.theme-timeline-ritual__guide-text { font-size: 12px; }
-	.theme-timeline-ritual__heading { font-size: 30px; }
-	.theme-timeline-ritual__text { font-size: 14px; }
-	.theme-timeline-ritual__stages { grid-template-columns: 1fr; }
-	.theme-timeline-ritual__stage { grid-template-columns: 84px 1fr; border-right: 0; border-bottom: 1px solid rgba(31,77,61,0.08); }
-	.theme-timeline-ritual__stage:last-child { border-bottom: 0; }
-	.theme-timeline-ritual__media,
-	.theme-timeline-ritual__media picture,
-	.theme-timeline-ritual__image { width: 84px; height: 84px; }
-	.theme-timeline-ritual__title { font-size: 18px; }
+.theme-timeline-ritual-guide {
+  max-width: 1460px;
+  margin: 0 auto 0;
+  padding: 0 24px 10px;
 }
 
-@media (min-width: 990px) {
-	.theme-timeline-ritual__title { font-size: 24px; }
+.theme-timeline-ritual-guide__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid #f0d084;
+  border-radius: 12px;
+  background: #fbf2da;
+  padding: 12px 16px;
+  color: #8f5f17;
+}
+
+.theme-timeline-ritual-guide__icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: #e29a12;
+  margin-top: 1px;
+}
+
+.theme-timeline-ritual-guide__copy {
+  text-align: center;
+}
+
+.theme-timeline-ritual-guide__title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #a86d13;
+}
+
+.theme-timeline-ritual-guide__text {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: #8f5f17;
+}
+
+.theme-timeline-ritual-guide__text p {
+  margin: 0;
+}
+
+@media screen and (max-width: 989px) {
+  .theme-timeline-ritual-guide {
+    padding-inline: 12px;
+  }
+
+  .theme-timeline-ritual-guide__inner {
+    padding: 10px 12px;
+  }
+
+  .theme-timeline-ritual-guide__title {
+    font-size: 12px;
+  }
+
+  .theme-timeline-ritual-guide__text {
+    font-size: 12px;
+  }
 }

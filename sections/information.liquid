@@ -20,6 +20,32 @@
         {%- endfor -%}
       </div>
     </div>
+
+    {%- assign faq_blocks = section.blocks | where: 'type', 'faq' -%}
+    {%- if faq_blocks.size > 0 -%}
+      <div class="theme-info-faq-wrap">
+        <div class="theme-info-faq-header">
+          {%- if section.settings.faq_kicker != blank -%}
+            <div class="theme-info-faq-header__kicker">{{ section.settings.faq_kicker }}</div>
+          {%- endif -%}
+          {%- if section.settings.faq_heading != blank -%}
+            <h3 class="theme-info-faq-header__title">{{ section.settings.faq_heading }}</h3>
+          {%- endif -%}
+        </div>
+
+        <div class="theme-accordion theme-info-faq-accordion">
+          {%- for block in faq_blocks -%}
+            {% render 'accordion-item',
+              item_id: 'FAQ-' | append: block.id,
+              title: block.settings.question,
+              content: block.settings.answer,
+              icon: 'none',
+              open: false
+            %}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
   </div>
 </section>
 

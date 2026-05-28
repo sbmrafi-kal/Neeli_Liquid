@@ -133,14 +133,22 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "stat_3_value": "Clinics & Academy",
-        "stat_3_label": "Expert led",
-        "delivery_1_text": "2-4 day delivery",
-        "delivery_2_text": "COD available",
-        "delivery_3_text": "7-day returns",
-        "category_label": "HAIR CARE",
-        "review_count": "86",
-        "cta_meta": "",
+        "subtitle": "One oil for complete hair recovery",
+        "delivery_banner_text": "Free delivery on orders over ₹299 | 2-4 days delivery",
+        "quote_text": "<p>Hair fall reduced noticeably, and I can already see tiny baby hairs coming.</p>",
+        "quote_author": "- ANU R., CHENNAI",
+        "description_title": "How Neelibringadi Keram works",
+        "badge_text": "Minimizes hair fall • Supports hair growth",
+        "ritual_title": "The Ritual Guide",
+        "ritual_text": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.",
+        "stat_1_value": "4.64★",
+        "stat_1_label": "Ratings",
+        "stat_2_value": "1200+",
+        "stat_2_label": "Reviews",
+        "stat_3_value": "30",
+        "stat_3_label": "Uses/per bottle",
+        "stat_4_value": "40,000+",
+        "stat_4_label": "Bought last year",
         "description_block": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.",
         "padding_top": 0
       }
@@ -195,7 +203,7 @@
       }
     },
     "story": {
-      "type": "ingredients-in-out",
+      "type": "ingredient-story",
       "blocks": {
         "inclusion_1": {
           "type": "inclusion",
@@ -330,7 +338,7 @@
         "info_2": {
           "type": "info",
           "settings": {
-            "icon": "truck",
+            "icon": "none",
             "title": "Preparation - 7 days",
             "text": "<p><strong>Preparation</strong></p><p>Each batch follows the Sahasrayogam's Taila Paka Vidhi - a classical method requiring 7 days of slow-heat extraction. Herbs are first made into a kashaya (decoction), then combined with the sesame oil base and kalka (paste). The mixture is heated on low flame, monitored by hand, until the water content fully evaporates and the herbal essence binds to the oil. This process cannot be rushed or mechanized.</p>"
           }
@@ -338,7 +346,7 @@
         "info_3": {
           "type": "info",
           "settings": {
-            "icon": "heart",
+            "icon": "none",
             "title": "Safety & Interactions",
             "text": "<p><strong>Safety &amp; interactions</strong></p><p>External use only. Always patch test before first full application. Pregnant or nursing? Talk to your doctor before starting a new topical regimen - the formula is not tested for this cohort.</p>"
           }
@@ -346,7 +354,7 @@
         "info_4": {
           "type": "info",
           "settings": {
-            "icon": "ruler",
+            "icon": "none",
             "title": "Frequently asked",
             "text": "<p><strong>When Will I See Results?</strong><br>Reduced hair fall is typically noticed within 2–3 weeks. Visible improvement in growth and texture requires 2+ months of consistent use. Recovery is a process, not a single event.</p><p><strong>Does It Help With Greying?</strong><br>Yes. Neeli and Bhringaraja are traditionally used to help minimise premature greying and support natural hair colour.</p><p><strong>Can I Use It On Coloured Hair?</strong><br>Yes. The formula is gentle. It may slightly darken hair over extended use due to the Bhringaraja and Neeli content.</p><p><strong>Is It Safe During Pregnancy?</strong><br>This is an external-use oil with no known contraindicated ingredients for topical application. However, as with any product during pregnancy or nursing, we recommend consulting your doctor before starting a new regimen.</p>"
           }
@@ -559,10 +567,10 @@
   "order": [
     "header",
     "main",
-    "timeline",
-    "story",
     "ingredients",
     "three_milks",
+    "story",
+    "timeline",
     "massage_ritual",
     "information",
     "customer_reviews",
