@@ -1,5 +1,10 @@
 /* Section-specific CSS: footer
-   Use only small support rules; primary footer parity lives in shared stylesheet. */
+   Keep footer parity self-contained so it does not depend on shared product styles. */
+
+.theme-footer,
+.theme-footer .theme-product-page__section {
+  background: #f9f8f3 !important;
+}
 
 .theme-footer-list li {
   margin-bottom: 0.5rem;
@@ -37,6 +42,7 @@
   margin: 0 !important;
   padding-top: 28px !important;
   padding-bottom: 0 !important;
+  color: #2a4a3d !important;
 }
 
 .theme-footer-list li,
