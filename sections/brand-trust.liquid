@@ -1,18 +1,35 @@
 {{ 'section-brand-trust.css' | asset_url | stylesheet_tag }}
 
-{%- assign desktop_title = section.settings.heading | default: section.settings.desktop_title | default: 'Full Spectrum' -%}
-{%- assign mobile_title = section.settings.heading | default: section.settings.mobile_title | default: 'Full Spectrum' -%}
-{%- assign desktop_description = section.settings.text | default: '<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>' -%}
-{%- assign mobile_description = section.settings.text | default: '<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>' -%}
+{%- assign desktop_title = section.settings.heading
+  | default: section.settings.desktop_title
+  | default: 'Full Spectrum'
+-%}
+{%- assign mobile_title = section.settings.heading
+  | default: section.settings.mobile_title
+  | default: 'Full Spectrum'
+-%}
+{%- assign desktop_description = section.settings.text
+  | default: '<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>'
+-%}
+{%- assign mobile_description = section.settings.text
+  | default: '<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>'
+-%}
 {%- assign desktop_kicker = section.settings.patents_kicker | default: 'Globally Recognized' -%}
 {%- assign mobile_kicker = section.settings.mobile_kicker | default: 'Globally Recognized' -%}
 {%- assign desktop_title_2 = section.settings.patents_heading | default: 'PATENTED FORMULATIONS' -%}
 {%- assign mobile_title_2 = section.settings.mobile_title_2 | default: 'PATENTED FORMULATIONS' -%}
-{%- assign desktop_description_2 = section.settings.patents_text | default: '<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>' -%}
-{%- assign mobile_description_2 = section.settings.mobile_description_2 | default: '<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>' -%}
+{%- assign desktop_description_2 = section.settings.patents_text
+  | default: '<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>'
+-%}
+{%- assign mobile_description_2 = section.settings.mobile_description_2
+  | default: '<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>'
+-%}
 {%- comment -%} Patents removed per Figma — do not render patent images/text here {%- endcomment -%}
 {%- assign seal_kicker = section.settings.mark_kicker -%}
-{%- assign seal_title = section.settings.mark_heading | default: section.settings.seal_text | default: 'Rooted in Authentic Ayurveda.' -%}
+{%- assign seal_title = section.settings.mark_heading
+  | default: section.settings.seal_text
+  | default: 'Rooted in Authentic Ayurveda.'
+-%}
 {%- assign seal_text = section.settings.mark_text | default: '<p>Rooted in<br>Authentic Ayurveda.</p>' -%}
 {%- assign desktop_image = section.settings.desktop_image -%}
 {%- assign mobile_image = section.settings.mobile_image -%}
@@ -33,7 +50,14 @@
         </div>
       {%- else -%}
         <div class="theme-brand-trust__mobile-img-wrap">
-          <img src="{{ 'Flower.png' | asset_url }}" class="theme-brand-trust__mobile-img" width="1024" height="1024" loading="lazy" alt="{{ mobile_title | escape }}">
+          <img
+            src="{{ 'Flower.png' | asset_url }}"
+            class="theme-brand-trust__mobile-img"
+            width="1024"
+            height="1024"
+            loading="lazy"
+            alt="{{ mobile_title | escape }}"
+          >
         </div>
       {%- endif -%}
 
@@ -72,9 +96,20 @@
             {%- if section.settings.seal_image != blank -%}
               <div class="theme-brand-trust__mobile-seal-img-wrap">
                 {%- if seal_image != blank -%}
-                  {{ seal_image | image_url: width: 240 | image_tag: class: 'theme-brand-trust__mobile-seal-img', loading: 'lazy', alt: seal_title }}
+                  {{
+                    seal_image
+                    | image_url: width: 240
+                    | image_tag: class: 'theme-brand-trust__mobile-seal-img', loading: 'lazy', alt: seal_title
+                  }}
                 {%- else -%}
-                  <img src="{{ 'ka-mark.png' | asset_url }}" class="theme-brand-trust__mobile-seal-img" width="238" height="328" loading="lazy" alt="{{ seal_title | escape }}">
+                  <img
+                    src="{{ 'ka-mark.png' | asset_url }}"
+                    class="theme-brand-trust__mobile-seal-img"
+                    width="238"
+                    height="328"
+                    loading="lazy"
+                    alt="{{ seal_title | escape }}"
+                  >
                 {%- endif -%}
               </div>
             {%- endif -%}
@@ -106,7 +141,14 @@
         </div>
       {%- else -%}
         <div class="theme-brand-trust__desktop-img-wrap">
-          <img src="{{ 'Flower.png' | asset_url }}" class="theme-brand-trust__desktop-img" width="1024" height="1024" loading="lazy" alt="{{ desktop_title | escape }}">
+          <img
+            src="{{ 'Flower.png' | asset_url }}"
+            class="theme-brand-trust__desktop-img"
+            width="1024"
+            height="1024"
+            loading="lazy"
+            alt="{{ desktop_title | escape }}"
+          >
         </div>
       {%- endif -%}
 
@@ -142,9 +184,20 @@
       -%}
         <div class="theme-brand-trust__desktop-seal-container">
           {%- if seal_image != blank -%}
-            {{ seal_image | image_url: width: 220 | image_tag: class: 'theme-brand-trust__desktop-seal-img', loading: 'lazy', alt: seal_title }}
+            {{
+              seal_image
+              | image_url: width: 220
+              | image_tag: class: 'theme-brand-trust__desktop-seal-img', loading: 'lazy', alt: seal_title
+            }}
           {%- else -%}
-            <img src="{{ 'ka-mark.png' | asset_url }}" class="theme-brand-trust__desktop-seal-img" width="238" height="328" loading="lazy" alt="{{ seal_title | escape }}">
+            <img
+              src="{{ 'ka-mark.png' | asset_url }}"
+              class="theme-brand-trust__desktop-seal-img"
+              width="238"
+              height="328"
+              loading="lazy"
+              alt="{{ seal_title | escape }}"
+            >
           {%- endif -%}
           {%- if seal_kicker != blank -%}
             <div class="theme-brand-trust__desktop-seal-kicker">{{ seal_kicker }}</div>

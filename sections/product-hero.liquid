@@ -1,9 +1,7 @@
-  {{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
-  {{ 'section-product-hero.css' | asset_url | stylesheet_tag }}
-  {{ 'sticky-cart-bar.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'product-hero.js' | asset_url }}" defer="defer"></script>
-
-
+{{ 'section-theme-product-page.css' | asset_url | stylesheet_tag }}
+{{ 'section-product-hero.css' | asset_url | stylesheet_tag }}
+{{ 'sticky-cart-bar.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-hero.js' | asset_url }}" defer="defer"></script>
 
 {%- assign product_override = all_products[section.settings.product] -%}
 {%- if product_override != blank -%}
@@ -20,7 +18,7 @@
 >
   <script src="{{ 'theme-product-page.js' | asset_url }}" defer="defer"></script>
 
-{%- assign hero_fallback_image = product.featured_image -%}
+  {%- assign hero_fallback_image = product.featured_image -%}
 
   <div class="container-narrow">
     <div class="theme-product-page__hero">
@@ -31,46 +29,124 @@
             {%- if section.settings.carousel_image_1 != blank -%}
               {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
               <figure class="theme-hero-carousel__slide is-active" data-theme-carousel-slide>
-                {{ section.settings.carousel_image_1 | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'eager', width: 750, height: 1000, alt: product_title }}
+                {{
+                  section.settings.carousel_image_1
+                  | image_url: width: 750
+                  | image_tag:
+                    class: 'theme-hero-carousel__image image-zoom',
+                    loading: 'eager',
+                    width: 750,
+                    height: 1000,
+                    alt: product_title
+                }}
               </figure>
             {%- endif -%}
             {%- if section.settings.carousel_image_2 != blank -%}
               {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
-              <figure class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}" data-theme-carousel-slide>
-                {{ section.settings.carousel_image_2 | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'lazy', width: 750, height: 1000, alt: product_title }}
+              <figure
+                class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}"
+                data-theme-carousel-slide
+              >
+                {{
+                  section.settings.carousel_image_2
+                  | image_url: width: 750
+                  | image_tag:
+                    class: 'theme-hero-carousel__image image-zoom',
+                    loading: 'lazy',
+                    width: 750,
+                    height: 1000,
+                    alt: product_title
+                }}
               </figure>
             {%- endif -%}
             {%- if section.settings.carousel_image_3 != blank -%}
               {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
-              <figure class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}" data-theme-carousel-slide>
-                {{ section.settings.carousel_image_3 | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'lazy', width: 750, height: 1000, alt: product_title }}
+              <figure
+                class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}"
+                data-theme-carousel-slide
+              >
+                {{
+                  section.settings.carousel_image_3
+                  | image_url: width: 750
+                  | image_tag:
+                    class: 'theme-hero-carousel__image image-zoom',
+                    loading: 'lazy',
+                    width: 750,
+                    height: 1000,
+                    alt: product_title
+                }}
               </figure>
             {%- endif -%}
             {%- if section.settings.carousel_image_4 != blank -%}
               {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
-              <figure class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}" data-theme-carousel-slide>
-                {{ section.settings.carousel_image_4 | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'lazy', width: 750, height: 1000, alt: product_title }}
+              <figure
+                class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}"
+                data-theme-carousel-slide
+              >
+                {{
+                  section.settings.carousel_image_4
+                  | image_url: width: 750
+                  | image_tag:
+                    class: 'theme-hero-carousel__image image-zoom',
+                    loading: 'lazy',
+                    width: 750,
+                    height: 1000,
+                    alt: product_title
+                }}
               </figure>
             {%- endif -%}
             {%- if section.settings.carousel_image_5 != blank -%}
               {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
-              <figure class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}" data-theme-carousel-slide>
-                {{ section.settings.carousel_image_5 | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'lazy', width: 750, height: 1000, alt: product_title }}
+              <figure
+                class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}"
+                data-theme-carousel-slide
+              >
+                {{
+                  section.settings.carousel_image_5
+                  | image_url: width: 750
+                  | image_tag:
+                    class: 'theme-hero-carousel__image image-zoom',
+                    loading: 'lazy',
+                    width: 750,
+                    height: 1000,
+                    alt: product_title
+                }}
               </figure>
             {%- endif -%}
 
             {%- if hero_slide_count == 0 and product.media.size > 0 -%}
               {%- for media in product.media -%}
-                <figure class="theme-hero-carousel__slide{% if forloop.first %} is-active{% endif %}" data-theme-carousel-slide>
+                <figure
+                  class="theme-hero-carousel__slide{% if forloop.first %} is-active{% endif %}"
+                  data-theme-carousel-slide
+                >
                   {%- if forloop.first -%}
                     {%- assign hero_loading = 'eager' -%}
                   {%- else -%}
                     {%- assign hero_loading = 'lazy' -%}
                   {%- endif -%}
                   {%- if media.preview_image != blank -%}
-                    {{ media.preview_image | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: product_title }}
+                    {{
+                      media.preview_image
+                      | image_url: width: 750
+                      | image_tag:
+                        class: 'theme-hero-carousel__image image-zoom',
+                        loading: hero_loading,
+                        width: 750,
+                        height: 1000,
+                        alt: product_title
+                    }}
                   {%- elsif media.src != blank -%}
-                    {{ media | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: hero_loading, width: 750, height: 1000, alt: product_title }}
+                    {{
+                      media
+                      | image_url: width: 750
+                      | image_tag:
+                        class: 'theme-hero-carousel__image image-zoom',
+                        loading: hero_loading,
+                        width: 750,
+                        height: 1000,
+                        alt: product_title
+                    }}
                   {%- endif -%}
                 </figure>
               {%- endfor -%}
@@ -78,46 +154,161 @@
 
             {%- if hero_slide_count == 0 and product.media.size == 0 and hero_fallback_image != blank -%}
               <figure class="theme-hero-carousel__slide is-active" data-theme-carousel-slide>
-                {{ hero_fallback_image | image_url: width: 750 | image_tag: class: 'theme-hero-carousel__image image-zoom', loading: 'eager', width: 750, height: 1000, alt: product_title }}
+                {{
+                  hero_fallback_image
+                  | image_url: width: 750
+                  | image_tag:
+                    class: 'theme-hero-carousel__image image-zoom',
+                    loading: 'eager',
+                    width: 750,
+                    height: 1000,
+                    alt: product_title
+                }}
               </figure>
             {%- endif -%}
 
-            <button class="theme-hero-carousel__control theme-hero-carousel__control--prev" type="button" aria-label="Previous image" data-theme-carousel-prev>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
+            <button
+              class="theme-hero-carousel__control theme-hero-carousel__control--prev"
+              type="button"
+              aria-label="Previous image"
+              data-theme-carousel-prev
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-left"
+              >
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
             </button>
-            <button class="theme-hero-carousel__control theme-hero-carousel__control--next" type="button" aria-label="Next image" data-theme-carousel-next>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+            <button
+              class="theme-hero-carousel__control theme-hero-carousel__control--next"
+              type="button"
+              aria-label="Next image"
+              data-theme-carousel-next
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-right"
+              >
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
             </button>
             <div class="theme-hero-carousel__thumbs" role="tablist" aria-label="Product gallery thumbnails">
               {%- assign hero_thumb_count = 0 -%}
               {%- if section.settings.carousel_image_1 != blank -%}
                 {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
-                <button class="theme-hero-carousel__thumb is-active" type="button" aria-label="Show image 1" data-theme-carousel-thumb="0">
-                  {{ section.settings.carousel_image_1 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                <button
+                  class="theme-hero-carousel__thumb is-active"
+                  type="button"
+                  aria-label="Show image 1"
+                  data-theme-carousel-thumb="0"
+                >
+                  {{
+                    section.settings.carousel_image_1
+                    | image_url: width: 120
+                    | image_tag:
+                      class: 'theme-hero-carousel__thumb-image',
+                      loading: 'lazy',
+                      width: 90,
+                      height: 120,
+                      alt: ''
+                  }}
                 </button>
               {%- endif -%}
               {%- if section.settings.carousel_image_2 != blank -%}
                 {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
-                <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 2" data-theme-carousel-thumb="1">
-                  {{ section.settings.carousel_image_2 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                <button
+                  class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}"
+                  type="button"
+                  aria-label="Show image 2"
+                  data-theme-carousel-thumb="1"
+                >
+                  {{
+                    section.settings.carousel_image_2
+                    | image_url: width: 120
+                    | image_tag:
+                      class: 'theme-hero-carousel__thumb-image',
+                      loading: 'lazy',
+                      width: 90,
+                      height: 120,
+                      alt: ''
+                  }}
                 </button>
               {%- endif -%}
               {%- if section.settings.carousel_image_3 != blank -%}
                 {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
-                <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 3" data-theme-carousel-thumb="2">
-                  {{ section.settings.carousel_image_3 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                <button
+                  class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}"
+                  type="button"
+                  aria-label="Show image 3"
+                  data-theme-carousel-thumb="2"
+                >
+                  {{
+                    section.settings.carousel_image_3
+                    | image_url: width: 120
+                    | image_tag:
+                      class: 'theme-hero-carousel__thumb-image',
+                      loading: 'lazy',
+                      width: 90,
+                      height: 120,
+                      alt: ''
+                  }}
                 </button>
               {%- endif -%}
               {%- if section.settings.carousel_image_4 != blank -%}
                 {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
-                <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 4" data-theme-carousel-thumb="3">
-                  {{ section.settings.carousel_image_4 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                <button
+                  class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}"
+                  type="button"
+                  aria-label="Show image 4"
+                  data-theme-carousel-thumb="3"
+                >
+                  {{
+                    section.settings.carousel_image_4
+                    | image_url: width: 120
+                    | image_tag:
+                      class: 'theme-hero-carousel__thumb-image',
+                      loading: 'lazy',
+                      width: 90,
+                      height: 120,
+                      alt: ''
+                  }}
                 </button>
               {%- endif -%}
               {%- if section.settings.carousel_image_5 != blank -%}
                 {%- assign hero_thumb_count = hero_thumb_count | plus: 1 -%}
-                <button class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}" type="button" aria-label="Show image 5" data-theme-carousel-thumb="4">
-                  {{ section.settings.carousel_image_5 | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                <button
+                  class="theme-hero-carousel__thumb{% if hero_thumb_count == 1 %} is-active{% endif %}"
+                  type="button"
+                  aria-label="Show image 5"
+                  data-theme-carousel-thumb="4"
+                >
+                  {{
+                    section.settings.carousel_image_5
+                    | image_url: width: 120
+                    | image_tag:
+                      class: 'theme-hero-carousel__thumb-image',
+                      loading: 'lazy',
+                      width: 90,
+                      height: 120,
+                      alt: ''
+                  }}
                 </button>
               {%- endif -%}
 
@@ -130,17 +321,49 @@
                     data-theme-carousel-thumb="{{ forloop.index0 }}"
                   >
                     {%- if media.preview_image != blank -%}
-                      {{ media.preview_image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                      {{
+                        media.preview_image
+                        | image_url: width: 120
+                        | image_tag:
+                          class: 'theme-hero-carousel__thumb-image',
+                          loading: 'lazy',
+                          width: 90,
+                          height: 120,
+                          alt: ''
+                      }}
                     {%- elsif media.src != blank -%}
-                      {{ media | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                      {{
+                        media
+                        | image_url: width: 120
+                        | image_tag:
+                          class: 'theme-hero-carousel__thumb-image',
+                          loading: 'lazy',
+                          width: 90,
+                          height: 120,
+                          alt: ''
+                      }}
                     {%- endif -%}
                   </button>
                 {%- endfor -%}
               {%- endif -%}
 
               {%- if hero_thumb_count == 0 and product.media.size == 0 and hero_fallback_image != blank -%}
-                <button class="theme-hero-carousel__thumb is-active" type="button" aria-label="Show image 1" data-theme-carousel-thumb="0">
-                  {{ hero_fallback_image | image_url: width: 120 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', width: 90, height: 120, alt: '' }}
+                <button
+                  class="theme-hero-carousel__thumb is-active"
+                  type="button"
+                  aria-label="Show image 1"
+                  data-theme-carousel-thumb="0"
+                >
+                  {{
+                    hero_fallback_image
+                    | image_url: width: 120
+                    | image_tag:
+                      class: 'theme-hero-carousel__thumb-image',
+                      loading: 'lazy',
+                      width: 90,
+                      height: 120,
+                      alt: ''
+                  }}
                 </button>
               {%- endif -%}
             </div>
@@ -148,34 +371,45 @@
 
           <div class="theme-hero-carousel__stats">
             <div class="theme-hero-carousel__stat">
-              <span class="theme-hero-carousel__stat-icon theme-hero-carousel__stat-icon--rating" aria-hidden="true"></span>
+              <span
+                class="theme-hero-carousel__stat-icon theme-hero-carousel__stat-icon--rating"
+                aria-hidden="true"
+              ></span>
               <div class="theme-hero-carousel__stat-value">{{ section.settings.stat_1_value }}</div>
               <div class="theme-hero-carousel__stat-label">{{ section.settings.stat_1_label }}</div>
             </div>
             <div class="theme-hero-carousel__stat">
-              <span class="theme-hero-carousel__stat-icon theme-hero-carousel__stat-icon--reviews" aria-hidden="true"></span>
+              <span
+                class="theme-hero-carousel__stat-icon theme-hero-carousel__stat-icon--reviews"
+                aria-hidden="true"
+              ></span>
               <div class="theme-hero-carousel__stat-value">{{ section.settings.stat_2_value }}</div>
               <div class="theme-hero-carousel__stat-label">{{ section.settings.stat_2_label }}</div>
             </div>
             <div class="theme-hero-carousel__stat">
-              <span class="theme-hero-carousel__stat-icon theme-hero-carousel__stat-icon--uses" aria-hidden="true"></span>
+              <span
+                class="theme-hero-carousel__stat-icon theme-hero-carousel__stat-icon--uses"
+                aria-hidden="true"
+              ></span>
               <div class="theme-hero-carousel__stat-value">{{ section.settings.stat_3_value }}</div>
               <div class="theme-hero-carousel__stat-label">{{ section.settings.stat_3_label }}</div>
             </div>
             <div class="theme-hero-carousel__stat">
-              <span class="theme-hero-carousel__stat-icon theme-hero-carousel__stat-icon--sales" aria-hidden="true"></span>
+              <span
+                class="theme-hero-carousel__stat-icon theme-hero-carousel__stat-icon--sales"
+                aria-hidden="true"
+              ></span>
               <div class="theme-hero-carousel__stat-value">{{ section.settings.stat_4_value }}</div>
               <div class="theme-hero-carousel__stat-label">{{ section.settings.stat_4_label }}</div>
             </div>
           </div>
         </div>
-
       </div>
 
       <!-- DESKTOP HERO INFO COLUMN -->
       <div id="ProductInfo-{{ section.id }}" class="theme-product-page__hero-info theme-product-info-desktop">
         <div class="theme-product-page__hero-header">
-          {%- assign badges = section.blocks | where: "type", "text" -%}
+          {%- assign badges = section.blocks | where: 'type', 'text' -%}
           {%- if badges.size > 0 -%}
             <div class="theme-product-page__badge micro-fade-delayed">
               {%- for block in badges -%}
@@ -193,18 +427,20 @@
             </div>
           {%- else -%}
             <div class="theme-product-page__badge micro-fade-delayed">
-              <span class="theme-product-page__badge-line"><span class="theme-badge-bullet">•</span><span>Minimizes hair fall</span></span>
-              <span class="theme-product-page__badge-line"><span class="theme-badge-bullet">•</span><span>Supports hair growth</span></span>
+              <span class="theme-product-page__badge-line"
+                ><span class="theme-badge-bullet">•</span><span>Minimizes hair fall</span></span
+              >
+              <span class="theme-product-page__badge-line"
+                ><span class="theme-badge-bullet">•</span><span>Supports hair growth</span></span
+              >
             </div>
           {%- endif -%}
-
 
           <div class="theme-product-page__title-wrap">
             <h1 class="theme-product-page__title">{{ product_title | escape }}</h1>
           </div>
 
-
-          {%- assign subtitle_block = section.blocks | where: "type", "caption" | first -%}
+          {%- assign subtitle_block = section.blocks | where: 'type', 'caption' | first -%}
           <p class="theme-product-page__subtitle subtitle">
             {%- if subtitle_block -%}
               {{ subtitle_block.settings.text | strip_html }}
@@ -213,7 +449,7 @@
             {%- endif -%}
           </p>
 
-          {%- assign hero_note_block = section.blocks | where: "type", "hero_note" | first -%}
+          {%- assign hero_note_block = section.blocks | where: 'type', 'hero_note' | first -%}
           <p class="theme-product-page__body theme-product-page__intro">
             {%- capture hero_note_text -%}
               {%- if hero_note_block -%}
@@ -227,33 +463,44 @@
         </div>
 
         <div class="theme-product-page__form-card">
-        {%- if product != blank and selected_variant != blank -%}
-        {%- form 'product', product, id: "theme-product-form", class: "theme-product-form" -%}
-            {%- if product.variants.size > 1 -%}
-              <div class="theme-variant-boxes theme-variant-boxes--desktop">
-                {%- for variant in product.variants limit:2 -%}
-                  <label class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}" for="Variant-{{ section.id }}-{{ forloop.index }}">
-                    <input type="radio" class="theme-variant-box__input" name="id" value="{{ variant.id }}" id="Variant-{{ section.id }}-{{ forloop.index }}"
-                      data-price="{{ variant.price | money }}"
-                      data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
-                      data-available="{{ variant.available }}"
-                      {% if variant == product.selected_or_first_available_variant %}checked{% endif %}>
-                    <div class="theme-variant-box__title">{{ variant.title }}</div>
-                    <div class="theme-variant-box__price-row">
-                      <span class="theme-variant-box__mrp">M.R.P.</span>
-                      <span class="theme-variant-box__price-new">{{ variant.price | money }}</span>
-                      {%- if variant.compare_at_price > variant.price -%}
-                        <span class="theme-variant-box__price-old">{{ variant.compare_at_price | money }}</span>
-                      {%- endif -%}
-                    </div>
-                  </label>
-                {%- endfor -%}
-              </div>
-            {%- else -%}
-              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-            {%- endif -%}
-            <input type="hidden" name="quantity" value="1">
-          {%- endform -%}
+          {%- if product != blank and selected_variant != blank -%}
+            {%- form 'product', product, id: 'theme-product-form', class: 'theme-product-form' -%}
+              {%- if product.variants.size > 1 -%}
+                <div class="theme-variant-boxes theme-variant-boxes--desktop">
+                  {%- for variant in product.variants limit: 2 -%}
+                    <label
+                      class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}"
+                      for="Variant-{{ section.id }}-{{ forloop.index }}"
+                    >
+                      <input
+                        type="radio"
+                        class="theme-variant-box__input"
+                        name="id"
+                        value="{{ variant.id }}"
+                        id="Variant-{{ section.id }}-{{ forloop.index }}"
+                        data-price="{{ variant.price | money }}"
+                        data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
+                        data-available="{{ variant.available }}"
+                        {% if variant == product.selected_or_first_available_variant %}
+                          checked
+                        {% endif %}
+                      >
+                      <div class="theme-variant-box__title">{{ variant.title }}</div>
+                      <div class="theme-variant-box__price-row">
+                        <span class="theme-variant-box__mrp">M.R.P.</span>
+                        <span class="theme-variant-box__price-new">{{ variant.price | money }}</span>
+                        {%- if variant.compare_at_price > variant.price -%}
+                          <span class="theme-variant-box__price-old">{{ variant.compare_at_price | money }}</span>
+                        {%- endif -%}
+                      </div>
+                    </label>
+                  {%- endfor -%}
+                </div>
+              {%- else -%}
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              {%- endif -%}
+              <input type="hidden" name="quantity" value="1">
+            {%- endform -%}
           {%- endif -%}
         </div>
 
@@ -262,7 +509,7 @@
           <span class="theme-delivery-banner__text">{{ section.settings.delivery_banner_text | strip_html }}</span>
         </div>
 
-        {%- assign quote_block = section.blocks | where: "type", "hero_quote" | first -%}
+        {%- assign quote_block = section.blocks | where: 'type', 'hero_quote' | first -%}
         <div class="theme-product-page__quote-wrap motion-panel">
           <div class="theme-product-page__quote">
             {%- if quote_block -%}
@@ -288,176 +535,243 @@
         {%- endif -%}
 
         <div class="theme-new-cert-block motion-panel">
-
           <div class="theme-new-cert-block__stamps">
             {%- if section.settings.stamp_1_image != blank -%}
-              {{ section.settings.stamp_1_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_1_alt }}
+              {{
+                section.settings.stamp_1_image
+                | image_url: width: 180
+                | image_tag: loading: 'lazy', alt: section.settings.stamp_1_alt
+              }}
             {%- endif -%}
             {%- if section.settings.stamp_2_image != blank -%}
-              {{ section.settings.stamp_2_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_2_alt }}
+              {{
+                section.settings.stamp_2_image
+                | image_url: width: 180
+                | image_tag: loading: 'lazy', alt: section.settings.stamp_2_alt
+              }}
             {%- endif -%}
             {%- if section.settings.stamp_3_image != blank -%}
-              {{ section.settings.stamp_3_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_3_alt }}
+              {{
+                section.settings.stamp_3_image
+                | image_url: width: 180
+                | image_tag: loading: 'lazy', alt: section.settings.stamp_3_alt
+              }}
             {%- endif -%}
             {%- if section.settings.stamp_4_image != blank -%}
-              {{ section.settings.stamp_4_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_4_alt }}
+              {{
+                section.settings.stamp_4_image
+                | image_url: width: 180
+                | image_tag: loading: 'lazy', alt: section.settings.stamp_4_alt
+              }}
             {%- endif -%}
           </div>
         </div>
       </div>
 
       <!-- MOBILE HERO INFO CONTAINER (Spans full narrow width) -->
-    <div class="theme-product-info-mobile">
-      {%- if badges.size > 0 -%}
-        <div class="theme-product-page__badge theme-product-page__badge--mobile">
-          {%- for block in badges -%}
-            {%- assign badge_parts = block.settings.text | split: '•' -%}
-            {%- for badge_text in badge_parts -%}
-              {%- assign clean_badge = badge_text | strip -%}
-              {%- if clean_badge != blank -%}
-                <span class="theme-product-page__badge-line">
-                  <span class="theme-badge-bullet">•</span>
-                  <span>{{ clean_badge }}</span>
-                </span>
-              {%- endif -%}
+      <div class="theme-product-info-mobile">
+        {%- if badges.size > 0 -%}
+          <div class="theme-product-page__badge theme-product-page__badge--mobile">
+            {%- for block in badges -%}
+              {%- assign badge_parts = block.settings.text | split: '•' -%}
+              {%- for badge_text in badge_parts -%}
+                {%- assign clean_badge = badge_text | strip -%}
+                {%- if clean_badge != blank -%}
+                  <span class="theme-product-page__badge-line">
+                    <span class="theme-badge-bullet">•</span>
+                    <span>{{ clean_badge }}</span>
+                  </span>
+                {%- endif -%}
+              {%- endfor -%}
             {%- endfor -%}
-          {%- endfor -%}
-        </div>
-      {%- else -%}
-        <div class="theme-product-page__badge theme-product-page__badge--mobile">
-          <span class="theme-product-page__badge-line"><span class="theme-badge-bullet">•</span><span>Minimizes hair fall</span></span>
-          <span class="theme-product-page__badge-line"><span class="theme-badge-bullet">•</span><span>Supports hair growth</span></span>
-        </div>
-      {%- endif -%}
-
-      <div class="theme-product-page__title-wrap">
-        <h1 class="theme-product-page__title">{{ product_title | escape }}</h1>
-      </div>
-
-      <p class="theme-product-page__subtitle subtitle">
-        {%- if subtitle_block -%}
-          {{ subtitle_block.settings.text }}
+          </div>
         {%- else -%}
-          One oil for complete hair recovery
+          <div class="theme-product-page__badge theme-product-page__badge--mobile">
+            <span class="theme-product-page__badge-line"
+              ><span class="theme-badge-bullet">•</span><span>Minimizes hair fall</span></span
+            >
+            <span class="theme-product-page__badge-line"
+              ><span class="theme-badge-bullet">•</span><span>Supports hair growth</span></span
+            >
+          </div>
         {%- endif -%}
-      </p>
 
-      <p class="theme-product-page__body theme-product-page__intro">
-        {%- capture hero_note_text -%}
+        <div class="theme-product-page__title-wrap">
+          <h1 class="theme-product-page__title">{{ product_title | escape }}</h1>
+        </div>
+
+        <p class="theme-product-page__subtitle subtitle">
+          {%- if subtitle_block -%}
+            {{ subtitle_block.settings.text }}
+          {%- else -%}
+            One oil for complete hair recovery
+          {%- endif -%}
+        </p>
+
+        <p class="theme-product-page__body theme-product-page__intro">
+          {%- capture hero_note_text -%}
           {%- if hero_note_block -%}
             {{ hero_note_block.settings.text }}
           {%- else -%}
             Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibhringadi works both sides.
           {%- endif -%}
         {%- endcapture -%}
-        {{ hero_note_text | strip | replace: 'Neelibhringadi works', 'Neelibhringadi<br class="theme-hero-note-break">works' }}
-      </p>
-
-      <div class="theme-product-page__quote-wrap motion-panel">
-        <div class="theme-product-page__quote">
-          {%- if quote_block -%}
-            {{ quote_block.settings.quote }}
-          {%- else -%}
-            "Hair fall reduced noticeably, and I can already see tiny baby hairs coming"
-          {%- endif -%}
-        </div>
-        <div class="theme-product-page__quote-meta">
-          {%- if quote_block -%}
-            {{ quote_block.settings.author }}
-          {%- else -%}
-            - ANU R., CHENNAI
-          {%- endif -%}
-        </div>
-      </div>
-
-      <div class="theme-product-page__form-card">
-        {%- if product != blank and selected_variant != blank -%}
-        {%- form 'product', product, id: "theme-product-form-mobile", class: "theme-product-form" -%}
-          <button type="submit" name="add" class="theme-reorder-btn theme-reorder-btn--mobile cta-sheen" {% unless selected_variant.available %}disabled="disabled"{% endunless %}>
-            <div class="theme-reorder-btn__left">
-              <svg class="theme-reorder-btn__icon theme-reorder-btn__icon--mobile" stroke="currentColor" stroke-width="1.8" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <div class="theme-reorder-btn__content">
-                <div class="theme-reorder-btn__title theme-reorder-btn__title--mobile">
-                  {%- if selected_variant.available -%}
-                    Add to Cart
-                  {%- else -%}
-                    Sold Out
-                  {%- endif -%}
-                </div>
-              </div>
-            </div>
-            <div class="theme-reorder-btn__right theme-reorder-btn__right--mobile">
-              {%- if selected_variant.compare_at_price > selected_variant.price -%}
-                <span class="theme-reorder-btn__price-old">{{ selected_variant.compare_at_price | money }}</span>
-              {%- else -%}
-                <span class="theme-reorder-btn__price-old" hidden></span>
-              {%- endif -%}
-              <span class="theme-reorder-btn__price-new theme-reorder-btn__price-new--mobile">{{ selected_variant.price | money }}</span>
-            </div>
-          </button>
-
-          <div class="theme-delivery-banner">
-            Free delivery on orders over ₹299 | <span class="theme-delivery-banner__truck">🚚</span> 2-4 days delivery
-          </div>
-
-          {%- if product.variants.size > 1 -%}
-            <div class="theme-variant-boxes theme-variant-boxes--mobile">
-            {%- for variant in product.variants limit:2 -%}
-                <label class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}" for="Variant-Mobile-{{ section.id }}-{{ forloop.index }}">
-                  <input type="radio" class="theme-variant-box__input" name="id" value="{{ variant.id }}" id="Variant-Mobile-{{ section.id }}-{{ forloop.index }}"
-                    data-price="{{ variant.price | money }}"
-                    data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
-                    data-available="{{ variant.available }}"
-                    {% if variant == product.selected_or_first_available_variant %}checked{% endif %}>
-                  <div class="theme-variant-box__title">{{ variant.title }}</div>
-                  <div class="theme-variant-box__price-row">
-                    <span class="theme-variant-box__mrp">M.R.P.</span>
-                    <span class="theme-variant-box__price-new">{{ variant.price | money }}</span>
-                    {%- if variant.compare_at_price > variant.price -%}
-                      <span class="theme-variant-box__price-old">{{ variant.compare_at_price | money }}</span>
-                    {%- endif -%}
-                  </div>
-                </label>
-              {%- endfor -%}
-            </div>
-          {%- else -%}
-            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-          {%- endif -%}
-          <input type="hidden" name="quantity" value="1">
-        {%- endform -%}
-        {%- endif -%}
-      </div>
-
-      {%- if section.settings.description_block != blank -%}
-        <div class="theme-product-page__desc-title">{{ section.settings.description_title }}</div>
-        <p class="theme-product-page__description-block">
-          {{ section.settings.description_block }}
+          {{
+            hero_note_text
+            | strip
+            | replace: 'Neelibhringadi works', 'Neelibhringadi<br class="theme-hero-note-break">works'
+          }}
         </p>
-      {%- endif -%}
 
-      <div class="theme-new-cert-block motion-panel">
-        <div class="theme-new-cert-block__stamps">
-          {%- if section.settings.stamp_1_image != blank -%}
-            {{ section.settings.stamp_1_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_1_alt }}
-          {%- endif -%}
-          {%- if section.settings.stamp_2_image != blank -%}
-            {{ section.settings.stamp_2_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_2_alt }}
-          {%- endif -%}
-          {%- if section.settings.stamp_3_image != blank -%}
-            {{ section.settings.stamp_3_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_3_alt }}
-          {%- endif -%}
-          {%- if section.settings.stamp_4_image != blank -%}
-            {{ section.settings.stamp_4_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: section.settings.stamp_4_alt }}
+        <div class="theme-product-page__quote-wrap motion-panel">
+          <div class="theme-product-page__quote">
+            {%- if quote_block -%}
+              {{ quote_block.settings.quote }}
+            {%- else -%}
+              "Hair fall reduced noticeably, and I can already see tiny baby hairs coming"
+            {%- endif -%}
+          </div>
+          <div class="theme-product-page__quote-meta">
+            {%- if quote_block -%}
+              {{ quote_block.settings.author }}
+            {%- else -%}
+              - ANU R., CHENNAI
+            {%- endif -%}
+          </div>
+        </div>
+
+        <div class="theme-product-page__form-card">
+          {%- if product != blank and selected_variant != blank -%}
+            {%- form 'product', product, id: 'theme-product-form-mobile', class: 'theme-product-form' -%}
+              <button
+                type="submit"
+                name="add"
+                class="theme-reorder-btn theme-reorder-btn--mobile cta-sheen"
+                {% unless selected_variant.available %}
+                  disabled="disabled"
+                {% endunless %}
+              >
+                <div class="theme-reorder-btn__left">
+                  <svg
+                    class="theme-reorder-btn__icon theme-reorder-btn__icon--mobile"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M3 3v5h5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <div class="theme-reorder-btn__content">
+                    <div class="theme-reorder-btn__title theme-reorder-btn__title--mobile">
+                      {%- if selected_variant.available -%}
+                        Add to Cart
+                      {%- else -%}
+                        Sold Out
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+                <div class="theme-reorder-btn__right theme-reorder-btn__right--mobile">
+                  {%- if selected_variant.compare_at_price > selected_variant.price -%}
+                    <span class="theme-reorder-btn__price-old">{{ selected_variant.compare_at_price | money }}</span>
+                  {%- else -%}
+                    <span class="theme-reorder-btn__price-old" hidden></span>
+                  {%- endif -%}
+                  <span class="theme-reorder-btn__price-new theme-reorder-btn__price-new--mobile">
+                    {{- selected_variant.price | money -}}
+                  </span>
+                </div>
+              </button>
+
+              <div class="theme-delivery-banner">
+                Free delivery on orders over ₹299 | <span class="theme-delivery-banner__truck">🚚</span> 2-4 days
+                delivery
+              </div>
+
+              {%- if product.variants.size > 1 -%}
+                <div class="theme-variant-boxes theme-variant-boxes--mobile">
+                  {%- for variant in product.variants limit: 2 -%}
+                    <label
+                      class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}"
+                      for="Variant-Mobile-{{ section.id }}-{{ forloop.index }}"
+                    >
+                      <input
+                        type="radio"
+                        class="theme-variant-box__input"
+                        name="id"
+                        value="{{ variant.id }}"
+                        id="Variant-Mobile-{{ section.id }}-{{ forloop.index }}"
+                        data-price="{{ variant.price | money }}"
+                        data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
+                        data-available="{{ variant.available }}"
+                        {% if variant == product.selected_or_first_available_variant %}
+                          checked
+                        {% endif %}
+                      >
+                      <div class="theme-variant-box__title">{{ variant.title }}</div>
+                      <div class="theme-variant-box__price-row">
+                        <span class="theme-variant-box__mrp">M.R.P.</span>
+                        <span class="theme-variant-box__price-new">{{ variant.price | money }}</span>
+                        {%- if variant.compare_at_price > variant.price -%}
+                          <span class="theme-variant-box__price-old">{{ variant.compare_at_price | money }}</span>
+                        {%- endif -%}
+                      </div>
+                    </label>
+                  {%- endfor -%}
+                </div>
+              {%- else -%}
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              {%- endif -%}
+              <input type="hidden" name="quantity" value="1">
+            {%- endform -%}
           {%- endif -%}
         </div>
-      </div>
 
-      {% render 'ritual-guide', title: section.settings.ritual_title, text: section.settings.ritual_text %}
+        {%- if section.settings.description_block != blank -%}
+          <div class="theme-product-page__desc-title">{{ section.settings.description_title }}</div>
+          <p class="theme-product-page__description-block">
+            {{ section.settings.description_block }}
+          </p>
+        {%- endif -%}
+
+        <div class="theme-new-cert-block motion-panel">
+          <div class="theme-new-cert-block__stamps">
+            {%- if section.settings.stamp_1_image != blank -%}
+              {{
+                section.settings.stamp_1_image
+                | image_url: width: 180
+                | image_tag: loading: 'lazy', alt: section.settings.stamp_1_alt
+              }}
+            {%- endif -%}
+            {%- if section.settings.stamp_2_image != blank -%}
+              {{
+                section.settings.stamp_2_image
+                | image_url: width: 180
+                | image_tag: loading: 'lazy', alt: section.settings.stamp_2_alt
+              }}
+            {%- endif -%}
+            {%- if section.settings.stamp_3_image != blank -%}
+              {{
+                section.settings.stamp_3_image
+                | image_url: width: 180
+                | image_tag: loading: 'lazy', alt: section.settings.stamp_3_alt
+              }}
+            {%- endif -%}
+            {%- if section.settings.stamp_4_image != blank -%}
+              {{
+                section.settings.stamp_4_image
+                | image_url: width: 180
+                | image_tag: loading: 'lazy', alt: section.settings.stamp_4_alt
+              }}
+            {%- endif -%}
+          </div>
+        </div>
+
+        {% render 'ritual-guide', title: section.settings.ritual_title, text: section.settings.ritual_text %}
+      </div>
     </div>
-  </div>
   </div>
   {% render 'sticky-cart-bar' %}
 </section>
@@ -725,11 +1039,34 @@
       "default": 36,
       "label": "Top padding"
     },
-    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 0, "label": "Bottom padding" },
-    { "type": "text", "id": "delivery_banner_text", "label": "Delivery Banner Text", "default": "Free delivery on orders over ₹299 | 2-4 days delivery" },
-    { "type": "text", "id": "description_title", "label": "Description Title", "default": "How Neelibringadi Keram works" },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0,
+      "label": "Bottom padding"
+    },
+    {
+      "type": "text",
+      "id": "delivery_banner_text",
+      "label": "Delivery Banner Text",
+      "default": "Free delivery on orders over ₹299 | 2-4 days delivery"
+    },
+    {
+      "type": "text",
+      "id": "description_title",
+      "label": "Description Title",
+      "default": "How Neelibringadi Keram works"
+    },
     { "type": "text", "id": "ritual_title", "label": "Ritual Guide Title", "default": "The Ritual Guide" },
-    { "type": "textarea", "id": "ritual_text", "label": "Ritual Guide Text", "default": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week." }
+    {
+      "type": "textarea",
+      "id": "ritual_text",
+      "label": "Ritual Guide Text",
+      "default": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week."
+    }
   ],
   "blocks": [
     {
@@ -828,16 +1165,12 @@
       "type": "share",
       "name": "Share",
       "limit": 1,
-      "settings": [
-        { "type": "text", "id": "share_label", "default": "Share", "label": "Label" }
-      ]
+      "settings": [{ "type": "text", "id": "share_label", "default": "Share", "label": "Label" }]
     },
     {
       "type": "custom_liquid",
       "name": "liquid",
-      "settings": [
-        { "type": "liquid", "id": "custom_liquid", "label": "Liquid" }
-      ]
+      "settings": [{ "type": "liquid", "id": "custom_liquid", "label": "Liquid" }]
     },
     {
       "type": "hero_stat",
@@ -852,14 +1185,24 @@
       "name": "Hero feature",
       "settings": [
         { "type": "text", "id": "title", "default": "Made by BAMS doctors", "label": "Title" },
-        { "type": "inline_richtext", "id": "text", "default": "GMP & ISO certified, FDA compliant and AYUSH licensed.", "label": "Text" }
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "GMP & ISO certified, FDA compliant and AYUSH licensed.",
+          "label": "Text"
+        }
       ]
     },
     {
       "type": "hero_quote",
       "name": "Hero quote",
       "settings": [
-        { "type": "inline_richtext", "id": "quote", "default": "\"Hair fall reduced noticeably, and I can already see tiny baby hairs coming\"", "label": "Quote" },
+        {
+          "type": "inline_richtext",
+          "id": "quote",
+          "default": "\"Hair fall reduced noticeably, and I can already see tiny baby hairs coming\"",
+          "label": "Quote"
+        },
         { "type": "text", "id": "author", "default": "- ANU R., CHENNAI", "label": "Author" }
       ]
     },

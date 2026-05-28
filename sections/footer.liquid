@@ -7,15 +7,24 @@
     {%- assign brand_block = section.blocks | where: 'type', 'brand' | first -%}
     {%- assign link_blocks = section.blocks | where: 'type', 'link_column' -%}
     {%- assign social_block = section.blocks | where: 'type', 'social' | first -%}
+    {%- assign social_link_blocks = section.blocks | where: 'type', 'social_link' -%}
     {%- assign tagline_block = section.blocks | where: 'type', 'tagline' | first -%}
 
     <div class="theme-footer-grid">
       <!-- Brand column (block preferred, fallback to section setting) -->
       <div class="theme-footer-brand">
-        {%- if brand_block != nil and brand_block.settings.logo != blank -%}
-          {{ brand_block.settings.logo | image_url: width: 800 | image_tag: class: 'theme-footer-brand__logo', loading: 'lazy', alt: brand_block.settings.logo.alt }}
+        {%- if brand_block != null and brand_block.settings.logo != blank -%}
+          {{
+            brand_block.settings.logo
+            | image_url: width: 800
+            | image_tag: class: 'theme-footer-brand__logo', loading: 'lazy', alt: brand_block.settings.logo.alt
+          }}
         {%- elsif section.settings.logo_image != blank -%}
-          {{ section.settings.logo_image | image_url: width: 800 | image_tag: class: 'theme-footer-brand__logo', loading: 'lazy', alt: section.settings.logo_alt }}
+          {{
+            section.settings.logo_image
+            | image_url: width: 800
+            | image_tag: class: 'theme-footer-brand__logo', loading: 'lazy', alt: section.settings.logo_alt
+          }}
         {%- else -%}
           <span class="theme-footer-brand__text">{{ shop.name }}</span>
         {%- endif -%}
@@ -30,28 +39,76 @@
             {%- endif -%}
             <ul class="theme-footer-list">
               {%- if block.settings.item_1_title != blank -%}
-                <li>{%- if block.settings.item_1_link != blank -%}<a href="{{ block.settings.item_1_link }}">{{ block.settings.item_1_title }}</a>{%- else -%}<span>{{ block.settings.item_1_title }}</span>{%- endif -%}</li>
+                <li>
+                  {%- if block.settings.item_1_link != blank -%}
+                    <a href="{{ block.settings.item_1_link }}">{{ block.settings.item_1_title }}</a>
+                  {%- else -%}
+                    <span>{{ block.settings.item_1_title }}</span>
+                  {%- endif -%}
+                </li>
               {%- endif -%}
               {%- if block.settings.item_2_title != blank -%}
-                <li>{%- if block.settings.item_2_link != blank -%}<a href="{{ block.settings.item_2_link }}">{{ block.settings.item_2_title }}</a>{%- else -%}<span>{{ block.settings.item_2_title }}</span>{%- endif -%}</li>
+                <li>
+                  {%- if block.settings.item_2_link != blank -%}
+                    <a href="{{ block.settings.item_2_link }}">{{ block.settings.item_2_title }}</a>
+                  {%- else -%}
+                    <span>{{ block.settings.item_2_title }}</span>
+                  {%- endif -%}
+                </li>
               {%- endif -%}
               {%- if block.settings.item_3_title != blank -%}
-                <li>{%- if block.settings.item_3_link != blank -%}<a href="{{ block.settings.item_3_link }}">{{ block.settings.item_3_title }}</a>{%- else -%}<span>{{ block.settings.item_3_title }}</span>{%- endif -%}</li>
+                <li>
+                  {%- if block.settings.item_3_link != blank -%}
+                    <a href="{{ block.settings.item_3_link }}">{{ block.settings.item_3_title }}</a>
+                  {%- else -%}
+                    <span>{{ block.settings.item_3_title }}</span>
+                  {%- endif -%}
+                </li>
               {%- endif -%}
               {%- if block.settings.item_4_title != blank -%}
-                <li>{%- if block.settings.item_4_link != blank -%}<a href="{{ block.settings.item_4_link }}">{{ block.settings.item_4_title }}</a>{%- else -%}<span>{{ block.settings.item_4_title }}</span>{%- endif -%}</li>
+                <li>
+                  {%- if block.settings.item_4_link != blank -%}
+                    <a href="{{ block.settings.item_4_link }}">{{ block.settings.item_4_title }}</a>
+                  {%- else -%}
+                    <span>{{ block.settings.item_4_title }}</span>
+                  {%- endif -%}
+                </li>
               {%- endif -%}
               {%- if block.settings.item_5_title != blank -%}
-                <li>{%- if block.settings.item_5_link != blank -%}<a href="{{ block.settings.item_5_link }}">{{ block.settings.item_5_title }}</a>{%- else -%}<span>{{ block.settings.item_5_title }}</span>{%- endif -%}</li>
+                <li>
+                  {%- if block.settings.item_5_link != blank -%}
+                    <a href="{{ block.settings.item_5_link }}">{{ block.settings.item_5_title }}</a>
+                  {%- else -%}
+                    <span>{{ block.settings.item_5_title }}</span>
+                  {%- endif -%}
+                </li>
               {%- endif -%}
               {%- if block.settings.item_6_title != blank -%}
-                <li>{%- if block.settings.item_6_link != blank -%}<a href="{{ block.settings.item_6_link }}">{{ block.settings.item_6_title }}</a>{%- else -%}<span>{{ block.settings.item_6_title }}</span>{%- endif -%}</li>
+                <li>
+                  {%- if block.settings.item_6_link != blank -%}
+                    <a href="{{ block.settings.item_6_link }}">{{ block.settings.item_6_title }}</a>
+                  {%- else -%}
+                    <span>{{ block.settings.item_6_title }}</span>
+                  {%- endif -%}
+                </li>
               {%- endif -%}
               {%- if block.settings.item_7_title != blank -%}
-                <li>{%- if block.settings.item_7_link != blank -%}<a href="{{ block.settings.item_7_link }}">{{ block.settings.item_7_title }}</a>{%- else -%}<span>{{ block.settings.item_7_title }}</span>{%- endif -%}</li>
+                <li>
+                  {%- if block.settings.item_7_link != blank -%}
+                    <a href="{{ block.settings.item_7_link }}">{{ block.settings.item_7_title }}</a>
+                  {%- else -%}
+                    <span>{{ block.settings.item_7_title }}</span>
+                  {%- endif -%}
+                </li>
               {%- endif -%}
               {%- if block.settings.item_8_title != blank -%}
-                <li>{%- if block.settings.item_8_link != blank -%}<a href="{{ block.settings.item_8_link }}">{{ block.settings.item_8_title }}</a>{%- else -%}<span>{{ block.settings.item_8_title }}</span>{%- endif -%}</li>
+                <li>
+                  {%- if block.settings.item_8_link != blank -%}
+                    <a href="{{ block.settings.item_8_link }}">{{ block.settings.item_8_title }}</a>
+                  {%- else -%}
+                    <span>{{ block.settings.item_8_title }}</span>
+                  {%- endif -%}
+                </li>
               {%- endif -%}
             </ul>
           </div>
@@ -96,55 +153,127 @@
       {%- endif -%}
     </div>
 
-    <!-- Social + Tagline (prefer blocks, fallback to section/global settings) -->
-    <div class="theme-footer-social-wrapper">
-      <div class="theme-footer-social-empty"></div>
-      <div class="theme-footer-social-content">
-        {%- if social_block != nil and social_block.settings.label != blank -%}
-          {%- assign social_label = social_block.settings.label -%}
-        {%- else -%}
-          {%- assign social_label = section.settings.social_label -%}
-        {%- endif -%}
-        {%- if social_label != blank -%}
-          <div class="theme-footer-social__label">{{ social_label }}</div>
-        {%- endif -%}
-        <div class="theme-footer-social__icons">
-          {%- if social_block != nil -%}
-            {%- assign facebook_link = social_block.settings.facebook_link | default: settings.social_facebook_link -%}
-            {%- assign twitter_link = social_block.settings.twitter_link | default: settings.social_twitter_link -%}
-            {%- assign instagram_link = social_block.settings.instagram_link | default: settings.social_instagram_link -%}
-            {%- assign youtube_link = social_block.settings.youtube_link | default: settings.social_youtube_link -%}
-            {%- assign linkedin_link = social_block.settings.linkedin_link | default: settings.social_linkedin_link -%}
-          {%- else -%}
-            {%- assign facebook_link = settings.social_facebook_link -%}
-            {%- assign twitter_link = settings.social_twitter_link -%}
-            {%- assign instagram_link = settings.social_instagram_link -%}
-            {%- assign youtube_link = settings.social_youtube_link -%}
-            {%- assign linkedin_link = settings.social_linkedin_link -%}
-          {%- endif -%}
+    <!-- Social + Tagline (prefer add/remove social blocks, fallback to legacy social block) -->
+    {%- assign has_social_icons = false -%}
+    {%- if social_link_blocks.size > 0 -%}
+      {%- assign has_social_icons = true -%}
+    {%- elsif social_block != null -%}
+      {%- if social_block.settings.facebook_link != blank
+        or social_block.settings.twitter_link != blank
+        or social_block.settings.instagram_link != blank
+        or social_block.settings.youtube_link != blank
+        or social_block.settings.linkedin_link != blank
+      -%}
+        {%- assign has_social_icons = true -%}
+      {%- endif -%}
+    {%- endif -%}
 
-          {%- if facebook_link != blank -%}
-            <a href="{{ facebook_link }}" aria-label="Facebook" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-            </a>
+    {%- if has_social_icons -%}
+      <div class="theme-footer-social-wrapper">
+        <div class="theme-footer-social-empty"></div>
+        <div class="theme-footer-social-content">
+          {%- if social_link_blocks.size == 0 and social_block != null and social_block.settings.label != blank -%}
+            {%- assign social_label = social_block.settings.label -%}
+          {%- else -%}
+            {%- assign social_label = section.settings.social_label -%}
           {%- endif -%}
-          {%- if twitter_link != blank -%}
-            <a href="{{ twitter_link }}" aria-label="X" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 4l14 16M19 4 5 20" stroke-width="1.5" stroke-linecap="round" /></svg></a>
+          {%- if social_label != blank -%}
+            <div class="theme-footer-social__label">{{ social_label }}</div>
           {%- endif -%}
-          {%- if instagram_link != blank -%}
-            <a href="{{ instagram_link }}" aria-label="Instagram" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" stroke-width="1.5" /><circle cx="12" cy="12" r="3.5" stroke-width="1.5" /><circle cx="17.4" cy="6.6" r="0.8" fill="currentColor" stroke="none" /></svg></a>
-          {%- endif -%}
-          {%- if youtube_link != blank -%}
-            <a href="{{ youtube_link }}" aria-label="YouTube" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3.5" y="6.5" width="17" height="11" rx="3" stroke-width="1.5" /><path d="M10 9.5 15 12l-5 2.5v-5Z" fill="currentColor" stroke="none" /></svg></a>
-          {%- endif -%}
-          {%- if linkedin_link != blank -%}
-            <a href="{{ linkedin_link }}" aria-label="LinkedIn" class="theme-footer-social__icon footer-social" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6.5 9.5v8M6.5 6.5h.01M11 17.5v-5.2c0-1.4 1.1-2.5 2.5-2.5S16 10.9 16 12.3v5.2M11 11V9.5M6 9.5h1M16 17.5h1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><rect x="4" y="4" width="16" height="16" rx="2.5" stroke-width="1.5" /></svg></a>
-          {%- endif -%}
+          <div class="theme-footer-social__icons">
+            {%- if social_link_blocks.size > 0 -%}
+              {%- for block in social_link_blocks -%}
+                {%- if block.settings.link != blank -%}
+                  {%- assign social_platform_label = 'Social link' -%}
+                  {%- case block.settings.platform -%}
+                    {%- when 'facebook' -%}
+                      {%- assign social_platform_label = 'Facebook' -%}
+                    {%- when 'instagram' -%}
+                      {%- assign social_platform_label = 'Instagram' -%}
+                    {%- when 'youtube' -%}
+                      {%- assign social_platform_label = 'YouTube' -%}
+                    {%- when 'linkedin' -%}
+                      {%- assign social_platform_label = 'LinkedIn' -%}
+                    {%- when 'x' -%}
+                      {%- assign social_platform_label = 'X / Twitter' -%}
+                    {%- when 'twitter' -%}
+                      {%- assign social_platform_label = 'X / Twitter' -%}
+                  {%- endcase -%}
+                  <a
+                    href="{{ block.settings.link }}"
+                    aria-label="{{ social_platform_label }}"
+                    class="theme-footer-social__icon footer-social"
+                    target="_blank"
+                    rel="noopener"
+                    {{ block.shopify_attributes }}
+                  >
+                    {%- render 'social-icon', platform: block.settings.platform -%}
+                  </a>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- elsif social_block != null -%}
+              {%- if social_block.settings.facebook_link != blank -%}
+                <a
+                  href="{{ social_block.settings.facebook_link }}"
+                  aria-label="Facebook"
+                  class="theme-footer-social__icon footer-social"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {%- render 'social-icon', platform: 'facebook' -%}
+                </a>
+              {%- endif -%}
+              {%- if social_block.settings.twitter_link != blank -%}
+                <a
+                  href="{{ social_block.settings.twitter_link }}"
+                  aria-label="X"
+                  class="theme-footer-social__icon footer-social"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {%- render 'social-icon', platform: 'x' -%}
+                </a>
+              {%- endif -%}
+              {%- if social_block.settings.instagram_link != blank -%}
+                <a
+                  href="{{ social_block.settings.instagram_link }}"
+                  aria-label="Instagram"
+                  class="theme-footer-social__icon footer-social"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {%- render 'social-icon', platform: 'instagram' -%}
+                </a>
+              {%- endif -%}
+              {%- if social_block.settings.youtube_link != blank -%}
+                <a
+                  href="{{ social_block.settings.youtube_link }}"
+                  aria-label="YouTube"
+                  class="theme-footer-social__icon footer-social"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {%- render 'social-icon', platform: 'youtube' -%}
+                </a>
+              {%- endif -%}
+              {%- if social_block.settings.linkedin_link != blank -%}
+                <a
+                  href="{{ social_block.settings.linkedin_link }}"
+                  aria-label="LinkedIn"
+                  class="theme-footer-social__icon footer-social"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {%- render 'social-icon', platform: 'linkedin' -%}
+                </a>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
         </div>
       </div>
-    </div>
+    {%- endif -%}
 
-    {%- if tagline_block != nil and tagline_block.settings.text != blank -%}
+    {%- if tagline_block != null and tagline_block.settings.text != blank -%}
       <div class="theme-footer-tagline-wrapper" {{ tagline_block.shopify_attributes }}>
         <div class="theme-footer-tagline-empty"></div>
         <div class="theme-footer-tagline-content">
@@ -161,7 +290,13 @@
     {%- endif -%}
 
     <div class="theme-footer-decoration" aria-hidden="true">
-      <svg class="theme-footer-decoration__svg" viewBox="0 0 1440 108" preserveAspectRatio="none" role="presentation" focusable="false">
+      <svg
+        class="theme-footer-decoration__svg"
+        viewBox="0 0 1440 108"
+        preserveAspectRatio="none"
+        role="presentation"
+        focusable="false"
+      >
         <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
           <path d="M16 82c18-18 33-30 51-39M50 100c18-12 32-26 44-41M91 78c13-18 27-32 44-43M130 96c9-19 21-35 39-49M170 83c16-16 30-28 49-39M214 99c16-14 29-30 42-46M255 76c12-17 25-31 41-43M294 92c11-18 22-33 39-48M336 79c16-15 31-27 48-38M379 98c16-13 31-28 43-45M420 80c14-17 28-31 44-42M462 94c10-18 22-34 40-47M506 81c15-16 29-28 48-39M551 96c15-14 29-30 43-46M594 78c12-17 26-31 42-43M636 92c11-18 22-34 40-48M679 80c15-16 29-28 47-39M724 95c15-14 28-30 43-45M766 78c12-17 25-31 42-43M808 92c11-18 23-34 40-47M852 80c15-16 29-28 47-39M897 95c15-14 29-30 43-46M940 78c12-17 25-31 42-43M982 92c11-18 22-34 40-48M1026 80c15-16 29-28 47-39M1071 95c15-14 29-30 43-46M1114 78c12-17 25-31 42-43M1156 92c11-18 22-34 40-48M1200 80c15-16 29-28 47-39M1245 95c15-14 29-30 43-46M1288 78c12-17 25-31 42-43M1330 92c11-18 23-34 40-47M1374 80c15-16 29-28 47-39" stroke-width="1.2"/>
           <path d="M32 74c4-10 9-18 18-26M74 92c4-10 10-19 18-26M113 66c4-10 10-18 18-26M154 88c4-10 10-19 18-26M194 73c4-10 10-18 18-26M235 91c4-10 10-19 18-26M275 67c4-10 10-18 18-26M317 86c4-10 10-19 18-26M358 72c4-10 10-18 18-26M398 90c4-10 10-19 18-26M439 66c4-10 10-18 18-26M481 85c4-10 10-19 18-26M522 71c4-10 10-18 18-26M562 89c4-10 10-19 18-26M604 65c4-10 10-18 18-26M646 84c4-10 10-19 18-26M687 70c4-10 10-18 18-26M728 88c4-10 10-19 18-26M769 66c4-10 10-18 18-26M811 85c4-10 10-19 18-26M852 71c4-10 10-18 18-26M893 89c4-10 10-19 18-26M934 65c4-10 10-18 18-26M976 84c4-10 10-19 18-26M1017 70c4-10 10-18 18-26M1058 88c4-10 10-19 18-26M1099 66c4-10 10-18 18-26M1141 85c4-10 10-19 18-26M1182 71c4-10 10-18 18-26M1223 89c4-10 10-19 18-26M1264 65c4-10 10-18 18-26M1306 84c4-10 10-19 18-26M1347 70c4-10 10-18 18-26M1388 88c4-10 10-19 18-26" stroke-width="1" opacity="0.85"/>
@@ -230,7 +365,7 @@
     },
     {
       "type": "social",
-      "name": "Social",
+      "name": "Legacy social links",
       "settings": [
         { "type": "text", "id": "label", "label": "Label", "default": "Follow Us" },
         { "type": "url", "id": "facebook_link", "label": "Facebook link" },
@@ -238,6 +373,26 @@
         { "type": "url", "id": "instagram_link", "label": "Instagram link" },
         { "type": "url", "id": "youtube_link", "label": "YouTube link" },
         { "type": "url", "id": "linkedin_link", "label": "LinkedIn link" }
+      ]
+    },
+    {
+      "type": "social_link",
+      "name": "Social link",
+      "settings": [
+        {
+          "type": "select",
+          "id": "platform",
+          "label": "Platform",
+          "default": "facebook",
+          "options": [
+            { "value": "facebook", "label": "Facebook" },
+            { "value": "instagram", "label": "Instagram" },
+            { "value": "youtube", "label": "YouTube" },
+            { "value": "linkedin", "label": "LinkedIn" },
+            { "value": "x", "label": "X / Twitter" }
+          ]
+        },
+        { "type": "url", "id": "link", "label": "Link" }
       ]
     },
     {

@@ -245,49 +245,13 @@
             "title": "NO ARTIFICIAL FRAGRANCE",
             "text": "The scent is purely from herbs and the carrier oil."
           }
-        },
-        "difference_1": {
-          "type": "difference",
-          "settings": {
-            "icon": "leather",
-            "title": "INGREDIENTS",
-            "text": "Neeli, Bhringaraj, Amla, traditional carrier oils, and a triple-milk base selected to cool, fortify, and support regrowth."
-          }
-        },
-        "difference_2": {
-          "type": "difference",
-          "settings": {
-            "icon": "truck",
-            "title": "PROCESSING",
-            "text": "Each batch is prepared over several days so the herbal essence fully binds to the oil instead of sitting on the surface."
-          }
-        },
-        "difference_3": {
-          "type": "difference",
-          "settings": {
-            "icon": "ruler",
-            "title": "RESULT TIMELINE",
-            "text": "The first win is usually less fall. Visible density comes later with consistent use and a complete growth cycle."
-          }
-        },
-        "difference_4": {
-          "type": "difference",
-          "settings": {
-            "icon": "heart",
-            "title": "SIDE EFFECTS",
-            "text": "This is a botanical product, but patch testing first is still the safest place to start for sensitive scalps."
-          }
         }
       },
       "block_order": [
         "inclusion_1",
         "inclusion_2",
         "exclusion_1",
-        "exclusion_2",
-        "difference_1",
-        "difference_2",
-        "difference_3",
-        "difference_4"
+        "exclusion_2"
       ],
       "settings": {
         "color_scheme": "scheme-1",
@@ -295,7 +259,7 @@
         "kicker": "",
         "heading": "What's in it. What is not.",
         "text": "",
-        "accordion_kicker": "Kerala Ayurveda Difference",
+        "accordion_kicker": "",
         "accordion_heading": "",
         "padding_top": 80,
         "padding_bottom": 80
@@ -594,10 +558,10 @@
   "order": [
     "header",
     "main",
-    "timeline",
-    "story",
     "ingredients",
     "three_milks",
+    "story",
+    "timeline",
     "massage_ritual",
     "information",
     "customer_reviews",

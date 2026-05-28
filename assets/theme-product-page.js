@@ -13,7 +13,10 @@
     const next = root.querySelector('[data-theme-carousel-next]');
     if (!slides.length) return;
 
-    let current = Math.max(0, slides.findIndex((slide) => slide.classList.contains('is-active')));
+    let current = Math.max(
+      0,
+      slides.findIndex((slide) => slide.classList.contains('is-active')),
+    );
     if (current < 0) current = 0;
     let timer = null;
 
@@ -61,14 +64,17 @@
       return;
     }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.14 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 },
+    );
 
     elements.forEach((element) => observer.observe(element));
   }
@@ -139,7 +145,7 @@
         isSyncing = true;
 
         const targetValue = e.target.value;
-        
+
         // 1. Sync other selects to the same value
         selects.forEach((otherSelect) => {
           if (otherSelect !== select && otherSelect.value !== targetValue) {
@@ -165,11 +171,11 @@
           // Update prices
           const newPriceEl = btn.querySelector('.theme-reorder-card__price-new');
           const oldPriceEl = btn.querySelector('.theme-reorder-card__price-old');
-          
+
           if (newPriceEl && price) {
             newPriceEl.textContent = price;
           }
-          
+
           if (oldPriceEl) {
             if (comparePrice && comparePrice.trim() !== '') {
               oldPriceEl.textContent = comparePrice;
@@ -217,8 +223,16 @@
       const radios = Array.from(section.querySelectorAll('.theme-variant-box__input'));
       if (!radios.length) return;
 
-      const priceTargets = Array.from(section.querySelectorAll('.theme-reorder-btn__price-new, .theme-reorder-card__price-new, .theme-sticky-cart-bar__price, .theme-variant-box__price-new'));
-      const oldPriceTargets = Array.from(section.querySelectorAll('.theme-reorder-btn__price-old, .theme-reorder-card__price-old, .theme-variant-box__price-old'));
+      const priceTargets = Array.from(
+        section.querySelectorAll(
+          '.theme-reorder-btn__price-new, .theme-reorder-card__price-new, .theme-sticky-cart-bar__price, .theme-variant-box__price-new',
+        ),
+      );
+      const oldPriceTargets = Array.from(
+        section.querySelectorAll(
+          '.theme-reorder-btn__price-old, .theme-reorder-card__price-old, .theme-variant-box__price-old',
+        ),
+      );
       const actionButtons = Array.from(section.querySelectorAll('.theme-reorder-btn'));
       const titleTargets = Array.from(section.querySelectorAll('.theme-reorder-btn__title'));
       const labels = Array.from(section.querySelectorAll('.theme-variant-box'));

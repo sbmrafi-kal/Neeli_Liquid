@@ -16,18 +16,32 @@
         {%- assign nav_4_url = section.settings.nav_4_url | default: routes.root_url -%}
         {%- assign nav_5_url = section.settings.nav_5_url | default: routes.root_url -%}
 
-        {%- if nav_1_title != blank -%}<a class="theme-header-figma__nav-link" href="{{ nav_1_url }}">{{ nav_1_title }}</a>{%- endif -%}
-        {%- if nav_2_title != blank -%}<a class="theme-header-figma__nav-link" href="{{ nav_2_url }}">{{ nav_2_title }}</a>{%- endif -%}
-        {%- if nav_3_title != blank -%}<a class="theme-header-figma__nav-link" href="{{ nav_3_url }}">{{ nav_3_title }}</a>{%- endif -%}
-        {%- if nav_4_title != blank -%}<a class="theme-header-figma__nav-link" href="{{ nav_4_url }}">{{ nav_4_title }}</a>{%- endif -%}
-        {%- if nav_5_title != blank -%}<a class="theme-header-figma__nav-link" href="{{ nav_5_url }}">{{ nav_5_title }}</a>{%- endif -%}
+        {%- if nav_1_title != blank -%}
+          <a class="theme-header-figma__nav-link" href="{{ nav_1_url }}">{{ nav_1_title }}</a>
+        {%- endif -%}
+        {%- if nav_2_title != blank -%}
+          <a class="theme-header-figma__nav-link" href="{{ nav_2_url }}">{{ nav_2_title }}</a>
+        {%- endif -%}
+        {%- if nav_3_title != blank -%}
+          <a class="theme-header-figma__nav-link" href="{{ nav_3_url }}">{{ nav_3_title }}</a>
+        {%- endif -%}
+        {%- if nav_4_title != blank -%}
+          <a class="theme-header-figma__nav-link" href="{{ nav_4_url }}">{{ nav_4_title }}</a>
+        {%- endif -%}
+        {%- if nav_5_title != blank -%}
+          <a class="theme-header-figma__nav-link" href="{{ nav_5_url }}">{{ nav_5_title }}</a>
+        {%- endif -%}
       </nav>
     </div>
 
     <div class="theme-header-figma__center">
       <a class="theme-header-figma__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
         {%- if section.settings.logo_image != blank -%}
-          {{ section.settings.logo_image | image_url: width: 600 | image_tag: class: 'theme-header-figma__brand-image', loading: 'eager', alt: section.settings.logo_alt }}
+          {{
+            section.settings.logo_image
+            | image_url: width: 600
+            | image_tag: class: 'theme-header-figma__brand-image', loading: 'eager', alt: section.settings.logo_alt
+          }}
         {%- else -%}
           <span class="theme-header-figma__brand-text">{{ section.settings.logo_text | default: shop.name }}</span>
         {%- endif -%}

@@ -1,0 +1,33 @@
+{%- liquid
+  assign platform = platform | default: icon | default: '' | downcase | strip
+-%}
+{%- case platform -%}
+  {%- when 'facebook' -%}
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="M14.5 8.25H16V4h-2c-3.3 0-5.5 2.2-5.5 5.5V12H6v4h2.5v4H13v-4h3.1l.9-4H13V9.75c0-.9.6-1.5 1.5-1.5Z" fill="currentColor" stroke="none" />
+    </svg>
+  {%- when 'instagram' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+      <rect x="4.5" y="4.5" width="15" height="15" rx="4" stroke-width="1.5" />
+      <circle cx="12" cy="12" r="3.5" stroke-width="1.5" />
+      <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  {%- when 'youtube' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+      <rect x="3.5" y="6.5" width="17" height="11" rx="3" stroke-width="1.5" />
+      <path d="M10 9.5 15 12l-5 2.5v-5Z" fill="currentColor" stroke="none" />
+    </svg>
+  {%- when 'linkedin' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+      <rect x="4" y="4" width="16" height="16" rx="2.5" stroke-width="1.5" />
+      <path d="M6.5 9.5v8M6.5 6.5h.01M11 17.5v-5.2c0-1.4 1.1-2.5 2.5-2.5S16 10.9 16 12.3v5.2M11 11V9.5M6 9.5h1M16 17.5h1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  {%- when 'x' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+      <path d="M5 4l14 16M19 4 5 20" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  {%- when 'twitter' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+      <path d="M5 4l14 16M19 4 5 20" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+{%- endcase -%}

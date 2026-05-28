@@ -11,6 +11,7 @@
 .theme-footer-column__title { font-size: 16px !important; }
 .theme-footer-social__icon,
 .theme-footer-social__icon svg { width: 24px !important; height: 24px !important; }
+.theme-footer-social__icons { flex-wrap: wrap !important; }
 .theme-footer-brand__text {
   display: inline-block;
   font-family: var(--font-heading-family);

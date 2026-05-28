@@ -7,7 +7,11 @@
 {%- assign product_title = product.title | default: 'Product' -%}
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
 
-<section id="ProductHeroFigma-{{ section.id }}" class="theme-product-page theme-product-page--figma" data-section="{{ section.id }}">
+<section
+  id="ProductHeroFigma-{{ section.id }}"
+  class="theme-product-page theme-product-page--figma"
+  data-section="{{ section.id }}"
+>
   <div class="theme-product-page__figma-inner container-narrow">
     <div class="theme-product-page__figma-media">
       <div class="theme-hero-carousel" data-theme-carousel data-theme-autoplay="false">
@@ -20,12 +24,20 @@
               {%- assign slide_alt = block.settings.alt | default: product_title -%}
               {%- if desktop_image != blank -%}
                 {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
-                <figure class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}" data-theme-carousel-slide {{ block.shopify_attributes }}>
+                <figure
+                  class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}"
+                  data-theme-carousel-slide
+                  {{ block.shopify_attributes }}
+                >
                   <picture class="theme-hero-carousel__picture">
                     {%- if mobile_image != blank -%}
                       <source media="(max-width: 989px)" srcset="{{ mobile_image | image_url: width: 1200 }}">
                     {%- endif -%}
-                    {{ desktop_image | image_url: width: 1600 | image_tag: class: 'theme-hero-carousel__image', loading: 'lazy', alt: slide_alt }}
+                    {{
+                      desktop_image
+                      | image_url: width: 1600
+                      | image_tag: class: 'theme-hero-carousel__image', loading: 'lazy', alt: slide_alt
+                    }}
                   </picture>
                 </figure>
               {%- endif -%}
@@ -34,26 +46,63 @@
 
           {%- if hero_slide_count == 0 and product.media.size > 0 -%}
             {%- for media in product.media -%}
-              <figure class="theme-hero-carousel__slide{% if forloop.first %} is-active{% endif %}" data-theme-carousel-slide>
-                {%- if forloop.first -%}{%- assign hero_loading = 'eager' -%}{%- else -%}{%- assign hero_loading = 'lazy' -%}{%- endif -%}
-                  {%- if media.preview_image != blank -%}
-                    {{ media.preview_image | image_url: width: 1600 | image_tag: class: 'theme-hero-carousel__image', loading: hero_loading, alt: product_title }}
+              <figure
+                class="theme-hero-carousel__slide{% if forloop.first %} is-active{% endif %}"
+                data-theme-carousel-slide
+              >
+                {%- if forloop.first -%}
+                  {%- assign hero_loading = 'eager' -%}
+                {%- else -%}
+                  {%- assign hero_loading = 'lazy' -%}
+                {%- endif -%}
+                {%- if media.preview_image != blank -%}
+                  {{
+                    media.preview_image
+                    | image_url: width: 1600
+                    | image_tag: class: 'theme-hero-carousel__image', loading: hero_loading, alt: product_title
+                  }}
                 {%- elsif media.src != blank -%}
-                  {{ media | image_url: width: 1600 | image_tag: class: 'theme-hero-carousel__image', loading: hero_loading, alt: product_title }}
+                  {{
+                    media
+                    | image_url: width: 1600
+                    | image_tag: class: 'theme-hero-carousel__image', loading: hero_loading, alt: product_title
+                  }}
                 {%- endif -%}
               </figure>
             {%- endfor -%}
           {%- endif -%}
 
-          <button class="theme-hero-carousel__control theme-hero-carousel__control--prev" type="button" aria-label="Previous image" data-theme-carousel-prev>‹</button>
-          <button class="theme-hero-carousel__control theme-hero-carousel__control--next" type="button" aria-label="Next image" data-theme-carousel-next>›</button>
+          <button
+            class="theme-hero-carousel__control theme-hero-carousel__control--prev"
+            type="button"
+            aria-label="Previous image"
+            data-theme-carousel-prev
+          >
+            ‹
+          </button>
+          <button
+            class="theme-hero-carousel__control theme-hero-carousel__control--next"
+            type="button"
+            aria-label="Next image"
+            data-theme-carousel-next
+          >
+            ›
+          </button>
 
           <div class="theme-hero-carousel__thumbs" role="tablist" aria-label="Product gallery thumbnails">
             {%- assign thumb_index = 0 -%}
             {%- for block in section.blocks -%}
               {%- if block.type == 'hero_image' and block.settings.image != blank -%}
-                <button class="theme-hero-carousel__thumb{% if thumb_index == 0 %} is-active{% endif %}" type="button" data-theme-carousel-thumb="{{ thumb_index }}">
-                  {{ block.settings.image | image_url: width: 180 | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', alt: '' }}
+                <button
+                  class="theme-hero-carousel__thumb{% if thumb_index == 0 %} is-active{% endif %}"
+                  type="button"
+                  data-theme-carousel-thumb="{{ thumb_index }}"
+                >
+                  {{
+                    block.settings.image
+                    | image_url: width: 180
+                    | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', alt: ''
+                  }}
                 </button>
                 {%- assign thumb_index = thumb_index | plus: 1 -%}
               {%- endif -%}
@@ -84,7 +133,9 @@
 
     <div class="theme-product-page__figma-info">
       <h1 class="theme-product-page__title">{{ product_title | escape }}</h1>
-      <p class="theme-product-page__subtitle">{{ section.settings.subtitle | default: 'One oil for complete hair recovery' }}</p>
+      <p class="theme-product-page__subtitle">
+        {{ section.settings.subtitle | default: 'One oil for complete hair recovery' }}
+      </p>
 
       {%- if section.settings.delivery_banner_text != blank -%}
         <div class="theme-product-page__delivery-banner">
@@ -107,15 +158,26 @@
         <div class="theme-product-page__description-block">{{ section.settings.description_block }}</div>
       {%- endif -%}
 
-      {%- form 'product', product, id: "theme-product-form-figma", class: "theme-product-form" -%}
+      {%- form 'product', product, id: 'theme-product-form-figma', class: 'theme-product-form' -%}
         <div class="theme-variant-boxes">
-          {%- for variant in product.variants limit:2 -%}
-            <label class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}" for="Variant-Figma-{{ section.id }}-{{ forloop.index }}">
-              <input type="radio" class="theme-variant-box__input" name="id" value="{{ variant.id }}" id="Variant-Figma-{{ section.id }}-{{ forloop.index }}"
+          {%- for variant in product.variants limit: 2 -%}
+            <label
+              class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}"
+              for="Variant-Figma-{{ section.id }}-{{ forloop.index }}"
+            >
+              <input
+                type="radio"
+                class="theme-variant-box__input"
+                name="id"
+                value="{{ variant.id }}"
+                id="Variant-Figma-{{ section.id }}-{{ forloop.index }}"
                 data-price="{{ variant.price | money }}"
                 data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
                 data-available="{{ variant.available }}"
-                {% if variant == product.selected_or_first_available_variant %}checked{% endif %}>
+                {% if variant == product.selected_or_first_available_variant %}
+                  checked
+                {% endif %}
+              >
               <div class="theme-variant-box__title">{{ variant.title }}</div>
               <div class="theme-variant-box__price-row">
                 <span class="theme-variant-box__price-new">{{ variant.price | money }}</span>
@@ -132,16 +194,32 @@
 
       <div class="theme-new-cert-block__stamps">
         {%- if section.settings.stamp_1_image != blank -%}
-          {{ section.settings.stamp_1_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: section.settings.stamp_1_alt }}
+          {{
+            section.settings.stamp_1_image
+            | image_url: width: 120
+            | image_tag: loading: 'lazy', alt: section.settings.stamp_1_alt
+          }}
         {%- endif -%}
         {%- if section.settings.stamp_2_image != blank -%}
-          {{ section.settings.stamp_2_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: section.settings.stamp_2_alt }}
+          {{
+            section.settings.stamp_2_image
+            | image_url: width: 120
+            | image_tag: loading: 'lazy', alt: section.settings.stamp_2_alt
+          }}
         {%- endif -%}
         {%- if section.settings.stamp_3_image != blank -%}
-          {{ section.settings.stamp_3_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: section.settings.stamp_3_alt }}
+          {{
+            section.settings.stamp_3_image
+            | image_url: width: 120
+            | image_tag: loading: 'lazy', alt: section.settings.stamp_3_alt
+          }}
         {%- endif -%}
         {%- if section.settings.stamp_4_image != blank -%}
-          {{ section.settings.stamp_4_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: section.settings.stamp_4_alt }}
+          {{
+            section.settings.stamp_4_image
+            | image_url: width: 120
+            | image_tag: loading: 'lazy', alt: section.settings.stamp_4_alt
+          }}
         {%- endif -%}
       </div>
     </div>
@@ -154,11 +232,31 @@
   "settings": [
     { "type": "product", "id": "product", "label": "Product override" },
     { "type": "text", "id": "subtitle", "label": "Subtitle" },
-    { "type": "text", "id": "delivery_banner_text", "label": "Delivery banner text", "default": "Free delivery on orders over ₹299 | 2-4 days delivery" },
-    { "type": "richtext", "id": "quote_text", "label": "Quote text", "default": "<p>Hair fall reduced noticeably, and I can already see tiny baby hairs coming.</p>" },
+    {
+      "type": "text",
+      "id": "delivery_banner_text",
+      "label": "Delivery banner text",
+      "default": "Free delivery on orders over ₹299 | 2-4 days delivery"
+    },
+    {
+      "type": "richtext",
+      "id": "quote_text",
+      "label": "Quote text",
+      "default": "<p>Hair fall reduced noticeably, and I can already see tiny baby hairs coming.</p>"
+    },
     { "type": "text", "id": "quote_author", "label": "Quote author", "default": "- ANU R., CHENNAI" },
-    { "type": "text", "id": "description_title", "label": "Description title", "default": "How Neelibringadi Keram works" },
-    { "type": "richtext", "id": "description_block", "label": "Description block", "default": "<p>Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within.</p>" },
+    {
+      "type": "text",
+      "id": "description_title",
+      "label": "Description title",
+      "default": "How Neelibringadi Keram works"
+    },
+    {
+      "type": "richtext",
+      "id": "description_block",
+      "label": "Description block",
+      "default": "<p>Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within.</p>"
+    },
     { "type": "text", "id": "stat_1_value", "label": "Stat 1 value", "default": "4.64★" },
     { "type": "text", "id": "stat_1_label", "label": "Stat 1 label", "default": "Ratings" },
     { "type": "text", "id": "stat_2_value", "label": "Stat 2 value", "default": "1200+" },
