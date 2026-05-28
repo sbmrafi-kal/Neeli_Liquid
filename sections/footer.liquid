@@ -39,6 +39,9 @@
             {%- for item_index in (1..9) -%}
               {%- capture item_title_key -%}item_{{ item_index }}_title{%- endcapture -%}
               {%- capture item_link_key -%}item_{{ item_index }}_link{%- endcapture -%}
+              {%- if item_index == 9 and forloop.first == false -%}
+                {%- continue -%}
+              {%- endif -%}
               {%- assign item_title = block.settings[item_title_key] -%}
               {%- assign item_link = block.settings[item_link_key] -%}
               {%- if item_title != blank -%}

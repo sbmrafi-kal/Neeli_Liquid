@@ -24,19 +24,19 @@
               {%- assign desktop_image = block.settings.image -%}
               {%- assign mobile_image = block.settings.mobile_image | default: desktop_image -%}
               {%- assign slide_alt = block.settings.alt | default: product_title -%}
-              {%- if desktop_image != blank -%}
-                {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
-                {%- assign hero_loading = 'lazy' -%}
-                {%- assign hero_fetchpriority = 'auto' -%}
-                {%- if hero_slide_count == 1 -%}
-                  {%- assign hero_loading = 'eager' -%}
-                  {%- assign hero_fetchpriority = 'high' -%}
-                {%- endif -%}
-                <figure
-                  class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}"
-                  data-theme-carousel-slide
-                  {{ block.shopify_attributes }}
-                >
+              {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
+              {%- assign hero_loading = 'lazy' -%}
+              {%- assign hero_fetchpriority = 'auto' -%}
+              {%- if hero_slide_count == 1 -%}
+                {%- assign hero_loading = 'eager' -%}
+                {%- assign hero_fetchpriority = 'high' -%}
+              {%- endif -%}
+              <figure
+                class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}{% if desktop_image == blank %} theme-hero-carousel__slide--placeholder{% endif %}"
+                data-theme-carousel-slide
+                {{ block.shopify_attributes }}
+              >
+                {%- if desktop_image != blank -%}
                   <picture class="theme-hero-carousel__picture">
                     {%- if mobile_image != blank -%}
                       <source media="(max-width: 989px)" srcset="{{ mobile_image | image_url: width: 1200 }}">
@@ -51,48 +51,14 @@
                         alt: slide_alt
                     }}
                   </picture>
-                </figure>
-              {%- endif -%}
-            {%- endif -%}
-          {%- endfor -%}
-
-          {%- if hero_slide_count == 0 and product.media.size > 0 -%}
-            {%- for media in product.media -%}
-              <figure
-                class="theme-hero-carousel__slide{% if forloop.first %} is-active{% endif %}"
-                data-theme-carousel-slide
-              >
-                {%- if forloop.first -%}
-                  {%- assign hero_loading = 'eager' -%}
-                  {%- assign hero_fetchpriority = 'high' -%}
                 {%- else -%}
-                  {%- assign hero_loading = 'lazy' -%}
-                  {%- assign hero_fetchpriority = 'auto' -%}
-                {%- endif -%}
-                {%- if media.preview_image != blank -%}
-                  {{
-                    media.preview_image
-                    | image_url: width: 1600
-                    | image_tag:
-                      class: 'theme-hero-carousel__image',
-                      loading: hero_loading,
-                      fetchpriority: hero_fetchpriority,
-                      alt: product_title
-                  }}
-                {%- elsif media.src != blank -%}
-                  {{
-                    media
-                    | image_url: width: 1600
-                    | image_tag:
-                      class: 'theme-hero-carousel__image',
-                      loading: hero_loading,
-                      fetchpriority: hero_fetchpriority,
-                      alt: product_title
-                  }}
+                  <div class="theme-hero-carousel__placeholder" aria-hidden="true">
+                    {{ 'image' | placeholder_svg_tag: 'theme-hero-carousel__placeholder-svg' }}
+                  </div>
                 {%- endif -%}
               </figure>
-            {%- endfor -%}
-          {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
 
           <button
             class="theme-hero-carousel__control theme-hero-carousel__control--prev"
@@ -114,17 +80,22 @@
           <div class="theme-hero-carousel__thumbs" role="tablist" aria-label="Product gallery thumbnails">
             {%- assign thumb_index = 0 -%}
             {%- for block in section.blocks -%}
-              {%- if block.type == 'hero_image' and block.settings.image != blank -%}
+              {%- if block.type == 'hero_image' -%}
                 <button
                   class="theme-hero-carousel__thumb{% if thumb_index == 0 %} is-active{% endif %}"
                   type="button"
                   data-theme-carousel-thumb="{{ thumb_index }}"
+                  aria-label="Gallery image {{ thumb_index | plus: 1 }}"
                 >
-                  {{
-                    block.settings.image
-                    | image_url: width: 180
-                    | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', alt: ''
-                  }}
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 180
+                      | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', alt: ''
+                    }}
+                  {%- else -%}
+                    <span class="theme-hero-carousel__thumb-placeholder" aria-hidden="true"></span>
+                  {%- endif -%}
                 </button>
                 {%- assign thumb_index = thumb_index | plus: 1 -%}
               {%- endif -%}
