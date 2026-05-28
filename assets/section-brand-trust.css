@@ -13,6 +13,7 @@
 .theme-brand-trust__mobile-hero {
   aspect-ratio: 1 / 1.14;
   overflow: hidden;
+  background: #1f4d3d;
 }
 
 .theme-brand-trust__mobile-image {
@@ -20,6 +21,19 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.theme-brand-trust__placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.theme-brand-trust__placeholder-svg {
+  width: 100%;
+  height: 100%;
 }
 
 .theme-brand-trust__mobile-panel {
@@ -106,9 +120,10 @@
 .theme-brand-trust__mobile-seal-title {
   margin-top: 4px;
   font-family: var(--theme-heading-font), serif;
-  font-size: 18px;
-  line-height: 1.08;
+  font-size: clamp(36px, 9vw, 46px);
+  line-height: 0.9;
   color: #fdfcf8;
+  letter-spacing: -0.02em;
 }
 
 .theme-brand-trust__mobile-seal-text {
@@ -130,6 +145,7 @@
 
 .theme-brand-trust__desktop-media {
   overflow: hidden;
+  background: #1f4d3d;
 }
 
 .theme-brand-trust__desktop-image {
@@ -186,6 +202,13 @@
   overflow: hidden;
 }
 
+.theme-brand-trust__placeholder--seal {
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 16px;
+}
+
 .theme-brand-trust__desktop-seal-image {
   display: block;
   width: auto;
@@ -198,9 +221,10 @@
 .theme-brand-trust__desktop-seal-title {
   margin-top: 4px;
   font-family: var(--theme-heading-font), serif;
-  font-size: 18px;
-  line-height: 1.08;
+  font-size: clamp(52px, 5vw, 76px);
+  line-height: 0.86;
   color: #fdfcf8;
+  letter-spacing: -0.03em;
 }
 
 .theme-brand-trust__desktop-seal-text {

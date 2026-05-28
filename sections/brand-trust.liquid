@@ -39,8 +39,8 @@
 {%- if has_content -%}
   <section class="theme-brand-trust-section theme-reveal" aria-label="{{ desktop_title | default: 'Brand trust' }}">
     <div class="theme-brand-trust__mobile lg:hidden">
-      {%- if mobile_image != blank -%}
-        <div class="theme-brand-trust__mobile-hero">
+      <div class="theme-brand-trust__mobile-hero">
+        {%- if mobile_image != blank -%}
           {{
             mobile_image
             | image_url: width: 900
@@ -50,8 +50,12 @@
               widths: '480, 640, 900',
               alt: desktop_title
           }}
-        </div>
-      {%- endif -%}
+        {%- else -%}
+          <div class="theme-brand-trust__placeholder" aria-hidden="true">
+            {{ 'image' | placeholder_svg_tag: 'theme-brand-trust__placeholder-svg' }}
+          </div>
+        {%- endif -%}
+      </div>
 
       <div class="theme-brand-trust__mobile-panel">
         {%- if mobile_title != blank or mobile_description_plain != blank -%}
@@ -108,8 +112,8 @@
     </div>
 
     <div class="container-narrow theme-brand-trust__desktop hidden lg:grid">
-      {%- if desktop_image != blank -%}
-        <div class="theme-brand-trust__desktop-media">
+      <div class="theme-brand-trust__desktop-media">
+        {%- if desktop_image != blank -%}
           {{
             desktop_image
             | image_url: width: 1600
@@ -119,8 +123,12 @@
               widths: '720, 960, 1200, 1600',
               alt: desktop_title
           }}
-        </div>
-      {%- endif -%}
+        {%- else -%}
+          <div class="theme-brand-trust__placeholder" aria-hidden="true">
+            {{ 'image' | placeholder_svg_tag: 'theme-brand-trust__placeholder-svg' }}
+          </div>
+        {%- endif -%}
+      </div>
 
       <div class="theme-brand-trust__desktop-content">
         {%- if desktop_title != blank or desktop_description_plain != blank -%}

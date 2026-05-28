@@ -36,78 +36,21 @@
             <h2 class="theme-footer-column__title">{{ block.settings.heading }}</h2>
           {%- endif -%}
           <ul class="theme-footer-list">
-            {%- if block.settings.item_1_title != blank -%}
-              <li>
-                {%- if block.settings.item_1_link != blank -%}
-                  <a href="{{ block.settings.item_1_link }}">{{ block.settings.item_1_title }}</a>
-                {%- else -%}
-                  <span>{{ block.settings.item_1_title }}</span>
-                {%- endif -%}
-              </li>
-            {%- endif -%}
-            {%- if block.settings.item_2_title != blank -%}
-              <li>
-                {%- if block.settings.item_2_link != blank -%}
-                  <a href="{{ block.settings.item_2_link }}">{{ block.settings.item_2_title }}</a>
-                {%- else -%}
-                  <span>{{ block.settings.item_2_title }}</span>
-                {%- endif -%}
-              </li>
-            {%- endif -%}
-            {%- if block.settings.item_3_title != blank -%}
-              <li>
-                {%- if block.settings.item_3_link != blank -%}
-                  <a href="{{ block.settings.item_3_link }}">{{ block.settings.item_3_title }}</a>
-                {%- else -%}
-                  <span>{{ block.settings.item_3_title }}</span>
-                {%- endif -%}
-              </li>
-            {%- endif -%}
-            {%- if block.settings.item_4_title != blank -%}
-              <li>
-                {%- if block.settings.item_4_link != blank -%}
-                  <a href="{{ block.settings.item_4_link }}">{{ block.settings.item_4_title }}</a>
-                {%- else -%}
-                  <span>{{ block.settings.item_4_title }}</span>
-                {%- endif -%}
-              </li>
-            {%- endif -%}
-            {%- if block.settings.item_5_title != blank -%}
-              <li>
-                {%- if block.settings.item_5_link != blank -%}
-                  <a href="{{ block.settings.item_5_link }}">{{ block.settings.item_5_title }}</a>
-                {%- else -%}
-                  <span>{{ block.settings.item_5_title }}</span>
-                {%- endif -%}
-              </li>
-            {%- endif -%}
-            {%- if block.settings.item_6_title != blank -%}
-              <li>
-                {%- if block.settings.item_6_link != blank -%}
-                  <a href="{{ block.settings.item_6_link }}">{{ block.settings.item_6_title }}</a>
-                {%- else -%}
-                  <span>{{ block.settings.item_6_title }}</span>
-                {%- endif -%}
-              </li>
-            {%- endif -%}
-            {%- if block.settings.item_7_title != blank -%}
-              <li>
-                {%- if block.settings.item_7_link != blank -%}
-                  <a href="{{ block.settings.item_7_link }}">{{ block.settings.item_7_title }}</a>
-                {%- else -%}
-                  <span>{{ block.settings.item_7_title }}</span>
-                {%- endif -%}
-              </li>
-            {%- endif -%}
-            {%- if block.settings.item_8_title != blank -%}
-              <li>
-                {%- if block.settings.item_8_link != blank -%}
-                  <a href="{{ block.settings.item_8_link }}">{{ block.settings.item_8_title }}</a>
-                {%- else -%}
-                  <span>{{ block.settings.item_8_title }}</span>
-                {%- endif -%}
-              </li>
-            {%- endif -%}
+            {%- for item_index in (1..9) -%}
+              {%- capture item_title_key -%}item_{{ item_index }}_title{%- endcapture -%}
+              {%- capture item_link_key -%}item_{{ item_index }}_link{%- endcapture -%}
+              {%- assign item_title = block.settings[item_title_key] -%}
+              {%- assign item_link = block.settings[item_link_key] -%}
+              {%- if item_title != blank -%}
+                <li>
+                  {%- if item_link != blank -%}
+                    <a href="{{ item_link }}">{{ item_title }}</a>
+                  {%- else -%}
+                    <span>{{ item_title }}</span>
+                  {%- endif -%}
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
           </ul>
         </div>
       {%- endfor -%}
@@ -143,22 +86,22 @@
           <div class="theme-footer-social__icons">
             {%- if social_link_blocks.size > 0 -%}
               {%- for block in social_link_blocks -%}
+                {%- assign social_platform_label = 'Social link' -%}
+                {%- case block.settings.platform -%}
+                  {%- when 'facebook' -%}
+                    {%- assign social_platform_label = 'Facebook' -%}
+                  {%- when 'instagram' -%}
+                    {%- assign social_platform_label = 'Instagram' -%}
+                  {%- when 'youtube' -%}
+                    {%- assign social_platform_label = 'YouTube' -%}
+                  {%- when 'linkedin' -%}
+                    {%- assign social_platform_label = 'LinkedIn' -%}
+                  {%- when 'x' -%}
+                    {%- assign social_platform_label = 'X / Twitter' -%}
+                  {%- when 'twitter' -%}
+                    {%- assign social_platform_label = 'X / Twitter' -%}
+                {%- endcase -%}
                 {%- if block.settings.link != blank -%}
-                  {%- assign social_platform_label = 'Social link' -%}
-                  {%- case block.settings.platform -%}
-                    {%- when 'facebook' -%}
-                      {%- assign social_platform_label = 'Facebook' -%}
-                    {%- when 'instagram' -%}
-                      {%- assign social_platform_label = 'Instagram' -%}
-                    {%- when 'youtube' -%}
-                      {%- assign social_platform_label = 'YouTube' -%}
-                    {%- when 'linkedin' -%}
-                      {%- assign social_platform_label = 'LinkedIn' -%}
-                    {%- when 'x' -%}
-                      {%- assign social_platform_label = 'X / Twitter' -%}
-                    {%- when 'twitter' -%}
-                      {%- assign social_platform_label = 'X / Twitter' -%}
-                  {%- endcase -%}
                   <a
                     href="{{ block.settings.link }}"
                     aria-label="{{ social_platform_label }}"
@@ -169,6 +112,14 @@
                   >
                     {%- render 'social-icon', platform: block.settings.platform -%}
                   </a>
+                {%- else -%}
+                  <span
+                    aria-label="{{ social_platform_label }}"
+                    class="theme-footer-social__icon footer-social theme-footer-social__icon--static"
+                    {{ block.shopify_attributes }}
+                  >
+                    {%- render 'social-icon', platform: block.settings.platform -%}
+                  </span>
                 {%- endif -%}
               {%- endfor -%}
             {%- elsif social_block != null -%}
@@ -320,7 +271,9 @@
         { "type": "text", "id": "item_7_title", "label": "Item 7 title", "default": "Blogs" },
         { "type": "url", "id": "item_7_link", "label": "Item 7 link" },
         { "type": "text", "id": "item_8_title", "label": "Item 8 title", "default": "Our Editorial Team" },
-        { "type": "url", "id": "item_8_link", "label": "Item 8 link" }
+        { "type": "url", "id": "item_8_link", "label": "Item 8 link" },
+        { "type": "text", "id": "item_9_title", "label": "Item 9 title", "default": "Contact Us" },
+        { "type": "url", "id": "item_9_link", "label": "Item 9 link" }
       ]
     },
     {

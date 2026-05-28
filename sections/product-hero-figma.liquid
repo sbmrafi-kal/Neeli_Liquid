@@ -231,38 +231,6 @@
         </button>
       {%- endform -%}
 
-      <div class="theme-new-cert-block__stamps">
-        {%- if section.settings.stamp_1_image != blank -%}
-          {{
-            section.settings.stamp_1_image
-            | image_url: width: 120
-            | image_tag: loading: 'lazy', alt: section.settings.stamp_1_alt
-          }}
-        {%- endif -%}
-        {%- if section.settings.stamp_2_image != blank -%}
-          {{
-            section.settings.stamp_2_image
-            | image_url: width: 120
-            | image_tag: loading: 'lazy', alt: section.settings.stamp_2_alt
-          }}
-        {%- endif -%}
-        {%- if section.settings.stamp_3_image != blank -%}
-          {{
-            section.settings.stamp_3_image
-            | image_url: width: 120
-            | image_tag: loading: 'lazy', alt: section.settings.stamp_3_alt
-          }}
-        {%- endif -%}
-        {%- if section.settings.stamp_4_image != blank -%}
-          {{
-            section.settings.stamp_4_image
-            | image_url: width: 120
-            | image_tag: loading: 'lazy', alt: section.settings.stamp_4_alt
-          }}
-        {%- endif -%}
-      </div>
-
-      {% render 'ritual-guide', title: section.settings.ritual_title, text: section.settings.ritual_text %}
     </div>
   </div>
 </section>
@@ -304,13 +272,6 @@
       "label": "Description block",
       "default": "<p>Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within.</p>"
     },
-    { "type": "text", "id": "ritual_title", "label": "Ritual guide title", "default": "The Ritual Guide" },
-    {
-      "type": "textarea",
-      "id": "ritual_text",
-      "label": "Ritual guide text",
-      "default": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week."
-    },
     { "type": "text", "id": "stat_1_value", "label": "Stat 1 value", "default": "4.64★" },
     { "type": "text", "id": "stat_1_label", "label": "Stat 1 label", "default": "Ratings" },
     { "type": "text", "id": "stat_2_value", "label": "Stat 2 value", "default": "1200+" },
@@ -318,15 +279,7 @@
     { "type": "text", "id": "stat_3_value", "label": "Stat 3 value", "default": "30" },
     { "type": "text", "id": "stat_3_label", "label": "Stat 3 label", "default": "Uses/bottle" },
     { "type": "text", "id": "stat_4_value", "label": "Stat 4 value", "default": "40,000+" },
-    { "type": "text", "id": "stat_4_label", "label": "Stat 4 label", "default": "Bought last year" },
-    { "type": "image_picker", "id": "stamp_1_image", "label": "Stamp 1" },
-    { "type": "text", "id": "stamp_1_alt", "label": "Stamp 1 alt" },
-    { "type": "image_picker", "id": "stamp_2_image", "label": "Stamp 2" },
-    { "type": "text", "id": "stamp_2_alt", "label": "Stamp 2 alt" },
-    { "type": "image_picker", "id": "stamp_3_image", "label": "Stamp 3" },
-    { "type": "text", "id": "stamp_3_alt", "label": "Stamp 3 alt" },
-    { "type": "image_picker", "id": "stamp_4_image", "label": "Stamp 4" },
-    { "type": "text", "id": "stamp_4_alt", "label": "Stamp 4 alt" }
+    { "type": "text", "id": "stat_4_label", "label": "Stat 4 label", "default": "Bought last year" }
   ],
   "blocks": [
     {

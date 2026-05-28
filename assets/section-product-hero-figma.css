@@ -133,11 +133,17 @@
 
 .theme-product-page--figma .theme-product-page__badge--figma {
   margin-bottom: 18px;
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+}
+
+.theme-product-page--figma .theme-product-page__badge-line {
+  white-space: nowrap;
 }
 
 .theme-product-page--figma .theme-product-page__title {
   font-family: var(--theme-heading-font);
-  font-size: clamp(46px, 4.8vw, 70px) !important;
+  font-size: clamp(42px, 4.2vw, 62px) !important;
   line-height: 0.92 !important;
   margin: 0 0 12px 0 !important;
   letter-spacing: -0.03em !important;

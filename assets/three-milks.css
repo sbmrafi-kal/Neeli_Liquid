@@ -152,55 +152,6 @@
   color: rgba(31, 77, 61, 0.76);
 }
 
-.theme-patch-test-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 18px;
-  padding-bottom: 8px;
-}
-
-.theme-patch-test-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid rgba(143, 79, 54, 0.5);
-  border-radius: 999px;
-  background: #fbf8f2;
-  color: #8f4f36;
-  padding: 6px 14px;
-  text-transform: none;
-  letter-spacing: 0.04em;
-  font-size: 12px;
-}
-
-.theme-patch-test-tooltip {
-  position: absolute;
-  bottom: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 330px;
-  max-width: calc(100vw - 32px);
-  background: #8f4f36;
-  color: #fff;
-  padding: 14px;
-  border-radius: 8px;
-  font-size: 12px;
-  line-height: 1.35;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.2s ease;
-  z-index: 2;
-}
-
-.theme-patch-test-wrap {
-  position: relative;
-}
-
-.theme-patch-test-wrap.is-active .theme-patch-test-tooltip {
-  opacity: 1;
-  visibility: visible;
-}
-
 @media screen and (min-width: 990px) {
   .theme-three-milks {
     padding-top: 44px;

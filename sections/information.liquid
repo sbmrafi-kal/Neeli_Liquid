@@ -1,8 +1,12 @@
 {{ 'section-information.css' | asset_url | stylesheet_tag }}<section class="theme-product-page__section theme-reveal  color-{{ section.settings.color_scheme }} gradient {% if section.settings.soft_background %}theme-product-page__section--soft{% endif %}">
   <div class="theme-product-page__wrap">
     <div class="theme-info-header">
-      <div class="theme-info-header__kicker">{{ section.settings.kicker }}</div>
-      <h2 class="theme-info-header__title">{{ section.settings.heading }}</h2>
+      {%- if section.settings.kicker != blank -%}
+        <div class="theme-info-header__kicker">{{ section.settings.kicker }}</div>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="theme-info-header__title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
     </div>
 
     <div class="theme-info-accordion-wrap">

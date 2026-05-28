@@ -7,28 +7,28 @@
   background: #1e4b3c;
   color: #faf8f5;
   text-align: center;
-  padding: 44px 16px 34px;
+  padding: 28px 16px 24px;
 }
 
 .theme-timeline-header-banner__kicker {
   font-family: var(--theme-body-font), sans-serif;
   font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   color: rgba(250, 248, 245, 0.66);
 }
 
 .theme-timeline-header-banner__title {
-  margin: 12px 0 8px;
+  margin: 10px 0 6px;
   font-family: "Amstir", var(--theme-heading-font), serif;
-  font-size: clamp(44px, 4vw, 74px);
-  line-height: 0.96;
+  font-size: clamp(32px, 3.6vw, 54px);
+  line-height: 0.98;
   color: #faf8f5;
   letter-spacing: -0.02em;
 }
 
 .theme-timeline-header-banner__text {
-  font-size: 17px;
+  font-size: 15px;
   font-style: italic;
   color: rgba(250, 248, 245, 0.84);
 }
@@ -82,7 +82,7 @@
 }
 
 .theme-timeline-stage__mobile-right {
-  padding: 14px 14px 14px 12px;
+  padding: 12px 14px 12px 12px;
 }
 
 .theme-timeline-stage__label {
@@ -96,17 +96,17 @@
 .theme-timeline-stage__title {
   margin: 6px 0 4px;
   font-family: var(--theme-heading-font), serif;
-  font-size: 28px;
-  line-height: 0.98;
+  font-size: 22px;
+  line-height: 1;
   color: #1f4d3d;
   letter-spacing: -0.02em;
 }
 
 .theme-timeline-stage__body {
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.45;
-  color: rgba(31, 77, 61, 0.8);
+  color: rgba(31, 77, 61, 0.78);
 }
 
 .theme-timeline-grid--desktop {
@@ -134,9 +134,9 @@
 }
 
 .theme-timeline-stage__phase {
-  padding: 16px 18px 12px;
-  font-size: clamp(44px, 4.2vw, 62px);
-  color: rgba(31, 77, 61, 0.44);
+  padding: 14px 18px 10px;
+  font-size: clamp(36px, 3.3vw, 50px);
+  color: rgba(31, 77, 61, 0.42);
   text-transform: uppercase;
   line-height: 0.95;
   border-bottom: 1px solid rgba(31, 77, 61, 0.08);
@@ -150,30 +150,30 @@
 }
 
 .theme-timeline-stage--desktop .theme-timeline-stage__img {
-  height: 118px;
+  height: 108px;
 }
 
 .theme-timeline-stage__bottom {
-  padding: 22px 20px 26px;
+  padding: 18px 18px 22px;
   text-align: center;
 }
 
 .theme-timeline-stage--desktop .theme-timeline-stage__title {
-  font-size: clamp(38px, 3vw, 58px);
-  line-height: 0.94;
+  font-size: clamp(30px, 2.4vw, 48px);
+  line-height: 0.98;
 }
 
 .theme-timeline-stage--desktop .theme-timeline-stage__body {
   max-width: 340px;
   margin: 0 auto;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.45;
 }
 
 .theme-timeline__footer-text {
   text-align: center;
-  margin-top: 14px;
-  padding-bottom: 20px;
+  margin-top: 12px;
+  padding-bottom: 18px;
 }
 
 .theme-timeline__footnote {
@@ -185,7 +185,7 @@
 
 .theme-timeline__disclaimer {
   margin: 8px 0 0;
-  font-size: 15px;
+  font-size: 14px;
   color: #1f4d3d;
 }
 
@@ -212,13 +212,14 @@
 }
 
 .theme-upsell-product-card {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 14px;
   background: #8f4f36;
   color: #ffffff;
-  border-radius: 16px;
-  padding: 14px 14px 14px 12px;
+  border-radius: 14px;
+  padding: 12px 14px 12px 12px;
 }
 
 .theme-upsell-product-card__media {
@@ -228,9 +229,9 @@
 
 .theme-upsell-product-card__img {
   display: block;
-  width: 66px;
-  height: 66px;
-  border-radius: 12px;
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
   object-fit: cover;
 }
 
@@ -242,15 +243,15 @@
 .theme-upsell-product-card__title {
   color: inherit;
   display: inline-block;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
   text-decoration: none;
 }
 
 .theme-upsell-product-card__text {
-  margin-top: 2px;
-  font-size: 12px;
+  margin-top: 4px;
+  font-size: 14px;
   line-height: 1.35;
   color: rgba(255, 255, 255, 0.82);
 }
@@ -262,27 +263,32 @@
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  min-width: 118px;
-  font-size: 14px;
+  min-width: 120px;
+  font-size: 18px;
   font-weight: 700;
-  border-radius: 999px;
-  padding: 10px 14px;
+  border-radius: 10px;
+  padding: 10px 16px;
   text-decoration: none;
   line-height: 1;
 }
 
 @media screen and (max-width: 989px) {
+  .theme-timeline-header-banner {
+    padding: 22px 14px 18px;
+  }
+
   .theme-timeline-header-banner__title {
-    font-size: clamp(34px, 9vw, 44px);
+    font-size: clamp(28px, 8.5vw, 40px);
   }
 
   .theme-timeline-stage__title {
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .theme-upsell-product-card {
     align-items: flex-start;
     gap: 10px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
   }
 
   .theme-upsell-product-card__img {
@@ -291,8 +297,8 @@
   }
 
   .theme-upsell-product-card__btn {
-    min-width: 84px;
-    font-size: 13px;
+    min-width: 92px;
+    font-size: 14px;
     padding: 8px 12px;
   }
 

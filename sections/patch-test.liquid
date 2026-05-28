@@ -1,0 +1,52 @@
+{{ 'section-patch-test.css' | asset_url | stylesheet_tag }}
+
+{%- assign popup_text = section.settings.popup_text | strip -%}
+{%- assign button_label = section.settings.button_label | strip -%}
+{%- assign heading = section.settings.heading | strip -%}
+
+{%- if heading != blank or popup_text != blank -%}
+  <section
+    class="theme-patch-test-section theme-reveal section-{{ section.id }}-padding"
+    style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;"
+  >
+    <div class="theme-patch-test-section__inner">
+      {%- if heading != blank -%}
+        <div class="theme-patch-test-section__heading">{{ heading }}</div>
+      {%- endif -%}
+
+      <details class="theme-patch-test">
+        <summary class="theme-patch-test__trigger">
+          {%- if button_label != blank -%}
+            <span>{{ button_label }}</span>
+          {%- endif -%}
+        </summary>
+        {%- if popup_text != blank -%}
+          <div class="theme-patch-test__popup" role="status" aria-live="polite">
+            <p class="theme-patch-test__popup-text">{{ popup_text }}</p>
+          </div>
+        {%- endif -%}
+      </details>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "patch test",
+  "tag": "section",
+  "class": "section theme-patch-test-block",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Always patch test- pop up" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Always patch test first" },
+    {
+      "type": "textarea",
+      "id": "popup_text",
+      "label": "Popup text",
+      "default": "Apply a small amount behind the ear or on the inner elbow. Wait 24-48 hours. If no redness or irritation appears, proceed with regular use"
+    },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 80, "step": 4, "default": 14, "label": "Top padding" },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 80, "step": 4, "default": 14, "label": "Bottom padding" }
+  ],
+  "presets": [{ "name": "patch test" }]
+}
+{% endschema %}

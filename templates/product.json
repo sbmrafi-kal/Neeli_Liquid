@@ -139,8 +139,6 @@
         "quote_author": "- ANU R., CHENNAI",
         "description_title": "How Neelibringadi Keram works",
         "badge_text": "Minimizes hair fall • Supports hair growth",
-        "ritual_title": "The Ritual Guide",
-        "ritual_text": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.",
         "stat_1_value": "4.64★",
         "stat_1_label": "Ratings",
         "stat_2_value": "1200+",
@@ -151,6 +149,23 @@
         "stat_4_label": "Bought last year",
         "description_block": "Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.",
         "padding_top": 0
+      }
+    },
+    "certification_strip": {
+      "type": "certification-strip",
+      "settings": {
+        "mark_1_image": "",
+        "mark_2_image": "",
+        "mark_3_image": "",
+        "mark_4_image": "",
+        "stat_1_value": "1945",
+        "stat_1_label": "Established",
+        "stat_2_value": "350+",
+        "stat_2_label": "Products",
+        "stat_3_value": "Clinics & Academy",
+        "stat_3_label": "Expert led",
+        "padding_top": 16,
+        "padding_bottom": 12
       }
     },
     "timeline": {
@@ -193,13 +208,18 @@
         "stage_3"
       ],
       "settings": {
+        "ritual_title": "The Ritual Guide",
+        "ritual_text": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.",
         "color_scheme": "scheme-1",
         "kicker": "What to expect",
         "heading": "The honest sequence.",
         "text": "<p>Root strength comes before visible density.</p>",
         "footnote": "*Based on consistent use as directed. Individual results may vary.",
         "padding_top": 80,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "show_upsell": true,
+        "upsell_label": "Add internal support",
+        "upsell_products": ["bhringarajasava-450ml"]
       }
     },
     "story": {
@@ -281,7 +301,7 @@
           "type": "ingredient",
           "settings": {
             "title": "Bringaraj",
-            "subtitle": "Eclipta prostrata",
+            "subtitle": "False Daisy",
             "text": "<p>Supports hair growth. Activates follicles and increases scalp circulation.</p>"
           }
         },
@@ -289,7 +309,7 @@
           "type": "ingredient",
           "settings": {
             "title": "Amla",
-            "subtitle": "Phyllanthus emblica",
+            "subtitle": "False Daisy",
             "text": "<p>Minimizes hair fall. Strengthens the hair shaft with natural Vitamin C.</p>"
           }
         },
@@ -297,7 +317,7 @@
           "type": "ingredient",
           "settings": {
             "title": "Neeli",
-            "subtitle": "Indigofera tinctoria",
+            "subtitle": "False Daisy",
             "text": "<p>Cools and recovers. Reduces scalp inflammation and promotes regrowth.</p>"
           }
         },
@@ -305,7 +325,7 @@
           "type": "ingredient",
           "settings": {
             "title": "Keram",
-            "subtitle": "Cocos nucifera",
+            "subtitle": "False Daisy",
             "text": "<p>Deep nourishment. Traditional carrier that mimics natural scalp lipids.</p>"
           }
         }
@@ -448,7 +468,17 @@
     },
     "brand_trust": {
       "type": "brand-trust",
-      "settings": {}
+      "settings": {
+        "desktop_title": "FULL SPECTRUM",
+        "desktop_description": "<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>",
+        "desktop_kicker": "Globally Recognized",
+        "desktop_title_2": "PATENTED FORMULATIONS",
+        "desktop_description_2": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
+        "mark_heading": "",
+        "mark_text": "",
+        "seal_title": "ka",
+        "seal_text": "<p>Rooted in Authentic Ayurveda.</p>"
+      }
     },
     "three_milks": {
       "type": "three-milks",
@@ -480,14 +510,21 @@
         "milk_2",
         "milk_3"
       ],
-      "settings": {
-        "patch_test_label": "Always patch test first",
-        "tooltip_text": "Apply a small amount behind the ear or on the inner elbow. Wait 24-48 hours. If no redness or irritation appears, proceed with regular use."
-      }
+      "settings": {}
     },
     "massage_ritual": {
       "type": "massage-ritual",
       "settings": {}
+    },
+    "patch_test": {
+      "type": "patch-test",
+      "settings": {
+        "heading": "Always patch test- pop up",
+        "button_label": "Always patch test first",
+        "popup_text": "Apply a small amount behind the ear or on the inner elbow. Wait 24-48 hours. If no redness or irritation appears, proceed with regular use",
+        "padding_top": 14,
+        "padding_bottom": 14
+      }
     },
     "footer": {
       "type": "footer",
@@ -509,7 +546,8 @@
             "item_5_title": "Research & Development",
             "item_6_title": "Careers",
             "item_7_title": "Blogs",
-            "item_8_title": "Our Editorial Team"
+            "item_8_title": "Our Editorial Team",
+            "item_9_title": "Contact Us"
           }
         },
         "links_2": {
@@ -536,10 +574,39 @@
             "item_7_title": "Kerala Ayurveda USA - Academy"
           }
         },
-        "social": {
-          "type": "social",
+        "social_1": {
+          "type": "social_link",
           "settings": {
-            "label": "Follow Us"
+            "platform": "facebook",
+            "link": ""
+          }
+        },
+        "social_2": {
+          "type": "social_link",
+          "settings": {
+            "platform": "x",
+            "link": ""
+          }
+        },
+        "social_3": {
+          "type": "social_link",
+          "settings": {
+            "platform": "instagram",
+            "link": ""
+          }
+        },
+        "social_4": {
+          "type": "social_link",
+          "settings": {
+            "platform": "youtube",
+            "link": ""
+          }
+        },
+        "social_5": {
+          "type": "social_link",
+          "settings": {
+            "platform": "linkedin",
+            "link": ""
           }
         },
         "tagline": {
@@ -554,7 +621,11 @@
         "links_1",
         "links_2",
         "links_3",
-        "social",
+        "social_1",
+        "social_2",
+        "social_3",
+        "social_4",
+        "social_5",
         "tagline"
       ],
       "settings": {
@@ -567,11 +638,13 @@
   "order": [
     "header",
     "main",
+    "certification_strip",
+    "timeline",
+    "story",
     "ingredients",
     "three_milks",
-    "story",
-    "timeline",
     "massage_ritual",
+    "patch_test",
     "information",
     "customer_reviews",
     "brand_trust",

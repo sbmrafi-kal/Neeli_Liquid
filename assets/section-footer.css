@@ -16,6 +16,11 @@
 .theme-footer-column__title { font-size: 16px !important; }
 .theme-footer-social__icon,
 .theme-footer-social__icon svg { width: 24px !important; height: 24px !important; }
+.theme-footer-social__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 .theme-footer-social__icons { flex-wrap: wrap !important; }
 .theme-footer-brand__text {
   display: inline-block;
@@ -35,6 +40,10 @@
 .footer-social:hover,
 .footer-social:focus-visible {
   opacity: 0.82 !important;
+}
+
+.theme-footer-social__icon--static {
+  pointer-events: none;
 }
 
 /* Final parity lock: footer spacing and rhythm */
@@ -74,6 +83,9 @@
 
 .theme-footer-social-wrapper {
   margin-top: 24px !important;
+  padding: 18px 0 !important;
+  border-top: 1px solid rgba(42, 74, 61, 0.16) !important;
+  border-bottom: 1px solid rgba(42, 74, 61, 0.16) !important;
 }
 
 .theme-footer-tagline-wrapper {
