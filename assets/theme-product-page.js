@@ -230,7 +230,7 @@
       );
       const oldPriceTargets = Array.from(
         section.querySelectorAll(
-          '.theme-reorder-btn__price-old, .theme-reorder-card__price-old',
+          '.theme-reorder-btn__price-old, .theme-reorder-card__price-old, .theme-sticky-cart-bar__compare',
         ),
       );
       const actionButtons = Array.from(section.querySelectorAll('.theme-reorder-btn'));

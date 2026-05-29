@@ -10,8 +10,8 @@ const path = require('path');
   });
   const page = await desktopContext.newPage();
   
-  console.log('Navigating to password page/storefront...');
-  await page.goto('https://arise-jin.myshopify.com/products/core-lab-lilac-solid-slim-fit-t-shirt?preview_theme_id=149066154028');
+  console.log('Navigating to storefront (local)...');
+  await page.goto('http://127.0.0.1:9292/products/core-lab-lilac-solid-slim-fit-t-shirt');
   await page.waitForTimeout(2000);
   
   // Check for password form
@@ -27,7 +27,7 @@ const path = require('path');
     }
     await page.waitForTimeout(5000);
     // Go to product page again to make sure it loads with the preview theme
-    await page.goto('https://arise-jin.myshopify.com/products/core-lab-lilac-solid-slim-fit-t-shirt?preview_theme_id=149066154028');
+    await page.goto('http://127.0.0.1:9292/products/core-lab-lilac-solid-slim-fit-t-shirt');
     await page.waitForTimeout(5000);
   }
   
@@ -58,8 +58,8 @@ const path = require('path');
   });
   const mobilePage = await mobileContext.newPage();
   
-  console.log('Navigating to mobile storefront...');
-  await mobilePage.goto('https://arise-jin.myshopify.com/products/core-lab-lilac-solid-slim-fit-t-shirt?preview_theme_id=149066154028');
+  console.log('Navigating to mobile storefront (local)...');
+  await mobilePage.goto('http://127.0.0.1:9292/products/core-lab-lilac-solid-slim-fit-t-shirt');
   await mobilePage.waitForTimeout(3000);
 
   // Check for password form on mobile
@@ -75,7 +75,7 @@ const path = require('path');
     }
     await mobilePage.waitForTimeout(5000);
     // Go to product page again to make sure it loads with the preview theme
-    await mobilePage.goto('https://arise-jin.myshopify.com/products/core-lab-lilac-solid-slim-fit-t-shirt?preview_theme_id=149066154028');
+    await mobilePage.goto('http://127.0.0.1:9292/products/core-lab-lilac-solid-slim-fit-t-shirt');
     await mobilePage.waitForTimeout(5000);
   }
   

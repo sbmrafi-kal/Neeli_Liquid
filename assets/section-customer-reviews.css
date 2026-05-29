@@ -17,7 +17,7 @@
 .theme-review-card__star-svg {
   width: 14px !important;
   height: 14px !important;
-  color: #e29a12 !important;
+  color: #c4a96b !important;
   fill: currentColor !important;
 }
 
@@ -165,4 +165,13 @@
     grid-template-columns: 1fr !important;
     gap: 24px !important;
   }
+}
+
+/* Comprehensive Parity: Review star color overrides */
+.theme-review-card__stars,
+.theme-reviews-rating,
+.theme-reviews-rating-header,
+.theme-reviews-rating-header__star-svg,
+.theme-review-card__star-svg {
+  color: #c4a96b !important;
 }

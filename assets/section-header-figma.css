@@ -104,8 +104,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px !important;
-  height: 28px !important;
+  width: 32px !important;
+  height: 32px !important;
   background: none;
   border: none;
   color: #fff;
@@ -116,12 +116,12 @@
 }
 
 .theme-header-figma__action svg {
-  width: 20px !important;
-  height: 20px !important;
+  width: 22px !important;
+  height: 22px !important;
 }
 
 .theme-header-figma__action svg * {
-  stroke-width: 2.2px !important;
+  stroke-width: 2px !important;
 }
 
 .theme-header-figma__cart-count {
@@ -139,6 +139,25 @@
   align-items: center;
   justify-content: center;
   line-height: 1;
+}
+
+/* Menu Toggle Button Style */
+.theme-header-figma__menu-btn {
+  display: none !important;
+  align-items: center;
+  justify-content: center;
+  width: 28px !important;
+  height: 28px !important;
+  background: none !important;
+  border: none !important;
+  color: #ffffff !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+}
+
+.theme-header-figma__menu-btn svg {
+  width: 20px !important;
+  height: 20px !important;
 }
 
 @media screen and (max-width: 989px) {
@@ -213,24 +232,7 @@
   }
 }
 
-/* Menu Toggle Button & Drawer Styles */
-.theme-header-figma__menu-btn {
-  display: none !important;
-  align-items: center;
-  justify-content: center;
-  width: 28px !important;
-  height: 28px !important;
-  background: none !important;
-  border: none !important;
-  color: #ffffff !important;
-  cursor: pointer !important;
-  padding: 0 !important;
-}
-
-.theme-header-figma__menu-btn svg {
-  width: 20px !important;
-  height: 20px !important;
-}
+/* Menu Drawer Styles */
 
 .theme-header-figma__drawer {
   position: fixed;
