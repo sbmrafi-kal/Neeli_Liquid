@@ -7,7 +7,7 @@
   background: #1e4b3c;
   color: #faf8f5;
   text-align: center;
-  padding: 28px 16px 24px;
+  padding: 24px 16px 20px;
 }
 
 .theme-timeline-header-banner__kicker {
@@ -21,7 +21,7 @@
 .theme-timeline-header-banner__title {
   margin: 10px 0 6px;
   font-family: "Amstir", var(--theme-heading-font), serif;
-  font-size: clamp(32px, 3.6vw, 54px);
+  font-size: clamp(30px, 3.2vw, 48px);
   line-height: 0.98;
   color: #faf8f5;
   letter-spacing: -0.02em;
@@ -96,7 +96,7 @@
 .theme-timeline-stage__title {
   margin: 6px 0 4px;
   font-family: var(--theme-heading-font), serif;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1;
   color: #1f4d3d;
   letter-spacing: -0.02em;
@@ -159,14 +159,14 @@
 }
 
 .theme-timeline-stage--desktop .theme-timeline-stage__title {
-  font-size: clamp(30px, 2.4vw, 48px);
+  font-size: clamp(26px, 2.2vw, 40px);
   line-height: 0.98;
 }
 
 .theme-timeline-stage--desktop .theme-timeline-stage__body {
   max-width: 340px;
   margin: 0 auto;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.45;
 }
 
@@ -274,15 +274,15 @@
 
 @media screen and (max-width: 989px) {
   .theme-timeline-header-banner {
-    padding: 22px 14px 18px;
+    padding: 20px 14px 16px;
   }
 
   .theme-timeline-header-banner__title {
-    font-size: clamp(28px, 8.5vw, 40px);
+    font-size: clamp(26px, 8vw, 36px);
   }
 
   .theme-timeline-stage__title {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .theme-upsell-product-card {
@@ -303,6 +303,6 @@
   }
 
   .theme-timeline-stage--desktop .theme-timeline-stage__img {
-    height: 98px;
+    height: 94px;
   }
 }

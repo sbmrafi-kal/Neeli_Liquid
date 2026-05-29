@@ -2,11 +2,11 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   max-width: 1680px;
   margin: 0 auto;
-  padding: 14px 20px;
-  background: var(--brand-forest);
+  padding: 10px 24px;
+  background: var(--brand-forest, #1f4d3d);
   color: #fff;
 }
 
@@ -18,11 +18,11 @@
 .theme-header-figma__breadcrumbs {
   max-width: 1680px;
   margin: 0 auto;
-  padding: 14px 20px;
+  padding: 12px 24px;
   color: rgba(31, 77, 61, 0.55);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -40,11 +40,13 @@
 
 .theme-header-figma__nav {
   display: flex;
-  gap: 12px;
+  gap: 0;
   align-items: center;
 }
 
 .theme-header-figma__nav-link {
+  position: relative;
+  padding: 0 12px;
   color: #fff;
   text-decoration: none;
   font-size: 13px;
@@ -53,9 +55,56 @@
   letter-spacing: 1px;
 }
 
+.theme-header-figma__nav-link:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  width: 1px;
+  height: 14px;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .theme-header-figma__brand { display: flex; align-items: center; justify-content: center; }
-.theme-header-figma__brand-image { height: 42px; width: auto; }
+.theme-header-figma__brand-image { height: 36px; width: auto; filter: brightness(0) invert(1); }
 .theme-header-figma__brand-text { font-family: var(--theme-heading-font); font-size: 24px; font-weight: 700; line-height: 1; }
 
-.theme-header-figma__right { display:flex; gap:10px; justify-content: flex-end; align-items:center; }
-.theme-header-figma__action { background: none; border: none; color: #fff; font-size: 16px; cursor: pointer; }
+.theme-header-figma__right { display: flex; gap: 10px; justify-content: flex-end; align-items: center; }
+.theme-header-figma__action {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 0;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.theme-header-figma__action svg {
+  width: 18px;
+  height: 18px;
+}
+
+.theme-header-figma__cart-count {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: #c4a96b;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}

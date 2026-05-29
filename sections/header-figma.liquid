@@ -49,9 +49,28 @@
     </div>
 
     <div class="theme-header-figma__right">
-      <button class="theme-header-figma__action" type="button" aria-label="Search">🔍</button>
-      <a class="theme-header-figma__action" href="{{ routes.cart_url }}" aria-label="Cart">🛒</a>
-      <a class="theme-header-figma__action" href="{{ routes.account_url }}" aria-label="Account">👤</a>
+      <button class="theme-header-figma__action" type="button" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"></circle>
+          <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+        </svg>
+      </button>
+      <a class="theme-header-figma__action" href="{{ routes.cart_url }}" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="8" cy="21" r="1" stroke="currentColor" stroke-width="1.6"></circle>
+          <circle cx="19" cy="21" r="1" stroke="currentColor" stroke-width="1.6"></circle>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        {%- if cart.item_count > 0 -%}
+          <span class="theme-header-figma__cart-count" aria-label="{{ cart.item_count }} items">{{ cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+      <a class="theme-header-figma__action" href="{{ routes.account_url }}" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="8" r="5" stroke="currentColor" stroke-width="1.8"></circle>
+          <path d="M20 21a8 8 0 0 0-16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+        </svg>
+      </a>
     </div>
   </div>
 

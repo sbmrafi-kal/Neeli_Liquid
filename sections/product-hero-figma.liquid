@@ -151,7 +151,7 @@
         <div class="theme-product-page__intro rte">{{ intro_text }}</div>
       {%- endif -%}
 
-      {%- form 'product', product, id: 'theme-product-form-figma', class: 'theme-product-form' -%}
+      {%- form 'product', product, id: 'theme-product-form', class: 'theme-product-form' -%}
         <div class="theme-variant-boxes">
           {%- for variant in product.variants limit: 2 -%}
             <label
