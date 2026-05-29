@@ -143,14 +143,24 @@
 
 @media screen and (max-width: 989px) {
   .theme-header-figma__inner {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto 1fr !important;
     gap: 8px;
     padding: 10px 12px;
     overflow-x: clip;
   }
 
   .theme-header-figma__left {
-    display: none;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  .theme-header-figma__nav {
+    display: none !important;
+  }
+
+  .theme-header-figma__menu-btn {
+    display: inline-flex !important;
   }
 
   .theme-header-figma__center {
@@ -159,8 +169,15 @@
   }
 
   .theme-header-figma__right {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
     gap: 8px;
     min-width: 0;
+  }
+
+  .theme-header-figma__action--account {
+    display: none !important;
   }
 
   .theme-header-figma__action {
@@ -194,4 +211,125 @@
     overflow-x: auto;
     white-space: nowrap;
   }
+}
+
+/* Menu Toggle Button & Drawer Styles */
+.theme-header-figma__menu-btn {
+  display: none !important;
+  align-items: center;
+  justify-content: center;
+  width: 28px !important;
+  height: 28px !important;
+  background: none !important;
+  border: none !important;
+  color: #ffffff !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+}
+
+.theme-header-figma__menu-btn svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.theme-header-figma__drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.theme-header-figma__drawer.is-open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.theme-header-figma__drawer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 34, 28, 0.4);
+  backdrop-filter: blur(2px);
+}
+
+.theme-header-figma__drawer-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(320px, 85%);
+  background: #1f4d3d;
+  color: #ffffff;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-header-figma__drawer.is-open .theme-header-figma__drawer-content {
+  transform: translateX(0);
+}
+
+.theme-header-figma__drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.theme-header-figma__drawer-title {
+  font-family: var(--theme-heading-font), serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.theme-header-figma__drawer-close {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-header-figma__drawer-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.theme-header-figma__drawer-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  gap: 20px;
+}
+
+.theme-header-figma__drawer-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color 0.2s ease;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.theme-header-figma__drawer-nav a:hover,
+.theme-header-figma__drawer-nav a:active {
+  color: #c4a96b;
+}
+
+body.overflow-hidden {
+  overflow: hidden !important;
 }
