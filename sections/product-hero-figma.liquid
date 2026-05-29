@@ -1,7 +1,11 @@
 {{ 'section-product-hero-figma.css' | asset_url | stylesheet_tag }}
 {{ 'sticky-cart-bar.css' | asset_url | stylesheet_tag }}
 
-{%- assign product_override = all_products[section.settings.product] -%}
+{%- assign current_product = product -%}
+{%- assign product_override = blank -%}
+{%- if current_product == blank and section.settings.product != blank -%}
+  {%- assign product_override = all_products[section.settings.product] -%}
+{%- endif -%}
 {%- if product_override != blank -%}
   {%- assign product = product_override -%}
 {%- endif -%}
@@ -206,36 +210,54 @@
 
       {%- form 'product', product, id: 'theme-product-form', class: 'theme-product-form' -%}
         <div class="theme-variant-boxes">
-          {%- for variant in product.variants limit: 2 -%}
-            {%- if forloop.index == 1 -%}
-              {%- assign display_label = section.settings.variant_1_label | default: variant.title -%}
+          {%- for index in (1..2) -%}
+            {%- assign variant_index = index | minus: 1 -%}
+            {%- assign variant = product.variants[variant_index] -%}
+            
+            {%- if index == 1 -%}
+              {%- assign display_label = section.settings.variant_1_label | default: variant.title | default: '100 ml' -%}
               {%- assign display_price = section.settings.variant_1_price_text -%}
               {%- assign display_compare = section.settings.variant_1_compare_price_text -%}
             {%- else -%}
-              {%- assign display_label = section.settings.variant_2_label | default: variant.title -%}
+              {%- assign display_label = section.settings.variant_2_label | default: variant.title | default: '200 ml' -%}
               {%- assign display_price = section.settings.variant_2_price_text -%}
               {%- assign display_compare = section.settings.variant_2_compare_price_text -%}
             {%- endif -%}
-            {%- if display_price == blank -%}
-              {%- assign display_price = variant.price | money -%}
+            
+            {%- if variant != blank -%}
+              {%- if display_price == blank -%}
+                {%- assign display_price = variant.price | money -%}
+              {%- endif -%}
+              {%- if display_compare == blank and variant.compare_at_price > variant.price -%}
+                {%- assign display_compare = variant.compare_at_price | money -%}
+              {%- endif -%}
+              {%- assign variant_id = variant.id -%}
+              {%- assign is_available = variant.available -%}
+              {%- assign is_selected = false -%}
+              {%- if variant == product.selected_or_first_available_variant -%}
+                {%- assign is_selected = true -%}
+              {%- endif -%}
+            {%- else -%}
+              {%- assign first_variant = product.variants[0] -%}
+              {%- assign variant_id = first_variant.id -%}
+              {%- assign is_available = true -%}
+              {%- assign is_selected = false -%}
             {%- endif -%}
-            {%- if display_compare == blank and variant.compare_at_price > variant.price -%}
-              {%- assign display_compare = variant.compare_at_price | money -%}
-            {%- endif -%}
+            
             <label
-              class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}"
-              for="Variant-Figma-{{ section.id }}-{{ forloop.index }}"
+              class="theme-variant-box {% if is_selected %}is-selected{% endif %}"
+              for="Variant-Figma-{{ section.id }}-{{ index }}"
             >
               <input
                 type="radio"
                 class="theme-variant-box__input"
                 name="id"
-                value="{{ variant.id }}"
-                id="Variant-Figma-{{ section.id }}-{{ forloop.index }}"
-                data-price="{{ variant.price | money }}"
-                data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
-                data-available="{{ variant.available }}"
-                {% if variant == product.selected_or_first_available_variant %}
+                value="{{ variant_id }}"
+                id="Variant-Figma-{{ section.id }}-{{ index }}"
+                data-price="{% if variant != blank %}{{ variant.price | money }}{% else %}{{ display_price }}{% endif %}"
+                data-compare-price="{% if variant != blank %}{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}{% else %}{{ display_compare }}{% endif %}"
+                data-available="{{ is_available }}"
+                {% if is_selected %}
                   checked
                 {% endif %}
               >
@@ -245,8 +267,17 @@
                 <span class="theme-variant-box__price-new">{{ display_price }}</span>
                 {%- if display_compare != blank -%}
                   <span class="theme-variant-box__price-compare">{{ display_compare }}</span>
+                  {%- assign clean_compare = display_compare | replace: '₹', '' | replace: '$', '' | replace: ',', '' | replace: ' ', '' | plus: 0.0 -%}
+                  {%- assign clean_price = display_price | replace: '₹', '' | replace: '$', '' | replace: ',', '' | replace: ' ', '' | plus: 0.0 -%}
+                  {%- if clean_compare > clean_price -%}
+                    {%- assign savings = clean_compare | minus: clean_price | divide_by: clean_compare | times: 100 | round -%}
+                    {%- if savings > 0 -%}
+                      <span class="theme-variant-box__discount-tag">{{ savings }}% OFF</span>
+                    {%- endif -%}
+                  {%- endif -%}
                 {%- endif -%}
               </div>
+
             </label>
           {%- endfor -%}
         </div>

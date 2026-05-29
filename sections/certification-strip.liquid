@@ -43,9 +43,8 @@
                   alt: mark_alt
               }}
             {%- else -%}
-              <div class="theme-cert-strip__mark-placeholder" aria-hidden="true">
-                {{ 'image' | placeholder_svg_tag: 'theme-cert-strip__placeholder-svg' }}
-              </div>
+              {%- capture stamp_asset_name -%}stamp_0{{ mark_index }}.png{%- endcapture -%}
+              <img src="{{ stamp_asset_name | asset_url }}" class="theme-cert-strip__mark-image" loading="lazy" alt="{{ mark_alt }}" width="70" height="70">
             {%- endif -%}
           </div>
         {%- endfor -%}

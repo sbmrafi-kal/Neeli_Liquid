@@ -71,7 +71,7 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "product": "neelibhringadi-keram",
+        "product": "core-lab-lilac-solid-slim-fit-t-shirt",
         "product_title": "Neelibringadi Keram",
         "subtitle": "One oil for complete hair recovery",
         "intro_text": "<p>Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibringadi works both sides.</p>",
@@ -332,28 +332,28 @@
           "type": "faq",
           "settings": {
             "question": "When will I see results?",
-            "answer": "Reduced hair fall is typically noticed within 2 to 3 weeks."
+            "answer": "<p>Reduced hair fall is typically noticed within 2 to 3 weeks.</p>"
           }
         },
         "faq_2": {
           "type": "faq",
           "settings": {
             "question": "Does it help with greying?",
-            "answer": "Neeli and Bhringaraja are traditionally used to support natural hair colour."
+            "answer": "<p>Neeli and Bhringaraja are traditionally used to support natural hair colour.</p>"
           }
         },
         "faq_3": {
           "type": "faq",
           "settings": {
             "question": "Can I use it on coloured hair?",
-            "answer": "Yes. The formula is gentle, but extended use may slightly darken hair over time."
+            "answer": "<p>Yes. The formula is gentle, but extended use may slightly darken hair over time.</p>"
           }
         },
         "faq_4": {
           "type": "faq",
           "settings": {
             "question": "Is it safe during pregnancy?",
-            "answer": "As with any new topical regimen during pregnancy or nursing, consult your doctor first."
+            "answer": "<p>As with any new topical regimen during pregnancy or nursing, consult your doctor first.</p>"
           }
         }
       },

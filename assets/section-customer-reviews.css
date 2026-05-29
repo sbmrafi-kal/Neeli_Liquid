@@ -14,7 +14,18 @@
 .theme-review-card__verified { font-size: 13px !important; }
 .theme-customer-reviews .theme-review-card__quote { font-size: 16px !important; }
 .theme-reviews-rating-header__star-svg,
-.theme-review-card__star-svg { width: 14px !important; height: 14px !important; }
+.theme-review-card__star-svg {
+  width: 14px !important;
+  height: 14px !important;
+  color: #e29a12 !important;
+  fill: currentColor !important;
+}
+
+.theme-reviews-rating-header__star-svg[fill="none"],
+.theme-review-card__star-svg[fill="none"] {
+  fill: none !important;
+}
+
 
 /* Targeted parity: customer review header and cards. */
 .theme-customer-reviews .theme-product-page__section,

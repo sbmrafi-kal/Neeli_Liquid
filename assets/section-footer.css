@@ -77,9 +77,11 @@
 }
 
 .theme-footer-grid {
+  display: flex !important;
+  flex-direction: column !important;
   gap: 32px !important;
-  align-items: start !important;
 }
+
 
 .theme-footer-social-wrapper {
   margin-top: 24px !important;
@@ -170,3 +172,13 @@
     width: 100% !important;
   }
 }
+
+@media screen and (min-width: 990px) {
+  .theme-footer-grid {
+    display: grid !important;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr !important;
+    gap: 40px !important;
+    align-items: start !important;
+  }
+}
+

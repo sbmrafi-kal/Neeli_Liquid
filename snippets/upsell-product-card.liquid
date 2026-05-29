@@ -25,4 +25,19 @@
       </a>
     {%- endif -%}
   </article>
+{%- else -%}
+  <article class="theme-upsell-product-card">
+    <div class="theme-upsell-product-card__media">
+      <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-product-card__img" loading="lazy" alt="Bhringarajasava - 450ml" width="90" height="90">
+    </div>
+
+    <div class="theme-upsell-product-card__content">
+      <div class="theme-upsell-product-card__title">Bhringarajasava- 450ml</div>
+      <div class="theme-upsell-product-card__text">Fermented herbal brew for hair growth from within.</div>
+    </div>
+
+    <div class="theme-upsell-product-card__btn" style="cursor: default;">
+      + ₹225
+    </div>
+  </article>
 {%- endif -%}

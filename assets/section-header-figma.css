@@ -3,9 +3,9 @@
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 10px;
-  max-width: 1680px;
+  max-width: 1392px;
   margin: 0 auto;
-  padding: 10px 24px;
+  padding: 6px 20px;
   background: var(--brand-forest, #1f4d3d);
   color: #fff;
 }
@@ -16,9 +16,9 @@
 }
 
 .theme-header-figma__breadcrumbs {
-  max-width: 1680px;
+  max-width: 1392px;
   margin: 0 auto;
-  padding: 12px 24px;
+  padding: 12px 20px;
   color: rgba(31, 77, 61, 0.55);
   display: flex;
   align-items: center;
@@ -27,6 +27,24 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 640px) {
+  .theme-header-figma__inner {
+    padding: 6px 24px;
+  }
+  .theme-header-figma__breadcrumbs {
+    padding: 12px 24px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .theme-header-figma__inner {
+    padding: 6px 40px;
+  }
+  .theme-header-figma__breadcrumbs {
+    padding: 12px 40px;
+  }
 }
 
 .theme-header-figma__breadcrumbs a {
@@ -67,21 +85,21 @@
 }
 
 .theme-header-figma__brand { display: flex; align-items: center; justify-content: center; }
-.theme-header-figma__brand-image { height: 36px; width: auto; filter: brightness(0) invert(1); }
+.theme-header-figma__brand-image { height: 28px; width: auto; filter: brightness(0) invert(1); }
 .theme-header-figma__brand-text { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--font-heading-family); color: #fff; line-height: 1; font-weight: 400; }
 
 .brand-line { display: block; text-transform: none; letter-spacing: 0.02em; color: inherit; }
 .brand-line--top { font-size: 32px; font-weight: 400; line-height: 1; text-transform: lowercase; }
 .brand-line--bottom { font-size: 14px; font-weight: 400; opacity: 0.95; margin-top: -4px; text-transform: lowercase; }
 
-.theme-header-figma__right { display: flex; gap: 10px; justify-content: flex-end; align-items: center; }
+.theme-header-figma__right { display: flex; gap: 12px; justify-content: flex-end; align-items: center; }
 .theme-header-figma__action {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   background: none;
   border: none;
   color: #fff;
@@ -92,8 +110,8 @@
 }
 
 .theme-header-figma__action svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 
 .theme-header-figma__cart-count {
@@ -104,8 +122,8 @@
   color: #fff;
   font-size: 9px;
   font-weight: 700;
-  min-width: 16px;
-  height: 16px;
+  min-width: 14px;
+  height: 14px;
   border-radius: 50%;
   display: flex;
   align-items: center;

@@ -43,16 +43,7 @@
             | image_tag: class: 'theme-header-figma__brand-image', loading: 'eager', alt: section.settings.logo_alt
           }}
         {%- else -%}
-          {%- assign logo_text = section.settings.logo_text | default: shop.name -%}
-          {%- assign logo_parts = logo_text | split: ' ' -%}
-          {%- assign logo_first = logo_parts[0] | downcase -%}
-          {%- assign logo_rest = logo_parts | slice: 1, logo_parts.size | join: ' ' | downcase -%}
-          <span class="theme-header-figma__brand-text">
-            <span class="brand-line brand-line--top">{{ logo_first }}</span>
-            {%- if logo_rest != blank -%}
-              <span class="brand-line brand-line--bottom">{{ logo_rest }}</span>
-            {%- endif -%}
-          </span>
+          <img src="{{ 'logo-kerala.png' | asset_url }}" class="theme-header-figma__brand-image" loading="eager" alt="{{ shop.name }}" width="150" height="40">
         {%- endif -%}
       </a>
     </div>
@@ -64,6 +55,12 @@
           <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
         </svg>
       </button>
+      <a class="theme-header-figma__action" href="{{ routes.account_url }}" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="8" r="5" stroke="currentColor" stroke-width="1.8"></circle>
+          <path d="M20 21a8 8 0 0 0-16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+        </svg>
+      </a>
       <a class="theme-header-figma__action" href="{{ routes.cart_url }}" aria-label="Cart">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <circle cx="8" cy="21" r="1" stroke="currentColor" stroke-width="1.6"></circle>
@@ -73,12 +70,6 @@
         {%- if cart.item_count > 0 -%}
           <span class="theme-header-figma__cart-count" aria-label="{{ cart.item_count }} items">{{ cart.item_count }}</span>
         {%- endif -%}
-      </a>
-      <a class="theme-header-figma__action" href="{{ routes.account_url }}" aria-label="Account">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="12" cy="8" r="5" stroke="currentColor" stroke-width="1.8"></circle>
-          <path d="M20 21a8 8 0 0 0-16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-        </svg>
       </a>
     </div>
   </div>
@@ -129,7 +120,10 @@
       -%}
         {%- assign breadcrumb_label = custom_breadcrumb_label -%}
       {%- endif -%}
-      {%- if breadcrumb_label != blank and breadcrumb_label != 'Home' -%}
+      {%- if breadcrumb_label == blank or breadcrumb_label == 'Current Page' or breadcrumb_label == 'Home' -%}
+        {%- assign breadcrumb_label = 'Neelibringadi Keram' -%}
+      {%- endif -%}
+      {%- if breadcrumb_label != blank -%}
         <span class="theme-header-figma__breadcrumb-sep">&gt;</span>
         <span class="theme-header-figma__breadcrumb-current">{{ breadcrumb_label }}</span>
       {%- endif -%}

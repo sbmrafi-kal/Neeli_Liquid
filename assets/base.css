@@ -3862,3 +3862,25 @@ details-disclosure > details {
     padding-left: 40px !important;
   }
 }
+
+/* Responsive Grid Utility Classes */
+@media screen and (max-width: 989px) {
+  .lg\:grid {
+    display: none !important;
+  }
+  .lg\:block {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .hidden.lg\:grid {
+    display: grid !important;
+  }
+  .hidden.lg\:block {
+    display: block !important;
+  }
+  .lg\:hidden {
+    display: none !important;
+  }
+}

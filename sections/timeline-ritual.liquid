@@ -138,16 +138,25 @@
   </div>
 
   {%- assign upsell_products = section.settings.upsell_products -%}
-  {%- if section.settings.show_upsell and upsell_products != blank -%}
+  {%- if section.settings.show_upsell -%}
     <div class="theme-upsell-cross-sell">
       <div class="theme-upsell-cross-sell__inner">
         {%- if section.settings.upsell_label != blank -%}
           <div class="theme-upsell-cross-sell__label">{{ section.settings.upsell_label }}</div>
         {%- endif -%}
         <div class="theme-upsell-cross-sell__list">
-          {%- for upsell_product in upsell_products -%}
-            {% render 'upsell-product-card', upsell_product: upsell_product %}
-          {%- endfor -%}
+          {%- assign upsell_rendered = false -%}
+          {%- if upsell_products != blank -%}
+            {%- for upsell_product in upsell_products -%}
+              {%- if upsell_product != blank -%}
+                {% render 'upsell-product-card', upsell_product: upsell_product %}
+                {%- assign upsell_rendered = true -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+          {%- if upsell_rendered == false -%}
+            {% render 'upsell-product-card', upsell_product: blank %}
+          {%- endif -%}
         </div>
       </div>
     </div>

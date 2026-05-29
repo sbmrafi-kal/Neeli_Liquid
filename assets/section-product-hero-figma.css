@@ -173,7 +173,7 @@
   border: 1px solid rgba(160, 128, 55, 0.34);
   border-radius: 999px;
   background: #fff8df;
-  padding: 6px 14px;
+  padding: 4px 12px !important;
   gap: 8px;
 }
 
@@ -183,11 +183,12 @@
   gap: 8px;
   white-space: nowrap;
   color: #1f4d3d;
-  font-size: 13px;
+  font-size: 11px !important;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.15em !important;
   text-transform: uppercase;
 }
+
 
 .theme-product-page--figma .theme-badge-bullet {
   color: #8f9b8d;
@@ -196,16 +197,16 @@
 
 .theme-product-page--figma .theme-product-page__title {
   font-family: var(--theme-heading-font);
-  font-size: clamp(34px, 3.6vw, 52px) !important;
-  line-height: 0.96 !important;
+  font-size: clamp(30px, 3.2vw, 42px) !important;
+  line-height: 1.05 !important;
   margin: 0 0 10px 0 !important;
-  letter-spacing: -0.028em !important;
+  letter-spacing: -0.02em !important;
   color: #1f4d3d !important;
 }
 
 .theme-product-page--figma .theme-product-page__subtitle {
   font-style: italic !important;
-  font-family: var(--theme-heading-font) !important;
+  font-family: var(--font-serif, "Georgia", serif) !important;
   text-transform: none;
   letter-spacing: 0.01em !important;
   color: rgba(31, 77, 61, 0.78) !important;
@@ -252,6 +253,7 @@
 .theme-product-page--figma .theme-product-page__quote-wrap {
   background: #fdfaf3 !important;
   border: 1px solid rgba(240, 180, 50, 0.22) !important;
+  border-left: 1px solid rgba(240, 180, 50, 0.22) !important;
   border-radius: 14px !important;
   padding: 14px 18px !important;
   margin-bottom: 20px !important;
@@ -266,10 +268,12 @@
 
 .theme-product-page--figma .theme-product-page__quote-meta {
   margin-top: 6px;
-  font-size: 12px;
+  font-size: 11px !important;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(31, 77, 61, 0.75);
+  color: rgba(31, 77, 61, 0.65) !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
 }
 
 .theme-product-page--figma .theme-product-page__desc-title {
@@ -294,7 +298,7 @@
 
 .theme-product-page--figma .theme-variant-box {
   flex: 1;
-  border: 1.5px solid rgba(31, 77, 61, 0.18) !important;
+  border: 1.5px solid rgba(31, 77, 61, 0.12) !important;
   padding: 14px 16px !important;
   border-radius: 12px !important;
   cursor: pointer;
@@ -302,11 +306,13 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 88px !important;
+  background: #ffffff !important;
+  transition: all 0.2s ease !important;
 }
 
 .theme-product-page--figma .theme-variant-box.is-selected {
   border: 2px solid #1f4d3d !important;
-  background: #fbf9f4 !important;
+  background: #faf8f2 !important;
 }
 
 .theme-product-page--figma .theme-variant-box__title {
@@ -333,6 +339,22 @@
   font-weight: 500 !important;
   font-size: 14px !important;
 }
+
+.theme-product-page--figma .theme-variant-box__discount-tag {
+  background: #f3b324 !important;
+  color: #ffffff !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-left: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
+}
+
 
 .theme-product-page--figma .theme-reorder-btn {
   display: inline-flex;
@@ -403,23 +425,39 @@
 }
 
 .theme-product-page--figma .theme-hero-carousel__control {
-  width: 2.5rem !important;
-  height: 2.5rem !important;
-  background: rgba(255, 255, 255, 0.88) !important;
-  box-shadow: 0 1px 4px rgba(17, 48, 39, 0.08) !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(31, 77, 61, 0.15) !important;
+  color: #1f4d3d !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 15 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  font-size: 24px !important;
+  line-height: 1 !important;
+  font-weight: 300 !important;
+  transition: all 0.2s ease !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__control:hover {
+  background: #ffffff !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important;
+  transform: translateY(-50%) scale(1.05) !important;
 }
 
 .theme-product-page--figma .theme-hero-carousel__control--prev {
-  left: 18px !important;
+  left: 20px !important;
 }
 
 .theme-product-page--figma .theme-hero-carousel__control--next {
-  right: 18px !important;
-}
-
-.theme-product-page--figma .theme-hero-carousel__control svg {
-  width: 16px !important;
-  height: 16px !important;
+  right: 20px !important;
 }
 
 .theme-product-page--figma .theme-hero-carousel__thumbs {
@@ -531,15 +569,16 @@
   flex: 1 1 0 !important;
   min-height: 92px !important;
   padding: 14px 16px !important;
-  border: 1.5px solid rgba(31, 77, 61, 0.22) !important;
+  border: 1.5px solid rgba(31, 77, 61, 0.12) !important;
   border-radius: 12px !important;
   background: #ffffff !important;
 }
 
 .theme-product-page--figma .theme-variant-box.is-selected {
-  border-color: #1f4d3d !important;
-  background: #fbf9f4 !important;
+  border: 2px solid #1f4d3d !important;
+  background: #faf8f2 !important;
 }
+
 
 .theme-product-page--figma .theme-variant-box__title {
   font-size: 15px !important;
@@ -674,13 +713,14 @@
     overflow: visible !important;
     justify-content: flex-start !important;
     margin-bottom: 12px !important;
-    padding: 5px 10px !important;
+    padding: 4px 12px !important;
   }
 
   .theme-product-page--figma .theme-product-page__badge-line {
-    font-size: 10px !important;
-    letter-spacing: 0.08em !important;
+    font-size: 11px !important;
+    letter-spacing: 0.15em !important;
   }
+
 
   .theme-product-page--figma .theme-product-page__subtitle {
     font-size: 15px !important;
@@ -705,7 +745,10 @@
     box-sizing: border-box !important;
     min-height: 0 !important;
     padding: 12px 12px 11px !important;
+    border: 1.5px solid rgba(31, 77, 61, 0.12) !important;
+    background: #ffffff !important;
   }
+
 
   .theme-product-page--figma .theme-variant-box__title {
     font-size: 14px !important;
