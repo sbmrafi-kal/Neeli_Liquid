@@ -271,11 +271,14 @@
                   <span class="theme-variant-box__price-compare">{{ display_compare }}</span>
                   {%- assign clean_compare = display_compare | replace: '₹', '' | replace: '$', '' | replace: ',', '' | replace: ' ', '' | plus: 0.0 -%}
                   {%- assign clean_price = display_price | replace: '₹', '' | replace: '$', '' | replace: ',', '' | replace: ' ', '' | plus: 0.0 -%}
-                  {%- if clean_compare > clean_price -%}
-                    {%- assign savings = clean_compare | minus: clean_price | divide_by: clean_compare | times: 100 | round -%}
-                    {%- if savings > 0 -%}
-                      <span class="theme-variant-box__discount-tag">{{ savings }}% OFF</span>
-                    {%- endif -%}
+                  {%- assign savings = 0 -%}
+                  {%- if clean_compare > clean_price and clean_compare > 0 -%}
+                    {%- assign savings = clean_compare | minus: clean_price | times: 100 | divided_by: clean_compare | round -%}
+                  {%- elsif variant != blank and variant.compare_at_price > variant.price -%}
+                    {%- assign savings = variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price -%}
+                  {%- endif -%}
+                  {%- if savings > 0 -%}
+                    <span class="theme-variant-box__discount-tag">{{ savings }}% OFF</span>
                   {%- endif -%}
                 {%- endif -%}
               </div>

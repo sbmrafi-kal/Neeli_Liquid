@@ -10,6 +10,12 @@
   .theme-product-page--figma .theme-product-page__figma-inner {
     max-width: 1392px !important;
     margin: 0 auto !important;
+    grid-template-columns: 458px 1fr !important;
+    gap: 32px !important;
+  }
+  .theme-product-page--figma .theme-hero-carousel {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
 
@@ -190,7 +196,7 @@
   gap: 8px;
   white-space: nowrap;
   color: #1f4d3d;
-  font-size: 16px !important;
+  font-size: 14px !important;
   font-weight: 700;
   letter-spacing: 0.15em !important;
   text-transform: uppercase;
@@ -366,6 +372,10 @@
   line-height: 1 !important;
 }
 
+/* Figma parity – no discount badges in variant boxes */
+.theme-product-page--figma .theme-variant-box__discount-tag {
+  display: none !important;
+}
 
 .theme-product-page--figma .theme-reorder-btn {
   display: inline-flex;

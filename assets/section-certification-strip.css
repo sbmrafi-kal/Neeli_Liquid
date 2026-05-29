@@ -33,8 +33,8 @@
 .theme-cert-strip__mark-image,
 .theme-cert-strip__mark-placeholder svg {
   display: block;
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
 }
 
@@ -43,8 +43,8 @@
 }
 
 .theme-cert-strip__mark-placeholder {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
 }
 
 .theme-cert-strip__stats {
@@ -100,13 +100,13 @@
 
   .theme-cert-strip__mark-image,
   .theme-cert-strip__mark-placeholder svg {
-    width: 60px;
-    height: 60px;
+    width: 72px;
+    height: 72px;
   }
 
   .theme-cert-strip__mark-placeholder {
-    width: 60px;
-    height: 60px;
+    width: 72px;
+    height: 72px;
   }
 
   .theme-cert-strip__stats {
@@ -145,13 +145,13 @@
 
   .theme-cert-strip__mark-image,
   .theme-cert-strip__mark-placeholder svg {
-    width: 42px;
-    height: 42px;
+    width: 52px;
+    height: 52px;
   }
 
   .theme-cert-strip__mark-placeholder {
-    width: 42px;
-    height: 42px;
+    width: 52px;
+    height: 52px;
   }
 
   .theme-cert-strip__stat {
