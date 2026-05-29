@@ -3884,3 +3884,12 @@ details-disclosure > details {
     display: none !important;
   }
 }
+
+@media screen and (max-width: 989px) {
+  html, body {
+    overflow-x: hidden !important;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+  }
+}

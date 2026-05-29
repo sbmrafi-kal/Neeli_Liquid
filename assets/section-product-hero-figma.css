@@ -88,6 +88,7 @@
   bottom: 18px;
   transform: translateX(-50%);
   display: flex !important;
+  justify-content: center !important;
   gap: 0px !important;
   background: rgba(255, 255, 255, 0.96) !important;
   padding: 10px !important;
@@ -98,10 +99,10 @@
 }
 
 .theme-product-page--figma .theme-hero-carousel__thumb {
-  width: 48px !important;
-  height: 60px !important;
+  width: 44px !important;
+  height: 56px !important;
   overflow: hidden;
-  border-radius: 12px !important;
+  border-radius: 6px !important;
   border: 1px solid rgba(31, 77, 61, 0.1) !important;
   background: #fff !important;
 }
@@ -492,7 +493,9 @@
   left: 50% !important;
   bottom: 18px !important;
   transform: translateX(-50%) !important;
-  gap: 8px !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 0px !important;
   padding: 8px !important;
   border-radius: 14px !important;
   background: transparent !important;
@@ -503,9 +506,9 @@
 }
 
 .theme-product-page--figma .theme-hero-carousel__thumb {
-  width: 64px !important;
-  height: 82px !important;
-  border-radius: 12px !important;
+  width: 44px !important;
+  height: 56px !important;
+  border-radius: 6px !important;
   border: 1px solid rgba(255, 255, 255, 0.4) !important;
   background: rgba(255, 255, 255, 0.15) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
@@ -729,7 +732,7 @@
   }
 
   .theme-product-page--figma .theme-hero-carousel__thumbs {
-    width: calc(100% - 24px) !important;
+    width: auto !important;
     max-width: none !important;
     bottom: 12px !important;
     padding: 8px !important;
@@ -737,13 +740,18 @@
     box-shadow: none !important;
     backdrop-filter: none !important;
     gap: 0px !important;
+    display: flex !important;
+    justify-content: center !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
   }
 
   .theme-product-page--figma .theme-hero-carousel__thumb {
-    width: 40px !important;
-    height: 50px !important;
+    width: 32px !important;
+    height: 40px !important;
     opacity: 0.5 !important;
     transform: scale(0.82) !important;
+    border-radius: 4px !important;
   }
 
   .theme-product-page--figma .theme-hero-carousel__thumb.is-active {
@@ -771,8 +779,8 @@
   }
 
   .theme-product-page--figma .theme-product-page__badge--figma {
-    width: fit-content !important;
-    max-width: calc(100% - 32px) !important;
+    width: 100% !important;
+    max-width: 458px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     display: flex !important;

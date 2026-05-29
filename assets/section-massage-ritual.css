@@ -238,3 +238,16 @@
   opacity: 1 !important;
   visibility: visible !important;
 }
+
+@media screen and (max-width: 989px) {
+  .theme-massage-ritual__container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .theme-massage-ritual__steps-box {
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}

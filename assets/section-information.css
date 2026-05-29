@@ -4,7 +4,7 @@
   .theme-info-header {
     text-align: center;
     margin-bottom: 32px;
-    margin-top: 0 !important;
+    margin-top: 12px !important;
   }
 
   .theme-info-header__kicker {
@@ -91,6 +91,7 @@
 
   .theme-info-faq-wrap {
     margin-top: 28px;
+    margin-bottom: 20px !important;
   }
 
   .theme-info-faq-header {
@@ -279,6 +280,9 @@
   }
 
   .theme-info-accordion-wrap .theme-accordion__item[open] {
+    background: transparent !important;
+  }
+  .theme-info-accordion-wrap .theme-accordion__item[open] .theme-accordion__summary {
     background: #1f4d3d !important;
   }
   .theme-info-accordion-wrap .theme-accordion__item[open] .theme-accordion__title {
@@ -289,5 +293,7 @@
     stroke: #ffffff !important;
   }
   .theme-info-accordion-wrap .theme-accordion__item[open] .theme-accordion__content {
-    color: rgba(255, 255, 255, 0.88) !important;
+    background: #ffffff !important;
+    color: rgba(31, 77, 61, 0.82) !important;
+    padding-top: 16px !important;
   }

@@ -54,15 +54,7 @@
 }
 
 .theme-reviews-section__kicker {
-  font-family: "Avenir", var(--theme-body-font), sans-serif !important;
-  font-size: 18px !important;
-  font-weight: 800 !important;
-  line-height: 1.4 !important;
-  letter-spacing: 0.18em !important;
-  text-transform: uppercase !important;
-  color: #864e3a !important;
-  margin-bottom: 2px !important;
-  display: block !important;
+  display: none !important;
 }
 
 .theme-reviews-section__heading {
@@ -72,7 +64,8 @@
   line-height: 1.05 !important;
   letter-spacing: 0.03em !important;
   color: #1e4b3c !important;
-  margin-top: 2px !important;
+  margin-top: 0 !important;
+  margin-bottom: 16px !important;
 }
 
 .theme-review-grid {

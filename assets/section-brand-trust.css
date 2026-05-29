@@ -248,7 +248,36 @@
 
 @media screen and (max-width: 989px) {
   .theme-brand-trust__mobile-panel {
-    padding-inline: 16px;
+    padding-inline: 16px !important;
+    text-align: center !important;
+  }
+
+  .theme-brand-trust__mobile-title {
+    font-size: 32px !important;
+    text-align: center !important;
+  }
+
+  .theme-brand-trust__mobile-secondary-title {
+    font-size: clamp(24px, 6vw, 30px) !important;
+    text-align: center !important;
+  }
+
+  .theme-brand-trust__mobile-kicker,
+  .theme-brand-trust__mobile-desc {
+    text-align: center !important;
+  }
+
+  .theme-brand-trust__mobile-divider {
+    background: #ffffff !important;
+    opacity: 1 !important;
+    margin: 20px 0 !important;
+    height: 1px !important;
+  }
+
+  .theme-brand-trust__mobile-seal {
+    margin-top: 24px !important;
+    padding-top: 24px !important;
+    border-top: 1px solid #ffffff !important;
   }
 }
 

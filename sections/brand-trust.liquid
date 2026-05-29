@@ -83,7 +83,7 @@
               <div class="theme-brand-trust__mobile-kicker">{{ mobile_kicker }}</div>
             {%- endif -%}
             {%- if mobile_title_2 != blank -%}
-              <h3 class="theme-brand-trust__mobile-secondary-title">{{ mobile_title_2 }}</h3>
+              <h3 class="theme-brand-trust__mobile-secondary-title">{{ mobile_title_2 | replace: "Patented Formulations", "Patented<br>Formulations" }}</h3>
             {%- endif -%}
             {%- if mobile_description_2_plain != blank -%}
               <div class="theme-brand-trust__mobile-desc rte">{{ mobile_description_2 }}</div>

@@ -95,18 +95,19 @@
   }
 
   .theme-cert-strip__mark {
-    min-height: 160px !important;
+    min-height: auto !important;
+    padding: 0 !important;
   }
 
   .theme-cert-strip__mark-image,
   .theme-cert-strip__mark-placeholder svg {
-    width: 144px !important;
-    height: 144px !important;
+    width: 172px !important;
+    height: 172px !important;
   }
 
   .theme-cert-strip__mark-placeholder {
-    width: 144px !important;
-    height: 144px !important;
+    width: 172px !important;
+    height: 172px !important;
   }
 
   .theme-cert-strip__stats {
@@ -145,7 +146,8 @@
 
   .theme-cert-strip__mark {
     flex: 1 1 0 !important;
-    min-height: 112px !important;
+    min-height: auto !important;
+    padding: 0 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -153,13 +155,13 @@
 
   .theme-cert-strip__mark-image,
   .theme-cert-strip__mark-placeholder svg {
-    width: 104px !important;
-    height: 104px !important;
+    width: 114px !important;
+    height: 114px !important;
   }
 
   .theme-cert-strip__mark-placeholder {
-    width: 104px !important;
-    height: 104px !important;
+    width: 114px !important;
+    height: 114px !important;
   }
 
   .theme-cert-strip__stat {
