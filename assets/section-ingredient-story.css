@@ -1,6 +1,6 @@
 .theme-ingredient-story__whats-in-it {
   background: #f7f3e9;
-  padding: 24px 0 34px;
+  padding: 20px 0 28px;
 }
 
 .theme-ingredient-story .theme-section-heading__title {
@@ -22,7 +22,7 @@
 
 .theme-ingredient-story .theme-dual-panel {
   display: grid;
-  gap: 24px;
+  gap: 20px;
   grid-template-columns: 1fr;
   max-width: 1320px;
   margin: 0 auto;
@@ -31,7 +31,7 @@
 .theme-ingredient-story .theme-panel {
   border-radius: 28px;
   border: 1px solid rgba(31, 77, 61, 0.08);
-  padding: 30px 30px 28px;
+  padding: 24px 24px 22px;
   box-shadow: 0 10px 30px rgba(17, 48, 39, 0.04);
 }
 
@@ -48,19 +48,19 @@
 
 .theme-ingredient-story .theme-list {
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .theme-ingredient-story .theme-list__item {
   display: grid;
-  gap: 14px;
-  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
+  grid-template-columns: 38px minmax(0, 1fr);
   align-items: start;
 }
 
 .theme-ingredient-story .theme-list__marker {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -79,8 +79,8 @@
 
 .theme-ingredient-story .theme-list__title {
   font-family: var(--theme-heading-font), serif;
-  font-size: 18px;
-  line-height: 1.08;
+  font-size: 16px;
+  line-height: 1.12;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #1f4d3d;
@@ -89,8 +89,8 @@
 
 .theme-ingredient-story .theme-list__text {
   margin-top: 4px;
-  font-size: 14px;
-  line-height: 1.45;
+  font-size: 13px;
+  line-height: 1.5;
   color: rgba(31, 77, 61, 0.72);
 }
 
@@ -186,6 +186,11 @@
 @media screen and (min-width: 990px) {
   .theme-ingredient-story .theme-dual-panel {
     grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .theme-ingredient-story .theme-panel {
+    padding: 26px 26px 24px;
   }
 }
 

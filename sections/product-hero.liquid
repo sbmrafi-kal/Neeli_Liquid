@@ -7,8 +7,125 @@
 {%- if product_override != blank -%}
   {%- assign product = product_override -%}
 {%- endif -%}
+{%- assign featured_product = product -%}
+{%- if featured_product == blank -%}
+  {%- assign product_candidates = 'neelibhringadi-keram,neelibringadi-keram' | split: ',' -%}
+  {%- for candidate_handle in product_candidates -%}
+    {%- if featured_product == blank -%}
+      {%- assign candidate_product = all_products[candidate_handle] -%}
+      {%- if candidate_product != blank -%}
+        {%- assign featured_product = candidate_product -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- if featured_product != blank -%}
+  {%- assign product = featured_product -%}
+{%- endif -%}
 {%- assign product_title = product.title | default: 'Neelibhringadi Keram' -%}
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
+{%- assign card_image = product.featured_image -%}
+{%- if card_image == blank and section.settings.carousel_image_1 != blank -%}
+  {%- assign card_image = section.settings.carousel_image_1 -%}
+{%- endif -%}
+{%- assign badge_block = section.blocks | where: 'type', 'text' | first -%}
+{%- assign caption_block = section.blocks | where: 'type', 'caption' | first -%}
+{%- assign quote_block = section.blocks | where: 'type', 'hero_quote' | first -%}
+{%- assign hero_note_block = section.blocks | where: 'type', 'hero_note' | first -%}
+{%- assign stat_blocks = section.blocks | where: 'type', 'hero_stat' -%}
+
+{%- if request.page_type == 'index' -%}
+  <section
+    id="NeeliProduct-{{ section.id }}"
+    class="theme-home-product-card theme-reveal color-{{ section.settings.color_scheme }}"
+    data-section="{{ section.id }}"
+  >
+    <div class="container-narrow theme-home-product-card__inner">
+      <div class="theme-home-product-card__panel">
+        <div class="theme-home-product-card__media">
+          <a class="theme-home-product-card__image-link" href="{{ product.url | default: routes.root_url }}" aria-label="{{ product_title | escape }}">
+            {%- if card_image != blank -%}
+              {{
+                card_image
+                | image_url: width: 1400
+                | image_tag:
+                  class: 'theme-home-product-card__image',
+                  loading: 'eager',
+                  fetchpriority: 'high',
+                  width: 1400,
+                  alt: product_title
+              }}
+            {%- else -%}
+              <div class="theme-home-product-card__placeholder">
+                {{ product_title }}
+              </div>
+            {%- endif -%}
+          </a>
+        </div>
+
+        <div class="theme-home-product-card__content">
+          {%- if section.settings.category_label != blank -%}
+            <div class="theme-home-product-card__eyebrow">{{ section.settings.category_label }}</div>
+          {%- endif -%}
+
+          {%- if badge_block != blank and badge_block.settings.text != blank -%}
+            <div class="theme-home-product-card__badge-row" aria-label="Product benefits">
+              {%- assign badge_parts = badge_block.settings.text | split: '•' -%}
+              {%- for badge_part in badge_parts -%}
+                {%- assign badge_text = badge_part | strip -%}
+                {%- if badge_text != blank -%}
+                  <span class="theme-home-product-card__badge">{{ badge_text }}</span>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          <div class="theme-home-product-card__title-wrap">
+            <a class="theme-home-product-card__title" href="{{ product.url | default: routes.root_url }}">{{ product_title }}</a>
+            {%- if caption_block != blank and caption_block.settings.text != blank -%}
+              <p class="theme-home-product-card__subtitle">{{ caption_block.settings.text }}</p>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.description_block != blank -%}
+            <div class="theme-home-product-card__body">{{ section.settings.description_block }}</div>
+          {%- elsif hero_note_block != blank and hero_note_block.settings.text != blank -%}
+            <div class="theme-home-product-card__body">{{ hero_note_block.settings.text | strip_html }}</div>
+          {%- endif -%}
+
+          {%- if quote_block != blank -%}
+            <blockquote class="theme-home-product-card__quote">
+              <p class="theme-home-product-card__quote-text">{{ quote_block.settings.quote }}</p>
+              <p class="theme-home-product-card__quote-author">{{ quote_block.settings.author }}</p>
+            </blockquote>
+          {%- endif -%}
+
+          {%- if stat_blocks.size > 0 -%}
+            <div class="theme-home-product-card__stats">
+              {%- for stat_block in stat_blocks limit: 4 -%}
+                <div class="theme-home-product-card__stat" {{ stat_block.shopify_attributes }}>
+                  <div class="theme-home-product-card__stat-value">{{ stat_block.settings.value }}</div>
+                  <div class="theme-home-product-card__stat-label">{{ stat_block.settings.label }}</div>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          <div class="theme-home-product-card__actions">
+            <a class="theme-home-product-card__cta" href="{{ product.url | default: routes.root_url }}">{{ section.settings.card_cta_label }}</a>
+            {%- if selected_variant != blank and selected_variant.price != blank -%}
+              <div class="theme-home-product-card__price">{{ selected_variant.price | money }}</div>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.delivery_banner_text != blank -%}
+            <div class="theme-home-product-card__delivery">{{ section.settings.delivery_banner_text }}</div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+{%- else -%}
 
 <section
   id="NeeliProduct-{{ section.id }}"
@@ -775,6 +892,7 @@
   </div>
   {% render 'sticky-cart-bar' %}
 </section>
+{%- endif -%}
 
 {% schema %}
 {
@@ -1023,6 +1141,12 @@
       "id": "cta_meta",
       "label": "CTA meta text",
       "default": "Limited-time offer"
+    },
+    {
+      "type": "text",
+      "id": "card_cta_label",
+      "label": "Card CTA label",
+      "default": "View product page"
     },
     {
       "type": "textarea",

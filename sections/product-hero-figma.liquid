@@ -127,16 +127,7 @@
     <div class="theme-product-page__figma-info">
       {%- if badge_text != blank -%}
         <div class="theme-product-page__badge theme-product-page__badge--figma">
-          {%- assign badge_lines = badge_text | split: '•' -%}
-          {%- for badge_line in badge_lines -%}
-            {%- assign badge_label = badge_line | strip -%}
-            {%- if badge_label != blank -%}
-              <span class="theme-product-page__badge-line">
-                <span class="theme-badge-bullet" aria-hidden="true">•</span>
-                <span>{{ badge_label | strip_html }}</span>
-              </span>
-            {%- endif -%}
-          {%- endfor -%}
+          <span class="theme-product-page__badge-line">{{ badge_text | strip_html }}</span>
         </div>
       {%- endif -%}
 
