@@ -82,6 +82,13 @@
         {%- when 'product' -%}
           {%- if product != blank -%}
             {%- assign breadcrumb_label = product.title -%}
+          {%- else -%}
+            {%- assign path_parts = request.path | split: '/' | reverse -%}
+            {%- assign prod_handle = path_parts[0] -%}
+            {%- assign candidate_product = all_products[prod_handle] -%}
+            {%- if candidate_product != blank -%}
+              {%- assign breadcrumb_label = candidate_product.title -%}
+            {%- endif -%}
           {%- endif -%}
         {%- when 'collection' -%}
           {%- if collection != blank -%}
