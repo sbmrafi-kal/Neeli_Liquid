@@ -131,7 +131,11 @@
                   target="_blank"
                   rel="noopener"
                 >
-                  {%- render 'social-icon', platform: 'facebook' -%}
+                  {%- if social_block.settings.facebook_icon != blank -%}
+                    {{ social_block.settings.facebook_icon | image_url: width: 48 | image_tag: class: 'theme-footer-social__icon-img', loading: 'lazy', alt: 'Facebook' }}
+                  {%- else -%}
+                    {%- render 'social-icon', platform: 'facebook' -%}
+                  {%- endif -%}
                 </a>
               {%- endif -%}
               {%- if social_block.settings.twitter_link != blank -%}
@@ -142,7 +146,11 @@
                   target="_blank"
                   rel="noopener"
                 >
-                  {%- render 'social-icon', platform: 'x' -%}
+                  {%- if social_block.settings.twitter_icon != blank -%}
+                    {{ social_block.settings.twitter_icon | image_url: width: 48 | image_tag: class: 'theme-footer-social__icon-img', loading: 'lazy', alt: 'Twitter' }}
+                  {%- else -%}
+                    {%- render 'social-icon', platform: 'x' -%}
+                  {%- endif -%}
                 </a>
               {%- endif -%}
               {%- if social_block.settings.instagram_link != blank -%}
@@ -153,7 +161,11 @@
                   target="_blank"
                   rel="noopener"
                 >
-                  {%- render 'social-icon', platform: 'instagram' -%}
+                  {%- if social_block.settings.instagram_icon != blank -%}
+                    {{ social_block.settings.instagram_icon | image_url: width: 48 | image_tag: class: 'theme-footer-social__icon-img', loading: 'lazy', alt: 'Instagram' }}
+                  {%- else -%}
+                    {%- render 'social-icon', platform: 'instagram' -%}
+                  {%- endif -%}
                 </a>
               {%- endif -%}
               {%- if social_block.settings.youtube_link != blank -%}
@@ -164,7 +176,11 @@
                   target="_blank"
                   rel="noopener"
                 >
-                  {%- render 'social-icon', platform: 'youtube' -%}
+                  {%- if social_block.settings.youtube_icon != blank -%}
+                    {{ social_block.settings.youtube_icon | image_url: width: 48 | image_tag: class: 'theme-footer-social__icon-img', loading: 'lazy', alt: 'YouTube' }}
+                  {%- else -%}
+                    {%- render 'social-icon', platform: 'youtube' -%}
+                  {%- endif -%}
                 </a>
               {%- endif -%}
               {%- if social_block.settings.linkedin_link != blank -%}
@@ -175,7 +191,11 @@
                   target="_blank"
                   rel="noopener"
                 >
-                  {%- render 'social-icon', platform: 'linkedin' -%}
+                  {%- if social_block.settings.linkedin_icon != blank -%}
+                    {{ social_block.settings.linkedin_icon | image_url: width: 48 | image_tag: class: 'theme-footer-social__icon-img', loading: 'lazy', alt: 'LinkedIn' }}
+                  {%- else -%}
+                    {%- render 'social-icon', platform: 'linkedin' -%}
+                  {%- endif -%}
                 </a>
               {%- endif -%}
             {%- endif -%}
@@ -272,13 +292,18 @@
     },
     {
       "type": "social",
-      "name": "Legacy social links",
+      "name": "Social links",
       "settings": [
         { "type": "text", "id": "label", "label": "Label", "default": "Follow Us" },
+        { "type": "image_picker", "id": "facebook_icon", "label": "Facebook Icon" },
         { "type": "url", "id": "facebook_link", "label": "Facebook link" },
+        { "type": "image_picker", "id": "twitter_icon", "label": "Twitter Icon" },
         { "type": "url", "id": "twitter_link", "label": "Twitter link" },
+        { "type": "image_picker", "id": "instagram_icon", "label": "Instagram Icon" },
         { "type": "url", "id": "instagram_link", "label": "Instagram link" },
+        { "type": "image_picker", "id": "youtube_icon", "label": "YouTube Icon" },
         { "type": "url", "id": "youtube_link", "label": "YouTube link" },
+        { "type": "image_picker", "id": "linkedin_icon", "label": "LinkedIn Icon" },
         { "type": "url", "id": "linkedin_link", "label": "LinkedIn link" }
       ]
     },

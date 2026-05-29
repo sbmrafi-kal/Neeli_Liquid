@@ -57,9 +57,20 @@
                     {%- endif -%}
                   {%- endif -%}
                 {%- else -%}
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M3 3L9 9M9 3L3 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 80
+                      | image_tag:
+                        class: 'theme-list__marker-img',
+                        loading: 'lazy',
+                        alt: block.settings.title
+                    }}
+                  {%- else -%}
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M3 3L9 9M9 3L3 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  {%- endif -%}
                 {%- endif -%}
               </div>
               <div class="theme-list__content">
@@ -180,6 +191,7 @@
       "type": "exclusion",
       "name": "Exclusion",
       "settings": [
+        { "type": "image_picker", "id": "image", "label": "Icon/Image override" },
         { "type": "text", "id": "title", "label": "Title", "default": "NO PARABENS" },
         {
           "type": "textarea",

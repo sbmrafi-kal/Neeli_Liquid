@@ -40,7 +40,7 @@
 
 .theme-massage-ritual__mobile-step {
   display: grid;
-  grid-template-columns: 54px 1fr;
+  grid-template-columns: 60px 1fr;
   border-bottom: 1px solid rgba(31, 77, 61, 0.08);
   background: #ffffff;
 }
@@ -51,26 +51,38 @@
 
 .theme-massage-ritual__mobile-number-wrap {
   text-align: center;
-  padding: 8px 4px;
+  padding: 10px 4px !important;
+  background: #F9F8F3 !important;
+  font-family: "Avenir", var(--theme-body-font), sans-serif !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .theme-massage-ritual__mobile-number {
-  font-size: 24px;
+  font-size: 20px !important;
   line-height: 1;
   color: #1f4d3d;
+  font-weight: 900 !important;
 }
 
 .theme-massage-ritual__mobile-label {
-  margin-top: 2px;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  color: rgba(31, 77, 61, 0.62);
+  margin-top: 4px !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  color: rgba(31, 77, 61, 0.75) !important;
+  word-break: break-all !important;
+  white-space: normal !important;
+  line-height: 1.1 !important;
 }
 
 .theme-massage-ritual__mobile-content {
   display: flex;
   align-items: center;
-  padding: 8px 10px;
+  padding: 8px 12px;
 }
 
 .theme-massage-ritual__mobile-desc {

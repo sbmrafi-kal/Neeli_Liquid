@@ -17,9 +17,9 @@
   assign mobile_description_2 = section.settings.mobile_description_2 | default: desktop_description_2
   assign desktop_description_2_plain = desktop_description_2 | strip_html | strip
   assign mobile_description_2_plain = mobile_description_2 | strip_html | strip
-  assign seal_image_desktop = section.settings.seal_image_desktop | default: section.settings.seal_image
-  assign seal_image_mobile = section.settings.seal_image_mobile | default: seal_image_desktop | default: section.settings.seal_image
-  assign seal_kicker = section.settings.mark_kicker | strip
+  assign seal_image_desktop = section.settings.seal_image_desktop
+  assign seal_image_mobile = section.settings.seal_image_mobile | default: seal_image_desktop
+  assign seal_kicker = ""
   assign seal_title = ""
   assign seal_text = section.settings.mark_text
   assign seal_text_plain = seal_text | strip_html | strip
@@ -205,10 +205,7 @@
     { "type": "text", "id": "mobile_title_2", "label": "Mobile secondary title", "default": "Patented Formulations" },
     { "type": "richtext", "id": "desktop_description_2", "label": "Desktop secondary description", "default": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>" },
     { "type": "richtext", "id": "mobile_description_2", "label": "Mobile secondary description", "default": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>" },
-    { "type": "text", "id": "mark_kicker", "label": "Mark kicker", "default": "Certified" },
-    { "type": "text", "id": "mark_heading", "label": "Mark heading", "default": "ka" },
     { "type": "richtext", "id": "mark_text", "label": "Mark text", "default": "<p>Rooted in Authentic Ayurveda.</p>" },
-    { "type": "image_picker", "id": "seal_image", "label": "Seal image" },
     { "type": "image_picker", "id": "seal_image_desktop", "label": "Seal image (Desktop)" },
     { "type": "image_picker", "id": "seal_image_mobile", "label": "Seal image (Mobile)" }
   ],

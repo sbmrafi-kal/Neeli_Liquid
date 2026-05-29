@@ -94,7 +94,18 @@
   {%- if section.settings.ritual_text != blank -%}
     <div class="theme-timeline-ritual-guide">
       <div class="theme-timeline-ritual-guide__inner">
-        <span class="theme-timeline-ritual-guide__icon-emoji" aria-hidden="true">☀️</span>
+        {%- if section.settings.ritual_icon != blank -%}
+          {{
+            section.settings.ritual_icon
+            | image_url: width: 64
+            | image_tag:
+              class: 'theme-timeline-ritual-guide__icon-img',
+              loading: 'lazy',
+              alt: section.settings.ritual_title
+          }}
+        {%- else -%}
+          <span class="theme-timeline-ritual-guide__icon-emoji" aria-hidden="true">☀️</span>
+        {%- endif -%}
         <div class="theme-timeline-ritual-guide__copy">
           {%- if section.settings.ritual_title != blank -%}
             <span class="theme-timeline-ritual-guide__title">{{ section.settings.ritual_title }}</span>
@@ -164,6 +175,7 @@
 {
   "name": "Timeline Ritual",
   "settings": [
+    { "type": "image_picker", "id": "ritual_icon", "label": "Ritual guide icon (e.g. Sun)" },
     { "type": "text", "id": "ritual_title", "label": "Ritual guide title", "default": "The Ritual Guide" },
     { "type": "textarea", "id": "ritual_text", "label": "Ritual guide text", "default": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week." },
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "What to expect" },

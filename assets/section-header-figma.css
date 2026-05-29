@@ -1,14 +1,9 @@
 .theme-header-figma {
   background: var(--brand-forest, #1f4d3d) !important;
   width: 100% !important;
-}
-
-@media screen and (min-width: 990px) {
-  .theme-header-figma {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 1000 !important;
-  }
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
 }
 
 .theme-header-figma__inner {
