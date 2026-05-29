@@ -1,10 +1,11 @@
 .theme-three-milks {
   background: #ffffff;
-  padding: 28px 0 0;
+  padding: 28px 16px 56px !important;
 }
 
 .theme-three-milks__container {
   max-width: 1460px;
+  margin: 0 auto !important;
 }
 
 .theme-three-milks__kicker {
@@ -12,6 +13,7 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #8f4f36;
+  text-align: center !important;
 }
 
 .theme-three-milks__title {
@@ -20,6 +22,8 @@
   font-size: clamp(28px, 3vw, 44px);
   color: #1f4d3d;
   line-height: 1.04;
+  text-align: center !important;
+  font-weight: 400 !important;
 }
 
 .theme-three-milks__text {
@@ -27,6 +31,7 @@
   max-width: 960px;
   font-size: 16px;
   color: rgba(31, 77, 61, 0.74);
+  text-align: center !important;
 }
 
 .theme-three-milks__text p,
@@ -137,6 +142,7 @@
   font-size: 24px;
   line-height: 1.04;
   color: #1f4d3d;
+  font-weight: 400 !important;
 }
 
 .theme-three-milks__card-desc {

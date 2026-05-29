@@ -225,12 +225,12 @@
 
       const priceTargets = Array.from(
         section.querySelectorAll(
-          '.theme-reorder-btn__price-new, .theme-reorder-card__price-new, .theme-sticky-cart-bar__price, .theme-variant-box__price-new',
+          '.theme-reorder-btn__price-new, .theme-reorder-card__price-new, .theme-sticky-cart-bar__price',
         ),
       );
       const oldPriceTargets = Array.from(
         section.querySelectorAll(
-          '.theme-reorder-btn__price-old, .theme-reorder-card__price-old, .theme-variant-box__price-old',
+          '.theme-reorder-btn__price-old, .theme-reorder-card__price-old',
         ),
       );
       const actionButtons = Array.from(section.querySelectorAll('.theme-reorder-btn'));

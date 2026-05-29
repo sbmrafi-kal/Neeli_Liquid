@@ -26,11 +26,9 @@
 
 .theme-patch-test {
   margin: 0 auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: block !important;
   width: 100% !important;
+  text-align: center !important;
 }
 
 

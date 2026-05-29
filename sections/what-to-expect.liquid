@@ -43,13 +43,13 @@
             {%- if block.settings.phase != blank -%}
               <div class="theme-timeline-stage__phase">{{ block.settings.phase }}</div>
             {%- endif -%}
+          </div>
+          <div class="theme-timeline-stage__bottom">
             {%- if block.settings.image != blank -%}
               <div class="theme-timeline-stage__img-wrap">
                 {{ block.settings.image | image_url: width: 400 | image_tag: class: 'theme-timeline-stage__img', loading: 'lazy', alt: block.settings.title }}
               </div>
             {%- endif -%}
-          </div>
-          <div class="theme-timeline-stage__bottom">
             {%- if block.settings.label != blank -%}
               <div class="theme-timeline-stage__label">{{ block.settings.label }}</div>
             {%- endif -%}

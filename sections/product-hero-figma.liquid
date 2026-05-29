@@ -256,8 +256,8 @@
                 name="id"
                 value="{{ variant_id }}"
                 id="Variant-Figma-{{ section.id }}-{{ index }}"
-                data-price="{% if variant != blank %}{{ variant.price | money }}{% else %}{{ display_price }}{% endif %}"
-                data-compare-price="{% if variant != blank %}{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}{% else %}{{ display_compare }}{% endif %}"
+                data-price="{% if display_price != blank %}{{ display_price }}{% elsif variant != blank %}{{ variant.price | money }}{% endif %}"
+                data-compare-price="{% if display_compare != blank %}{{ display_compare }}{% elsif variant != blank %}{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}{% endif %}"
                 data-available="{{ is_available }}"
                 {% if is_selected %}
                   checked

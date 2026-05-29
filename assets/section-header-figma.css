@@ -104,8 +104,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 28px !important;
+  height: 28px !important;
   background: none;
   border: none;
   color: #fff;
@@ -116,14 +116,18 @@
 }
 
 .theme-header-figma__action svg {
-  width: 16px;
-  height: 16px;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.theme-header-figma__action svg * {
+  stroke-width: 2.2px !important;
 }
 
 .theme-header-figma__cart-count {
   position: absolute;
-  top: -4px;
-  right: -6px;
+  top: -2px !important;
+  right: -2px !important;
   background: #c4a96b;
   color: #fff;
   font-size: 9px;
@@ -160,13 +164,13 @@
   }
 
   .theme-header-figma__action {
-    width: 24px;
-    height: 24px;
+    width: 28px !important;
+    height: 28px !important;
   }
 
   .theme-header-figma__action svg {
-    width: 16px;
-    height: 16px;
+    width: 20px !important;
+    height: 20px !important;
   }
 
   .theme-header-figma__brand-image {
