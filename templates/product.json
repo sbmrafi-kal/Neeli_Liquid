@@ -12,9 +12,18 @@
     "header": {
       "type": "header-figma",
       "settings": {
-        "padding_top": 0,
-        "logo_text": "Kerala Ayurveda",
+        "nav_1_title": "Shop All",
+        "nav_1_url": "",
+        "nav_2_title": "Clinics",
+        "nav_2_url": "",
+        "nav_3_title": "Resorts",
+        "nav_3_url": "",
+        "nav_4_title": "Hospitals",
+        "nav_4_url": "",
+        "nav_5_title": "Academy",
+        "nav_5_url": "",
         "logo_alt": "Kerala Ayurveda",
+        "logo_text": "Kerala Ayurveda",
         "breadcrumb_current_label": "Neelibringadi Keram"
       }
     },
@@ -70,16 +79,16 @@
         "hero_image_5"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
         "product": "core-lab-lilac-solid-slim-fit-t-shirt",
         "product_title": "Neelibringadi Keram",
         "subtitle": "One oil for complete hair recovery",
-        "intro_text": "<p>Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibringadi works both sides.</p>",
+        "badge_text": "Minimizes hair fall • Supports hair growth",
         "delivery_banner_text": "Free delivery on orders over ₹299 | 2-4 days delivery",
+        "intro_text": "<p>Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibringadi works both sides.</p>",
         "quote_text": "<p>Hair fall reduced noticeably, and I can already see tiny baby hairs coming.</p>",
         "quote_author": "- ANU R., CHENNAI",
         "description_title": "How Neelibringadi Keram works",
-        "badge_text": "Minimizes hair fall • Supports hair growth",
+        "description_block": "<p>Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.</p>",
         "stat_1_value": "4.64★",
         "stat_1_label": "Ratings",
         "stat_2_value": "1200+",
@@ -88,8 +97,6 @@
         "stat_3_label": "Uses/per bottle",
         "stat_4_value": "40,000+",
         "stat_4_label": "Bought last year",
-        "description_block": "<p>Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.</p>",
-        "padding_top": 0,
         "variant_1_label": "100 ml",
         "variant_1_price_text": "₹215",
         "variant_1_compare_price_text": "₹350",
@@ -103,10 +110,10 @@
     "certification_strip": {
       "type": "certification-strip",
       "settings": {
-        "mark_1_image": "",
-        "mark_2_image": "",
-        "mark_3_image": "",
-        "mark_4_image": "",
+        "mark_1_alt": "Certification mark 1",
+        "mark_2_alt": "Certification mark 2",
+        "mark_3_alt": "Certification mark 3",
+        "mark_4_alt": "Certification mark 4",
         "stat_1_value": "1945",
         "stat_1_label": "Established",
         "stat_2_value": "350+",
@@ -123,6 +130,9 @@
         "stage_1": {
           "type": "stage",
           "settings": {
+            "image": "shopify://shop_images/96a5d6654c63f512795b06ca017c6483a4aa5762.png",
+            "mobile_image": "shopify://shop_images/96a5d6654c63f512795b06ca017c6483a4aa5762.png",
+            "image_alt": "Timeline step image",
             "phase": "FIRST TIME",
             "mobile_phase": "First Time",
             "label": "FIRST APPLICATION",
@@ -133,6 +143,8 @@
         "stage_2": {
           "type": "stage",
           "settings": {
+            "image": "shopify://shop_images/2f72be6c9a4ff8b2b132105993d31b113859b90f.png",
+            "image_alt": "Timeline step image",
             "phase": "WEEK 2-3",
             "mobile_phase": "Week 2-3",
             "label": "~ 8 USES",
@@ -143,6 +155,9 @@
         "stage_3": {
           "type": "stage",
           "settings": {
+            "image": "shopify://shop_images/2e689edadbd246d0115e1243d6836b2a5eb15e40.jpg",
+            "mobile_image": "shopify://shop_images/2e689edadbd246d0115e1243d6836b2a5eb15e40.jpg",
+            "image_alt": "Timeline step image",
             "phase": "MONTH 3+",
             "mobile_phase": "Month 3+",
             "label": "~ 36 USES",
@@ -159,16 +174,18 @@
       "settings": {
         "ritual_title": "The Ritual Guide",
         "ritual_text": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.",
-        "color_scheme": "scheme-1",
         "kicker": "What to expect",
         "heading": "The honest sequence.",
         "text": "<p>Root strength comes before visible density.</p>",
         "footnote": "*Based on consistent use as directed. Individual results may vary.",
-        "padding_top": 80,
-        "padding_bottom": 60,
+        "disclaimer": "In cooler weather the coconut oil base may solidify - warm the oil before use.",
         "show_upsell": true,
         "upsell_label": "Add internal support",
-        "upsell_products": ["bhringarajasava-450ml"]
+        "upsell_products": [
+          "bhringarajasava-450ml"
+        ],
+        "padding_top": 80,
+        "padding_bottom": 60
       }
     },
     "story": {
@@ -239,6 +256,9 @@
         "kicker": "",
         "heading": "What's in it. What is not.",
         "text": "",
+        "show_difference": false,
+        "accordion_kicker": "Kerala Ayurveda Difference",
+        "accordion_heading": "Why it matters",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -249,6 +269,8 @@
         "ingredient_1": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/ing-bringaraj.jpg",
+            "mobile_image": "shopify://shop_images/ing-bringaraj.jpg",
             "title": "Bringaraj",
             "subtitle": "False Daisy",
             "text": "<p>Supports hair growth. Activates follicles and increases scalp circulation.</p>"
@@ -257,6 +279,8 @@
         "ingredient_2": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/ing-amla.jpg",
+            "mobile_image": "shopify://shop_images/ing-amla.jpg",
             "title": "Amla",
             "subtitle": "False Daisy",
             "text": "<p>Minimizes hair fall. Strengthens the hair shaft with natural Vitamin C.</p>"
@@ -265,6 +289,8 @@
         "ingredient_3": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/ing-neeli.png",
+            "mobile_image": "shopify://shop_images/ing-neeli.png",
             "title": "Neeli",
             "subtitle": "False Daisy",
             "text": "<p>Cools and recovers. Reduces scalp inflammation and promotes regrowth.</p>"
@@ -273,6 +299,8 @@
         "ingredient_4": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/ing-coconut.jpg",
+            "mobile_image": "shopify://shop_images/ing-coconut.jpg",
             "title": "Keram",
             "subtitle": "False Daisy",
             "text": "<p>Deep nourishment. Traditional carrier that mimics natural scalp lipids.</p>"
@@ -289,8 +317,78 @@
         "color_scheme": "scheme-1",
         "heading": "Key Ingredients",
         "text": "",
+        "show_text": true,
         "padding_top": 80,
         "padding_bottom": 80
+      }
+    },
+    "three_milks": {
+      "type": "three-milks",
+      "blocks": {
+        "milk_1": {
+          "type": "milk",
+          "settings": {
+            "image": "shopify://shop_images/Coconut_milk.png",
+            "mobile_image": "shopify://shop_images/Coconut_milk.png",
+            "title": "Coconut milk",
+            "text": "<p>Nourishes and moisturizes the scalp.</p>"
+          }
+        },
+        "milk_2": {
+          "type": "milk",
+          "settings": {
+            "image": "shopify://shop_images/Goat_milk.png",
+            "mobile_image": "shopify://shop_images/Goat_milk.png",
+            "title": "Goat milk",
+            "text": "<p>Addresses dandruff and improves hair texture.</p>"
+          }
+        },
+        "milk_3": {
+          "type": "milk",
+          "settings": {
+            "image": "shopify://shop_images/Cow_milk.png",
+            "title": "Cow milk",
+            "text": "<p>Controls hair fall and promotes hair growth.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "milk_1",
+        "milk_2",
+        "milk_3"
+      ],
+      "settings": {
+        "kicker": "THE SECRET BASE",
+        "heading": "Three milks. One complete formula.",
+        "text": "<p>Three nourishing milks work together for a healthier scalp and stronger, smoother hair.</p>"
+      }
+    },
+    "massage_ritual": {
+      "type": "massage-ritual",
+      "settings": {
+        "hero_alt": "Your Easy Massage Ritual",
+        "desktop_step_1_title": "WARM",
+        "desktop_step_1_text": "Warm oil penetrates - cold oil sits on the surface.",
+        "desktop_step_2_title": "APPLY",
+        "desktop_step_2_text": "Apply adequate amount gently onto the scalp and hair.",
+        "desktop_step_3_title": "MASSAGE",
+        "desktop_step_3_text": "Circular motion, 5 minutes. Fingertips, not nails.",
+        "mobile_step_1_title": "WARM",
+        "mobile_step_1_text": "Warm oil penetrates - cold oil sits on the surface.",
+        "mobile_step_2_title": "APPLY",
+        "mobile_step_2_text": "Apply adequate amount gently onto the scalp and hair.",
+        "mobile_step_3_title": "MASSAGE",
+        "mobile_step_3_text": "Circular motion, 5 minutes. Fingertips, not nails."
+      }
+    },
+    "patch_test": {
+      "type": "patch-test",
+      "settings": {
+        "heading": "Always patch test- pop up",
+        "button_label": "Always patch test first",
+        "popup_text": "Apply a small amount behind the ear or on the inner elbow. Wait 24-48 hours. If no redness or irritation appears, proceed with regular use",
+        "padding_top": 12,
+        "padding_bottom": 12
       }
     },
     "information": {
@@ -326,34 +424,6 @@
             "icon": "none",
             "title": "Frequently asked",
             "text": "<p><strong>When Will I See Results?</strong><br>Reduced hair fall is typically noticed within 2–3 weeks. Visible improvement in growth and texture requires 2+ months of consistent use. Recovery is a process, not a single event.</p><p><strong>Does It Help With Greying?</strong><br>Yes. Neeli and Bhringaraja are traditionally used to help minimise premature greying and support natural hair colour.</p><p><strong>Can I Use It On Coloured Hair?</strong><br>Yes. The formula is gentle. It may slightly darken hair over extended use due to the Bhringaraja and Neeli content.</p><p><strong>Is It Safe During Pregnancy?</strong><br>This is an external-use oil with no known contraindicated ingredients for topical application. However, as with any product during pregnancy or nursing, we recommend consulting your doctor before starting a new regimen.</p>"
-          }
-        },
-        "faq_1": {
-          "type": "faq",
-          "settings": {
-            "question": "When will I see results?",
-            "answer": "<p>Reduced hair fall is typically noticed within 2 to 3 weeks.</p>"
-          }
-        },
-        "faq_2": {
-          "type": "faq",
-          "settings": {
-            "question": "Does it help with greying?",
-            "answer": "<p>Neeli and Bhringaraja are traditionally used to support natural hair colour.</p>"
-          }
-        },
-        "faq_3": {
-          "type": "faq",
-          "settings": {
-            "question": "Can I use it on coloured hair?",
-            "answer": "<p>Yes. The formula is gentle, but extended use may slightly darken hair over time.</p>"
-          }
-        },
-        "faq_4": {
-          "type": "faq",
-          "settings": {
-            "question": "Is it safe during pregnancy?",
-            "answer": "<p>As with any new topical regimen during pregnancy or nursing, consult your doctor first.</p>"
           }
         }
       },
@@ -410,6 +480,7 @@
         "heading": "Customer Reviews",
         "text": "<p></p>",
         "button_label": "Read all 86 reviews",
+        "button_link": "",
         "rating_score": "4.64 / 5.0",
         "padding_top": 24,
         "padding_bottom": 24
@@ -418,59 +489,21 @@
     "brand_trust": {
       "type": "brand-trust",
       "settings": {
+        "desktop_image": "shopify://shop_images/3bb665dbfd765a81d3cbed2b71ff9ba5f528d95e.png",
+        "mobile_image": "shopify://shop_images/3bb665dbfd765a81d3cbed2b71ff9ba5f528d95e.png",
         "desktop_title": "FULL SPECTRUM",
-        "desktop_description": "<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&amp;D</p>",
+        "mobile_title": "Our Credentials",
+        "desktop_description": "<p>Classical and Proprietary Ayurvedic Products (350+ SKUs) | Therapies and Ayurvedic Retreats | Academy and Education Initiatives | Pioneering Ayurvedic R&D</p>",
+        "mobile_description": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
         "desktop_kicker": "Globally Recognized",
+        "mobile_kicker": "Globally Recognized",
         "desktop_title_2": "PATENTED FORMULATIONS",
+        "mobile_title_2": "Patented Formulations",
         "desktop_description_2": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
+        "mobile_description_2": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
+        "mark_kicker": "Certified",
         "mark_heading": "ka",
         "mark_text": "<p>Rooted in Authentic Ayurveda.</p>"
-      }
-    },
-    "three_milks": {
-      "type": "three-milks",
-      "blocks": {
-        "milk_1": {
-          "type": "milk",
-          "settings": {
-            "title": "Coconut milk",
-            "text": "<p>Nourishes and moisturizes the scalp.</p>"
-          }
-        },
-        "milk_2": {
-          "type": "milk",
-          "settings": {
-            "title": "Goat milk",
-            "text": "<p>Addresses dandruff and improves hair texture.</p>"
-          }
-        },
-        "milk_3": {
-          "type": "milk",
-          "settings": {
-            "title": "Cow milk",
-            "text": "<p>Controls hair fall and promotes hair growth.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "milk_1",
-        "milk_2",
-        "milk_3"
-      ],
-      "settings": {}
-    },
-    "massage_ritual": {
-      "type": "massage-ritual",
-      "settings": {}
-    },
-    "patch_test": {
-      "type": "patch-test",
-      "settings": {
-        "heading": "Always patch test- pop up",
-        "button_label": "Always patch test first",
-        "popup_text": "Apply a small amount behind the ear or on the inner elbow. Wait 24-48 hours. If no redness or irritation appears, proceed with regular use",
-        "padding_top": 12,
-        "padding_bottom": 12
       }
     },
     "footer": {
@@ -478,23 +511,30 @@
       "blocks": {
         "brand": {
           "type": "brand",
-          "settings": {
-            "logo": ""
-          }
+          "settings": {}
         },
         "links_1": {
           "type": "link_column",
           "settings": {
             "heading": "Quick Links",
             "item_1_title": "About Kerala Ayurveda",
+            "item_1_link": "",
             "item_2_title": "Clinics",
+            "item_2_link": "",
             "item_3_title": "Ayurveda Academy",
+            "item_3_link": "",
             "item_4_title": "Investors",
+            "item_4_link": "",
             "item_5_title": "Research & Development",
+            "item_5_link": "",
             "item_6_title": "Careers",
+            "item_6_link": "",
             "item_7_title": "Blogs",
+            "item_7_link": "",
             "item_8_title": "Our Editorial Team",
-            "item_9_title": "Contact Us"
+            "item_8_link": "",
+            "item_9_title": "Contact Us",
+            "item_9_link": ""
           }
         },
         "links_2": {
@@ -502,10 +542,23 @@
           "settings": {
             "heading": "Policies",
             "item_1_title": "Terms Of Use",
+            "item_1_link": "",
             "item_2_title": "Privacy Policy",
+            "item_2_link": "",
             "item_3_title": "Shipping And Delivery Policy",
+            "item_3_link": "",
             "item_4_title": "Return/Cancellation Policy",
-            "item_5_title": "FAQs"
+            "item_4_link": "",
+            "item_5_title": "FAQs",
+            "item_5_link": "",
+            "item_6_title": "Careers",
+            "item_6_link": "",
+            "item_7_title": "Blogs",
+            "item_7_link": "",
+            "item_8_title": "Our Editorial Team",
+            "item_8_link": "",
+            "item_9_title": "",
+            "item_9_link": ""
           }
         },
         "links_3": {
@@ -513,12 +566,23 @@
           "settings": {
             "heading": "Our Network",
             "item_1_title": "Ayurvedagram Bengaluru",
+            "item_1_link": "",
             "item_2_title": "Ayurvedagram Bali",
+            "item_2_link": "",
             "item_3_title": "The Health Village",
+            "item_3_link": "",
             "item_4_title": "Kerala Ayurveda India - Academy",
+            "item_4_link": "",
             "item_5_title": "Kerala Ayurveda USA - Store",
+            "item_5_link": "",
             "item_6_title": "Kerala Ayurveda USA - Wellness",
-            "item_7_title": "Kerala Ayurveda USA - Academy"
+            "item_6_link": "",
+            "item_7_title": "Kerala Ayurveda USA - Academy",
+            "item_7_link": "",
+            "item_8_title": "Our Editorial Team",
+            "item_8_link": "",
+            "item_9_title": "",
+            "item_9_link": ""
           }
         },
         "social_1": {
@@ -577,6 +641,10 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
+        "social_label": "Follow Us",
+        "logo_image": "shopify://shop_images/logo-kerala.png",
+        "logo_alt": "Kerala Ayurveda",
+        "tagline": "The Proprietary Kerala Ayurveda Formulation.\nThis Is One Of Them.",
         "padding_top": 80,
         "padding_bottom": 80
       }
