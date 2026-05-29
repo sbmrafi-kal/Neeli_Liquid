@@ -88,7 +88,7 @@
   bottom: 18px;
   transform: translateX(-50%);
   display: flex !important;
-  gap: 8px !important;
+  gap: 0px !important;
   background: rgba(255, 255, 255, 0.96) !important;
   padding: 10px !important;
   border-radius: 14px !important;
@@ -98,8 +98,8 @@
 }
 
 .theme-product-page--figma .theme-hero-carousel__thumb {
-  width: 68px !important;
-  height: 86px !important;
+  width: 48px !important;
+  height: 60px !important;
   overflow: hidden;
   border-radius: 12px !important;
   border: 1px solid rgba(31, 77, 61, 0.1) !important;
@@ -736,11 +736,12 @@
     background: transparent !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
+    gap: 0px !important;
   }
 
   .theme-product-page--figma .theme-hero-carousel__thumb {
-    width: 54px !important;
-    height: 72px !important;
+    width: 40px !important;
+    height: 50px !important;
     opacity: 0.5 !important;
     transform: scale(0.82) !important;
   }
@@ -783,9 +784,9 @@
   }
 
   .theme-product-page--figma .theme-product-page__badge-line {
-    font-size: 13.5px !important;
+    font-size: 11px !important;
     letter-spacing: 0.08em !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
     text-align: center !important;
   }
 

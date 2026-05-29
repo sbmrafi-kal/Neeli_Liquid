@@ -11,6 +11,7 @@
   line-height: 0.98 !important;
   margin-bottom: 24px !important;
   letter-spacing: -0.02em !important;
+  text-align: center !important;
 }
 
 .theme-ingredient-story .theme-section-heading__text {
@@ -393,4 +394,11 @@
 /* Hide inclusion description texts globally */
 .theme-list__item--inclusion .theme-list__text {
   display: none !important;
+}
+
+.theme-ingredient-story .theme-list__marker-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
 }

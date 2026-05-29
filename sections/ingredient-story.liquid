@@ -24,26 +24,37 @@
             <div class="theme-list__item theme-list__item--{{ block.type }}" {{ block.shopify_attributes }}>
               <div class="theme-list__marker theme-list__marker--{{ block.type | replace: 'inclusion', 'ok' | replace: 'exclusion', 'no' }}">
                 {%- if block.type == 'inclusion' -%}
-                  {%- if inclusion_count == 1 -%}
-                    <!-- Leaf SVG (100% Natural Ingredients) -->
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M2 22C2 22 6 18 12 18C18 18 22 14 22 8C22 2 18 2 18 2C18 2 16 6 12 8C8 10 2 12 2 22Z"></path>
-                      <path d="M12 8c0 0-4 4-10 14"></path>
-                    </svg>
-                  {%- elsif inclusion_count == 2 -%}
-                    <!-- Stacked Bowls SVG (Triple-Milk Base) -->
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M5 6v1c0 2 1.5 3 3.5 3h7c2 0 3.5-1 3.5-3V6"></path>
-                      <path d="M6 12v1c0 2 1.5 3 3.5 3h5c2 0 3.5-1 3.5-3v-1"></path>
-                      <path d="M7 18v1c0 2 1.5 3 3.5 3h3c2 0 3.5-1 3.5-3v-1"></path>
-                    </svg>
-                  {%- elsif inclusion_count == 3 -%}
-                    <!-- Mortar & Pestle SVG (Traditional Formulation) -->
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M4 11h16c0 4.5-3.5 8-8 8s-8-3.5-8-8z"></path>
-                      <path d="M8 19h8"></path>
-                      <path d="M15 4l-4 8"></path>
-                    </svg>
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 80
+                      | image_tag:
+                        class: 'theme-list__marker-img',
+                        loading: 'lazy',
+                        alt: block.settings.title
+                    }}
+                  {%- else -%}
+                    {%- if inclusion_count == 1 -%}
+                      <!-- Leaf SVG (100% Natural Ingredients) -->
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 22C2 22 6 18 12 18C18 18 22 14 22 8C22 2 18 2 18 2C18 2 16 6 12 8C8 10 2 12 2 22Z"></path>
+                        <path d="M12 8c0 0-4 4-10 14"></path>
+                      </svg>
+                    {%- elsif inclusion_count == 2 -%}
+                      <!-- Stacked Bowls SVG (Triple-Milk Base) -->
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 6v1c0 2 1.5 3 3.5 3h7c2 0 3.5-1 3.5-3V6"></path>
+                        <path d="M6 12v1c0 2 1.5 3 3.5 3h5c2 0 3.5-1 3.5-3v-1"></path>
+                        <path d="M7 18v1c0 2 1.5 3 3.5 3h3c2 0 3.5-1 3.5-3v-1"></path>
+                      </svg>
+                    {%- elsif inclusion_count == 3 -%}
+                      <!-- Mortar & Pestle SVG (Traditional Formulation) -->
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11h16c0 4.5-3.5 8-8 8s-8-3.5-8-8z"></path>
+                        <path d="M8 19h8"></path>
+                        <path d="M15 4l-4 8"></path>
+                      </svg>
+                    {%- endif -%}
                   {%- endif -%}
                 {%- else -%}
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -155,6 +166,7 @@
       "type": "inclusion",
       "name": "Inclusion",
       "settings": [
+        { "type": "image_picker", "id": "image", "label": "Icon/Image override" },
         { "type": "text", "id": "title", "label": "Title", "default": "100% NATURAL INGREDIENTS" },
         {
           "type": "textarea",

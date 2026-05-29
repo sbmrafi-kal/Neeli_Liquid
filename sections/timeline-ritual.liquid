@@ -53,6 +53,8 @@
           {%- if block.settings.phase != blank -%}
             <div class="theme-timeline-stage__phase">{{ block.settings.phase }}</div>
           {%- endif -%}
+        </div>
+        <div class="theme-timeline-stage__bottom">
           {%- if block.settings.image != blank -%}
             <div class="theme-timeline-stage__img-wrap">
               <picture>
@@ -71,8 +73,6 @@
               </picture>
             </div>
           {%- endif -%}
-        </div>
-        <div class="theme-timeline-stage__bottom">
           {%- if block.settings.label != blank -%}
             <div class="theme-timeline-stage__label">{{ block.settings.label }}</div>
           {%- endif -%}
@@ -146,13 +146,13 @@
           {%- if upsell_products != blank -%}
             {%- for upsell_product in upsell_products -%}
               {%- if upsell_product != blank -%}
-                {% render 'upsell-product-card', upsell_product: upsell_product %}
+                {% render 'upsell-product-card', upsell_product: upsell_product, upsell_title: section.settings.upsell_title, upsell_text: section.settings.upsell_text %}
                 {%- assign upsell_rendered = true -%}
               {%- endif -%}
             {%- endfor -%}
           {%- endif -%}
           {%- if upsell_rendered == false -%}
-            {% render 'upsell-product-card', upsell_product: blank %}
+            {% render 'upsell-product-card', upsell_product: blank, upsell_title: section.settings.upsell_title, upsell_text: section.settings.upsell_text %}
           {%- endif -%}
         </div>
       </div>
@@ -173,6 +173,8 @@
     { "type": "text", "id": "disclaimer", "label": "Disclaimer text", "default": "In cooler weather the coconut oil base may solidify - warm the oil before use." },
     { "type": "checkbox", "id": "show_upsell", "label": "Show upsell banner", "default": true },
     { "type": "text", "id": "upsell_label", "label": "Upsell label", "default": "Add internal support" },
+    { "type": "text", "id": "upsell_title", "label": "Upsell product title override" },
+    { "type": "textarea", "id": "upsell_text", "label": "Upsell product description override" },
     { "type": "product_list", "id": "upsell_products", "label": "Upsell products", "limit": 4 },
     { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "default": 36, "label": "Top padding" },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "default": 0, "label": "Bottom padding" }

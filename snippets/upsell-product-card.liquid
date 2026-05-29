@@ -4,23 +4,41 @@
     assign resolved_upsell = all_products["bhringarajasava-450ml"] | default: all_products["bhringarajasava"]
   endif
   assign image_width = image_width | default: 180
+
+  assign card_title = upsell_title
+  if card_title == blank
+    if resolved_upsell != blank
+      assign card_title = resolved_upsell.title
+    else
+      assign card_title = "Bhringarajasava- 450ml"
+    endif
+  endif
+
+  assign card_text = upsell_text
+  if card_text == blank
+    if resolved_upsell != blank and resolved_upsell.description != blank
+      assign card_text = resolved_upsell.description | strip_html | truncatewords: 14
+    else
+      assign card_text = "Fermented herbal brew for hair growth from within."
+    endif
+  endif
 -%}
 
 {%- if resolved_upsell != blank -%}
   {%- assign upsell_variant = resolved_upsell.selected_or_first_available_variant -%}
   <article class="theme-upsell-product-card">
-    <a class="theme-upsell-product-card__media" href="{{ resolved_upsell.url }}" aria-label="{{ resolved_upsell.title | escape }}">
+    <a class="theme-upsell-product-card__media" href="{{ resolved_upsell.url }}" aria-label="{{ card_title | escape }}">
       {%- if resolved_upsell.featured_image != blank -%}
-        {{ resolved_upsell.featured_image | image_url: width: image_width | image_tag: class: 'theme-upsell-product-card__img', loading: 'lazy', alt: resolved_upsell.title }}
+        {{ resolved_upsell.featured_image | image_url: width: image_width | image_tag: class: 'theme-upsell-product-card__img', loading: 'lazy', alt: card_title }}
       {%- else -%}
-        <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-product-card__img" loading="lazy" alt="{{ resolved_upsell.title }}" width="90" height="90">
+        <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-product-card__img" loading="lazy" alt="{{ card_title }}" width="90" height="90">
       {%- endif -%}
     </a>
 
     <div class="theme-upsell-product-card__content">
-      <a class="theme-upsell-product-card__title" href="{{ resolved_upsell.url }}">{{ resolved_upsell.title }}</a>
-      {%- if resolved_upsell.description != blank -%}
-        <div class="theme-upsell-product-card__text">{{ resolved_upsell.description | strip_html | truncatewords: 14 }}</div>
+      <a class="theme-upsell-product-card__title" href="{{ resolved_upsell.url }}">{{ card_title }}</a>
+      {%- if card_text != blank -%}
+        <div class="theme-upsell-product-card__text">{{ card_text }}</div>
       {%- endif -%}
     </div>
 
@@ -36,12 +54,12 @@
 {%- else -%}
   <article class="theme-upsell-product-card">
     <div class="theme-upsell-product-card__media">
-      <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-product-card__img" loading="lazy" alt="Bhringarajasava - 450ml" width="90" height="90">
+      <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-product-card__img" loading="lazy" alt="{{ card_title }}" width="90" height="90">
     </div>
 
     <div class="theme-upsell-product-card__content">
-      <div class="theme-upsell-product-card__title">Bhringarajasava- 450ml</div>
-      <div class="theme-upsell-product-card__text">Fermented herbal brew for hair growth from within.</div>
+      <div class="theme-upsell-product-card__title">{{ card_title }}</div>
+      <div class="theme-upsell-product-card__text">{{ card_text }}</div>
     </div>
 
     <div class="theme-upsell-product-card__btn" style="cursor: default;">

@@ -189,6 +189,10 @@
     grid-template-columns: 1fr !important;
     gap: 24px !important;
   }
+
+  .theme-reviews-footer {
+    margin-bottom: 48px !important;
+  }
 }
 
 /* Comprehensive Parity: Review star color overrides */

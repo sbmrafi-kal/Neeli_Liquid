@@ -109,6 +109,10 @@
   }
 
   @media screen and (min-width: 990px) {
+    .theme-key-ingredients {
+      padding-top: 0 !important;
+    }
+
     .theme-ki-header {
       margin-bottom: 36px;
     }
