@@ -501,8 +501,9 @@
         "desktop_description_2": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
         "mobile_description_2": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
         "mark_kicker": "Certified",
-        "mark_heading": "ka",
-        "mark_text": "<p>Rooted in Authentic Ayurveda.</p>"
+        "mark_heading": "",
+        "mark_text": "<p>Rooted in Authentic Ayurveda.</p>",
+        "seal_image": "shopify://shop_images/Gold_logo.png"
       }
     },
     "footer": {
