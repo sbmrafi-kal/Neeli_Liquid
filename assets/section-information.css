@@ -204,28 +204,60 @@
 
 
   @media screen and (min-width: 990px) {
-    .theme-information .theme-info-accordion-wrap,
-    .theme-information .theme-info-faq-wrap {
-      width: min(1320px, calc(100% - 48px));
+    .theme-information {
+      padding-top: 80px !important;
+      padding-bottom: 80px !important;
+    }
+
+    .theme-info-header {
+      margin-top: 0 !important;
+      margin-bottom: 40px !important;
+    }
+
+    .theme-information .theme-info-accordion-wrap {
+      width: min(820px, calc(100% - 48px)) !important;
+      margin: 0 auto !important;
+      background: #ffffff !important;
+      box-shadow: 0 8px 24px rgba(17, 48, 39, 0.04) !important;
+      border: 1px solid rgba(23, 55, 45, 0.08) !important;
+      border-radius: 12px !important;
+      overflow: hidden !important;
     }
 
     .theme-information .theme-accordion {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      align-items: start;
-      gap: 14px;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0 !important;
     }
 
     .theme-information .theme-accordion__item {
-      align-self: start;
+      border-bottom: 1px solid rgba(23, 55, 45, 0.08) !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .theme-information .theme-accordion__item:last-child {
+      border-bottom: none !important;
     }
 
     .theme-information .theme-info-faq-wrap {
-      margin-top: 24px;
+      margin-top: 56px !important; /* 1-line gap after Frequently Asked accordion menu card */
+      width: min(820px, calc(100% - 48px)) !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
 
     .theme-information .theme-info-faq-accordion {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      align-items: start;
-      gap: 14px;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+    }
+    
+    .theme-information .theme-info-faq-accordion .theme-accordion__item {
+      background: #ffffff !important;
+      border: 1px solid rgba(23, 55, 45, 0.08) !important;
+      border-radius: 12px !important;
+      overflow: hidden !important;
+      box-shadow: 0 8px 24px rgba(17, 48, 39, 0.04) !important;
     }
   }

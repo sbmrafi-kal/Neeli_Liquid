@@ -2,11 +2,13 @@
   background: #ffffff;
   padding-top: calc(var(--pt, 14px) * 0.75);
   padding-bottom: calc(var(--pb, 14px) * 0.75);
+  width: 100% !important;
+  display: block !important;
 }
 
 .theme-patch-test-section__inner {
   width: min(1320px, calc(100% - 24px));
-  margin: 0 auto;
+  margin: 0 auto !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -27,6 +29,8 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
 }
 
 

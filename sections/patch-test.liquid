@@ -10,12 +10,11 @@
     style="--pt: {{ section.settings.padding_top }}px; --pb: {{ section.settings.padding_bottom }}px;"
   >
     <div class="theme-patch-test-section__inner">
-      {%- if heading != blank -%}
-        <div class="theme-patch-test-section__heading">{{ heading }}</div>
-      {%- endif -%}
-
       <details class="theme-patch-test">
         <summary class="theme-patch-test__trigger">
+          <svg class="theme-patch-test__icon" width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="color: currentColor; flex-shrink: 0;">
+            <path d="M6 3.5V6.5M6 8.5H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
           {%- if button_label != blank -%}
             <span>{{ button_label }}</span>
           {%- endif -%}

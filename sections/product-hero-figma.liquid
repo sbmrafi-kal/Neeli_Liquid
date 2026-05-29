@@ -1,5 +1,7 @@
 {{ 'section-product-hero-figma.css' | asset_url | stylesheet_tag }}
 {{ 'sticky-cart-bar.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'theme-product-page.js' | asset_url }}" defer="defer"></script>
+
 
 {%- assign current_product = product -%}
 {%- assign product_override = blank -%}

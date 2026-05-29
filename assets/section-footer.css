@@ -21,7 +21,14 @@
   align-items: center;
   justify-content: center;
 }
-.theme-footer-social__icons { flex-wrap: wrap !important; }
+.theme-footer-brand__logo {
+  display: block !important;
+  max-width: 130px !important;
+  width: 100% !important;
+  height: auto !important;
+  margin-bottom: 12px !important;
+}
+
 .theme-footer-brand__text {
   display: inline-block;
   font-family: var(--font-heading-family);

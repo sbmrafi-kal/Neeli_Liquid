@@ -9,8 +9,8 @@
 
 {%- assign content_id = item_id | append: '-content' -%}
 
-<details class="theme-accordion__item" id="{{ item_id }}" {% if open %}open{% endif %}>
-  <summary class="theme-accordion__summary">
+<details class="theme-accordion__item" id="{{ item_id }}" data-theme-accordion-item data-state="{% if open == true %}open{% else %}closed{% endif %}" {% if open == true %}open{% endif %}>
+  <summary class="theme-accordion__summary" data-theme-accordion-trigger data-state="{% if open == true %}open{% else %}closed{% endif %}">
     <span class="theme-accordion__summary-title">
       {% render 'icon-accordion', icon: icon %}
       <span class="theme-accordion__title">{{ title }}</span>
@@ -21,7 +21,7 @@
       </svg>
     </span>
   </summary>
-  <div class="theme-accordion__content rte" id="{{ content_id }}">
+  <div class="theme-accordion__content rte" id="{{ content_id }}" data-theme-accordion-content data-state="{% if open == true %}open{% else %}closed{% endif %}">
     {%- if content != blank -%}
       {{ content }}
     {%- elsif faq_blocks != blank -%}

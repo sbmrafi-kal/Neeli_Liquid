@@ -5,7 +5,7 @@
   --alpha-badge-border: 0.1;
   --radius: 1rem;
   --font-sans: "Avenir", sans-serif;
-  --font-serif: "Amstir", "Avenir", serif;
+  --font-serif: "Amstir", Georgia, serif;
   --font-dmserif: 'DM Serif Display', serif;
 
   /* Brand Luxury Ayurvedic Design System Tokens */
@@ -3830,7 +3830,7 @@ details-disclosure > details {
 
 /* Product page parity tokens shared with the Next.js reference. */
 :root {
-  --font-serif: "Amstir", "Avenir", serif;
+  --font-serif: "Amstir", Georgia, serif;
   --font-sans: "Avenir", sans-serif;
   --radius: 1rem;
   --brand-forest: #1f4d3d;
