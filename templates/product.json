@@ -22,9 +22,9 @@
         "nav_4_url": "",
         "nav_5_title": "Academy",
         "nav_5_url": "",
+        "logo_image": "shopify://shop_images/logo-kerala.png",
         "logo_alt": "Kerala Ayurveda",
         "logo_text": "Kerala Ayurveda",
-        "logo_image": "shopify://shop_images/logo-kerala.png",
         "breadcrumb_current_label": "Neelibringadi Keram"
       }
     },
@@ -111,9 +111,13 @@
     "certification_strip": {
       "type": "certification-strip",
       "settings": {
+        "mark_1_image": "shopify://shop_images/stamp_01.png",
         "mark_1_alt": "Certification mark 1",
+        "mark_2_image": "shopify://shop_images/stamp_02.png",
         "mark_2_alt": "Certification mark 2",
+        "mark_3_image": "shopify://shop_images/stamp_03.png",
         "mark_3_alt": "Certification mark 3",
+        "mark_4_image": "shopify://shop_images/stamp_04.png",
         "mark_4_alt": "Certification mark 4",
         "stat_1_value": "1945",
         "stat_1_label": "Established",
