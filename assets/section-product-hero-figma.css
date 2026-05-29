@@ -196,7 +196,7 @@
   gap: 8px;
   white-space: nowrap;
   color: #1f4d3d;
-  font-size: 14px !important;
+  font-size: 15px !important;
   font-weight: 700;
   letter-spacing: 0.15em !important;
   text-transform: uppercase;
@@ -509,13 +509,15 @@
   border: 1px solid rgba(255, 255, 255, 0.4) !important;
   background: rgba(255, 255, 255, 0.15) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-  opacity: 0.85 !important;
+  opacity: 0.5 !important;
+  transform: scale(0.85) !important;
   backdrop-filter: blur(4px) !important;
   transition: all 0.2s ease !important;
 }
 
 .theme-product-page--figma .theme-hero-carousel__thumb.is-active {
   opacity: 1 !important;
+  transform: scale(1) !important;
   border-color: #ffffff !important;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6), 0 4px 16px rgba(0, 0, 0, 0.15) !important;
 }
@@ -739,25 +741,59 @@
   .theme-product-page--figma .theme-hero-carousel__thumb {
     width: 54px !important;
     height: 72px !important;
+    opacity: 0.5 !important;
+    transform: scale(0.82) !important;
+  }
+
+  .theme-product-page--figma .theme-hero-carousel__thumb.is-active {
+    opacity: 1 !important;
+    transform: scale(1) !important;
   }
 
   .theme-product-page--figma .theme-hero-carousel__stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .theme-product-page--figma .theme-hero-carousel__stat {
+    padding: 6px 4px !important;
+  }
+
+  .theme-product-page--figma .theme-hero-carousel__stat-value {
+    font-size: 13.5px !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .theme-product-page--figma .theme-hero-carousel__stat-label {
+    font-size: 8.5px !important;
+    letter-spacing: -0.01em !important;
+    white-space: nowrap !important;
   }
 
   .theme-product-page--figma .theme-product-page__badge--figma {
-    width: auto !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    justify-content: flex-start !important;
+    width: fit-content !important;
+    max-width: calc(100% - 32px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
     margin-bottom: 12px !important;
     padding: 8px 16px !important;
+    box-sizing: border-box !important;
   }
 
   .theme-product-page--figma .theme-product-page__badge-line {
-    font-size: 12px !important;
+    font-size: 13.5px !important;
     letter-spacing: 0.08em !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  .theme-product-page--figma .theme-product-page__delivery-banner {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.01em !important;
+    justify-content: center !important;
   }
 
 

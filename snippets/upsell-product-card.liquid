@@ -1,28 +1,36 @@
 {%- liquid
-  assign upsell_product = upsell_product | default: blank
+  assign resolved_upsell = upsell_product
+  if resolved_upsell == blank
+    assign resolved_upsell = all_products["bhringarajasava-450ml"] | default: all_products["bhringarajasava"]
+  endif
   assign image_width = image_width | default: 180
 -%}
 
-{%- if upsell_product != blank -%}
-  {%- assign upsell_variant = upsell_product.selected_or_first_available_variant -%}
+{%- if resolved_upsell != blank -%}
+  {%- assign upsell_variant = resolved_upsell.selected_or_first_available_variant -%}
   <article class="theme-upsell-product-card">
-    <a class="theme-upsell-product-card__media" href="{{ upsell_product.url }}" aria-label="{{ upsell_product.title | escape }}">
-      {%- if upsell_product.featured_image != blank -%}
-        {{ upsell_product.featured_image | image_url: width: image_width | image_tag: class: 'theme-upsell-product-card__img', loading: 'lazy', alt: upsell_product.title }}
+    <a class="theme-upsell-product-card__media" href="{{ resolved_upsell.url }}" aria-label="{{ resolved_upsell.title | escape }}">
+      {%- if resolved_upsell.featured_image != blank -%}
+        {{ resolved_upsell.featured_image | image_url: width: image_width | image_tag: class: 'theme-upsell-product-card__img', loading: 'lazy', alt: resolved_upsell.title }}
+      {%- else -%}
+        <img src="{{ 'upsell.png' | asset_url }}" class="theme-upsell-product-card__img" loading="lazy" alt="{{ resolved_upsell.title }}" width="90" height="90">
       {%- endif -%}
     </a>
 
     <div class="theme-upsell-product-card__content">
-      <a class="theme-upsell-product-card__title" href="{{ upsell_product.url }}">{{ upsell_product.title }}</a>
-      {%- if upsell_product.description != blank -%}
-        <div class="theme-upsell-product-card__text">{{ upsell_product.description | strip_html | truncatewords: 14 }}</div>
+      <a class="theme-upsell-product-card__title" href="{{ resolved_upsell.url }}">{{ resolved_upsell.title }}</a>
+      {%- if resolved_upsell.description != blank -%}
+        <div class="theme-upsell-product-card__text">{{ resolved_upsell.description | strip_html | truncatewords: 14 }}</div>
       {%- endif -%}
     </div>
 
     {%- if upsell_variant != blank -%}
-      <a class="theme-upsell-product-card__btn" href="{{ upsell_product.url }}" aria-label="View {{ upsell_product.title | escape }}">
-        + {{ upsell_variant.price | money_without_trailing_zeros }}
-      </a>
+      {%- form 'product', resolved_upsell, class: 'theme-upsell-product-form', id: nil -%}
+        <input type="hidden" name="id" value="{{ upsell_variant.id }}">
+        <button type="submit" class="theme-upsell-product-card__btn" style="border: none; background: none; font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;">
+          + {{ upsell_variant.price | money_without_trailing_zeros }}
+        </button>
+      {%- endform -%}
     {%- endif -%}
   </article>
 {%- else -%}
@@ -41,3 +49,54 @@
     </div>
   </article>
 {%- endif -%}
+
+<script>
+  (function() {
+    function initUpsellAjax() {
+      document.querySelectorAll('.theme-upsell-product-form').forEach(function(form) {
+        if (form.dataset.ajaxAttached) return;
+        form.dataset.ajaxAttached = "true";
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const button = form.querySelector('[type="submit"]');
+          if (!button) return;
+          const originalText = button.innerHTML;
+          button.innerHTML = 'Adding...';
+          button.disabled = true;
+          
+          const formData = new FormData(form);
+          fetch((window.Shopify && window.Shopify.routes && window.Shopify.routes.root || '/') + 'cart/add.js', {
+            method: 'POST',
+            body: formData
+          })
+          .then(function(response) {
+            if (!response.ok) throw new Error('Network error');
+            return response.json();
+          })
+          .then(function(data) {
+            button.innerHTML = 'Added!';
+            document.dispatchEvent(new CustomEvent('cart:updated', { bubbles: true }));
+            
+            // Dawn standard notification trigger:
+            const cartNotification = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+            if (cartNotification && typeof cartNotification.renderContents === 'function') {
+              cartNotification.renderContents(data);
+            } else {
+              setTimeout(function() {
+                window.location.reload();
+              }, 600);
+            }
+          })
+          .catch(function(err) {
+            console.error(err);
+            button.innerHTML = originalText;
+            button.disabled = false;
+          });
+        });
+      });
+    }
+    initUpsellAjax();
+    document.addEventListener('DOMContentLoaded', initUpsellAjax);
+    document.addEventListener('shopify:section:load', initUpsellAjax); // Support theme editor updates
+  })();
+</script>

@@ -503,7 +503,9 @@
         "mark_kicker": "Certified",
         "mark_heading": "",
         "mark_text": "<p>Rooted in Authentic Ayurveda.</p>",
-        "seal_image": "shopify://shop_images/Gold_logo.png"
+        "seal_image": "shopify://shop_images/Gold_logo.png",
+        "seal_image_desktop": "shopify://shop_images/Gold_logo.png",
+        "seal_image_mobile": "shopify://shop_images/Gold_logo.png"
       }
     },
     "footer": {

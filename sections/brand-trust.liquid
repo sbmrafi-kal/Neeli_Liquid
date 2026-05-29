@@ -17,9 +17,10 @@
   assign mobile_description_2 = section.settings.mobile_description_2 | default: desktop_description_2
   assign desktop_description_2_plain = desktop_description_2 | strip_html | strip
   assign mobile_description_2_plain = mobile_description_2 | strip_html | strip
-  assign seal_image = section.settings.seal_image
+  assign seal_image_desktop = section.settings.seal_image_desktop | default: section.settings.seal_image
+  assign seal_image_mobile = section.settings.seal_image_mobile | default: seal_image_desktop | default: section.settings.seal_image
   assign seal_kicker = section.settings.mark_kicker | strip
-  assign seal_title = section.settings.mark_heading | strip
+  assign seal_title = ""
   assign seal_text = section.settings.mark_text
   assign seal_text_plain = seal_text | strip_html | strip
   assign has_content = false
@@ -35,9 +36,7 @@
     assign has_content = true
   elsif desktop_description_2_plain != blank
     assign has_content = true
-  elsif seal_image != blank
-    assign has_content = true
-  elsif seal_title != blank
+  elsif seal_image_desktop != blank or seal_image_mobile != blank
     assign has_content = true
   elsif seal_text_plain != blank
     assign has_content = true
@@ -92,24 +91,21 @@
           </div>
         {%- endif -%}
 
-        {%- if seal_image != blank or seal_title != blank or seal_text != blank -%}
+        {%- if seal_image_mobile != blank or seal_text != blank -%}
           <div class="theme-brand-trust__mobile-seal">
-            {%- if seal_image != blank -%}
+            {%- if seal_image_mobile != blank -%}
               {{
-                seal_image
+                seal_image_mobile
                 | image_url: width: 320
                 | image_tag:
                   class: 'theme-brand-trust__mobile-seal-image',
                   loading: 'lazy',
                   widths: '160, 240, 320',
-                  alt: seal_title
+                  alt: seal_text_plain
               }}
             {%- endif -%}
             {%- if seal_kicker != blank -%}
               <div class="theme-brand-trust__mobile-seal-kicker">{{ seal_kicker }}</div>
-            {%- endif -%}
-            {%- if seal_title != blank -%}
-              <div class="theme-brand-trust__mobile-seal-title">{{ seal_title }}</div>
             {%- endif -%}
             {%- if seal_text != blank -%}
               <div class="theme-brand-trust__mobile-seal-text rte">{{ seal_text }}</div>
@@ -166,24 +162,21 @@
         {%- endif -%}
       </div>
 
-      {%- if seal_image != blank or seal_title != blank or seal_text_plain != blank -%}
+      {%- if seal_image_desktop != blank or seal_text_plain != blank -%}
         <div class="theme-brand-trust__desktop-seal">
-          {%- if seal_image != blank -%}
+          {%- if seal_image_desktop != blank -%}
             {{
-              seal_image
+              seal_image_desktop
               | image_url: width: 320
               | image_tag:
                 class: 'theme-brand-trust__desktop-seal-image',
                 loading: 'lazy',
                 widths: '160, 240, 320',
-                alt: seal_title
+                alt: seal_text_plain
             }}
           {%- endif -%}
           {%- if seal_kicker != blank -%}
             <div class="theme-brand-trust__desktop-seal-kicker">{{ seal_kicker }}</div>
-          {%- endif -%}
-          {%- if seal_title != blank -%}
-            <div class="theme-brand-trust__desktop-seal-title">{{ seal_title }}</div>
           {%- endif -%}
           {%- if seal_text_plain != blank -%}
             <div class="theme-brand-trust__desktop-seal-text rte">{{ seal_text }}</div>
@@ -215,7 +208,9 @@
     { "type": "text", "id": "mark_kicker", "label": "Mark kicker", "default": "Certified" },
     { "type": "text", "id": "mark_heading", "label": "Mark heading", "default": "ka" },
     { "type": "richtext", "id": "mark_text", "label": "Mark text", "default": "<p>Rooted in Authentic Ayurveda.</p>" },
-    { "type": "image_picker", "id": "seal_image", "label": "Seal image" }
+    { "type": "image_picker", "id": "seal_image", "label": "Seal image" },
+    { "type": "image_picker", "id": "seal_image_desktop", "label": "Seal image (Desktop)" },
+    { "type": "image_picker", "id": "seal_image_mobile", "label": "Seal image (Mobile)" }
   ],
   "presets": [{ "name": "brand trust" }]
 }

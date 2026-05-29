@@ -135,12 +135,20 @@
   }
 
   .theme-cert-strip__marks {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 8px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    gap: 6px !important;
+    width: 100% !important;
   }
 
   .theme-cert-strip__mark {
-    min-height: 56px;
+    flex: 1 1 0 !important;
+    min-height: 56px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .theme-cert-strip__mark-image,

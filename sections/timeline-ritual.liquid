@@ -94,15 +94,12 @@
   {%- if section.settings.ritual_text != blank -%}
     <div class="theme-timeline-ritual-guide">
       <div class="theme-timeline-ritual-guide__inner">
-        <svg class="theme-timeline-ritual-guide__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle>
-          <path d="M12 3v1M12 20v1M3 12h1M20 12h1M5.636 5.636l.707.707M17.657 17.657l.707.707M18.364 5.636l-.707.707M6.343 17.657l-.707.707" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-        </svg>
+        <span class="theme-timeline-ritual-guide__icon-emoji" aria-hidden="true">☀️</span>
         <div class="theme-timeline-ritual-guide__copy">
           {%- if section.settings.ritual_title != blank -%}
-            <div class="theme-timeline-ritual-guide__title">{{ section.settings.ritual_title }}</div>
+            <span class="theme-timeline-ritual-guide__title">{{ section.settings.ritual_title }}</span>
           {%- endif -%}
-          <div class="theme-timeline-ritual-guide__text">{{ section.settings.ritual_text }}</div>
+          <span class="theme-timeline-ritual-guide__text">{{ section.settings.ritual_text }}</span>
         </div>
       </div>
     </div>
