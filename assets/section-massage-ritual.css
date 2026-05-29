@@ -227,3 +227,14 @@
     max-width: 480px !important;
   }
 }
+
+.theme-massage-ritual__patch-test:not([open]) .theme-massage-ritual__patch-popup {
+  display: none !important;
+}
+
+.theme-massage-ritual__patch-test-wrap:hover .theme-massage-ritual__patch-popup,
+.theme-massage-ritual__patch-test[open] .theme-massage-ritual__patch-popup {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}

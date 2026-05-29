@@ -13,14 +13,14 @@
 .theme-customer-reviews .theme-product-page__section--soft { background: #ffffff !important; }
 .theme-reviews-header-wrap,
 .theme-customer-reviews .theme-section-heading { text-align: center !important; }
-.theme-reviews-section__kicker { font-size: 14px !important; text-align: center !important; }
+.theme-reviews-section__kicker { font-size: 18px !important; text-align: center !important; }
 .theme-review-card__verified { font-size: 13px !important; }
 .theme-customer-reviews .theme-review-card__quote { font-size: 16px !important; }
 .theme-reviews-rating-header__star-svg,
 .theme-review-card__star-svg {
   width: 14px !important;
   height: 14px !important;
-  color: #c4a96b !important;
+  color: #F59E0B !important;
   fill: currentColor !important;
 }
 
@@ -55,12 +55,14 @@
 
 .theme-reviews-section__kicker {
   font-family: "Avenir", var(--theme-body-font), sans-serif !important;
-  font-size: 14px !important;
+  font-size: 18px !important;
   font-weight: 800 !important;
   line-height: 1.4 !important;
   letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
   color: #864e3a !important;
+  margin-bottom: 2px !important;
+  display: block !important;
 }
 
 .theme-reviews-section__heading {
@@ -70,6 +72,7 @@
   line-height: 1.05 !important;
   letter-spacing: 0.03em !important;
   color: #1e4b3c !important;
+  margin-top: 2px !important;
 }
 
 .theme-review-grid {
@@ -201,7 +204,7 @@
 .theme-reviews-rating-header,
 .theme-reviews-rating-header__star-svg,
 .theme-review-card__star-svg {
-  color: #c4a96b !important;
+  color: #F59E0B !important;
 }
 
 .theme-review-button-v2 {

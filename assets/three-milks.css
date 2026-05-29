@@ -45,69 +45,71 @@
   display: none;
 }
 
-.theme-three-milks__mobile-grid {
-  display: grid !important;
-  gap: 14px !important;
-  max-width: 100% !important;
-  margin: 0 auto !important;
-  grid-template-columns: 1fr !important;
-}
+@media screen and (max-width: 989px) {
+  .theme-three-milks__mobile-grid {
+    display: grid !important;
+    gap: 14px !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    grid-template-columns: 1fr !important;
+  }
 
-.theme-three-milks__mobile-card {
-  display: grid !important;
-  grid-template-columns: 74px 1fr !important;
-  gap: 14px !important;
-  align-items: center !important;
-  background: #fbf9f2 !important;
-  border: 1px solid rgba(31, 77, 61, 0.08) !important;
-  border-radius: 16px !important;
-  padding: 12px 14px !important;
-  text-align: left !important;
-}
+  .theme-three-milks__mobile-card {
+    display: grid !important;
+    grid-template-columns: 74px 1fr !important;
+    gap: 14px !important;
+    align-items: center !important;
+    background: #fbf9f2 !important;
+    border: 1px solid rgba(31, 77, 61, 0.08) !important;
+    border-radius: 16px !important;
+    padding: 12px 14px !important;
+    text-align: left !important;
+  }
 
-.theme-three-milks__mobile-card--2 {
-  grid-template-columns: 74px 1fr !important;
-}
+  .theme-three-milks__mobile-card--2 {
+    grid-template-columns: 74px 1fr !important;
+  }
 
-.theme-three-milks__mobile-image-wrap {
-  width: 74px !important;
-  height: 74px !important;
-  border-radius: 999px !important;
-  overflow: hidden !important;
-  border: 1px solid #17372d !important;
-  background: #17372d !important;
-  padding: 2px !important;
-  justify-self: start !important;
-  margin: 0 !important;
-}
+  .theme-three-milks__mobile-image-wrap {
+    width: 74px !important;
+    height: 74px !important;
+    border-radius: 999px !important;
+    overflow: hidden !important;
+    border: 1px solid #17372d !important;
+    background: #17372d !important;
+    padding: 2px !important;
+    justify-self: start !important;
+    margin: 0 !important;
+  }
 
-.theme-three-milks__mobile-image-wrap picture,
-.theme-three-milks__mobile-image {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-}
+  .theme-three-milks__mobile-image-wrap picture,
+  .theme-three-milks__mobile-image {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
 
-.theme-three-milks__mobile-image {
-  object-fit: cover !important;
-}
+  .theme-three-milks__mobile-image {
+    object-fit: cover !important;
+  }
 
-.theme-three-milks__mobile-title {
-  font-family: var(--theme-heading-font), serif !important;
-  font-size: 16px !important;
-  line-height: 1.1 !important;
-  font-weight: 700 !important;
-  color: #1f4d3d !important;
-  text-align: left !important;
-  margin: 0 0 4px 0 !important;
-}
+  .theme-three-milks__mobile-title {
+    font-family: var(--theme-heading-font), serif !important;
+    font-size: 16px !important;
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+    color: #1f4d3d !important;
+    text-align: left !important;
+    margin: 0 0 4px 0 !important;
+  }
 
-.theme-three-milks__mobile-desc {
-  margin-top: 4px !important;
-  font-size: 12px !important;
-  line-height: 1.35 !important;
-  color: rgba(31, 77, 61, 0.78) !important;
-  text-align: left !important;
+  .theme-three-milks__mobile-desc {
+    margin-top: 4px !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    color: rgba(31, 77, 61, 0.78) !important;
+    text-align: left !important;
+  }
 }
 
 .theme-three-milks__desktop-grid {

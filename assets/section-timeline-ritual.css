@@ -28,12 +28,12 @@
 }
 
 .theme-timeline-ritual-guide__copy {
-  display: inline-flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  align-items: center !important;
-  gap: 8px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 4px !important;
   text-align: left !important;
+  flex: 1 !important;
 }
 
 .theme-timeline-ritual-guide__title {
