@@ -111,13 +111,9 @@
     "certification_strip": {
       "type": "certification-strip",
       "settings": {
-        "mark_1_image": "shopify://shop_images/stamp_01.png",
         "mark_1_alt": "Certification mark 1",
-        "mark_2_image": "shopify://shop_images/stamp_02.png",
         "mark_2_alt": "Certification mark 2",
-        "mark_3_image": "shopify://shop_images/stamp_03.png",
         "mark_3_alt": "Certification mark 3",
-        "mark_4_image": "shopify://shop_images/stamp_04.png",
         "mark_4_alt": "Certification mark 4",
         "stat_1_value": "1945",
         "stat_1_label": "Established",
@@ -177,6 +173,7 @@
         "stage_3"
       ],
       "settings": {
+        "ritual_icon": "shopify://shop_images/image_9.png",
         "ritual_title": "The Ritual Guide",
         "ritual_text": "Warm slightly. Massage into roots. Leave for 30 - 60mins. Use two to three times a week.",
         "kicker": "What to expect",
