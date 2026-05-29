@@ -5,8 +5,7 @@
 {%- if product_override != blank -%}
   {%- assign product = product_override -%}
 {%- endif -%}
-{%- assign product_title = product.title | default: 'Product' -%}
-{%- assign selected_variant = product.selected_or_first_available_variant -%}
+{%- assign product_title = section.settings.product_title | default: product.title | default: 'Neelibringadi Keram' -%}
 {%- assign badge_text = section.settings.badge_text | default: 'Minimizes hair fall • Supports hair growth' -%}
 
 <section
@@ -24,19 +23,19 @@
               {%- assign desktop_image = block.settings.image -%}
               {%- assign mobile_image = block.settings.mobile_image | default: desktop_image -%}
               {%- assign slide_alt = block.settings.alt | default: product_title -%}
-              {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
-              {%- assign hero_loading = 'lazy' -%}
-              {%- assign hero_fetchpriority = 'auto' -%}
-              {%- if hero_slide_count == 1 -%}
-                {%- assign hero_loading = 'eager' -%}
-                {%- assign hero_fetchpriority = 'high' -%}
-              {%- endif -%}
-              <figure
-                class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}{% if desktop_image == blank %} theme-hero-carousel__slide--placeholder{% endif %}"
-                data-theme-carousel-slide
-                {{ block.shopify_attributes }}
-              >
-                {%- if desktop_image != blank -%}
+              {%- if desktop_image != blank -%}
+                {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
+                {%- assign hero_loading = 'lazy' -%}
+                {%- assign hero_fetchpriority = 'auto' -%}
+                {%- if hero_slide_count == 1 -%}
+                  {%- assign hero_loading = 'eager' -%}
+                  {%- assign hero_fetchpriority = 'high' -%}
+                {%- endif -%}
+                <figure
+                  class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}"
+                  data-theme-carousel-slide
+                  {{ block.shopify_attributes }}
+                >
                   <picture class="theme-hero-carousel__picture">
                     {%- if mobile_image != blank -%}
                       <source media="(max-width: 989px)" srcset="{{ mobile_image | image_url: width: 1200 }}">
@@ -51,14 +50,52 @@
                         alt: slide_alt
                     }}
                   </picture>
+                </figure>
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+
+          {%- if hero_slide_count == 0 and product.media.size > 0 -%}
+            {%- for media in product.media limit: 5 -%}
+              {%- assign hero_slide_count = hero_slide_count | plus: 1 -%}
+              {%- assign hero_loading = 'lazy' -%}
+              {%- assign hero_fetchpriority = 'auto' -%}
+              {%- if hero_slide_count == 1 -%}
+                {%- assign hero_loading = 'eager' -%}
+                {%- assign hero_fetchpriority = 'high' -%}
+              {%- endif -%}
+              <figure
+                class="theme-hero-carousel__slide{% if hero_slide_count == 1 %} is-active{% endif %}"
+                data-theme-carousel-slide
+              >
+                {%- if media.preview_image != blank -%}
+                  {{
+                    media.preview_image
+                    | image_url: width: 1600
+                    | image_tag:
+                      class: 'theme-hero-carousel__image',
+                      loading: hero_loading,
+                      fetchpriority: hero_fetchpriority,
+                      alt: product_title
+                  }}
+                {%- elsif media.src != blank -%}
+                  {{
+                    media
+                    | image_url: width: 1600
+                    | image_tag:
+                      class: 'theme-hero-carousel__image',
+                      loading: hero_loading,
+                      fetchpriority: hero_fetchpriority,
+                      alt: product_title
+                  }}
                 {%- else -%}
                   <div class="theme-hero-carousel__placeholder" aria-hidden="true">
                     {{ 'image' | placeholder_svg_tag: 'theme-hero-carousel__placeholder-svg' }}
                   </div>
                 {%- endif -%}
               </figure>
-            {%- endif -%}
-          {%- endfor -%}
+            {%- endfor -%}
+          {%- endif -%}
 
           <button
             class="theme-hero-carousel__control theme-hero-carousel__control--prev"
@@ -81,15 +118,41 @@
             {%- assign thumb_index = 0 -%}
             {%- for block in section.blocks -%}
               {%- if block.type == 'hero_image' -%}
+                {%- if block.settings.image != blank -%}
                 <button
                   class="theme-hero-carousel__thumb{% if thumb_index == 0 %} is-active{% endif %}"
                   type="button"
                   data-theme-carousel-thumb="{{ thumb_index }}"
                   aria-label="Gallery image {{ thumb_index | plus: 1 }}"
                 >
-                  {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 180
+                    | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', alt: ''
+                  }}
+                </button>
+                {%- assign thumb_index = thumb_index | plus: 1 -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- if thumb_index == 0 and product.media.size > 0 -%}
+              {%- for media in product.media limit: 5 -%}
+                <button
+                  class="theme-hero-carousel__thumb{% if forloop.first %} is-active{% endif %}"
+                  type="button"
+                  data-theme-carousel-thumb="{{ forloop.index0 }}"
+                  aria-label="Gallery image {{ forloop.index }}"
+                >
+                  {%- if media.preview_image != blank -%}
                     {{
-                      block.settings.image
+                      media.preview_image
+                      | image_url: width: 180
+                      | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', alt: ''
+                    }}
+                  {%- elsif media.src != blank -%}
+                    {{
+                      media
                       | image_url: width: 180
                       | image_tag: class: 'theme-hero-carousel__thumb-image', loading: 'lazy', alt: ''
                     }}
@@ -97,9 +160,8 @@
                     <span class="theme-hero-carousel__thumb-placeholder" aria-hidden="true"></span>
                   {%- endif -%}
                 </button>
-                {%- assign thumb_index = thumb_index | plus: 1 -%}
-              {%- endif -%}
-            {%- endfor -%}
+              {%- endfor -%}
+            {%- endif -%}
           </div>
         </div>
 
@@ -145,6 +207,21 @@
       {%- form 'product', product, id: 'theme-product-form', class: 'theme-product-form' -%}
         <div class="theme-variant-boxes">
           {%- for variant in product.variants limit: 2 -%}
+            {%- if forloop.index == 1 -%}
+              {%- assign display_label = section.settings.variant_1_label | default: variant.title -%}
+              {%- assign display_price = section.settings.variant_1_price_text -%}
+              {%- assign display_compare = section.settings.variant_1_compare_price_text -%}
+            {%- else -%}
+              {%- assign display_label = section.settings.variant_2_label | default: variant.title -%}
+              {%- assign display_price = section.settings.variant_2_price_text -%}
+              {%- assign display_compare = section.settings.variant_2_compare_price_text -%}
+            {%- endif -%}
+            {%- if display_price == blank -%}
+              {%- assign display_price = variant.price | money -%}
+            {%- endif -%}
+            {%- if display_compare == blank and variant.compare_at_price > variant.price -%}
+              {%- assign display_compare = variant.compare_at_price | money -%}
+            {%- endif -%}
             <label
               class="theme-variant-box {% if variant == product.selected_or_first_available_variant %}is-selected{% endif %}"
               for="Variant-Figma-{{ section.id }}-{{ forloop.index }}"
@@ -162,21 +239,18 @@
                   checked
                 {% endif %}
               >
-              <div class="theme-variant-box__title">{{ variant.title }}</div>
+              <div class="theme-variant-box__title">{{ display_label }}</div>
               <div class="theme-variant-box__price-row">
-                {%- if variant.compare_at_price > variant.price -%}
-                  <span class="theme-variant-box__price-compare">{{ variant.compare_at_price | money }}</span>
+                <span class="theme-variant-box__price-label">M.R.P.</span>
+                <span class="theme-variant-box__price-new">{{ display_price }}</span>
+                {%- if display_compare != blank -%}
+                  <span class="theme-variant-box__price-compare">{{ display_compare }}</span>
                 {%- endif -%}
-                <span class="theme-variant-box__price-new">{{ variant.price | money }}</span>
               </div>
             </label>
           {%- endfor -%}
         </div>
 
-        <button type="submit" class="theme-reorder-btn cta-sheen">
-          <span class="theme-reorder-btn__title">Add to cart</span>
-          <span class="theme-reorder-btn__price-new">{{ selected_variant.price | money }}</span>
-        </button>
       {%- endform -%}
 
       {%- if section.settings.delivery_banner_text != blank -%}
@@ -220,6 +294,12 @@
   "name": "Product Hero (Figma)",
   "settings": [
     { "type": "product", "id": "product", "label": "Product override" },
+    {
+      "type": "text",
+      "id": "product_title",
+      "label": "Product title",
+      "default": "Neelibringadi Keram"
+    },
     { "type": "text", "id": "subtitle", "label": "Subtitle" },
     {
       "type": "text",
@@ -265,7 +345,55 @@
     { "type": "text", "id": "stat_3_value", "label": "Stat 3 value", "default": "30" },
     { "type": "text", "id": "stat_3_label", "label": "Stat 3 label", "default": "Uses/bottle" },
     { "type": "text", "id": "stat_4_value", "label": "Stat 4 value", "default": "40,000+" },
-    { "type": "text", "id": "stat_4_label", "label": "Stat 4 label", "default": "Bought last year" }
+    { "type": "text", "id": "stat_4_label", "label": "Stat 4 label", "default": "Bought last year" },
+    {
+      "type": "text",
+      "id": "variant_1_label",
+      "label": "Variant 1 label",
+      "default": "100 ml"
+    },
+    {
+      "type": "text",
+      "id": "variant_1_price_text",
+      "label": "Variant 1 price text",
+      "default": "₹215"
+    },
+    {
+      "type": "text",
+      "id": "variant_1_compare_price_text",
+      "label": "Variant 1 compare-at text",
+      "default": "₹350"
+    },
+    {
+      "type": "text",
+      "id": "variant_2_label",
+      "label": "Variant 2 label",
+      "default": "200 ml"
+    },
+    {
+      "type": "text",
+      "id": "variant_2_price_text",
+      "label": "Variant 2 price text",
+      "default": "₹315"
+    },
+    {
+      "type": "text",
+      "id": "variant_2_compare_price_text",
+      "label": "Variant 2 compare-at text",
+      "default": "₹350"
+    },
+    {
+      "type": "text",
+      "id": "sticky_price_text",
+      "label": "Sticky bar price text",
+      "default": "₹315"
+    },
+    {
+      "type": "text",
+      "id": "sticky_compare_price_text",
+      "label": "Sticky bar compare-at text",
+      "default": "₹350"
+    }
   ],
   "blocks": [
     {

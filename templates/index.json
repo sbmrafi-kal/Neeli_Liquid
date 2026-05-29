@@ -26,7 +26,7 @@
         "logo_image": "shopify://shop_images/logo-kerala.png",
         "logo_alt": "Kerala Ayurveda",
         "logo_text": "Kerala Ayurveda",
-        "breadcrumb_current_label": "Current Page",
+        "breadcrumb_current_label": "Neelibringadi Keram",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -114,6 +114,8 @@
       ],
       "settings": {
         "product": "neelibhringadi-keram",
+        "product_title": "Neelibringadi Keram",
+        "card_image": "shopify://shop_images/Product_carosul_01.png",
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "large",

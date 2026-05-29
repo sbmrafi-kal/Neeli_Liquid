@@ -41,44 +41,38 @@
 
 .theme-three-milks__mobile-grid {
   display: grid;
-  gap: 0;
-  max-width: 460px;
+  gap: 8px;
+  max-width: 100%;
   margin: 0 auto;
-  border-top: 1px solid rgba(31, 77, 61, 0.08);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .theme-three-milks__mobile-card {
   display: grid;
-  grid-template-columns: 84px minmax(0, 1fr);
-  gap: 12px;
-  align-items: center;
-  background: transparent;
-  border-bottom: 1px solid rgba(31, 77, 61, 0.08);
-  padding: 12px 0;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  align-items: start;
+  background: #fbf9f2;
+  border: 1px solid rgba(31, 77, 61, 0.08);
+  border-radius: 14px;
+  padding: 10px 8px 12px;
+  text-align: center;
 }
 
 .theme-three-milks__mobile-card--2 {
-  grid-template-columns: minmax(0, 1fr) 84px;
-}
-
-.theme-three-milks__mobile-card--2 .theme-three-milks__mobile-image-wrap {
-  order: 2;
-}
-
-.theme-three-milks__mobile-card--2 .theme-three-milks__mobile-content {
-  order: 1;
-  text-align: left;
+  grid-template-columns: 1fr;
 }
 
 .theme-three-milks__mobile-image-wrap {
-  width: 64px;
-  height: 64px;
+  width: 58px;
+  height: 58px;
   border-radius: 999px;
   overflow: hidden;
   border: 1px solid #17372d;
   background: #17372d;
   padding: 2px;
   justify-self: center;
+  margin: 0 auto;
 }
 
 .theme-three-milks__mobile-image-wrap picture,
@@ -94,7 +88,7 @@
 
 .theme-three-milks__mobile-title {
   font-family: var(--theme-heading-font), serif;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.08;
   font-weight: 400;
   color: #1f4d3d;
@@ -102,7 +96,7 @@
 
 .theme-three-milks__mobile-desc {
   margin-top: 4px;
-  font-size: 13px;
+  font-size: 10px;
   line-height: 1.35;
   color: rgba(31, 77, 61, 0.78);
 }

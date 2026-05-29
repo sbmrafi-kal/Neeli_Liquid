@@ -12,7 +12,10 @@
     "header": {
       "type": "header-figma",
       "settings": {
-        "padding_top": 0
+        "padding_top": 0,
+        "logo_text": "Kerala Ayurveda",
+        "logo_alt": "Kerala Ayurveda",
+        "breadcrumb_current_label": "Neelibringadi Keram"
       }
     },
     "main": {
@@ -21,30 +24,40 @@
         "hero_image_1": {
           "type": "hero_image",
           "settings": {
+            "image": "shopify://shop_images/Product_carosul_01.png",
+            "mobile_image": "shopify://shop_images/Product_carosul_01.png",
             "alt": "Product image 1"
           }
         },
         "hero_image_2": {
           "type": "hero_image",
           "settings": {
+            "image": "shopify://shop_images/Product_carosul_02.png",
+            "mobile_image": "shopify://shop_images/Product_carosul_02.png",
             "alt": "Product image 2"
           }
         },
         "hero_image_3": {
           "type": "hero_image",
           "settings": {
+            "image": "shopify://shop_images/Product_carosul_03.png",
+            "mobile_image": "shopify://shop_images/Product_carosul_03.png",
             "alt": "Product image 3"
           }
         },
         "hero_image_4": {
           "type": "hero_image",
           "settings": {
+            "image": "shopify://shop_images/Product_carosul_04.png",
+            "mobile_image": "shopify://shop_images/Product_carosul_04.png",
             "alt": "Product image 4"
           }
         },
         "hero_image_5": {
           "type": "hero_image",
           "settings": {
+            "image": "shopify://shop_images/Product_carosul_05.png",
+            "mobile_image": "shopify://shop_images/Product_carosul_05.png",
             "alt": "Product image 5"
           }
         }
@@ -58,6 +71,8 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
+        "product": "neelibhringadi-keram",
+        "product_title": "Neelibringadi Keram",
         "subtitle": "One oil for complete hair recovery",
         "intro_text": "<p>Hair recovery needs two wins - reduce the fall and support new growth. Most oils address one. Neelibringadi works both sides.</p>",
         "delivery_banner_text": "Free delivery on orders over ₹299 | 2-4 days delivery",
@@ -74,7 +89,15 @@
         "stat_4_value": "40,000+",
         "stat_4_label": "Bought last year",
         "description_block": "<p>Neeli cools scalp inflammation that weakens follicles. Bhringaraja activates dormant roots. Amla fortifies the shaft from within. The triple-milk base carries all three deeper than a standard oil carrier - processed over eleven days to bind the herbal essence to the oil.</p>",
-        "padding_top": 0
+        "padding_top": 0,
+        "variant_1_label": "100 ml",
+        "variant_1_price_text": "₹215",
+        "variant_1_compare_price_text": "₹350",
+        "variant_2_label": "200 ml",
+        "variant_2_price_text": "₹315",
+        "variant_2_compare_price_text": "₹350",
+        "sticky_price_text": "₹315",
+        "sticky_compare_price_text": "₹350"
       }
     },
     "certification_strip": {

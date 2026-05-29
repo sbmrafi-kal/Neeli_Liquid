@@ -3,10 +3,12 @@
   grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
   gap: 32px;
   align-items: start;
+  min-width: 0;
 }
 
 .theme-product-page--figma .theme-product-page__figma-media {
   position: relative;
+  min-width: 0;
 }
 
 .theme-product-page--figma .theme-hero-carousel {
@@ -157,6 +159,7 @@
 
 .theme-product-page--figma .theme-product-page__figma-info {
   padding-top: 6px;
+  min-width: 0;
 }
 
 .theme-product-page--figma .theme-product-page__badge--figma {
@@ -202,7 +205,7 @@
 
 .theme-product-page--figma .theme-product-page__subtitle {
   font-style: italic !important;
-  font-family: "Cormorant Garamond", serif !important;
+  font-family: var(--theme-heading-font) !important;
   text-transform: none;
   letter-spacing: 0.01em !important;
   color: rgba(31, 77, 61, 0.78) !important;
@@ -361,18 +364,362 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
-@media (max-width: 989px) {
-	.theme-product-page--figma .theme-product-page__figma-inner { grid-template-columns: 1fr; gap: 18px; }
-	.theme-product-page--figma .theme-hero-carousel__stage { min-height: 520px !important; }
-  .theme-product-page--figma .theme-product-page__title { font-size: clamp(30px, 9vw, 44px) !important; line-height: 0.98 !important; }
-	.theme-product-page--figma .theme-product-page__subtitle { font-size: 16px !important; }
-	.theme-product-page--figma .theme-product-page__badge--figma { width: 100%; overflow-x: auto; justify-content: flex-start; }
-  .theme-product-page--figma .theme-product-page__badge-line { font-size: 11px; letter-spacing: 0.1em; }
-  .theme-product-page--figma .theme-product-page__intro { font-size: 14px; }
-	.theme-product-page--figma .theme-variant-boxes { flex-direction: column; }
-	.theme-product-page--figma .theme-variant-box__price-row { justify-content: flex-start; }
-	.theme-product-page--figma .theme-hero-carousel__stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-	.theme-product-page--figma .theme-hero-carousel__stat { min-height: 68px; padding: 11px 8px !important; }
-  .theme-product-page--figma .theme-hero-carousel__thumbs { width: calc(100% - 24px) !important; gap: 8px !important; padding: 10px !important; }
-  .theme-product-page--figma .theme-hero-carousel__thumb { width: 54px !important; height: 72px !important; }
+/* Reference-first parity overrides */
+.theme-product-page--figma .theme-product-page__figma-inner {
+  gap: clamp(20px, 2.4vw, 36px) !important;
+}
+
+.theme-product-page--figma .theme-product-page__figma-media {
+  position: relative !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel {
+  border-radius: 0 !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__stage {
+  min-height: 0 !important;
+  aspect-ratio: 458 / 482 !important;
+  border-radius: 0 !important;
+  background: #fbf8f2 !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__slide {
+  inset: 0 !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__picture,
+.theme-product-page--figma .theme-hero-carousel__image {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__image {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__control {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  box-shadow: 0 1px 4px rgba(17, 48, 39, 0.08) !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__control--prev {
+  left: 18px !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__control--next {
+  right: 18px !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__control svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__thumbs {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 18px !important;
+  transform: translateX(-50%) !important;
+  gap: 8px !important;
+  padding: 8px !important;
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 14px 30px rgba(17, 48, 39, 0.08) !important;
+  backdrop-filter: blur(10px) !important;
+  width: auto !important;
+  max-width: min(94%, 540px) !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__thumb {
+  width: 64px !important;
+  height: 82px !important;
+  border-radius: 12px !important;
+  border-color: rgba(31, 77, 61, 0.1) !important;
+  opacity: 0.8 !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__thumb.is-active {
+  opacity: 1 !important;
+  border-color: #1f4d3d !important;
+  box-shadow: 0 0 0 2px rgba(31, 77, 61, 0.08) !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__thumb-image {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__stats {
+  background: #1f4d3d !important;
+  color: #faf8f4 !important;
+  min-height: 72px !important;
+  padding: 0 !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__stat {
+  padding: 10px 8px !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__stat-value {
+  font-size: clamp(16px, 1.7vw, 20px) !important;
+  line-height: 1 !important;
+  color: #faf8f4 !important;
+}
+
+.theme-product-page--figma .theme-hero-carousel__stat-label {
+  margin-top: 4px !important;
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+  color: rgba(250, 248, 244, 0.72) !important;
+}
+
+.theme-product-page--figma .theme-product-page__figma-info {
+  padding-top: 8px !important;
+}
+
+.theme-product-page--figma .theme-product-page__badge--figma {
+  display: inline-flex !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin-bottom: 14px !important;
+  border: 1px solid rgba(160, 128, 55, 0.35) !important;
+  background: #fff8df !important;
+}
+
+.theme-product-page--figma .theme-product-page__badge-line {
+  white-space: nowrap !important;
+}
+
+.theme-product-page--figma .theme-product-page__title {
+  margin: 0 0 8px !important;
+  font-size: clamp(34px, 3.4vw, 52px) !important;
+  line-height: 0.96 !important;
+  letter-spacing: -0.03em !important;
+}
+
+.theme-product-page--figma .theme-product-page__subtitle {
+  margin: 0 0 12px !important;
+  font-family: var(--theme-heading-font) !important;
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+  font-style: italic !important;
+  color: rgba(31, 77, 61, 0.8) !important;
+}
+
+.theme-product-page--figma .theme-product-page__intro {
+  max-width: 640px !important;
+  margin: 0 0 18px !important;
+  color: rgba(31, 77, 61, 0.72) !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+}
+
+.theme-product-page--figma .theme-variant-boxes {
+  display: flex !important;
+  gap: 12px !important;
+  margin-bottom: 14px !important;
+}
+
+.theme-product-page--figma .theme-variant-box {
+  flex: 1 1 0 !important;
+  min-height: 92px !important;
+  padding: 14px 16px !important;
+  border: 1.5px solid rgba(31, 77, 61, 0.22) !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+}
+
+.theme-product-page--figma .theme-variant-box.is-selected {
+  border-color: #1f4d3d !important;
+  background: #fbf9f4 !important;
+}
+
+.theme-product-page--figma .theme-variant-box__title {
+  font-size: 15px !important;
+  color: #1f4d3d !important;
+}
+
+.theme-product-page--figma .theme-variant-box__price-row {
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+.theme-product-page--figma .theme-variant-box__price-new {
+  font-size: 16px !important;
+  color: #1f4d3d !important;
+}
+
+.theme-product-page--figma .theme-variant-box__price-compare {
+  font-size: 14px !important;
+}
+
+.theme-product-page--figma .theme-product-page__delivery-banner {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 16px !important;
+  color: rgba(31, 77, 61, 0.72) !important;
+  font-size: 14px !important;
+}
+
+.theme-product-page--figma .theme-product-page__delivery-icon {
+  width: 18px !important;
+  height: 18px !important;
+  color: #1f4d3d !important;
+}
+
+.theme-product-page--figma .theme-product-page__quote-wrap {
+  margin-bottom: 18px !important;
+  padding: 14px 18px !important;
+  border: 0 !important;
+  border-left: 4px solid #f3b324 !important;
+  border-radius: 12px !important;
+  background: #fdf7e5 !important;
+  box-shadow: none !important;
+}
+
+.theme-product-page--figma .theme-product-page__quote {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  font-style: italic !important;
+  color: rgba(31, 77, 61, 0.78) !important;
+}
+
+.theme-product-page--figma .theme-product-page__quote-meta {
+  margin-top: 6px !important;
+  font-size: 12px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: rgba(31, 77, 61, 0.68) !important;
+}
+
+.theme-product-page--figma .theme-product-page__desc-title {
+  color: #1f4d3d !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  margin-bottom: 10px !important;
+}
+
+.theme-product-page--figma .theme-product-page__description-block {
+  margin-bottom: 0 !important;
+  font-size: 15px !important;
+  line-height: 1.58 !important;
+  color: rgba(31, 77, 61, 0.76) !important;
+}
+
+.theme-product-page--figma .theme-variant-box__price-label {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: rgba(31, 77, 61, 0.72) !important;
+}
+
+.theme-product-page--figma .theme-variant-box__price-row {
+  align-items: baseline !important;
+  gap: 6px !important;
+}
+
+.theme-product-page--figma .theme-variant-box__price-new {
+  font-size: 17px !important;
+  line-height: 1 !important;
+}
+
+.theme-product-page--figma .theme-variant-box__price-compare {
+  font-size: 13px !important;
+  line-height: 1 !important;
+}
+
+.theme-product-page--figma .theme-reorder-btn {
+  display: none !important;
+}
+
+@media screen and (max-width: 989px) {
+  .theme-product-page--figma .theme-product-page__figma-inner {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .theme-product-page--figma .theme-hero-carousel__stage {
+    aspect-ratio: 1 / 1.02 !important;
+    min-height: 0 !important;
+  }
+
+  .theme-product-page--figma .theme-hero-carousel__thumbs {
+    width: calc(100% - 24px) !important;
+    max-width: none !important;
+    bottom: 12px !important;
+    padding: 8px !important;
+  }
+
+  .theme-product-page--figma .theme-hero-carousel__thumb {
+    width: 54px !important;
+    height: 72px !important;
+  }
+
+  .theme-product-page--figma .theme-hero-carousel__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .theme-product-page--figma .theme-product-page__badge--figma {
+    width: auto !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    justify-content: flex-start !important;
+    margin-bottom: 12px !important;
+    padding: 5px 10px !important;
+  }
+
+  .theme-product-page--figma .theme-product-page__badge-line {
+    font-size: 10px !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .theme-product-page--figma .theme-product-page__subtitle {
+    font-size: 15px !important;
+  }
+
+  .theme-product-page--figma .theme-product-page__intro {
+    font-size: 14px !important;
+  }
+
+  .theme-product-page--figma .theme-variant-boxes {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+    padding-bottom: 0 !important;
+    gap: 10px !important;
+  }
+
+  .theme-product-page--figma .theme-variant-box {
+    flex: 0 0 calc(50% - 5px) !important;
+    width: calc(50% - 5px) !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    min-height: 0 !important;
+    padding: 12px 12px 11px !important;
+  }
+
+  .theme-product-page--figma .theme-variant-box__title {
+    font-size: 14px !important;
+  }
+
+  .theme-product-page--figma .theme-variant-box__price-row {
+    gap: 4px !important;
+  }
+
+  .theme-product-page--figma .theme-variant-box__price-label {
+    font-size: 10px !important;
+  }
+
+  .theme-product-page--figma .theme-variant-box__price-new {
+    font-size: 15px !important;
+  }
 }

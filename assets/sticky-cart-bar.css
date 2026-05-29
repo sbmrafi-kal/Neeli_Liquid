@@ -6,6 +6,7 @@
   z-index: 120;
   background: #84563C; /* Figma brown (updated) */
   padding: 12px 20px;
+  box-shadow: 0 -8px 24px rgba(17, 48, 39, 0.12);
 }
 
 .theme-sticky-cart-bar__inner {
@@ -152,6 +153,57 @@
 
 @media screen and (max-width: 989px) {
   .theme-sticky-cart-bar {
-    display: none;
+    display: block;
+    padding: 10px 12px max(10px, env(safe-area-inset-bottom));
+  }
+
+  .theme-sticky-cart-bar__inner {
+    gap: 12px;
+  }
+
+  .theme-sticky-cart-bar__btn-pill {
+    min-width: 0;
+    flex: 1 1 auto;
+    height: 52px;
+    padding: 0 18px;
+    justify-content: flex-start;
+    gap: 12px;
+    border-radius: 999px;
+  }
+
+  .theme-sticky-cart-bar__btn-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .theme-sticky-cart-bar__btn-text {
+    font-size: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  .theme-sticky-cart-bar__price-col {
+    min-width: 132px;
+    align-items: flex-end;
+  }
+
+  .theme-sticky-cart-bar__price-row {
+    gap: 6px;
+  }
+
+  .theme-sticky-cart-bar__mrp {
+    font-size: 10px;
+  }
+
+  .theme-sticky-cart-bar__price {
+    font-size: 18px;
+  }
+
+  .theme-sticky-cart-bar__compare {
+    font-size: 13px;
+  }
+
+  .theme-sticky-cart-bar__tax-note {
+    font-size: 11px;
+    line-height: 1.2;
   }
 }

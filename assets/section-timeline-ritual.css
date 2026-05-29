@@ -7,7 +7,7 @@
 .theme-timeline-ritual-guide__inner {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 10px;
   border: 1px solid #f0d084;
   border-radius: 14px;

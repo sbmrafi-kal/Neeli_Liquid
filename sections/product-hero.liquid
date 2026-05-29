@@ -22,9 +22,26 @@
 {%- if featured_product != blank -%}
   {%- assign product = featured_product -%}
 {%- endif -%}
-{%- assign product_title = product.title | default: 'Neelibhringadi Keram' -%}
+{%- assign product_title = section.settings.product_title | default: product.title | default: 'Neelibringadi Keram' -%}
+{%- assign product_slug = product_title | handleize -%}
+{%- assign product_link = blank -%}
+{%- if section.settings.product != blank -%}
+  {%- assign product_link = routes.root_url | append: 'products/' | append: section.settings.product -%}
+{%- endif -%}
+{%- if product_link == blank and product.url != blank -%}
+  {%- assign product_link = product.url -%}
+{%- endif -%}
+{%- if product_link == blank and product_title != blank -%}
+  {%- assign product_link = routes.root_url | append: 'products/' | append: product_slug -%}
+{%- endif -%}
+{%- if product_link == blank -%}
+  {%- assign product_link = routes.root_url -%}
+{%- endif -%}
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
 {%- assign card_image = product.featured_image -%}
+{%- if section.settings.card_image != blank -%}
+  {%- assign card_image = section.settings.card_image -%}
+{%- endif -%}
 {%- if card_image == blank and section.settings.carousel_image_1 != blank -%}
   {%- assign card_image = section.settings.carousel_image_1 -%}
 {%- endif -%}
@@ -43,7 +60,7 @@
     <div class="container-narrow theme-home-product-card__inner">
       <div class="theme-home-product-card__panel">
         <div class="theme-home-product-card__media">
-          <a class="theme-home-product-card__image-link" href="{{ product.url | default: routes.root_url }}" aria-label="{{ product_title | escape }}">
+          <a class="theme-home-product-card__image-link" href="{{ product_link }}" aria-label="{{ product_title | escape }}">
             {%- if card_image != blank -%}
               {{
                 card_image
@@ -81,7 +98,7 @@
           {%- endif -%}
 
           <div class="theme-home-product-card__title-wrap">
-            <a class="theme-home-product-card__title" href="{{ product.url | default: routes.root_url }}">{{ product_title }}</a>
+            <a class="theme-home-product-card__title" href="{{ product_link }}">{{ product_title }}</a>
             {%- if caption_block != blank and caption_block.settings.text != blank -%}
               <p class="theme-home-product-card__subtitle">{{ caption_block.settings.text }}</p>
             {%- endif -%}
@@ -112,7 +129,7 @@
           {%- endif -%}
 
           <div class="theme-home-product-card__actions">
-            <a class="theme-home-product-card__cta" href="{{ product.url | default: routes.root_url }}">{{ section.settings.card_cta_label }}</a>
+            <a class="theme-home-product-card__cta" href="{{ product_link }}">{{ section.settings.card_cta_label }}</a>
             {%- if selected_variant != blank and selected_variant.price != blank -%}
               <div class="theme-home-product-card__price">{{ selected_variant.price | money }}</div>
             {%- endif -%}
@@ -904,6 +921,17 @@
       "type": "product",
       "id": "product",
       "label": "Product override"
+    },
+    {
+      "type": "text",
+      "id": "product_title",
+      "label": "Product title override",
+      "default": "Neelibringadi Keram"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_image",
+      "label": "Card image override"
     },
     {
       "type": "checkbox",

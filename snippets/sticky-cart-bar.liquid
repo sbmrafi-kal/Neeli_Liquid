@@ -5,6 +5,14 @@
   {%- endif -%}
 {%- endfor -%}
 {%- assign sticky_variant = product.selected_or_first_available_variant -%}
+{%- assign sticky_price_text = section.settings.sticky_price_text -%}
+{%- if sticky_price_text == blank -%}
+  {%- assign sticky_price_text = sticky_variant.price | money -%}
+{%- endif -%}
+{%- assign sticky_compare_text = section.settings.sticky_compare_price_text -%}
+{%- if sticky_compare_text == blank and sticky_variant.compare_at_price > sticky_variant.price -%}
+  {%- assign sticky_compare_text = sticky_variant.compare_at_price | money -%}
+{%- endif -%}
 
 <div class="theme-sticky-cart-bar">
   <div class="theme-sticky-cart-bar__inner">
@@ -20,9 +28,9 @@
         <div class="theme-sticky-cart-bar__price-col">
           <div class="theme-sticky-cart-bar__price-row">
             <span class="theme-sticky-cart-bar__mrp">M.R.P.</span>
-            <span class="theme-sticky-cart-bar__price">{{ sticky_variant.price | money }}</span>
-            {%- if sticky_variant.compare_at_price > sticky_variant.price -%}
-              <span class="theme-sticky-cart-bar__compare">{{ sticky_variant.compare_at_price | money }}</span>
+            <span class="theme-sticky-cart-bar__price">{{ sticky_price_text }}</span>
+            {%- if sticky_compare_text != blank -%}
+              <span class="theme-sticky-cart-bar__compare">{{ sticky_compare_text }}</span>
             {%- endif -%}
           </div>
           <span class="theme-sticky-cart-bar__tax-note">Inclusive of all taxes</span>
@@ -42,9 +50,9 @@
         <div class="theme-sticky-cart-bar__price-col">
           <div class="theme-sticky-cart-bar__price-row">
             <span class="theme-sticky-cart-bar__mrp">M.R.P.</span>
-            <span class="theme-sticky-cart-bar__price">{{ sticky_variant.price | money }}</span>
-            {%- if sticky_variant.compare_at_price > sticky_variant.price -%}
-              <span class="theme-sticky-cart-bar__compare">{{ sticky_variant.compare_at_price | money }}</span>
+            <span class="theme-sticky-cart-bar__price">{{ sticky_price_text }}</span>
+            {%- if sticky_compare_text != blank -%}
+              <span class="theme-sticky-cart-bar__compare">{{ sticky_compare_text }}</span>
             {%- endif -%}
           </div>
           <span class="theme-sticky-cart-bar__tax-note">Inclusive of all taxes</span>
