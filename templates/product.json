@@ -67,7 +67,7 @@
           "type": "hero_image",
           "settings": {
             "image": "shopify://shop_images/Product_carosul_05.png",
-            "mobile_image": "shopify://shop_images/Product_carosul_05.png",
+            "mobile_image": "shopify://shop_images/neeli_5_mobile.png",
             "alt": "Product image 5"
           }
         }
