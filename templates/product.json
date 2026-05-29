@@ -186,6 +186,8 @@
         "disclaimer": "In cooler weather the coconut oil base may solidify - warm the oil before use.",
         "show_upsell": true,
         "upsell_label": "Add internal support",
+        "upsell_title": "",
+        "upsell_text": "",
         "upsell_products": [
           "bhringarajasava-450ml"
         ],
@@ -199,6 +201,7 @@
         "inclusion_1": {
           "type": "inclusion",
           "settings": {
+            "image": "shopify://shop_images/image_6.png",
             "title": "100% NATURAL INGREDIENTS",
             "text": "Sourced directly from organic farms in Kerala, free of synthetic chemicals."
           }
@@ -206,6 +209,7 @@
         "inclusion_2": {
           "type": "inclusion",
           "settings": {
+            "image": "shopify://shop_images/image_7.png",
             "title": "TRIPLE-MILK BASE",
             "text": "Coconut, goat, and cow milk processed together to carry active herbs deeper."
           }
@@ -213,6 +217,7 @@
         "inclusion_3": {
           "type": "inclusion",
           "settings": {
+            "image": "shopify://shop_images/image_8.png",
             "title": "TRADITIONAL FORMULATION",
             "text": "Prepared over 11 days following the authentic Sahasrayogam Ayurvedic text."
           }
@@ -220,6 +225,7 @@
         "exclusion_1": {
           "type": "exclusion",
           "settings": {
+            "image": "shopify://shop_images/image_10.png",
             "title": "NO PARABENS",
             "text": "We use natural antioxidants to preserve the formula."
           }
@@ -227,6 +233,7 @@
         "exclusion_2": {
           "type": "exclusion",
           "settings": {
+            "image": "shopify://shop_images/image_10.png",
             "title": "NO ARTIFICIAL FRAGRANCE",
             "text": "The scent is purely from herbs and the carrier oil."
           }
@@ -234,6 +241,7 @@
         "exclusion_3": {
           "type": "exclusion",
           "settings": {
+            "image": "shopify://shop_images/image_10.png",
             "title": "NO SYNTHETIC COLORS",
             "text": "Natural colours from the authentic ingredients used."
           }
@@ -241,6 +249,7 @@
         "exclusion_4": {
           "type": "exclusion",
           "settings": {
+            "image": "shopify://shop_images/image_10.png",
             "title": "NO MINERAL OIL",
             "text": "Enriched with nourishing Ayurvedic ingredients"
           }
@@ -500,8 +509,6 @@
         "mobile_title_2": "PATENTED FORMULATIONS",
         "desktop_description_2": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
         "mobile_description_2": "<p>Kerala Ayurveda has carried forward classical Ayurvedic wisdom for modern wellness rituals.</p>",
-        "mark_kicker": "Certified",
-        "mark_heading": "",
         "mark_text": "<p>Rooted in Authentic Ayurveda.</p>",
         "seal_image_desktop": "shopify://shop_images/Gold_logo.png",
         "seal_image_mobile": "shopify://shop_images/Gold_Logo_Mobile.png"
