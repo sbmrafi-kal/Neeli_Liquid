@@ -1,90 +1,166 @@
+/* What's in it. What is not. — Figma-exact styles */
+
+.theme-ingredients-in-out {
+  background: #ffffff;
+}
+
 .theme-ingredients-in-out__inner {
-  padding: 56px 0;
+  padding: 60px 0;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .theme-ingredients-in-out__heading {
   margin-bottom: 28px;
-  font-family: var(--theme-heading-font);
-  font-size: clamp(28px, 3vw, 38px);
+  font-family: var(--theme-heading-font), serif;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 0.98;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #1f4d3d;
   text-align: center;
 }
 
 .theme-ingredients-in-out__split {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   align-items: stretch;
 }
 
+/* --- PANELS --- */
 .theme-ingredients-in-out__box {
   flex: 1;
-  padding: 26px;
-  border-radius: 16px;
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid rgba(31, 77, 61, 0.08);
+  box-shadow: 0 10px 30px rgba(17, 48, 39, 0.04);
 }
 
 .theme-ingredients-in-out__box--in {
-  background: #eef8ef;
-  border: 1px solid rgba(31, 77, 61, 0.1);
+  background: #edf7ef;
+  border-color: rgba(31, 77, 61, 0.14);
 }
 
 .theme-ingredients-in-out__box--out {
-  background: #fff3ef;
-  border: 1px solid rgba(131, 77, 60, 0.12);
+  background: #fbf2ef;
+  border-color: rgba(143, 79, 54, 0.18);
+  box-shadow: 0 14px 34px rgba(102, 57, 39, 0.08);
 }
 
 .theme-ingredients-in-out__box-title {
-  margin-bottom: 16px;
-  font-family: var(--theme-heading-font);
+  margin-bottom: 20px;
+  font-family: var(--theme-heading-font), serif;
   font-size: 22px;
   font-weight: 400;
+  color: #1f4d3d;
 }
 
+/* --- IN-LIST items --- */
 .theme-ingredients-in-out__box ul {
   display: grid;
-  gap: 12px;
+  gap: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .theme-ingredients-in-out__item {
-  display: grid;
-  grid-template-columns: minmax(120px, 180px) minmax(0, 1fr);
+  display: flex;
+  align-items: center;
   gap: 14px;
-  align-items: start;
-  padding: 14px 16px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.72);
+  padding: 0;
+  background: transparent;
+}
+
+/* Inclusions: marker circle with checkmark */
+.theme-ingredients-in-out__box--in .theme-ingredients-in-out__item {
+  gap: 16px;
 }
 
 .theme-ingredients-in-out__item strong {
   display: block;
   min-width: 0;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+  color: #1f4d3d;
 }
 
 .theme-ingredients-in-out__item-text {
-  color: rgba(0, 0, 0, 0.7);
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(31, 77, 61, 0.72);
 }
 
 .theme-ingredients-in-out__item-text p {
   margin: 0;
 }
 
-@media (max-width: 900px) {
-  .theme-ingredients-in-out__split {
-    flex-direction: column;
+/* --- OUT-LIST (exclusion) items — icon + text layout --- */
+.theme-ingredients-in-out__box--out .theme-ingredients-in-out__item {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.theme-ingredients-in-out__box--out .theme-ingredients-in-out__item strong {
+  font-family: var(--theme-heading-font), serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #1f4d3d;
+}
+
+/* DESKTOP */
+@media screen and (min-width: 990px) {
+  .theme-ingredients-in-out__inner {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 989px) {
+  .theme-ingredients-in-out__inner {
+    padding-top: 24px !important;
+    padding-bottom: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .theme-ingredients-in-out__heading {
-    font-size: 28px;
+    font-size: clamp(28px, 8vw, 36px);
+    margin-bottom: 20px;
+  }
+
+  .theme-ingredients-in-out__split {
+    flex-direction: column;
+    gap: 16px;
   }
 
   .theme-ingredients-in-out__box {
-    padding: 18px;
+    padding: 20px 16px;
+    border-radius: 18px;
   }
 
-  .theme-ingredients-in-out__item {
-    grid-template-columns: 1fr;
-    gap: 6px;
+  .theme-ingredients-in-out__box--out .theme-ingredients-in-out__item {
+    grid-template-columns: 32px 1fr;
+    gap: 10px;
+  }
+
+  .theme-ingredients-in-out__box--out .theme-ingredients-in-out__item strong {
+    font-size: 13px;
+  }
+
+  .theme-ingredients-in-out__item-text {
+    font-size: 12px;
   }
 }

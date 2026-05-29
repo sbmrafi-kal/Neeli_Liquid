@@ -11,7 +11,7 @@
 }
 
 /* Request lock: reduce footer padding artifacts from support rules. */
-.theme-footer-list li { margin-bottom: 0 !important; }
+.theme-footer-list li { margin-bottom: 12px !important; }
 .theme-footer-column__title { font-weight: 700 !important; }
 .theme-footer-column__title { font-size: 16px !important; }
 .theme-footer-social__icon,

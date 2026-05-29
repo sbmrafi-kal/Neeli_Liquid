@@ -3,14 +3,22 @@
   width: 100% !important;
 }
 
+@media screen and (min-width: 990px) {
+  .theme-header-figma {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+  }
+}
+
 .theme-header-figma__inner {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 15px;
-  max-width: 100% !important;
+  max-width: 1392px !important;
   margin: 0 auto;
-  padding: 10px 40px !important;
+  padding: 10px 40px;
   color: #fff;
 }
 
@@ -21,7 +29,7 @@
 }
 
 .theme-header-figma__breadcrumbs {
-  max-width: 100% !important;
+  max-width: 1392px !important;
   margin: 0 auto;
   padding: 12px 40px !important;
   color: rgba(31, 77, 61, 0.55);

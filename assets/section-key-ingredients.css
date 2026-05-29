@@ -1,5 +1,7 @@
   .theme-key-ingredients {
     background: #faf8f5;
+    padding-top: 56px;
+    padding-bottom: 56px;
   }
 
   .theme-ki-header {
@@ -39,11 +41,11 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-    border-radius: 16px;
+    border-radius: 14px;
     overflow: hidden;
-    background: #f4efe4;
-    box-shadow: 0 10px 24px rgba(17, 48, 39, 0.05);
-    border: 1px solid rgba(31, 77, 61, 0.06);
+    background: #ffffff;
+    box-shadow: 0 6px 18px rgba(17, 48, 39, 0.04);
+    border: 1px solid rgba(31, 77, 61, 0.08);
   }
 
   .theme-ki-card__img-wrap {

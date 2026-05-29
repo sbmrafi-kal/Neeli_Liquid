@@ -30,8 +30,8 @@
     min-height: 162px;
     margin: 0 auto;
     background: #ffffff; /* changed from green to white for neutral menus */
-    border-top: 1px solid rgba(23, 55, 45, 0.04);
-    border-bottom: 1px solid rgba(23, 55, 45, 0.04);
+    border-top: 1px solid rgba(23, 55, 45, 0.08);
+    border-bottom: 1px solid rgba(23, 55, 45, 0.08);
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(17, 48, 39, 0.04);
     overflow: hidden;

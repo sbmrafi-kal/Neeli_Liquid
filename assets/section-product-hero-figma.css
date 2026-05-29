@@ -8,7 +8,7 @@
 
 @media screen and (min-width: 990px) {
   .theme-product-page--figma .theme-product-page__figma-inner {
-    max-width: 960px !important;
+    max-width: 1392px !important;
     margin: 0 auto !important;
   }
 }
@@ -174,13 +174,13 @@
   align-items: center;
   width: auto;
   max-width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 20px !important;
   flex-wrap: nowrap !important;
   overflow-x: visible;
   border: 1px solid rgba(160, 128, 55, 0.34);
   border-radius: 999px;
   background: #fff8df;
-  padding: 6px 14px !important;
+  padding: 10px 24px !important;
   gap: 8px;
 }
 
@@ -190,7 +190,7 @@
   gap: 8px;
   white-space: nowrap;
   color: #1f4d3d;
-  font-size: 12px !important;
+  font-size: 16px !important;
   font-weight: 700;
   letter-spacing: 0.15em !important;
   text-transform: uppercase;
@@ -426,6 +426,8 @@
 
 .theme-product-page--figma .theme-hero-carousel__slide {
   inset: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
 }
 
 .theme-product-page--figma .theme-hero-carousel__picture,
@@ -637,8 +639,7 @@
 .theme-product-page--figma .theme-product-page__quote-wrap {
   margin-bottom: 18px !important;
   padding: 14px 18px !important;
-  border: 0 !important;
-  border-left: 4px solid #f3b324 !important;
+  border: 1px solid rgba(240, 180, 50, 0.22) !important;
   border-radius: 12px !important;
   background: #fdf7e5 !important;
   box-shadow: none !important;
@@ -737,15 +738,16 @@
   .theme-product-page--figma .theme-product-page__badge--figma {
     width: auto !important;
     max-width: 100% !important;
-    overflow: visible !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
     justify-content: flex-start !important;
     margin-bottom: 12px !important;
-    padding: 4px 12px !important;
+    padding: 8px 16px !important;
   }
 
   .theme-product-page--figma .theme-product-page__badge-line {
-    font-size: 11px !important;
-    letter-spacing: 0.15em !important;
+    font-size: 12px !important;
+    letter-spacing: 0.08em !important;
   }
 
 

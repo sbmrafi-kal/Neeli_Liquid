@@ -5372,7 +5372,7 @@
   background-color: #ffffff !important;
   color: var(--theme-forest) !important;
   border: 1px solid var(--theme-forest) !important;
-  border-radius: 2px !important;
+  border-radius: 999px !important;
   padding: 1rem 3.5rem !important; /* px-14 py-4 */
   font-size: 15px !important;
   font-weight: 500 !important;
@@ -5380,7 +5380,7 @@
   letter-spacing: 0.15em !important;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  font-family: sans-serif !important;
+  font-family: var(--theme-body-font, sans-serif) !important;
 }
 
 @media screen and (min-width: 990px) {
@@ -9386,7 +9386,7 @@ body {
 }
 
 .theme-review-button-v2 {
-  border-radius: 12px !important;
+  border-radius: 999px !important;
   border: 2px solid #1f4d3d !important;
   padding: 16px 40px !important;
   font-size: 15px !important;

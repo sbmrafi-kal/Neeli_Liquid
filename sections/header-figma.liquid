@@ -50,7 +50,16 @@
             | image_tag: class: 'theme-header-figma__brand-image', loading: 'eager', alt: section.settings.logo_alt
           }}
         {%- else -%}
-          <img src="{{ 'logo-kerala.png' | asset_url }}" class="theme-header-figma__brand-image" loading="eager" alt="{{ shop.name }}" width="150" height="40">
+          {%- assign logo_text = section.settings.logo_text | default: shop.name -%}
+          {%- assign logo_parts = logo_text | split: ' ' -%}
+          {%- assign logo_first = logo_parts[0] | downcase -%}
+          {%- assign logo_rest = logo_parts | slice: 1, logo_parts.size | join: ' ' | downcase -%}
+          <span class="theme-header-figma__brand-text">
+            <span class="brand-line brand-line--top">{{ logo_first }}</span>
+            {%- if logo_rest != blank -%}
+              <span class="brand-line brand-line--bottom">{{ logo_rest }}</span>
+            {%- endif -%}
+          </span>
         {%- endif -%}
       </a>
     </div>
