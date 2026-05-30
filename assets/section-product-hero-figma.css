@@ -83,12 +83,14 @@
 }
 
 .theme-product-page--figma .theme-hero-carousel__thumbs {
-  position: absolute;
-  left: 50%;
+  position: absolute !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
   bottom: 18px;
-  transform: translateX(-50%);
   display: flex !important;
   justify-content: center !important;
+  align-items: center !important;
   gap: 0px !important;
   background: rgba(255, 255, 255, 0.96) !important;
   padding: 10px !important;
@@ -96,6 +98,8 @@
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12) !important;
   max-width: min(94%, 540px) !important;
   backdrop-filter: blur(10px);
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .theme-product-page--figma .theme-hero-carousel__thumb {
@@ -491,10 +495,12 @@
 .theme-product-page--figma .theme-hero-carousel__thumbs {
   position: absolute !important;
   left: 50% !important;
-  bottom: 18px !important;
+  right: auto !important;
   transform: translateX(-50%) !important;
+  bottom: 18px !important;
   display: flex !important;
   justify-content: center !important;
+  align-items: center !important;
   gap: 0px !important;
   padding: 8px !important;
   border-radius: 14px !important;
@@ -503,6 +509,8 @@
   backdrop-filter: none !important;
   width: auto !important;
   max-width: min(94%, 540px) !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .theme-product-page--figma .theme-hero-carousel__thumb {
@@ -742,8 +750,12 @@
     gap: 0px !important;
     display: flex !important;
     justify-content: center !important;
+    align-items: center !important;
     left: 50% !important;
+    right: auto !important;
     transform: translateX(-50%) !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   .theme-product-page--figma .theme-hero-carousel__thumb {
@@ -780,7 +792,7 @@
 
   .theme-product-page--figma .theme-product-page__badge--figma {
     width: 100% !important;
-    max-width: 458px !important;
+    max-width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
     display: flex !important;

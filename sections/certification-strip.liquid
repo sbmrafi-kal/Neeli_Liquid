@@ -42,9 +42,6 @@
                   widths: '72, 96, 120, 140',
                   alt: mark_alt
               }}
-            {%- else -%}
-              {%- capture stamp_asset_name -%}stamp_0{{ mark_index }}.png{%- endcapture -%}
-              <img src="{{ stamp_asset_name | asset_url }}" class="theme-cert-strip__mark-image" loading="lazy" alt="{{ mark_alt }}" width="70" height="70">
             {%- endif -%}
           </div>
         {%- endfor -%}

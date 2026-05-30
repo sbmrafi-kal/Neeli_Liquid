@@ -49,11 +49,13 @@
 
 .theme-timeline-ritual-guide__text {
   font-family: var(--theme-body-font), sans-serif !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
+  font-style: italic !important;
   line-height: 1.4 !important;
   color: #8e5e16 !important;
   margin: 0 !important;
   text-align: center !important;
+  max-width: 640px !important;
 }
 
 .theme-timeline-ritual-guide__icon-img {
@@ -104,5 +106,11 @@
     font-size: 11px !important;
     text-align: center !important;
     line-height: 1.3 !important;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .theme-timeline-ritual-guide__text {
+    font-size: 15px !important;
   }
 }

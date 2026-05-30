@@ -4,6 +4,7 @@
 .theme-footer,
 .theme-footer .theme-product-page__section {
   background: #f9f8f3 !important;
+  overflow: hidden !important;
 }
 
 .theme-footer-list {
@@ -198,11 +199,16 @@
     margin-right: auto !important;
   }
 
+  .theme-footer-brand {
+    text-align: center !important;
+    margin-bottom: 0 !important;
+  }
+
   .theme-footer-column {
-    padding-left: 36px !important;
-    border-bottom: 1px solid rgba(42, 74, 61, 0.16) !important;
-    padding-bottom: 24px !important;
-    margin-bottom: 12px !important;
+    padding-left: 0 !important;
+    border-bottom: 1px solid rgba(42, 74, 61, 0.22) !important;
+    padding-bottom: 20px !important;
+    margin-bottom: 8px !important;
   }
 
   .theme-footer-column:last-child {

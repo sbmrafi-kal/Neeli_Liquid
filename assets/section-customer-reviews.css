@@ -54,7 +54,14 @@
 }
 
 .theme-reviews-section__kicker {
-  display: none !important;
+  display: block !important;
+  font-family: "Avenir", var(--theme-body-font), sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #8f4f36 !important;
+  margin-bottom: 6px !important;
 }
 
 .theme-reviews-section__heading {
@@ -187,7 +194,7 @@
   }
 
   .theme-reviews-footer {
-    margin-bottom: 48px !important;
+    margin-bottom: 56px !important;
   }
 }
 

@@ -9,9 +9,9 @@
 }
 
 .theme-three-milks__kicker {
-  font-size: 20px !important;
+  font-size: clamp(24px, 3.2vw, 36px) !important;
   font-weight: 900 !important;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: #8f4f36;
   text-align: center !important;
@@ -47,15 +47,16 @@
 
 @media screen and (max-width: 989px) {
   .theme-three-milks__mobile-grid {
-    display: grid !important;
-    gap: 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    grid-template-columns: 1fr !important;
   }
 
   .theme-three-milks__mobile-card {
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
     gap: 16px !important;
     background: #fbf9f2 !important;
@@ -63,6 +64,33 @@
     border-radius: 16px !important;
     padding: 14px 16px !important;
     text-align: left !important;
+  }
+
+  /* Zig-zag: even cards reverse image/text order */
+  .theme-three-milks__mobile-card--reverse {
+    flex-direction: row-reverse !important;
+    text-align: right !important;
+  }
+
+  .theme-three-milks__mobile-card--reverse .theme-three-milks__mobile-title,
+  .theme-three-milks__mobile-card--reverse .theme-three-milks__mobile-desc {
+    text-align: right !important;
+  }
+
+  /* Dashed connector line between cards */
+  .theme-three-milks__connector {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 28px !important;
+  }
+
+  .theme-three-milks__connector::before {
+    content: '' !important;
+    display: block !important;
+    width: 1px !important;
+    height: 100% !important;
+    border-left: 2px dashed rgba(31, 77, 61, 0.18) !important;
   }
 
   .theme-three-milks__mobile-image-wrap {
